@@ -1,34 +1,34 @@
-msg() {
+p6_msg() {
     echo "$@"
 }
 
-Log() { msg "$@" }
+p6_log() { p6_msg "$@" }
 
-error() {
-    msg "$@" >2
+p6_error() {
+    p6_msg "$@" >2
 }
 
-verbose() {
+p6_verbose() {
     local level="$1"
     shift
 
     VERBOSE=${VERBOSE:-0}
-    [ $VERBOSE -ne 0 -a \( $level -gt $VERBOSE -o $level -eq $VERBOSE \) ] && msg "$@"
+    [ $VERBOSE -ne 0 -a \( $level -gt $VERBOSE -o $level -eq $VERBOSE \) ] && p6_msg "$@"
 }
 
-debug() {
-    [ -n "$DEBUG" ] && msg "$@" >&2
+p6_debug() {
+    [ -n "$DEBUG" ] && p6_msg "$@" >&2
 }
 
-die() {
+p6_die() {
     local code="$1"
     shift
 
-    msg "$@"
+    p6_msg "$@"
     exit $code
 }
 
-header() {
+p6_header() {
     local indent="$1"
     shift
 
@@ -39,29 +39,29 @@ header() {
 	i=$(($i+1))
     done
 
-    msg "$h> $@"
+    p6_msg "$h> $@"
 }
 
-h1() { header  "2" "$@" }
-h2() { header  "4" "$@" }
-h3() { header  "6" "$@" }
-h4() { header  "8" "$@" }
-h5() { header "10" "$@" }
+p6_h1() { p6_header  "2" "$@" }
+p6_h2() { p6_header  "4" "$@" }
+p6_h3() { p6_header  "6" "$@" }
+p6_h4() { p6_header  "8" "$@" }
+p6_h5() { p6_header "10" "$@" }
 
-log_and_run() {
+p6_log_and_run() {
     local cmd="$1"
 
     if [ -n "${DRY_RUN}" ]; then
-	Log "$cmd" | perl -p -e "s, , \\\\\n\t,g"
+	p6_log "$cmd" | perl -p -e "s, , \\\\\n\t,g"
     fi
     eval "$cmd"
 }
 
-log_or_run() {
+p6_log_or_run() {
     local cmd="$*"
 
     if [ -n "${DRY_RUN}" ]; then
-	Log "$cmd" | perl -p -e "s, , \\\\\n\t,g"
+	p6_log "$cmd" | perl -p -e "s, , \\\\\n\t,g"
     else
 	eval "$cmd"
     fi

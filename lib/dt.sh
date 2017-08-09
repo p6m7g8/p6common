@@ -1,19 +1,19 @@
-dt_now_epoch_seconds() {
+p6_dt_now_epoch_seconds() {
 
     date "+%s"
 }
 
-dt_now() {
+p6_dt_now() {
 
     date "+%Y%m%d"
 }
 
-dt_yesterday() {
+p6_dt_yesterday() {
 
     date -v -1d "+%Y%m%d"
 }
 
-dt_tomorrow() {
+p6_dt_tomorrow() {
 
     date -v +1d "+%Y%m%d"
 }

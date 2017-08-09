@@ -1,4 +1,4 @@
-alias_cd_dirs() {
+p6_alias_cd_dirs() {
     local dir="$1"
 
     if [ -d $dir ]; then

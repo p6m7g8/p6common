@@ -1,4 +1,4 @@
-path_if() {
+p6_path_if() {
     local dir=$1
 
     if [ -d $dir ]; then
@@ -10,7 +10,7 @@ path_if() {
     fi
 }
 
-path_default() {
+p6_path_default() {
 
     PATH=
     path_if $HOME/bin
@@ -23,7 +23,7 @@ path_default() {
     path_if /sbin
 }
 
-path_current() {
+p6_path_current() {
 
     env | grep -i path | cut -f 2 -d= | perl -F: -MData::Dumper -lane 'print Dumper \@F' | sed -e "s/[',]//g" | egrep -v '\]|\[' | grep /
 }

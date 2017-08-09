@@ -1,11 +1,11 @@
-file_load() {
+p6_file_load() {
     local file="$1"
 
     debug "loading $file"
     [ -r $file ] && . $file
 }
 
-file_move() {
+p6_file_move() {
     local src="$1"
     local dst="$2"
 
@@ -13,7 +13,7 @@ file_move() {
     mv $src $dst
 }
 
-file_copy() {
+p6_file_copy() {
     local src="$1"
     local dst="$2"
 
@@ -21,21 +21,21 @@ file_copy() {
     cp $src $dst
 }
 
-file_rmf() {
+p6_file_rmf() {
     local file="$1"
 
     debug "remove $file"
     rm -f $file
 }
 
-file_unlink() {
+p6_file_unlink() {
     local file="$1"
 
     debug "unlink $file"
     unlink $file
 }
 
-file_contains() {
+p6_file_contains() {
     local pattern="$1"
     local file="$2"
 
@@ -43,7 +43,7 @@ file_contains() {
     grep "$pattern" $file
 }
 
-file_ma_sync() {
+p6_file_ma_sync() {
     local from="$1"
     local to="$2"
 
@@ -51,7 +51,7 @@ file_ma_sync() {
     touch -r $from $to
 }
 
-file_symlink() {
+p6_file_symlink() {
     local to="$1"
     local from="$2"
 

@@ -1,15 +1,15 @@
-pgs() {
+p6_pgs() {
 
     find . -type f | xargs perl -pi -e "s,$1,$2,g"
 }
 
-pslen() {
+p6_pslen() {
     local s="$1"
 
     perl -le "print length '$s'"
 }
 
-xclean() {
+p6_xclean() {
 
     find . \( -type f -o -type l \)  -a \
 	 \( \
@@ -28,13 +28,13 @@ xclean() {
 	-print -exec rm -f "{}" \;
 }
 
-mkpasswd() {
+p6_mkpasswd() {
 
     cat /dev/urandom | env LC_CTYPE=C tr -dc a-zA-Z0-9 | head -c $1
     echo
 }
 
-transient_create() {
+p6_transient_create() {
     local dir_name="$1"
 
     local path=$(mktemp -d -t $dir_name)
@@ -43,7 +43,7 @@ transient_create() {
     echo $path
 }
 
-transient_delete() {
+p6_transient_delete() {
     local file="$1"
 
     debug "clean $file"

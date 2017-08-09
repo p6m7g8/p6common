@@ -1,10 +1,10 @@
-uri_parse_name() {
+uri_name() {
     local uri="$1"
 
     basename $uri
 }
 
-uri_parse_path() {
+uri_path() {
     local uri="$1"
 
     dirname $uri

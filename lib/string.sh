@@ -11,3 +11,13 @@ transliterate() {
 
     echo $str | tr $from $to
 }
+
+string_to_file() {
+    local contents="$1"
+
+    local dir=$(transient_create "idk")
+
+    echo $contents > $dir/file
+
+    echo $dir/file
+}

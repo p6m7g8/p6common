@@ -1,4 +1,4 @@
-cd_make_aliases() { # args: dir
+alias_cd_dirs() {
     local dir="$1"
 
     if [ -d $dir ]; then
@@ -8,4 +8,3 @@ cd_make_aliases() { # args: dir
 	done
     fi
 }
-

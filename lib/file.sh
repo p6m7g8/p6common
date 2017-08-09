@@ -1,11 +1,11 @@
-load_file() {
+file_load() {
     local file="$1"
 
     debug "loading $file"
     [ -r $file ] && . $file
 }
 
-mv_file() {
+file_move() {
     local src="$1"
     local dst="$2"
 
@@ -13,7 +13,7 @@ mv_file() {
     mv $src $dst
 }
 
-cp_file() {
+file_copy() {
     local src="$1"
     local dst="$2"
 
@@ -21,21 +21,21 @@ cp_file() {
     cp $src $dst
 }
 
-rm_file() {
+file_rmf() {
     local file="$1"
 
     debug "remove $file"
     rm -f $file
 }
 
-unlink_file() {
+file_unlink() {
     local file="$1"
 
     debug "unlink $file"
     unlink $file
 }
 
-grep_file() {
+file_contains() {
     local pattern="$1"
     local file="$2"
 
@@ -43,7 +43,7 @@ grep_file() {
     grep "$pattern" $file
 }
 
-time_ma_set() {
+file_ma_sync() {
     local from="$1"
     local to="$2"
 
@@ -51,36 +51,10 @@ time_ma_set() {
     touch -r $from $to
 }
 
-symlink() {
+file_symlink() {
     local to="$1"
     local from="$2"
 
     debug "symbolic link $to -> $from"
     ln -s $to $from
-}
-
-to_file() {
-    local contents="$1"
-
-    local dir=$(transient_create "idk")
-
-    echo $contents > $dir/file
-
-    echo $dir/file
-}
-
-transient_create() {
-    local dir_name="$1"
-
-    local path=$(mktemp -d -t $dir_name)
-    debug "transient $path"
-
-    echo $path
-}
-
-transient_delete() {
-    local file="$1"
-
-    debug "clean $file"
-    rm -rf $(dirname $file)
 }

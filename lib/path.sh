@@ -10,7 +10,7 @@ path_if() {
     fi
 }
 
-default_path() {
+path_default() {
 
     PATH=
     path_if $HOME/bin
@@ -23,8 +23,7 @@ default_path() {
     path_if /sbin
 }
 
-path() {
+path_current() {
 
     env | grep -i path | cut -f 2 -d= | perl -F: -MData::Dumper -lane 'print Dumper \@F' | sed -e "s/[',]//g" | egrep -v '\]|\[' | grep /
 }
-

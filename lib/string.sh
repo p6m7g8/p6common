@@ -40,10 +40,8 @@ p6_tokenize() {
     local str="$1"
     local delim="${2:-:}"
 
-    local _SAVED_IFS=$IFS
-    IFS="$delim"
+    local IFS="$delim"
     for i in $(echo $str); do
         echo $i
     done
-    IFS=$_SAVED_IFS
 }

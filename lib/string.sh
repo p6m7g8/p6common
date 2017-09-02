@@ -21,3 +21,17 @@ p6_string_to_file() {
 
     echo $dir/file
 }
+
+p6_append_to() {
+    local to="$1"
+    local new="$2"
+    local sep="${3:-" "}"
+
+    if [ -n "$to" ]; then
+        to="$to$sep$new"
+    else
+        to=$new
+    fi
+
+    echo $to
+}

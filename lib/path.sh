@@ -2,11 +2,7 @@ p6_path_if() {
     local dir=$1
 
     if [ -d $dir ]; then
-	if [ -n "$PATH" ]; then
-	    PATH="${PATH}:$dir"
-	else
-	    PATH=$dir
-	fi
+	PATH=$(p6_append "$PATH" "$dir" ":")
     fi
 }
 
@@ -25,5 +21,5 @@ p6_path_default() {
 
 p6_path_current() {
 
-    env | grep -i path | cut -f 2 -d= | perl -F: -MData::Dumper -lane 'print Dumper \@F' | sed -e "s/[',]//g" | egrep -v '\]|\[' | grep /
+    env | awk -F"=" '/^PATH=/ { print $2 }' | perl -F: -MData::Dumper -lane 'print Dumper \@F' | sed -e "s/[',]//g" | egrep -v '\]|\[' | grep /
 }

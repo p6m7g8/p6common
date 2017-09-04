@@ -1,11 +1,9 @@
 #!/bin/sh
 
-main() {
-  local file="$1"
-  local next_version="$2"
-  local version_constant="$3"
+version_bump() {
+    local next_version="$1"
 
-  case $next_version in
+    case $next_version in
       major|minor|patch)
 	  local current_version=$(grep ${version_constant} ${file} | sed -e "s,',,g")
 
@@ -30,8 +28,17 @@ main() {
 
 	  next_version="${major}.${minor}.${patch}"
 	  ;;
-  esac
+    esac
 
+    echo $next_version
+}
+
+main() {
+  local file="$1"
+  local next_version="$2"
+  local version_constant="$3"
+
+  next_version=$(version_bump "$next_version")
   sed -i '' -e "s,${version_constant}=.*,${version_constant}=${next_version}," ${file}
   echo ${next_version}
 }

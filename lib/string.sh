@@ -28,12 +28,40 @@ p6_append_to() {
     local sep="${3:-" "}"
 
     if [ -n "$to" ]; then
-        to="$to$sep$new"
+	to="$to$sep$new"
     else
-        to=$new
+	to=$new
     fi
 
     echo $to
+}
+
+p6_append_to_cond() {
+    local str="$1"
+    local flag="$2"
+    local add_str="$3"
+    local sep="${4:-,}"
+
+    if [ x"$flag" != x"0" ]; then
+	str=$(p6_append_to "$str" "$add_str" "$sep")
+    fi
+
+    echo $str
+}
+
+p6_append_to_if_not_in() {
+    local str="$1"
+    local thing="$2"
+    local not_thing="$3"
+    local add_str="$4"
+    local sep="${5:-,}"
+
+    case $thing in
+	$not_thing) ;;
+	*) str=$(p6_append_to "$str" "$add_str" "$sep") ;;
+    esac
+
+    echo $str
 }
 
 p6_tokenize() {
@@ -42,6 +70,17 @@ p6_tokenize() {
 
     local IFS="$delim"
     for i in $(echo $str); do
-        echo $i
+	echo $i
     done
+}
+
+p6_hash_lookup() {
+    local key="$1"
+    local hash="$2"
+
+    if ! echo $hash | grep -q :; then
+	echo $hash
+    else
+	echo $hash | grep -Eo "$key:.[a-zA-Z0-9_\-\.]+" | sed -e 's, .*,,g' -e 's,.*:,,'
+    fi
 }

@@ -58,3 +58,32 @@ p6_file_symlink() {
     debug "symbolic link $to -> $from"
     ln -s $to $from
 }
+
+p6_file_cascade() {
+    local cmd="$1"
+    local exts="$2"
+    shift 2
+
+    # Search
+    local path
+    for path in "$@"; do
+	if [ -z "${exts}" ]; then
+	    debug "Looking: [$path/$cmd]"
+	    if [ -f "$path/$cmd" ]; then
+		debug "Found: $path/$cmd"
+		echo "$path/$cmd"
+		break 2
+	    fi
+	else
+	    local ext
+	    for ext in $exts ''; do
+		debug "Looking: [$path/$cmd$ext]"
+		if [ -f "$path/$cmd$ext" ]; then
+		    debug "Found: $path/$cmd$ext"
+		    echo "$path/$cmd$ext"
+		    break 2
+		fi
+	    done
+	fi
+    done
+}

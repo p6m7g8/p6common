@@ -24,3 +24,51 @@ p6_run_serial() {
 	local rc="$($cmd $@ "$thing")"
     done
 }
+
+p6_run_and_log() {
+    local cmd="$1"
+
+    if [ -n "${DRY_RUN}" ]; then
+	p6_log "$cmd" | perl -p -e "s, , \\\\\n\t,g"
+    fi
+    eval "$cmd"
+}
+
+p6_run_or_log() {
+    local cmd="$*"
+
+    if [ -n "${DRY_RUN}" ]; then
+	p6_log "$cmd" | perl -p -e "s, , \\\\\n\t,g"
+    else
+	eval "$cmd"
+    fi
+}
+
+p6_run_if_not_in() {
+    local script="${1%.sh}"
+    local skip_list="$2"
+
+    local item
+    for item in $(echo $skip_list); do
+	if [ "$item" = "$script" ]; then
+	    echo 0
+	    return
+	fi
+    done
+
+    echo 1
+}
+
+p6_run_script() {
+    local cmd_env="$1"
+    local shell="$2"
+    local set_flags="$3"
+    local cmd="$4"
+    local exts="${5:-.sh}"
+    local arg_list="$6"
+    shift 6
+
+    local file=$(file_cascade "${cmd}" "${exts}" $@)
+    debug "Run: [$file]"
+    env -i ${cmd_env} ${shell} ${set_flags} ${file} $arg_list
+}

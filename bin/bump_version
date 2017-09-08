@@ -1,46 +1,20 @@
 #!/bin/sh
 
 version_bump() {
-    local next_version="$1"
+    local version="$1"
+    local file="${2:-conf/meta}"
 
-    case $next_version in
-      major|minor|patch)
-	  local current_version=$(grep ${version_constant} ${file} | sed -e "s,',,g")
+    local next_version=$(version_next "$version" "$file")
 
-	  local major=$(echo $current_version | cut -f 1 -d .)
-	  local minor=$(echo $current_version | cut -f 2 -d .)
-	  local patch=$(echo $current_version | cut -f 3 -d .)
-
-	  case $next_version in
-	      major)
-		  major=$(($major+1))
-		  minor=0
-		  patch=0
-		  ;;
-	      minor)
-		  minor=$(($minor+1))
-		  patch=0
-		  ;;
-	      patch)
-		  patch=$(($patch+1))
-		  ;;
-	  esac
-
-	  next_version="${major}.${minor}.${patch}"
-	  ;;
-    esac
+    sed -i '' -e "s,version:.*,version:    $next_version,g" $file
 
     echo $next_version
 }
 
 main() {
-  local file="$1"
-  local next_version="$2"
-  local version_constant="$3"
+  load_config
 
-  next_version=$(version_bump "$next_version")
-  sed -i '' -e "s,${version_constant}=.*,${version_constant}=${next_version}," ${file}
-  echo ${next_version}
+  version_bump "$@"
 }
 
 main "$@"

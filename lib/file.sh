@@ -43,6 +43,14 @@ p6_file_contains() {
     grep "$pattern" $file
 }
 
+p6_file_repalce() {
+    local file="$1"
+    local sed_cmd="$2"
+
+    debug "sed -i '' -e $sed_cmd $file"
+    sed -i '' -e $sed_cmd $file
+}
+
 p6_file_ma_sync() {
     local from="$1"
     local to="$2"

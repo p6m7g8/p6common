@@ -1,0 +1,16 @@
+#!/bin/sh
+
+main() {
+  local version="$1"
+  local file="$2"
+
+  local next_version=$(version_next "$version" "$file")
+
+  sed -i '' -e "s,version:.*,version:    $next_version,g" $file
+
+  echo $next_version
+
+  return 0
+}
+
+main "$@"

@@ -6,17 +6,16 @@
 #
 ##############################################################################
 
-load_config() {
+install_do() {
+    local dir="${1:-$gh_me}"
 
-    . $(dirname $0)/../conf/defaults.conf
+    git clone ${gh_uri} $dir
 }
 
 main() {
     load_config
 
-    local dir="${1:-$gh_me}"
-
-    git clone ${gh_uri} $dir
+    install_do "$@"
 }
 
 main "$@"

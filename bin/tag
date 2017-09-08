@@ -1,0 +1,36 @@
+#!/bin/sh
+
+##############################################################################
+#
+# version_get() - Outputs the version in file=[conf/meta:version].
+#
+# Outputs the version in file=[conf/meta:version].
+#                  
+# Args:
+#     file: relative path to version file, default: conf/meta       
+#
+# Output:
+#     version: the version
+#
+# Returns: 0
+#
+##############################################################################
+version_get() {
+    local file="${1:-conf/meta}"
+
+    local version=$(awk -F: '/version/ { print $2 }' $file)
+
+    echo $version
+}
+
+main() {
+  local file="$1"
+
+  local version=$(version_get "$file")
+
+  echo $version
+
+  return 0
+}
+
+main "$@"

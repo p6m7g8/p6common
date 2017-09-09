@@ -2,7 +2,9 @@ p6_msg() {
     echo "$@"
 }
 
-p6_log() { p6_msg "$@" }
+p6_log() {
+    p6_msg "$@"
+}
 
 p6_error() {
     p6_msg "$@" >2
@@ -42,11 +44,21 @@ p6_header() {
     p6_msg "$h> $@"
 }
 
-p6_h1() { p6_header  "2" "$@" }
-p6_h2() { p6_header  "4" "$@" }
-p6_h3() { p6_header  "6" "$@" }
-p6_h4() { p6_header  "8" "$@" }
-p6_h5() { p6_header "10" "$@" }
+p6_h1() {
+    p6_header  "2" "$@"
+}
+p6_h2() {
+    p6_header  "4" "$@"
+}
+p6_h3() {
+    p6_header  "6" "$@"
+}
+p6_h4() {
+    p6_header  "8" "$@"
+}
+p6_h5() {
+    p6_header "10" "$@"
+}
 
 p6_log_and_run() {
     local cmd="$1"

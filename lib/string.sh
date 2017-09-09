@@ -73,14 +73,3 @@ p6_tokenize() {
 	echo $i
     done
 }
-
-p6_hash_lookup() {
-    local key="$1"
-    local hash="$2"
-
-    if ! echo $hash | grep -q :; then
-	echo $hash
-    else
-	echo $hash | grep -Eo "$key:.[a-zA-Z0-9_\-\.]+" | sed -e 's, .*,,g' -e 's,.*:,,'
-    fi
-}

@@ -69,6 +69,6 @@ p6_run_script() {
     shift 6
 
     local file=$(file_cascade "${cmd}" "${exts}" $@)
-    debug "Run: [$file]"
+    p6_debug "Run: [$file]"
     env -i ${cmd_env} ${shell} ${set_flags} ${file} $arg_list
 }

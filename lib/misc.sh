@@ -38,7 +38,7 @@ p6_transient_create() {
     local dir_name="$1"
 
     local path=$(mktemp -d -t $dir_name)
-    debug "transient $path"
+    p6_debug "transient $path"
 
     echo $path
 }
@@ -46,7 +46,7 @@ p6_transient_create() {
 p6_transient_delete() {
     local file="$1"
 
-    debug "clean $file"
+    p6_debug "clean $file"
     rm -rf $(dirname $file)
 }
 

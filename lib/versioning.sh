@@ -2,7 +2,7 @@
 #
 # version_next() - Update version to specified or requested next one.
 #
-# Updates the version in file=[conf/meta:version] to next_version.
+# Outputs the next_version for file=[conf/meta:version].
 #
 # Args:
 #     next_version: version|major|minor|patch|dev|alpha|beta|rc|release
@@ -82,4 +82,32 @@ version_get() {
     local version=$(awk -F: '/version/ { print $2 }' $file)
 
     echo $version
+}
+
+##############################################################################
+#
+# version_bump() - Updates software to the specified or requested version.
+#
+# Updates version in file=[conf/meta:version].
+#
+# Args:
+#     file: relative path to version file, default: conf/meta
+#
+# Output:
+#     version: the version
+#
+# Returns: 0
+#
+# Notes:
+#
+##############################################################################
+version_bump() {
+    local version="$1"
+    local file="${2:-conf/meta}"
+
+    local next_version=$(version_next "$version" "$file")
+
+    sed -i '' -e "s,version:.*,version:    $next_version,g" $file
+
+    echo $next_version
 }

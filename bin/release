@@ -1,14 +1,13 @@
 #!/bin/sh
 
+release_do() {
+
+}
+
 main() {
-  local version="$1"
-  local file="$2"
+  load_config
 
-  local next_version=$(version_next "$version" "$file")
-
-  sed -i '' -e "s,version:.*,version:    $next_version,g" $file
-
-  echo $next_version
+  release_do
 
   return 0
 }

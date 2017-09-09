@@ -1,16 +1,5 @@
 #!/bin/sh
 
-version_bump() {
-    local version="$1"
-    local file="${2:-conf/meta}"
-
-    local next_version=$(version_next "$version" "$file")
-
-    sed -i '' -e "s,version:.*,version:    $next_version,g" $file
-
-    echo $next_version
-}
-
 main() {
   load_config
 

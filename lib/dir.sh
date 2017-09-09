@@ -1,9 +1,35 @@
 p6_dirs_list() {
+    local dirs="$@"
 
     local dir
-    for dir in "$@"; do
+    for dir in $dirs; do
 	if [ -d $dir ]; then
 	    (cd $dir ; ls -1)
 	fi
     done
+}
+
+p6_dir_rmrf() {
+    local dir="$1"
+
+    debug "remove dir $dir"
+    if [ -z "$dir" -o "$dir" = "/" ]; then
+	msg "Cowardly refusing to shoot us in the foot"
+    else
+	rm -rf $dir
+    fi
+}
+
+p6_dir_mk() {
+    local dir="$2"
+
+    debug "mkdir $dir"
+    mkdir -p $dir
+}
+
+p6_dir_cd() {
+    local dir="$1"
+
+    debug "cd $dir"
+    cd $dir
 }

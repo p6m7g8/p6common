@@ -27,7 +27,7 @@ p6_list_item_delete() {
     local list="$1"
     local item="$2"
 
-    sed -i '' -e "/$item/d" $list 
+    sed -i '' -e "/$item/d" $list
 }
 
 p6_list_item_update() {
@@ -35,5 +35,5 @@ p6_list_item_update() {
     local old="$2"
     local new="$3"
 
-    sed -i '' -e "s/$old/$new/" $list 
+    sed -i '' -e "s/$old/$new/" $list
 }

@@ -1,6 +1,7 @@
 P6_HASH_SEP=q606oKmUQYQIgTygVt3WjL3blbKgOgMz
 
 p6_hash_create() {
+
     local hash=$(p6_transient_create "hash")/file
     touch $hash
     echo $hash

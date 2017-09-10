@@ -1,4 +1,5 @@
 p6_list_create() {
+
     local list=$(p6_transient_create "list")/file
     touch $list
     echo $list

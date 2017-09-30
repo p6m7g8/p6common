@@ -51,6 +51,13 @@ p6_file_repalce() {
     sed -i '' -e $sed_cmd $file
 }
 
+p6_file_create() {
+    local file="$1"
+
+    p6_debug "creating $file"
+    touch $file
+}
+
 p6_file_ma_sync() {
     local from="$1"
     local to="$2"

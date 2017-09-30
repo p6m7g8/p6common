@@ -1,72 +1,105 @@
-P6_HASH_SEP=q606oKmUQYQIgTygVt3WjL3blbKgOgMz
+##############################################################################
+# Hash < Object
+#
+# [hash]
+#   <md5ofkey>
+#	  key
+#	  data
+##############################################################################
 
-p6_hash_create() {
+##############################################################################
+# list p6_obj_hash_create()
+#
+p6_obj_hash_create() {
 
-    local hash=$(p6_transient_create "hash")/file
-    touch $hash
+    local hash=$(p6_obj_create)
+    local length=$(p6_obj__disk_store_length "$hash")
+
+    p6_file_create "$length"
+
+    p6_obj__type "$hash" "hash"
+    echo "0" > $length
+
     echo $hash
 }
 
-p6_hash_destroy() {
-    local hash="$1"
+##############################################################################
+# void p6_obj_hash_compare(hash, hash)
+#
+p6_obj_hash_compare() {
+    local a="$1"
+    local b="$2"
 
-    p6_transient_delete "$hash"
+    local data_dir_a=$(p6_obj__disk_store_data "$a")
+    local data_dir_b=$(p6_obj__disk_store_data "$b")
+
+    cmp -s $data_dir_a $data_dir_b
+    echo $?
 }
 
-p6_hash_display() {
+##############################################################################
+# void p6_obj_hash_display(hash)
+#
+p6_obj_hash_display() {
     local hash="$1"
 
-    cat $hash | sed -e "s,$P6_HASH_SEP, | ,g"
+    while [ 1 ]; do
+	local key=$(p6_obj_iterate "$hash")
+	[ $? -eq 0 ] && break
+
+	local val=$(p6_obj_hash_lookup "$hash" "$key")
+
+	p6_obj_display "$key"
+	p6_obj_display "$val"
+    done
 }
 
-p6_hash_value_for_key() {
+##############################################################################
+# void p6_obj_hash_length(hash)
+#
+p6_obj_hash_length() {
     local hash="$1"
-    local key="$2"
 
-    awk -v k=$key -F $P6_HASH_SEP '$1 ~ k { print $2 }' $hash
+    local length=$(p6_obj__disk_store_length "$list")
+
+    cat $length
 }
 
-p6_hash_item_add() {
-    local hash="$1"
-    local key="$2"
-    local value="$3"
+###############################################################################
+# list p6_obj_hash_keys(obj)
+#   CLASS: hash
+#
+p6_obj_hash_keys() {
+    local obj="$1"
 
-    echo "$key$P6_HASH_SEP$value" >> $hash
+    local list=$(p6_obj_list_create)
+
+    while [ 1 ]; do
+	local key=$(p6_obj_iterate "$hash")
+	[ $? -eq 0 ] && break
+
+	p6_obj_list_insert "$list" "$key"
+    done
+
+    echo $list
 }
 
-p6_hash_item_update() {
-    local hash="$1"
-    local key="$2"
-    local value="$3"
+###############################################################################
+# list p6_obj_hash_values(obj)
+#   CLASS: hash
+#
+p6_obj_hash_values() {
+    local obj="$1"
 
-    local found=$(awk -v k=$key -F $P6_HASH_SEP '$1 ~ k { print "1" }' $hash)
-    if [ x"$found" = x"1" ]; then
-	awk -v k=$key -F $P6_HASH_SEP '$1 !~ k { print }' $hash > $hash.new
-	mv $hash.new $hash
-	echo "$key$P6_HASH_SEP$value" >> $hash
-	return 0
-    else
-	return 1
-    fi
-}
+    local list=$(p6_obj_list_create)
 
-p6_hash_item_update_or_create() {
-    local hash="$1"
-    local key="$2"
-    local value="$3"
+    while [ 1 ]; do
+	local key=$(p6_obj_iterate "$hash")
+	[ $? -eq 0 ] && break
 
-    local found=$(awk -v k=$key -F $P6_HASH_SEP '$1 ~ k { print "1" }' $hash)
-    awk -v k=$key -F $P6_HASH_SEP '$1 !~ k { print }' $hash > $hash.new
-    mv $hash.new $hash
-    echo "$key$P6_HASH_SEP$value" >> $hash
+	local val=$(p6_obj_hash_lookup "$hash" "$key")
+	p6_obj_list_insert "$list" "$val"
+    done
 
-    [ x"$found" = x"1" ] && return 0 || return 1
-}
-
-p6_hash_item_delete() {
-    local hash="$1"
-    local key="$2"
-
-    awk -v k=$key -F $P6_HASH_SEP '$1 !~ k { print }' $hash > $hash.new
-    mv $hash.new $hash
+    echo $list
 }

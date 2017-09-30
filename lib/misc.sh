@@ -49,27 +49,3 @@ p6_transient_delete() {
     p6_debug "clean $file"
     rm -rf $(dirname $file)
 }
-
-p6_key_check() {
-    local key_name="$1"
-    local msg="$2"
-    local nofatal="$3"
-
-    local flag=pass
-    if [ x"$key_name" = x"None" ]; then
-	flag=fail
-    elif [ ! -r ${key_name} ]; then
-	flag=fail
-    fi
-
-    case ${flag} in
-	fail)
-	    if [ x"$nofatal" = x"nofatal" ]; then
-		msg "${msg}"
-		return 32
-	    else
-		die "32" "${msg}"
-	    fi
-	    ;;
-    esac
-}

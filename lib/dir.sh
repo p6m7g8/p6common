@@ -1,10 +1,21 @@
+p6_debug__dir() {
+    local msg="$1"
+
+    p6_debug "p6_dir: $msg"
+}
+
 p6_dirs_list() {
     local dirs="$@"
+
+    p6_debug__dir "list(): $dirs"
 
     local dir
     for dir in $dirs; do
 	if [ -d $dir ]; then
-	    (cd $dir ; ls -1)
+	    local children=$(cd $dir ; ls -1)
+	    p6_debug__dir "list(): collecting $dir -> [$children]"
+	else
+	    p6_debug__dir "list(): $dir DNE"
 	fi
     done
 }
@@ -12,10 +23,10 @@ p6_dirs_list() {
 p6_dir_rmrf() {
     local dir="$1"
 
-    p6_debug "remove dir $dir"
     if [ -z "$dir" -o "$dir" = "/" ]; then
-	p6_msg "Cowardly refusing to shoot us in the foot"
+	p6_msg "p6_dir: rmrf(): Cowardly refusing to shoot us in the foot [$dir]"
     else
+	p6_debug__dir "rmrf(): rm -rf $dir"
 	rm -rf $dir
     fi
 }
@@ -23,7 +34,7 @@ p6_dir_rmrf() {
 p6_dir_mk() {
     local dir="$1"
 
-    p6_debug "mkdir $dir"
+    p6_debug__dir "mk(): mkdir -p $dir"
     mkdir -p $dir
 }
 
@@ -31,12 +42,21 @@ p6_dir_cp() {
     local src="$1"
     local dst="$2"
 
-    p6_debug "copy $src to $dst"
+    p6_debug__dir "cp(): cp -R $src $dst"
     cp -R $src $dst
 }
+
+p6_dir_mv() {
+    local src="$1"
+    local dst="$2"
+
+    p6_debug__dir "mv(): mv $src $dst"
+    mv $src $dst
+}
+
 p6_dir_cd() {
     local dir="$1"
 
-    p6_debug "cd $dir"
+    p6_debug__dir "cd(): cd $dir"
     cd $dir
 }

@@ -1,12 +1,23 @@
+p6_debug__path() {
+    local msg="$1"
+
+    p6_debug "p6_path: $msg"
+}
+
 p6_path_if() {
     local dir=$1
 
+    p6_debug__path "if(): $dir"
+
     if [ -d $dir ]; then
 	PATH=$(p6_append "$PATH" "$dir" ":")
+	p6_debug__path "if(): $PATH"
     fi
 }
 
 p6_path_default() {
+
+    p6_debug__path "default(): unset"
 
     PATH=
     path_if $HOME/bin
@@ -17,6 +28,8 @@ p6_path_default() {
     path_if /usr/sbin
     path_if /bin
     path_if /sbin
+
+    p6_debug__path "default(): $PATH"
 }
 
 p6_path_current() {

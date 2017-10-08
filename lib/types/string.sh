@@ -2,12 +2,15 @@
 # String  < Object
 #
 # [string]
-#   len
 #   data
+#
+# String Iterators are 0 based
 #
 ##############################################################################
 
-
+###
+### Public
+###
 
 ##############################################################################
 # str p6_obj_str_create(string)
@@ -15,22 +18,13 @@
 p6_obj_str_create() {
     local string="$1"
 
-    local str=$(p6_obj_create)
-    local data=$(p6_obj_str__data "$str")
-    local length=$(p6_obj__disk_store_length "$str")
+    local str=$(p6_obj_create "str")
 
-    p6_file_create "$data"
-    p6_file_create "$length"
+    p6_obj_str__data_init "$str"
 
-    p6_obj__class "$str" "str"
+    p6_obj_str__data "$str" "$string"
 
-    if [ -n "$string" ]; then
-	echo "$string" > $data
-    fi
-
-    echo $(($(cat $data | wc -m)-1)) > $length
-
-    echo $str
+    p6_return "$str"
 }
 
 ##############################################################################
@@ -40,12 +34,10 @@ p6_obj_str_compare() {
     local a="$1"
     local b="$2"
 
-    local data_a=$(p6_obj_str__data "$a")
-    local data_b=$(p6_obj_str__data "$b")
+    local val_a=$(p6_obj_str__data "$a")
+    local val_b=$(p6_obj_str__data "$b")
 
-    cmp -s $data_a $data_b
-
-    echo $?
+    p6_string_compare "$val_a" "$val_b"
 }
 
 ##############################################################################
@@ -54,21 +46,7 @@ p6_obj_str_compare() {
 p6_obj_str_display() {
     local str="$1"
 
-    local data=$(p6_obj_str__data "$str")
-
-    cat $data
-}
-
-# READ
-##############################################################################
-# size_t p6_obj_str_length(str)
-#
-p6_obj_str_length() {
-    local str="$1"
-
-    local length=$(p6_obj__disk_store_length "$str")
-
-    cat $length
+    p6_obj_str__data "$str"
 }
 
 ##############################################################################
@@ -80,14 +58,11 @@ p6_obj_str_split() {
 
     local list=$(p6_obj_list_create)
 
-    local data=$(p6_obj_str__data "$str")
-
-    local IFS="$delim"
-    for i in $(cat $data); do
+    for i in $(p6_string_tokenize "$val" "$delim"); do
 	p6_obj_list_insert "$list" "$i"
     done
 
-    echo $list
+    p6_return "$list"
 }
 
 ##############################################################################
@@ -97,11 +72,9 @@ p6_obj_str_grep() {
     local str="$1"
     local pattern="$2"
 
-    local data=$(p6_obj_str__data "$str")
+    local val=$(p6_obj_str__data "$str")
 
-    grep -q $pattern $data
-
-    echo $?
+    p6_string_contains "$str" "$pattern"
 }
 
 # Update
@@ -113,13 +86,11 @@ p6_obj_str_substr() {
     local start="$2"
     local end="$3"
 
-    local data=$(p6_obj_str__data "$str")
-    local val=$(cat $data)
-    val=${val:$start:$end}
-    echo $val > $data
+    local val=$(p6_obj_str__data "$str")
 
-    local length=$(p6_obj__disk_store_length "$str")
-    echo $(($(cat $data | wc -m)-1)) > $length
+    local substr=$(p6_string_substr "$val" "$start" "$end")
+
+    p6_obj_str__data "$str" "$substr"
 }
 
 ##############################################################################
@@ -130,16 +101,15 @@ p6_obj_str_splice() {
     local start="$2"
     local new="$3"
 
-    local data=$(p6_obj_str__data "$strj")
-    local val=$(cat $data)
+    local str_val=$(p6_obj_str__data "$str")
+    local splice_val=$(p6_obj_str__data "$new")
 
-    local new_data=$(p6_obj_str__data "$new")
-    local new_val=$(cat $new_data)
+    local pre=$(p6_string_substr "$str_val" "0" "$start")
+    local post=$(p6_string_substr "$str_val" "$start")
 
-    echo "${val:0:$start}${new_val}${val:$start}" > $data
+    local val="$prex$splice_val$post"
 
-    local length=$(p6_obj__disk_store_length "$str")
-    echo $(($(cat $data | wc -m)-1)) > $length
+    p6_obj_str__data "$str" "$val"
 }
 
 ##############################################################################
@@ -148,10 +118,11 @@ p6_obj_str_splice() {
 p6_obj_str_reverse() {
     local str="$1"
 
-    local data=$(p6_obj_str__data "$str")
+    local val=$(p6_obj_str__data "$str")
 
-    cat $data | rev > $data.tmp
-    mv $data.tmp $data
+    local reverse=$(p6_string_reverse "$val")
+
+    p6_obj_str__data "$str" "$reverse"
 }
 
 ##############################################################################
@@ -160,12 +131,11 @@ p6_obj_str_reverse() {
 p6_obj_str_trim() {
     local str="$1"
 
-    local data=$(p6_obj_str__data "$str")
+    local val=$(p6_obj_str__data "$str")
 
-    sed -i '' -e 's/^ *//' -e 's/* $//' $data
+    local trimmed=$(p6_string_trim "$str")
 
-    local length=$(p6_obj__disk_store_length "$str")
-    echo $(($(cat $data | wc -m)-1)) > $length
+    p6_obj_str__data "$str" "$trimmed"
 }
 
 ##############################################################################
@@ -174,10 +144,11 @@ p6_obj_str_trim() {
 p6_obj_str_lc() {
     local str="$1"
 
-    local data=$(p6_obj_str__data "$str")
+    local val=$(p6_obj_str__data "$str")
 
-    cat $data | tr 'A-Z' 'a-z' > $data.tmp
-    mv $data.tmp $data
+    local lc=$(p6_string_lc "$str")
+
+    p6_obj_str__data "$str" "$lc"
 }
 
 ##############################################################################
@@ -186,111 +157,37 @@ p6_obj_str_lc() {
 p6_obj_str_uc() {
     local str="$1"
 
-    local data=$(p6_obj_str__data "$str")
+    local val=$(p6_obj_str__data "$str")
 
-    cat $data | tr 'a-z' 'A-Z' > $data.tmp
-    mv $data.tmp $data
+    local lc=$(p6_string_uc "$str")
+
+    p6_obj_str__data  "$str" "$uc"
 }
 
-########## PRIVATE
-##############################################################################
-# path p6_obj_str_trim(str)
-#
-p6_obj_str__data() {
+###
+### Private
+###
+
+###
+### XXX
+###
+p6_obj_str__data_init() {
     local str="$1"
 
-    local data_dir=$(p6_obj__disk_store_data "$str")
+    local data_key=$(p6_obj__data__key)
 
-    echo $data_dir/data
+    p6_store_bucket_attr_create "$str" "$data_key" "data"
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-####################################### REFACTOR
-p6_string_tokenize() {
-    local str="$1"
-    local delim="${2:-:}"
-
-    local IFS="$delim"
-    for i in $(cat $str); do
-	echo $i
-    done
-}
-
-p6_string_append_to() {
+p6_obj__str_data() {
     local str="$1"
     local new="$2"
-    local sep="${3:-" "}"
 
-    local val=$(cat $str)
+    local data_key=$(p6_obj__data__key)
 
-    if [ -n "$val" ]; then
-	echo "$val$sep$new" > $str
+    if p6_string_blank "$new"; then
+	p6_store_bucket_attr "$str" "$data_key" "data"
     else
-	echo $new > $str
+	p6_store_bucket_attr "$str" "$data_key" "data" "$new"
     fi
-}
-
-p6_string_to_file() {
-    local str="$1"
-
-    local dir=$(p6_transient_create "idk")
-
-    cat $str > $dir/file
-
-    echo $dir/file
-}
-
-p6_string_transliterate() {
-    local str="$1"
-    local from="$2"
-    local to="$3"
-
-    local t=$(cat $str | tr "$from" "$to")
-    echo $t > $str
-}
-
-p6_string_init_cap() {
-    local str="$1"
-
-    local t=$(cat $str | awk '{for(i=1;i<=NF;i++){ $i=toupper(substr($i,1,1)) substr($i,2) }}1')
-    echo $t > $str
-}
-
-p6_string_append_to_cond() {
-    local str="$1"
-    local flag="$2"
-    local add_str="$3"
-    local sep="${4:-,}"
-
-    if [ x"$flag" != x"0" ]; then
-	p6_string_append_to "$str" "$add_str" "$sep"
-    fi
-}
-
-p6_string_append_to_if_not_in() {
-    local str="$1"
-    local thing="$2"
-    local not_thing="$3"
-    local add_str="$4"
-    local sep="${5:-,}"
-
-    case $thing in
-	$not_thing) ;;
-	*) p6_string_append_to "$str" "$add_str" "$sep" ;;
-    esac
 }

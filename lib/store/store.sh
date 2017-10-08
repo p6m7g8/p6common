@@ -1,0 +1,14 @@
+p6_store_create
+p6_store_destroy
+
+p6_store_ref
+p6_store_copy
+
+p6_store_scalar_get
+p6_store_scalar_set
+
+p6_store_hash_set
+p6_store_hash_delete
+
+p6_store_list_add
+p6_store_list_delete

@@ -19,7 +19,7 @@ p6_verbose() {
 }
 
 p6_debug() {
-    [ -n "$DEBUG" ] && p6_msg "$@" >&2
+    [ -n "$DEBUG" ] && p6_msg "$@" >> /tmp/p6.log
 }
 
 p6_die() {
@@ -77,4 +77,14 @@ p6_log_or_run() {
     else
 	eval "$cmd"
     fi
+}
+
+p6_return() {
+
+    p6_echo "$@"
+}
+
+p6_echo() {
+
+    echo "$@"
 }

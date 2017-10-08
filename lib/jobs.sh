@@ -1,3 +1,9 @@
+p6_run__debug() {
+    local msg="$1"
+
+    p6_debug "p6_run: $msg"
+}
+
 p6_run_parallel() {
     local i="$1"
     local parallel="$2"
@@ -8,6 +14,7 @@ p6_run_parallel() {
     local thing
     for thing in $(echo $things); do
 	((i=i%parallel)); ((i++==0)) && wait
+	p6_run_debug "run_parallel(): $cmd @ $thing"
 	echo "$cmd $@ '$thing'"
 	local rc="$($cmd $@ "$thing")" &
     done
@@ -20,7 +27,7 @@ p6_run_serial() {
 
     local thing
     for thing in $(echo $things); do
-	echo "$cmd $@ '$thing'"
+	p6_run_debug "run_serial(): $cmd @ $thing"
 	local rc="$($cmd $@ "$thing")"
     done
 }
@@ -69,6 +76,7 @@ p6_run_script() {
     shift 6
 
     local file=$(file_cascade "${cmd}" "${exts}" $@)
+    p6_run_debug "run(): $file"
     p6_debug "Run: [$file]"
     env -i ${cmd_env} ${shell} ${set_flags} ${file} $arg_list
 }

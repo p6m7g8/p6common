@@ -5,48 +5,44 @@
 #   meta/
 #     class
 #     length
+#     iterators/
+#       default
 #     _hist
 #   data/
-#
+#     0/
+#       data: string-data
+#     0/
+#       data: list-item-1-data
+#     md5(key)/
+#        key: hash-key-data
+#        val: hash-val-data
 #
 ##############################################################################
 
+###
+### Pulic
+###
+
+##
+## Constructors
+##
+
 ###############################################################################
-# obj p6_obj_create()
+# obj p6_obj_create(string)
 #
 p6_obj_create() {
+    local class="$1"
 
-    local obj=$(p6_obj__create)
-
-    local meta_dir=$(p6_obj__disk_store_meta "$obj")
-    local data_dir=$(p6_obj__disk_store_data "$obj")
-    local class=$(p6_obj__disk_store_class "$obj")
-    local hist=$(p6_obj__disk_store_hist "$obj")
-
-    p6_dir_mk "$meta_dir"
-    p6_dir_mk "$data_dir"
-
-    p6_file_create "$class"
-    p6_file_create "$hist"
-
-    echo $obj
+    p6_obj__create "$class"
 }
 
 ###############################################################################
 # obj p6_obj_copy(obj)
 #
 p6_obj_copy() {
-    local src_obj="$1"
+    local obj="$1"
 
-    local src_dir=$(p6_obj__disk_store "$src_obj")
-
-    local dst_obj=$(p6_obj__create)
-    local dst_dir=$(p6_obj__disk_store "$dst_obj")
-
-    p6_dir_rmrf "$dst_dir"
-    p6_dir_cp "$src_dir" "$dst_dir"
-
-    echo $dst_obj
+    p6_obj__copy "$obj"
 }
 
 ###############################################################################
@@ -55,13 +51,12 @@ p6_obj_copy() {
 p6_obj_destroy() {
     local obj="$1"
 
-    local dir=$(p6_obj__disk_store "$obj")
-
-    p6_dir_rmrf "$dir"
+    p6_obj__destroy "$obj"
 }
 
-# Garbage collect all objects
-trap p6_obj__cleanup 0 1 2 3 6 14 15
+##
+## Equality
+##
 
 ###############################################################################
 # size_t p6_obj_compare(obj, obj)
@@ -70,29 +65,25 @@ p6_obj_compare() {
     local a="$1"
     local b="$2"
 
-    local class_a=$(p6_obj__class "$a")
-    local class_b=$(p6_obj__class "$b")
-
-    if [ x"$class_a" != x"$class_b" ]; then
-	echo "mismatch" # XXX: not size_t
-    else
-	# short circuit
-	if [ x"$a" = x"$b" ]; then
-	    echo 0
-	else
-	    p6_obj_${class_a}_compare "$a" "$b"
-	fi
-    fi
+    p6_obj__dispatch "$a" "compare" "$b"
 }
+
+##
+## Assignment
+##
 
 ###############################################################################
 # obj p6_obj_assign(obj)
 #
 p6_obj_assign() {
-    local that="$1"
+    local obj="$1"
 
-    echo $that
+    p6_obj__assign "$obj"
 }
+
+##
+## toString()
+##
 
 ###############################################################################
 # void p6_obj_display(obj)
@@ -100,165 +91,93 @@ p6_obj_assign() {
 p6_obj_display() {
     local obj="$1"
 
-    local class=$(p6_obj__class "$obj")
-
-    p6_obj_${class}_display "$obj"
+    p6_obj__dispatch "display"
 }
 
-###############################################################################
-# void p6_obj_replace(obj)
-#
-p6_obj_replace() {
-    local obj="$1"
-}
+##
+## Iterators
+##
 
 ###############################################################################
-# void p6_obj_insert(obj)
-#
-p6_obj_insert() {
-    local obj="$1"
-}
-
-###############################################################################
-# void p6_obj_update(obj)
-#
-p6_obj_update() {
-    local obj="$1"
-}
-
-###############################################################################
-# void p6_obj_delete(obj)
-#
-p6_obj_delete() {
-    local obj="$1"
-}
-
-###############################################################################
-# void p6_obj_find(obj)
-#
-p6_obj_find() {
-    local obj="$1"
-}
-
-###############################################################################
-# list p6_obj_split(obj, delim)
-#   CLASS: str
-#
-p6_obj_split() {
-    local obj="$1"
-    local delim="${2:- }"
-
-    local class=$(p6_obj__class "$obj")
-    p6_obj_${class}_split "$obj" "$delim"
-}
-
-###############################################################################
-# list p6_obj_substr(obj, size_t, size_t)
-#   CLASS: str
-#
-p6_obj_substr() {
-    local obj="$1"
-    local start="$2"
-    local end="$3"
-
-    local class=$(p6_obj__class "$obj")
-    p6_obj_${class}_substr "$obj" "$start" "$end"
-}
-
-###############################################################################
-# void p6_obj_push(obj, obj)
-#   CLASS: list
-#
-p6_obj_push() {
-    local obj="$1"
-
-    local class=$(p6_obj__class "$obj")
-    p6_obj_${class}_substr "$obj" "$start" "$end"
-}
-
-###############################################################################
-# obj p6_obj_pop(obj)
-#   CLASS: list
-#
-p6_obj_pop() {
-    local obj="$1"
-}
-
-###############################################################################
-# obj p6_obj_shift(obj)
-#   CLASS: list
-#
-p6_obj_shift() {
-    local obj="$1"
-}
-
-###############################################################################
-# obj p6_obj_unshift(obj)
-#   CLASS: list
-#
-p6_obj_unshift() {
-    local obj="$1"
-}
-
-###############################################################################
-# void p6_obj_sort(obj)
-#   CLASS: list
-p6_obj_sort() {
-    local obj="$1"
-}
-
-###############################################################################
-# str p6_obj_join(obj)
-#   CLASS: list
-#
-p6_obj_join() {
-    local obj="$1"
-}
-
-###############################################################################
-# list p6_obj_keys(obj)
-#   CLASS: hash
-#
-p6_obj_keys() {
-    local obj="$1"
-}
-
-###############################################################################
-# list p6_obj_values(obj)
-#   CLASS: hash
-#
-p6_obj_values() {
-    local obj="$1"
-}
-
-###############################################################################
-# size_t p6_obj_exists(obj, str)
-#   CLASS: list, hash
-#
-p6_obj_exists() {
-    local obj="$1"
-}
-
-###############################################################################
-# size_t p6_obj_reverse(obj, size_t, obj)
-#   CLASS: str, list
-#
-p6_obj_reverse() {
-    local obj="$1"
-
-    local class=$(p6_obj__class "$obj")
-    p6_obj_${class}_reverse "$obj"
-}
-
-###############################################################################
-# ITEM p6_obj_exists(obj)
+# bool p6_obj_iter_index(obj, var)
 #   CLASS: str, list, hash
 #
-p6_obj_iterate() {
+p6_obj_iter_index() {
     local obj="$1"
+    local var="${2:-default}"
 
-    local class=$(p6_obj__class "$obj")
+    p6_obj__iter_index "$obj" "$var"
 }
+
+###############################################################################
+# bool p6_obj_iter_more(obj) {
+#   CLASS: str, list, hash
+#
+p6_obj_iter_more() {
+    local obj="$1"
+    local var="${2:-default}"
+    local offset="${3:-0}"
+
+    p6_obj__iter_more "$obj" "$var" "$offset"
+}
+
+###############################################################################
+# ITEM p6_obj_iter_current(obj)
+#   CLASS: str, list, hash
+#
+p6_obj_iter_current() {
+    local obj="$1"
+    local var="${2:-default}"
+
+    local i=$(p6_iter_index "$obj" "$var")
+
+    p6_obj__iter_i "$obj" "$var" "$i"
+}
+
+###############################################################################
+# ITEM p6_obj_iter_i(obj, int)
+#   CLASS: str, list, hash
+#
+p6_obj_iter_i() {
+    local obj="$1"
+    local var="${2:-default}"
+    local i="$3"
+
+    p6_obj__iter_i "$obj" "$var" "$i"
+}
+
+###############################################################################
+# bool p6_obj_iter_ate(obj, var, offset, move):
+#   CLASS: str, list, hash
+#
+p6_obj_iter_ate() {
+    local obj="$1"
+    local var="${2:-default}"
+    local move="${3:-1}"
+
+    p6_obj__iter_ate "$obj" "$var" "$move"
+}
+
+###############################################################################
+# void p6_obj_foreach(obj, callback)
+#   CLASS: str, list, hash
+#
+p6_obj_foreach() {
+    local obj="$1"
+    local callback="$2"
+
+    while p6_obj_iter_more "$obj"; do
+	local item=$(p6_obj_iter_current "$obj")
+
+	p6_yield "$callback" "$obj" "$item"
+
+	p6_obj_iter_ate "$obj"
+    done
+}
+
+##
+## READ Operations
+##
 
 ###############################################################################
 # size_t p6_obj_length(obj)
@@ -267,8 +186,7 @@ p6_obj_iterate() {
 p6_obj_length() {
     local obj="$1"
 
-    local class=$(p6_obj__class "$obj")
-    p6_obj_${class}_length "$obj"
+    p6_obj__length "$obj"
 }
 
 ###############################################################################
@@ -279,8 +197,21 @@ p6_obj_grep() {
     local obj="$1"
     local pattern="$2"
 
-    local class=$(p6_obj__class "$obj")
-    p6_obj_${class}_grep "$obj" "$pattern"
+    p6_obj__dispatch "$obj" "grep" "$pattern"
+}
+
+##
+## Write Operations (to myself)
+##
+
+###############################################################################
+# size_t p6_obj_reverse(obj, size_t, obj)
+#   CLASS: str, list, hash
+#
+p6_obj_reverse() {
+    local obj="$1"
+
+    p6_obj__dispatch "$obj" "reverse"
 }
 
 ###############################################################################
@@ -292,8 +223,7 @@ p6_obj_splice() {
     local start="$2"
     local new="$3"
 
-    local class=$(p6_obj__class "$obj")
-    p6_obj_${class}_splice "$obj" "$start" "$new"
+    p6_obj__dispatch "$obj" "splice" "$start" "$new"
 }
 
 ###############################################################################
@@ -303,8 +233,7 @@ p6_obj_splice() {
 p6_obj_trim() {
     local obj="$1"
 
-    local class=$(p6_obj__class "$obj")
-    p6_obj_${class}_trim "$obj"
+    p6_obj__dispatch "$obj" "trim"
 }
 
 ###############################################################################
@@ -314,8 +243,7 @@ p6_obj_trim() {
 p6_obj_lc() {
     local obj="$1"
 
-    local class=$(p6_obj__class "$obj")
-    p6_obj_${class}_lc "$obj"
+    p6_obj__dispatch "$obj" "lc"
 }
 
 ###############################################################################
@@ -325,90 +253,162 @@ p6_obj_lc() {
 p6_obj_uc() {
     local obj="$1"
 
-    local class=$(p6_obj__class "$obj")
-    p6_obj_${class}_uc "$obj"
+    p6_obj__dispatch "$obj" "uc"
 }
 
-########## PRIVATE
+###
+### Protected
+###
+
+###
+### Private
+###
+
+##
+## Iterators
+##
+p6_obj__iter_more() {
+    local obj="$1"
+    local var="$2"
+    local offset="$3"
+
+    local i=$(p6_obj__iter_index "$obj" "$var" "$offset")
+    local len=$(p6_obj__length "$obj")
+
+    p6_math_le "$i" "$len"
+}
+
+p6_obj__iter_i() {
+    local obj="$1"
+    local var="$2"
+    local i="$3"
+
+    p6_obj__dispatch "$obj" "iter_i" "$var" "$i"
+}
+
+p6_obj__iter_ate() {
+    local obj="$1"
+
+
+}
+
+##
+## Util
+##
+p6_obj__dispatch() {
+    local obj="$1"
+    local method="$2"
+    shift 2
+
+    local class=$(p6_obj__class "$obj" "$class")
+
+    p6_obj_${class}_${method} "$obj" "$@"
+}
+
+##
+## Constructors
+##
 p6_obj__create() {
+    local class="$1"
 
-    local obj=$(p6_transient_create "obj.$$")
+    local obj=$(p6_obj__init)
 
-    echo $obj
+    p6_obj__meta_init "$obj"
+    p6_obj__data_init "$obj"
+
+    p6_obj__class "$obj" "$class"
+
+    p6_return "$obj"
+}
+
+p6_obj__copy() {
+    local obj="$1"
+
+    local class=$(p6_obj__class "$obj")
+    local copy=$(p6_obj__create "$class")
+    p6_obj__clone "$obj" "$copy"
+}
+
+###
+### XXX
+###
+p6_obj__iter_index() {
+    local obj="$1"
+    local var="$2"
+
+    p6_iter_index "$obj" "$var"
+}
+
+p6_obj__destroy() {
+    local obj="$1"
+
+    p6_store_destroy "$obj"
+}
+
+p6_obj__assign() {
+    local obj="$1"
+
+    p6_store_ref "$obj"
+}
+
+p6_obj__clone() {
+    local obj="$1"
+    local dst="$2"
+
+    p6_store_copy "$obj" "$dst"
 }
 
 p6_obj__class() {
     local obj="$1"
     local new="$2"
 
-    local class=$(p6_obj__disk_store_class "$obj")
-    if [ -n "$new" ]; then
-	echo $new > $class
+    local meta_key=$(p6_obj__meta__key)
+    if p6_string_blank "$new"; then
+	p6_store_bucket_attr "$obj" "$meta_key" "class"
     else
-	cat $class
+	p6_store_bucket_attr "$obj" "$meta_key" "class" "$new"
     fi
 }
 
-p6_obj__history() {
-    local obj="$1"
-}
-
-p6_obj__dump() {
-    local obj="$1"
-}
-
-p6_obj__disk_store() {
+p6_obj__length() {
     local obj="$1"
 
-    echo $obj
+    local meta_key=$(p6_obj__meta__key)
+
+    p6_store_bucket_attr "$obj" "$meta_key" "length"
 }
 
-p6_obj__disk_store_meta() {
+p6_obj__init() {
+
+    p6_store_create
+}
+
+p6_obj__meta_init() {
     local obj="$1"
 
-    local dir=$(p6_obj__disk_store "$obj")
-    echo $dir/meta
+    local meta_key=$(p6_obj__meta__key)
+
+    p6_store_bucket_create "$obj" "$meta_key"
+
+    p6_store_bucket_attr_create "$obj" "$meta_key" "class"
+    p6_store_bucket_attr_create "$obj" "$meta_key" "length"
+    p6_store_bucket_hash_create "$obj" "$meta_key" "iterators"
 }
 
-p6_obj__disk_store_class() {
+p6_obj__data_init() {
     local obj="$1"
 
-    local meta_dir=$(p6_obj__disk_store_meta "$obj")
-    echo $meta_dir/class
+    local data_key=$(p6_obj__data__key)
+
+    p6_store_bucket_create "$obj" "$data_key"
 }
 
-p6_obj__disk_store_length() {
-    local obj="$1"
+p6_obj__meta__key() {
 
-    local meta_dir=$(p6_obj__disk_store_meta "$obj")
-    echo $meta_dir/length
+    p6_return "meta"
 }
 
-p6_obj__disk_store_hist() {
-    local obj="$1"
+p6_obj__data__key() {
 
-    local meta_dir=$(p6_obj__disk_store_meta "$obj")
-    echo $meta_dir/_hist
-}
-
-p6_obj__disk_store_data() {
-    local obj="$1"
-
-    local dir=$(p6_obj__disk_store "$obj")
-    echo $dir/data
-}
-
-p6_obj__cleanup() {
-
-    local tdir=$TMPDIR/objs
-    local prefix="obj.$$"
-
-    local things=$(p6_dirs_list "$tdir")
-    for thing in $things; do
-	case $thing in
-	    $prefix*) p6_obj_destroy "$tdir/$thing" ;;
-	esac
-    done
-
-    exit 0
+    p6_return "data"
 }

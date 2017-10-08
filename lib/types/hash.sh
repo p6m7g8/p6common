@@ -2,39 +2,35 @@
 # Hash < Object
 #
 # [hash]
-#   <md5ofkey>
+#   <rand(12)>
 #	  key
 #	  data
 ##############################################################################
 
+###
+### Public
+###
+
 ##############################################################################
-# list p6_obj_hash_create()
+# hash p6_obj_hash_create()
 #
 p6_obj_hash_create() {
 
-    local hash=$(p6_obj_create)
-    local length=$(p6_obj__disk_store_length "$hash")
+    local hash=$(p6_obj_create "hash")
 
-    p6_file_create "$length"
+    p6_obj_hash__items_init "$hash"
 
-    p6_obj__type "$hash" "hash"
-    echo "0" > $length
-
-    echo $hash
+    p6_return $hash
 }
 
 ##############################################################################
-# void p6_obj_hash_compare(hash, hash)
+# size_t p6_obj_hash_compare(hash, hash)
 #
 p6_obj_hash_compare() {
     local a="$1"
     local b="$2"
 
-    local data_dir_a=$(p6_obj__disk_store_data "$a")
-    local data_dir_b=$(p6_obj__disk_store_data "$b")
-
-    cmp -s $data_dir_a $data_dir_b
-    echo $?
+    p6_obj_hash__compare "$a" "$b"
 }
 
 ##############################################################################
@@ -43,63 +39,46 @@ p6_obj_hash_compare() {
 p6_obj_hash_display() {
     local hash="$1"
 
-    while [ 1 ]; do
-	local key=$(p6_obj_iterate "$hash")
-	[ $? -eq 0 ] && break
-
-	local val=$(p6_obj_hash_lookup "$hash" "$key")
-
-	p6_obj_display "$key"
-	p6_obj_display "$val"
-    done
-}
-
-##############################################################################
-# void p6_obj_hash_length(hash)
-#
-p6_obj_hash_length() {
-    local hash="$1"
-
-    local length=$(p6_obj__disk_store_length "$list")
-
-    cat $length
+    p6_obj_foreach "$list" "" "p6_obj_hash__item_display"
 }
 
 ###############################################################################
-# list p6_obj_hash_keys(obj)
+# list p6_obj_hash_keys(hash)
 #   CLASS: hash
 #
 p6_obj_hash_keys() {
-    local obj="$1"
+    local hahs="$1"
 
     local list=$(p6_obj_list_create)
 
-    while [ 1 ]; do
-	local key=$(p6_obj_iterate "$hash")
-	[ $? -eq 0 ] && break
+    p6_obj_foreach "$hash" "" "p6_obj_hash__key_to_list" "$list"
 
-	p6_obj_list_insert "$list" "$key"
-    done
-
-    echo $list
+    p6_return $list
 }
 
 ###############################################################################
-# list p6_obj_hash_values(obj)
+# list p6_obj_hash_values(hash)
 #   CLASS: hash
 #
 p6_obj_hash_values() {
-    local obj="$1"
+    local hash="$1"
 
     local list=$(p6_obj_list_create)
 
-    while [ 1 ]; do
-	local key=$(p6_obj_iterate "$hash")
-	[ $? -eq 0 ] && break
+    p6_obj_foreach "$hash" "" "p6_obj_hash__values_to_list" "$list"
 
-	local val=$(p6_obj_hash_lookup "$hash" "$key")
-	p6_obj_list_insert "$list" "$val"
-    done
+    p6_return $list
+}
 
-    echo $list
+###
+### Private
+###
+
+###
+### XXX
+###
+p6_obj_hash__items_init() {
+    local hash="$1"
+
+    p6_store_bucket_hash_create "$hash" "data" "items"
 }

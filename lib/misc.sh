@@ -1,3 +1,9 @@
+p6_debug__misc() {
+    local msg="$1"
+
+    p6_debug "p6_misc: $msg"
+}
+
 p6_pgs() {
 
     find . -type f | xargs perl -pi -e "s,$1,$2,g"
@@ -36,16 +42,39 @@ p6_mkpasswd() {
 
 p6_transient_create() {
     local dir_name="$1"
+    local len="${2:-4}"
 
-    local path=$(mktemp -d -t $dir_name)
-    p6_debug "transient $path"
+    local rand=$(p6_mkpasswd $len)
+    dir_name=$dir_name/$rand
 
-    echo $path
+    p6_dir_mk "$dir_name"
+    p6_debug "p6_misc: transient_create(): $dir_name [$len]"
+    p6_transient_log "$dir_name"
+
+    echo $dir_name
 }
 
 p6_transient_delete() {
-    local file="$1"
+    local dir="$1"
 
-    p6_debug "clean $file"
-    rm -rf $(dirname $file)
+    p6_debug "p6_misc: transient_delete(): $dir"
+    p6_dir_rmrf "$dir"
+}
+
+## Internal Only
+trap p6_transient_cleanup 0 1 2 3 6 14 15
+p6_transient_cleanup() {
+
+    local dir
+    for dir in $(cat ${TMPDIR:-/tmp}/p6.$$.tmp); do
+	p6_transient_delete "$dir"
+    done
+
+    exit 0
+}
+
+p6_transient_log() {
+    local dir="$1"
+
+    echo "$dir" >> ${TMPDIR:-/tmp}/p6.$$.tmp
 }

@@ -73,6 +73,13 @@ p6_file_exists() {
     fi
 }
 
+p6_file_display() {
+    local file="$1"
+
+    p6_debug__file "display(): cat $file"
+    cat $file
+}
+
 p6_file_create() {
     local file="$1"
 
@@ -80,11 +87,18 @@ p6_file_create() {
     touch $file
 }
 
+p6_file_write() {
+    local file="$1"
+    local contents="$2"
+
+    p6_debug__file "write(): $contents -> $file"
+    echo "$contents" > $file
+}
+
 p6_file_append() {
     local file="$1"
     local contents="$2"
 
-    p6_debug__file "append(): $contents -> $file"
     echo "$contents" >> $file
 }
 

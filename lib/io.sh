@@ -79,6 +79,12 @@ p6_log_or_run() {
     fi
 }
 
+p6_return_bool() {
+    local bool="$1"
+
+    return $bool
+}
+
 p6_return() {
 
     p6_echo "$@"

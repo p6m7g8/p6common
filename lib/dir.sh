@@ -20,6 +20,21 @@ p6_dirs_list() {
     done
 }
 
+p6_dir_exists() {
+    local dir="$1"
+
+    local rv=
+    if [ -d "$dir" ]; then
+	rv=0
+    else
+	rv=1
+    fi
+
+#    p6_debug__dir "exists(): $dir -> $rv"
+
+    p6_return_bool "$rv"
+}
+
 p6_dir_rmrf() {
     local dir="$1"
 
@@ -34,8 +49,10 @@ p6_dir_rmrf() {
 p6_dir_mk() {
     local dir="$1"
 
-    p6_debug__dir "mk(): mkdir -p $dir"
-    mkdir -p $dir
+    if ! p6_dir_exists "$dir"; then
+	p6_debug__dir "mk(): mkdir -p $dir"
+	mkdir -p $dir
+    fi
 }
 
 p6_dir_cp() {

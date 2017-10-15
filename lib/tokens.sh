@@ -1,7 +1,10 @@
 p6_hash() {
-    local str="$1"
+    local string="$1"
 
-    local hashed=$(echo "$str" | md5)
+    local hashed=""
+    if p6_string_blank "$string"; then
+	hashed=$(echo "$string" | md5)
+    fi
 
     p6_return "$hashed"
 }

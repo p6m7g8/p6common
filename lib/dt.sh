@@ -8,8 +8,7 @@ p6_dt__date() {
     local fmt="$1"
 
     p6_debug__dt "_date(): date \"$fmt\""
-    local dt=$(date "$fmt")
-
+    local dt=$(date $fmt)
     p6_return "$dt"
 }
 

@@ -23,14 +23,14 @@ p6_dirs_list() {
 p6_dir_exists() {
     local dir="$1"
 
-    local rv=
+    local rv=-1
     if [ -d "$dir" ]; then
-	rv=0
-    else
 	rv=1
+    else
+	rv=0
     fi
 
-#    p6_debug__dir "exists(): $dir -> $rv"
+    p6_debug__dir "exists(): $dir -> $rv"
 
     p6_return_bool "$rv"
 }

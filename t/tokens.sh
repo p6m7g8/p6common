@@ -10,19 +10,17 @@ main() {
     . ../p6test/lib/api.sh
 
     . lib/io.sh
+    . lib/string.sh
     . lib/tokens.sh
 
-    p6_test_setup "12"
+    p6_test_setup "15"
 
     p6_test_start "p6_hash"
     (
 	p6_test_run "p6_hash"
-	p6_test_assert_run_ok "success return code" "needs str=string"
-	p6_test_assert_blank "$(p6_test_run_stdout)" "no stdout"
-	p6_test_assert_blank "$(p6_test_run_stderr)" "no stderr"
+	p6_test_assert_run_ok "no arg: needs str=string"
 
 	p6_test_run "p6_hash 'foo'"
-	p6_test_assert_run_ok "success return code"
 	p6_test_assert_blank "$(p6_test_run_stderr)" "no stderr"
 	p6_test_assert_eq "$(p6_test_run_stdout)" "d3b07384d113edec49eaa6238ad5ff00" "expected hash"
     )
@@ -31,7 +29,7 @@ main() {
     p6_test_start "p6_token()"
     (
 	p6_test_run "p6_token"
-	p6_test_assert_blank "$(p6_test_run_stdout)" "no stdout"
+	p6_test_assert_run_ok "no arg"
 
 	p6_test_run "p6_token 64"
 	p6_test_assert_contains "$(p6_test_run_stdout)" "[0-9a-zA-Z]*" "well formed token"
@@ -42,7 +40,7 @@ main() {
     p6_test_start "p6_mkpasswd()"
     (
 	p6_test_run "p6_mkpasswd"
-	p6_test_assert_blank "$(p6_test_run_stdout)" "no stdout"
+	p6_test_assert_run_ok "no arg"
 
 	p6_test_run "p6_mkpasswd 64"
 	p6_test_assert_contains "$(p6_test_run_stdout)" "[0-9a-zA-Z]*" "well formed passwd"

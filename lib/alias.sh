@@ -23,22 +23,11 @@ p6_alias() {
     local from="$1"
     local to="$2"
 
-    echo "from=[$from], to=[$to]"
+    p6_debug__alias "alias(): $from -> $to"
 
-#    p6_debug__alias "alias(): $from=$to"
-
-#    if p6_string_blank "$to"; then
-#	echo "here"
-#	local a=$(alias |grep $from)
-#	p6_return "$a"
-#    else
-#	echo "to not blank"
-#	if ! p6_string_blank "$from"; then
-#	    echo "neither blank"
-    alias $from=$to
-#	else
-#	    echo "from is blank"
-#	    alias
-#	fi
-#   fi
+    if ! p6_string_blank "$to"; then
+	if ! p6_string_blank "$from"; then
+	    alias $from="$to"
+	fi
+    fi
 }

@@ -8,9 +8,13 @@ p6_string_blank() {
     local string="$1"
 
     local rv=-1
-    [ -z "$string" ] && rv=1 || rv=0
+    if [ -z "$string" ]; then
+	rv=0
+    else
+	rv=1
+    fi
 
-#    p6_string__debug "blank(): [$string] -> $rv"
+    p6_string__debug "blank(): [$string] -> $rv"
 
-    p6_return_bool "$rv"
+    p6_return_bool $rv
 }

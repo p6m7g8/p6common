@@ -12,12 +12,11 @@ main() {
     . lib/io.sh
     . lib/dt.sh
 
-    p6_test_setup "12"
+    p6_test_setup "8"
 
     p6_test_start "p6_dt_now_epoch_seconds()"
     (
 	p6_test_run "p6_dt_now_epoch_seconds"
-	p6_test_assert_run_ok "success return code"
 	p6_test_assert_blank "$(p6_test_run_stderr)" "no stderr"
 	p6_test_assert_contains "$(p6_test_run_stdout)" "1[0-9]*" "epoc seconds"
     )
@@ -26,7 +25,6 @@ main() {
     p6_test_start "p6_dt_now()"
     (
 	p6_test_run "p6_dt_now"
-	p6_test_assert_run_ok "success return code"
 	p6_test_assert_blank "$(p6_test_run_stderr)" "no stderr"
 	p6_test_assert_contains "$(p6_test_run_stdout)" "20[1-9][0-9][0-9][0-9][0-9][0-9]" "ymd"
     )
@@ -35,7 +33,6 @@ main() {
     p6_test_start "p6_dt_yesterday()"
     (
 	p6_test_run "p6_dt_yesterday"
-	p6_test_assert_run_ok "success return code"
 	p6_test_assert_blank "$(p6_test_run_stderr)" "no stderr"
 	p6_test_assert_contains "$(p6_test_run_stdout)" "20[1-9][0-9][0-9][0-9][0-9][0-9]" "ymd"
     )
@@ -44,7 +41,6 @@ main() {
     p6_test_start "p6_dt_tomorrow()"
     (
 	p6_test_run "p6_dt_tomorrow"
-	p6_test_assert_run_ok "success return code"
 	p6_test_assert_blank "$(p6_test_run_stderr)" "no stderr"
 	p6_test_assert_contains "$(p6_test_run_stdout)" "20[1-9][0-9][0-9][0-9][0-9][0-9]" "ymd"
     )

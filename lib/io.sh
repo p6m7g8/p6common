@@ -14,12 +14,12 @@ p6_verbose() {
     local level="$1"
     shift
 
-    VERBOSE=${VERBOSE:-0}
-    [ $VERBOSE -ne 0 -a \( $level -gt $VERBOSE -o $level -eq $VERBOSE \) ] && p6_msg "$@"
+    P6_VERBOSE=${P6_VERBOSE:-0}
+    [ $VERBOSE -ne 0 -a \( $level -gt $P6_VERBOSE -o $level -eq $P6_VERBOSE \) ] && p6_msg "$@"
 }
 
 p6_debug() {
-    [ -n "$DEBUG" ] && p6_msg "$@" >> /tmp/p6.log
+    [ -n "$P6_DEBUG" ] && p6_msg "$@" >> /tmp/p6.log
 }
 
 p6_die() {
@@ -63,7 +63,7 @@ p6_h5() {
 p6_log_and_run() {
     local cmd="$1"
 
-    if [ -n "${DRY_RUN}" ]; then
+    if [ -n "${P6_DRY_RUN}" ]; then
 	p6_log "$cmd" | perl -p -e "s, , \\\\\n\t,g"
     fi
     eval "$cmd"
@@ -72,7 +72,7 @@ p6_log_and_run() {
 p6_log_or_run() {
     local cmd="$*"
 
-    if [ -n "${DRY_RUN}" ]; then
+    if [ -n "${P6_DRY_RUN}" ]; then
 	p6_log "$cmd" | perl -p -e "s, , \\\\\n\t,g"
     else
 	eval "$cmd"

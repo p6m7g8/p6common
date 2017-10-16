@@ -11,30 +11,27 @@ main() {
 
     . lib/io.sh
     . lib/alias.sh
+    . lib/string.sh
 
-    p6_test_setup "6"
+    p6_test_setup "12"
 
     p6_test_start "p6_alias"
     (
 	p6_test_run "p6_alias"
-	p6_test_assert_run_ok "no arg:  success return code"
-	p6_test_assert_blank "$(p6_test_run_stdout)" "no arg:  no stdout"
-	p6_test_assert_blank "$(p6_test_run_stderr)" "no arg:  no stderr"
+	p6_test_assert_run_ok "no arg"
 
-	p6_test_run "p6_alias" "from"
-	p6_test_assert_run_ok "one arg: success return code"
-	p6_test_assert_blank "$(p6_test_run_stdout)" "one arg: no stdout"
-	p6_test_assert_blank "$(p6_test_run_stderr)" "one arg: no stderr"
+	p6_test_run "p6_alias" "A"
+	p6_test_assert_run_ok "one arg"
 
-	p6_test_run "p6_alias" "pmg" "echo 777"
-	p6_test_assert_run_ok "success return code"
-	p6_test_assert_blank "$(p6_test_run_stdout)" "no stdout"
+	p6_test_run "p6_alias" "B" "'echo 777'"
+	p6_test_assert_run_ok "two args"
+
+	p6_test_run "B"
+	p6_test_assert_eq "$(p6_test_run_stdout)" "777" "alias works"
 	p6_test_assert_blank "$(p6_test_run_stderr)" "no stderr"
 
-	p6_test_run "pmg"
-	p6_test_assert_run_ok "success return code"
-	p6_test_assert_blank "$(p6_test_run_stdout)" "no stdout"
-	p6_test_assert_blank "$(p6_test_run_stderr)" "no stderr"
+	p6_test_run "p6_alias" "B"
+	p6_test_todo "$(p6_test_run_stdout)" "'echo 777'" "find alias" "not impl"
     )
     p6_test_finish
 

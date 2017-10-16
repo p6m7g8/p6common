@@ -25,9 +25,9 @@ p6_dir_exists() {
 
     local rv=-1
     if [ -d "$dir" ]; then
-	rv=1
-    else
 	rv=0
+    else
+	rv=1
     fi
 
     p6_debug__dir "exists(): $dir -> $rv"

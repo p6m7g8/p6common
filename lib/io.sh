@@ -1,5 +1,10 @@
-p6_msg() {
+p6_echo() {
+
     echo "$@"
+}
+
+p6_msg() {
+    p6_echo "$@"
 }
 
 p6_log() {
@@ -19,7 +24,7 @@ p6_verbose() {
 }
 
 p6_debug() {
-    [ -n "$P6_DEBUG" ] && p6_msg "$@" >> /tmp/p6.log
+    [ -n "$P6_DEBUG" ] && p6_msg "$@"
 }
 
 p6_die() {
@@ -88,9 +93,4 @@ p6_return_bool() {
 p6_return() {
 
     p6_echo "$@"
-}
-
-p6_echo() {
-
-    echo "$@"
 }

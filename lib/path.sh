@@ -8,10 +8,12 @@ p6_path_if() {
     local dir=$1
 
     if p6_dir_exists "$dir"; then
-	PATH=$(p6_append "$PATH" "$dir" ":")
+	PATH=$(p6_string_append "$PATH" "$dir" ":")
 	p6_debug__path "if(): $dir appended to PATH "
+	p6_return_bool "0"
     else
 	p6_debug__path "if(): $dir DNE, NOT appended to PATH"
+	p6_return_bool "1"
     fi
 }
 

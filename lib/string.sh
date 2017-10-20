@@ -18,3 +18,7 @@ p6_string_blank() {
 
     p6_return_bool $rv
 }
+
+p6_string_append() {
+    true
+}

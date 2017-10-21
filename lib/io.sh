@@ -93,4 +93,5 @@ p6_return_bool() {
 p6_return() {
 
     p6_echo "$@"
+    return
 }

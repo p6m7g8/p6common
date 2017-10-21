@@ -2,22 +2,31 @@ p6_transient_create() {
     local dir_name="$1"
     local len="${2:-4}"
 
-    local rand=$(p6_mkpasswd $len)
-    dir_name=${TMPDIR:-/tmp}/transients/$dir_name/$rand
+    if p6_string_blank "$dir_name"; then
+	p6_return ""
+    else
+	local rand
+	if [ -n "$P6_TEST_TRANSIENT_CREATE_RAND" ]; then
+	    rand=TEST_MODE
+	else
+	    rand=$(p6_mkpasswd "$len")
+	fi
 
-    p6_debug "p6_misc: transient_create(): $dir_name [$len]"
+	dir_name=$P6_DIR_TRANSIENTS/$dir_name/$rand
 
-#    if p6_dir_exists "$dir_name"; then
-#	local es=$(p6_dt_now_epoch_seconds)
-#	dir_name="$dir_name.$es"
-#    fi
+	if p6_dir_exists "$dir_name"; then
+	    p6_return ""
+	else
+	    p6_debug "p6_misc: transient_create(): $dir_name [$len]"
+	    p6_dir_mk "$dir_name"
+	    p6_transient__log "$dir_name"
 
-    p6_dir_mk "$dir_name"
-    p6_transient_log "$dir_name"
-
-    echo $dir_name
+	    p6_return "$dir_name"
+	fi
+    fi
 }
 
+# Have a good reason to call this yourself
 p6_transient_delete() {
     local dir="$1"
 
@@ -26,21 +35,19 @@ p6_transient_delete() {
 }
 
 ## Internal Only
-p6_transient_cleanup() {
+p6_transient__cleanup() {
 
     local dir
-    local file=${TMPDIR:-/tmp}/transients/p6.$$.tmp
-
-    for dir in $(cat ${TMPDIR:-/tmp}/transients/p6.$$.tmp); do
+    for dir in $(p6_file_display "$P6_TRANSIENT_LOG"); do
 	p6_transient_delete "$dir"
     done
 
-    exit 0
+    p6_die "$P6_TRUE" "# p6_transient__cleanup"
 }
-trap p6_transient_cleanup 0 1 2 3 6 14 15
+trap p6_transient__cleanup 0 1 2 3 6 14 15
 
-p6_transient_log() {
+p6_transient__log() {
     local dir="$1"
 
-    echo "$dir" >> ${TMPDIR:-/tmp}/transients/p6.$$.tmp
+    p6_file_append "$P6_TRANSIENT_LOG" "$dir"
 }

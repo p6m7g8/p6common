@@ -64,13 +64,16 @@ p6_file_repalce() {
 p6_file_exists() {
     local file="$1"
 
-    if [ -e $file ]; then
-	p6_debug__file "exists(): $file: -e "
-	echo 1
+    local rv=-1
+    if [ -r "$file" ]; then
+	rv=0
     else
-	p6_debug__file "exists(): $file: DNE "
-	echo 0
+	rv=1
     fi
+
+    p6_debug__file "exists(): $file -> $rv"
+
+    p6_return_bool "$rv"
 }
 
 p6_file_display() {

@@ -32,7 +32,8 @@ main() {
 	p6_test_assert_run_ok "1: not blank" 1
 
 	p6_test_run "p6_string_blank" -
-	p6_test_assert_run_ok "-: not blank" 0
+	p6_test_assert_run_ok "-: not blank" 1
+
 
 	p6_test_run "p6_string_blank" -1
 	p6_test_assert_run_ok "-1: not blank" 1

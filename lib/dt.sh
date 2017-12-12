@@ -24,10 +24,24 @@ p6_dt_now() {
 
 p6_dt_yesterday() {
 
-    p6_dt__date "-v -1d +%Y%m%d"
+    local fmt=
+    local os_name=$(p6_os_name)
+    case $os_name in
+	Darwin|BSD) fmt="-v -1d +%Y%m%d"    ;;
+	*) fmt="--date '1 day ago +%Y%m%d" ;;
+    esac
+
+    p6_dt__date "$fmt"
 }
 
 p6_dt_tomorrow() {
 
-    p6_dt__date "-v +1d +%Y%m%d"
+    local fmt=
+    local os_name=$(p6_os_name)
+    case $os_name in
+	Darwin|BSD) fmt="-v +1d +%Y%m%d"    ;;
+	*) fmt="--date '1 day +%Y%m%d" ;;
+    esac
+
+    p6_dt__date "$fmt"
 }

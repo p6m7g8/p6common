@@ -80,7 +80,9 @@ p6_file_display() {
     local file="$1"
 
     p6_debug__file "display(): cat $file"
-    cat $file
+    if p6_file_exists "$file"; then
+	cat $file
+    fi
 }
 
 p6_file_create() {

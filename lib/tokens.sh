@@ -3,7 +3,11 @@ p6_hash() {
 
     local hashed=
     if ! p6_string_blank "$string"; then
-	hashed=$(echo "$string" | md5)
+	if command -v md5 >/dev/null 2>&1; then
+	    hashed=$(echo "$string" | md5)
+        else
+	    hashed=$(echo "$string" | md5sum)
+        fi 
     fi
 
     p6_return "$hashed"

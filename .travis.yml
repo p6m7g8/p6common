@@ -1,4 +1,3 @@
-
 language:	bash
 
 git.checkout:	true

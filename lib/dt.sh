@@ -19,7 +19,7 @@ p6_dt__date() {
 	    Darwin|BSD) oft_flag="-v" ; oft_val="${oft}d" ;;
 	    *)          oft_flag="--date"  ; oft_val="${oft} day ago" ;;
 	esac
-	dt=$(gdate $fmt $oft)
+	dt=$(date $fmt $oft)
     fi
 
     p6_return "$dt"

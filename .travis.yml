@@ -3,6 +3,7 @@ language:	bash
 git.checkout:	true
 
 before_script:
+    - find .
     - /bin/sh bin/deps.sh
 
 script:	

@@ -24,7 +24,8 @@ p6_verbose() {
 }
 
 p6_debug() {
-    [ -n "$P6_DEBUG" ] && p6_msg "$@"
+    #    [ -n "$P6_DEBUG" ] && p6_msg "$@"
+    p6_msg "$@" >> /tmp/p6.log
 }
 
 p6_die() {

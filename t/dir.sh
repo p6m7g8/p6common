@@ -35,8 +35,8 @@ main() {
 	p6_test_run "p6_dir_exists" "/nonexistent"
 	p6_test_assert_run_ok "/nonexistent: dne" 1
 
-	p6_test_run "p6_dir_exists" "$HOME"
-	p6_test_assert_run_ok "$HOME is -d"
+	p6_test_run "p6_dir_exists" "."
+	p6_test_assert_run_ok ". is -d"
     )
     p6_test_finish
 

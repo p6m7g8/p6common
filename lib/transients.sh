@@ -44,7 +44,7 @@ p6_transient__cleanup() {
 
     p6_die "$P6_TRUE" "# p6_transient__cleanup"
 }
-trap p6_transient__cleanup 0 1 2 3 6 14 15
+#trap p6_transient__cleanup 0 1 2 3 6 14 15
 
 p6_transient__log() {
     local dir="$1"

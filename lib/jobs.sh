@@ -32,25 +32,6 @@ p6_run_serial() {
     done
 }
 
-p6_run_and_log() {
-    local cmd="$1"
-
-    if [ -n "${DRY_RUN}" ]; then
-	p6_log "$cmd" | perl -p -e "s, , \\\\\n\t,g"
-    fi
-    eval "$cmd"
-}
-
-p6_run_or_log() {
-    local cmd="$*"
-
-    if [ -n "${DRY_RUN}" ]; then
-	p6_log "$cmd" | perl -p -e "s, , \\\\\n\t,g"
-    else
-	eval "$cmd"
-    fi
-}
-
 p6_run_if_not_in() {
     local script="${1%.sh}"
     local skip_list="$2"

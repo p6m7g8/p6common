@@ -4,6 +4,20 @@ p6_debug__dir() {
     p6_debug "p6_dir: $msg"
 }
 
+p6_dir_load() {
+    local dirs="$@"
+
+    p6_debug__dir "load(): $dirs"
+
+    local dir
+    for dir in $dirs; do
+        local children=$(p6_dirs_list $dirs)
+        for child in $(echo $children); do
+            P6_DEBUG=1 p6_file_load "$dir/$child"
+        done
+    done
+}
+
 p6_dirs_list() {
     local dirs="$@"
 
@@ -11,13 +25,15 @@ p6_dirs_list() {
 
     local dir
     for dir in $dirs; do
-	if [ -d $dir ]; then
-	    local children=$(cd $dir ; ls -1)
+        if p6_dir_exists "$dir"; then
+	    local children=$(cd $dir ; ls -1 | xargs)
 	    p6_debug__dir "list(): collecting $dir -> [$children]"
 	else
 	    p6_debug__dir "list(): $dir DNE"
 	fi
     done
+
+    echo $children
 }
 
 p6_dir_exists() {

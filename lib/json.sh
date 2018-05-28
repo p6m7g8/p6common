@@ -9,14 +9,13 @@ p6_json_key_2_value() {
     local file="$2"
 
     p6_debug__json "key_2_value(): $key $file"
-    if [ x"$file" = x"-" ]; then
-	file=""
-    else
-	file="< $file"
-    fi
-
-    local val=$(awk -v k=$key '$1 ~ k { print $2 }' $file | sed -e 's/[",:]//g' | head -1)
-
+    local val=$(
+        if [ x"$file" = x"-" ]; then
+            awk -v k=$key '$1 ~ k { print $2 }' | sed -e 's/[",:]//g' | head -1
+        else
+            awk -v k=$key '$1 ~ k { print $2 }' $file | sed -e 's/[",:]//g' | head -1
+        fi
+    )
     p6_debug__json "key_2_value(): $val"
 
     echo $val
@@ -27,14 +26,14 @@ p6_json_value_2_key() {
     local file="$2"
 
     p6_debug__json "key_2_value(): $key $file"
-    if [ x"$file" = x"-" ]; then
-	file=""
-    else
-	file="< $file"
-    fi
 
-    local val=$(awk -v k=$key '$2 ~ k { print $1 }' $file | sed -e 's/[",:]//g')
-
+    local val=$(
+        if [ x"$file" = x"-" ]; then
+            awk -v k=$key '$2 ~ k { print $1 }' | sed -e 's/[",:]//g'
+        else
+            awk -v k=$key '$2 ~ k { print $1 }' $file | sed -e 's/[",:]//g'
+        fi
+    )    
     p6_debug__json "key_2_value(): $val"
 
     echo $val

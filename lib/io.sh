@@ -67,7 +67,7 @@ p6_h5() {
 }
 
 p6_log_and_run() {
-    local cmd="$1"
+    local cmd="$@"
 
     if [ -n "${P6_DRY_RUN}" ]; then
 	p6_log "$cmd" | perl -p -e "s, , \\\\\n\t,g"
@@ -76,7 +76,7 @@ p6_log_and_run() {
 }
 
 p6_log_or_run() {
-    local cmd="$*"
+    local cmd="$@"
 
     if [ -n "${P6_DRY_RUN}" ]; then
 	p6_log "$cmd" | perl -p -e "s, , \\\\\n\t,g"

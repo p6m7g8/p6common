@@ -14,5 +14,3 @@ p6df::modules::p6common::init() {
         P6_DEBUG=1 p6_file_load "$file"
     done
 }
-
-p6df::modules::p6common::init

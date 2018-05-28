@@ -46,3 +46,9 @@ p6_dt_tomorrow() {
     local fmt="+%Y%m%d"
     p6_dt__date "$fmt" "1"
 }
+
+p6_dt_mtime() {
+    local file="$1"
+
+    command stat -f "%m" $file
+}

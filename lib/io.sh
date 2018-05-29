@@ -8,7 +8,7 @@ p6_msg() {
 }
 
 p6_log() {
-    p6_msg "$@"
+    p6_msg "$@" >> /tmp/p6.log
 }
 
 p6_error() {

@@ -11,7 +11,7 @@ p6_color_say() {
        tput setab "$code_bg"
     fi
     p6_msg "$msg\c"
-     if [ -z "$P6_TEST_COLOR_OFF" ]; then
+    if [ -z "$P6_TEST_COLOR_OFF" ]; then
        tput sgr0
     fi
     ps_msg
@@ -35,6 +35,10 @@ p6_color_to_code() {
 
     p6_return $code
 }
+p6_color_opacity_factor() {
+
+    p6_return "0.0"
+}
 
 p6_color_name_to_rgb() {
     local name="$1"
@@ -56,7 +60,6 @@ p6_color_name_to_rgb() {
 	brown)    rgb="542323" ;;
 	black)    rgb="000000" ;;
 	white)    rgb="ffffff" ;;
-	opacity)  rgb="0.0"    ;;
     esac
 
     p6_return $rgb
@@ -71,8 +74,8 @@ p6_color_hex_to_rgb() {
     local b=$(echo $hex | sed 's/../0x&,/g' | awk -F "," '{printf("%d",$3 * 257)}')
 
     case $ord in
-        r) p6_return $r ;;
-        g) p6_return $g ;;
-        b) p6_return $b ;;
+	r) p6_return $r ;;
+	g) p6_return $g ;;
+	b) p6_return $b ;;
     esac
 }

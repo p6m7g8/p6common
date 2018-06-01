@@ -97,14 +97,14 @@ p6_file_write() {
     local contents="$2"
 
     p6_debug__file "write(): $contents -> $file"
-    echo "$contents" > $file
+    p6_echo "$contents" > $file
 }
 
 p6_file_append() {
     local file="$1"
     local contents="$2"
 
-    echo "$contents" >> $file
+    p6_echo "$contents" >> $file
 }
 
 p6_file_ma_sync() {
@@ -135,7 +135,7 @@ p6_file_cascade() {
 	    p6_debug__file "cascade(): Checking: $path/$cmd"
 	    if [ -f "$path/$cmd" ]; then
 		p6_debug__file "cascade(): Found: $path/$cmd"
-		echo "$path/$cmd"
+		p6_echo "$path/$cmd"
 		break 2
 	    fi
 	else
@@ -144,7 +144,7 @@ p6_file_cascade() {
 		p6_debug__file "cascade(): [$ext] Checking: $path/$cmd$ext"
 		if [ -f "$path/$cmd$ext" ]; then
 		    p6_debug__file "cascade(): [$ext] Found: $path/$cmd$ext"
-		    echo "$path/$cmd$ext"
+		    p6_echo "$path/$cmd$ext"
 		    break 2
 		fi
 	    done

@@ -69,20 +69,26 @@ p6_h5() {
 p6_log_and_run() {
     local cmd="$@"
 
-    if [ -n "${P6_DRY_RUN}" ]; then
+#    if [ -n "${P6_DRY_RUN}" ]; then
 	p6_log "$cmd" | perl -p -e "s, , \\\\\n\t,g"
-    fi
-    eval "$cmd"
+#    fi
+#    eval "$cmd"
 }
 
 p6_log_or_run() {
     local cmd="$@"
 
-    if [ -n "${P6_DRY_RUN}" ]; then
+#    if [ -n "${P6_DRY_RUN}" ]; then
 	p6_log "$cmd" | perl -p -e "s, , \\\\\n\t,g"
-    else
-	eval "$cmd"
-    fi
+#    else
+#	eval "$cmd"
+#    fi
+}
+
+p6_return_int() {
+  local int="$1"
+
+  return $int
 }
 
 p6_return_bool() {

@@ -53,6 +53,13 @@ p6_file_contains() {
     grep "$pattern" $file
 }
 
+p6_file_line_delete_last() {
+    local file="$1"
+
+    p6_debug__file "line_delete_last(): sed -i '' -e '$d' $file"
+    sed -i '' -e '$d' $file
+}
+
 p6_file_repalce() {
     local file="$1"
     local sed_cmd="$2"

@@ -7,11 +7,9 @@ p6_debug__file() {
 p6_file_load() {
     local file="$1"
 
-    if [ -r $file ]; then
-	p6_debug__file "load(): -r $file"
+    if p6_file_exists "$file"; then
+	p6_debug__file "load(): $file"
 	. $file
-    else
-	p6_debug__file "load(): $file DNE"
     fi
 }
 
@@ -72,12 +70,7 @@ p6_file_exists() {
     local file="$1"
 
     local rv=-1
-    if [ -r "$file" ]; then
-	rv=0
-    else
-	rv=1
-    fi
-
+    [ -r "$file" ] && rv=0 || rv=1
     p6_debug__file "exists(): $file -> $rv"
 
     p6_return_bool "$rv"
@@ -138,21 +131,19 @@ p6_file_cascade() {
     # Search
     local path
     for path in "$@"; do
-	if [ -z "${exts}" ]; then
+	if ! p6_string_blank "${exts}"; then
 	    p6_debug__file "cascade(): Checking: $path/$cmd"
-	    if [ -f "$path/$cmd" ]; then
+	    if p6_file_exists "$path/$cmd"; then
 		p6_debug__file "cascade(): Found: $path/$cmd"
-		p6_echo "$path/$cmd"
-		break 2
+		p6_return "$path/$cmd"
 	    fi
 	else
 	    local ext
 	    for ext in $exts ''; do
 		p6_debug__file "cascade(): [$ext] Checking: $path/$cmd$ext"
-		if [ -f "$path/$cmd$ext" ]; then
+		if p6_file_exists "$path/$cmd$ext"; then
 		    p6_debug__file "cascade(): [$ext] Found: $path/$cmd$ext"
-		    p6_echo "$path/$cmd$ext"
-		    break 2
+		    p6_return "$path/$cmd$ext"
 		fi
 	    done
 	fi

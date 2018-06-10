@@ -3,10 +3,10 @@ p6_pgs() {
     find . -type f | xargs perl -pi -e "s,$1,$2,g"
 }
 
-p6_pslen() {
+p6_len() {
     local s="$1"
 
-    perl -le "print length '$s'"
+    p6_return "${#s}"
 }
 
 p6_xclean() {

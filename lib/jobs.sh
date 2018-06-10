@@ -4,6 +4,24 @@ p6_run__debug() {
     p6_debug "p6_run: $msg"
 }
 
+p6_run_retry() {
+    local stop="$1"
+    local fail="$2"
+    local func="$3"
+    shift 3
+
+    p6_dryruning && p6_return
+
+    local i=1
+    while [ : ]; do
+	local status=$($func "$@")
+	$($stop "$status" "$@")
+	i=$(p6_retry_delay_doubling "$i")
+    done
+
+    p6_retun "$status"
+}
+
 p6_run_parallel() {
     local i="$1"
     local parallel="$2"
@@ -39,12 +57,11 @@ p6_run_if_not_in() {
     local item
     for item in $(echo $skip_list); do
 	if [ "$item" = "$script" ]; then
-	    echo 0
-	    return
+	    p6_return_bool 0
 	fi
     done
 
-    echo 1
+    p6_return_bool 1
 }
 
 p6_run_script() {
@@ -56,8 +73,7 @@ p6_run_script() {
     local arg_list="$6"
     shift 6
 
-    local file=$(file_cascade "${cmd}" "${exts}" $@)
+    local file=$(p6_file_cascade "${cmd}" "${exts}" $@)
     p6_run_debug "run(): $file"
-    p6_debug "Run: [$file]"
     env -i ${cmd_env} ${shell} ${set_flags} ${file} $arg_list
 }

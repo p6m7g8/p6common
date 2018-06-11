@@ -13,6 +13,6 @@ p6df::modules::p6common::init() {
 
     local file
     for file in $dir/lib/*.sh; do
-	P6_DEBUG=1 p6_file_load "$file"
+	 p6_file_load "$file"
     done
 }

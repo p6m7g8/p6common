@@ -13,7 +13,7 @@ p6_dir_load() {
     for dir in $dirs; do
         local children=$(p6_dirs_list $dirs)
         for child in $(echo $children); do
-            P6_DEBUG=1 p6_file_load "$dir/$child"
+             p6_file_load "$dir/$child"
         done
     done
 }

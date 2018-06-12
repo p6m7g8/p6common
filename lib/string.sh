@@ -22,3 +22,9 @@ p6_string_blank() {
 p6_string_append() {
     true
 }
+
+p6_string_init_cap() {
+    local str="$1"
+
+    echo $str | awk '{for(i=1;i<=NF;i++){ $i=toupper(substr($i,1,1)) substr($i,2) }}1'
+}

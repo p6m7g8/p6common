@@ -3,7 +3,7 @@ p6df::modules::p6common::deps()    { }
 p6df::modules::p6common::external::brew() { }
 
 p6df::modules::p6common::init() {
-    local dir=$P6_DFZ_DATA_PARENT/p6m7g8/p6common
+    local dir=$P6_DFZ_DATA_DIR/p6m7g8/p6common
 
     . $dir/lib/io.sh
     . $dir/lib/debug.sh

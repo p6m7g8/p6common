@@ -3,16 +3,20 @@ p6df::modules::p6common::deps()    { }
 p6df::modules::p6common::external::brew() { }
 
 p6df::modules::p6common::init() {
-    local dir=$P6_DFZ_DATA_DIR/p6m7g8/p6common
 
-    . $dir/lib/io.sh
-    . $dir/lib/debug.sh
-    . $dir/lib/string.sh
-    . $dir/lib/file.sh
+  p6_init $P6_DFZ_SRC_DIR/p6m7g8/p6common
+}
 
+p6_init() {
+  local dir="$1"
 
-    local file
-    for file in $dir/lib/*.sh; do
-	 p6_file_load "$file"
-    done
+  . $dir/lib/io.sh
+  . $dir/lib/debug.sh
+  . $dir/lib/string.sh
+  . $dir/lib/file.sh
+
+  local file
+  for file in $dir/lib/*.sh; do
+    P6_DEBUG=1 p6_file_load "$file"
+  done
 }

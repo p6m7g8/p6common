@@ -4,7 +4,7 @@ p6_openssl_req_509() {
     local cert_exp="$3"
     local cert_subject="$4"
 
-    p6_log_and_run openssl req -new -x509 -key $key_file -out $crt_file -days $cert_days -subj $cert_subject
+    p6_log_and_run openssl req -new -x509 -key $key_file -out $crt_file -days $cert_exp -subj $cert_subject
 }
 
 p6_openssl_genrsa() {
@@ -28,4 +28,3 @@ p6_openssl_b64() {
 
     p6_log_and_run openssl enc -base64
 }
-

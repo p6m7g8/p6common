@@ -1,7 +1,4 @@
 p6df::modules::p6common::version()        { echo "0.0.1"; }
-p6df::modules::p6common::deps()           { true; }
-p6df::modules::p6common::external::brew() { true; }
-p6df::modules::p6common::home::symlink()  { true; }
 
 p6df::modules::p6common::init() {
 

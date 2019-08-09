@@ -28,3 +28,8 @@ p6_openssl_b64() {
 
     p6_log_and_run openssl enc -base64
 }
+
+p6_openssl_b64_d() {
+
+    p6_log_and_run openssl enc -base64 -d
+}

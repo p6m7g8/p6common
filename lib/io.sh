@@ -103,7 +103,7 @@ p6_h5() {
 p6_log_and_run() {
     local cmd="$@"
 
-    if p6_dryruning; then
+    if p6_debug; then
 	p6_log "$cmd" | perl -p -e "s, , \\\\\n\t,g"
     fi
     eval "$cmd"

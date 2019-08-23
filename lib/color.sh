@@ -88,13 +88,13 @@ p6_color_hex_to_d16b() {
     local hex="$1"
     local ord="$2"
 
-    local a=$(echo $hex | sed 's/../&,/g' | awk -F "," '{ print $1 }')
-    local b=$(echo $hex | sed 's/../&,/g' | awk -F "," '{ print $2 }')
-    local c=$(echo $hex | sed 's/../&,/g' | awk -F "," '{ print $3 }')
+    local i=$(echo $hex | sed 's/../&,/g' | awk -F "," '{ print $1 }')
+    local j=$(echo $hex | sed 's/../&,/g' | awk -F "," '{ print $2 }')
+    local k=$(echo $hex | sed 's/../&,/g' | awk -F "," '{ print $3 }')
 
-    local r=$(echo "ibase=16; $a" | bc -q)
-    local g=$(echo "ibase=16; $b" | bc -q)
-    local b=$(echo "ibase=16; $c" | bc -q)
+    local r=$(echo "ibase=16; $i" | bc -q)
+    local g=$(echo "ibase=16; $j" | bc -q)
+    local b=$(echo "ibase=16; $k" | bc -q)
 
     local dr=$(($r*257))
     local dg=$(($g*257))

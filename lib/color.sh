@@ -62,20 +62,47 @@ p6_color_name_to_rgb() {
 	white)    rgb="ffffff" ;;
     esac
 
+    rgb=$(echo $rgb | tr '[a-z]' '[A-Z]')
+
     p6_return $rgb
 }
 
-p6_color_hex_to_rgb() {
+##############################################################################
+# Notation -- RGB triplet (red)
+#
+# 1- Arithmetic                 -- (1.0, 0.0, 0.0)
+# 2- Percentage                 -- (100%, 0%, 0%)
+# 3- Digital 8-bit per channel  -- (255, 0, 0) or sometimes #FF0000 (hexadecimal)
+# 4- Digital 16-bit per channel -- (65535, 0, 0)
+#
+# The component values are often stored as integer numbers in the range 0 to 255,
+# the range that a single 8-bit byte can offer. These are often represented as
+# either decimal or hexadecima#l numbers.
+#
+# Multiply the integer (standard RGB value) by 257 to get the value in Digital 16-bit
+# per channel (AppleScript)
+#
+# XXX: Input must be in CAPS
+##############################################################################
+p6_color_hex_to_d16b() {
     local hex="$1"
     local ord="$2"
 
-    local r=$(echo $hex | sed 's/../0x&,/g' | awk -F "," '{printf("%d",$1 * 257)}')
-    local g=$(echo $hex | sed 's/../0x&,/g' | awk -F "," '{printf("%d",$2 * 257)}')
-    local b=$(echo $hex | sed 's/../0x&,/g' | awk -F "," '{printf("%d",$3 * 257)}')
+    local a=$(echo $hex | sed 's/../&,/g' | awk -F "," '{ print $1 }')
+    local b=$(echo $hex | sed 's/../&,/g' | awk -F "," '{ print $2 }')
+    local c=$(echo $hex | sed 's/../&,/g' | awk -F "," '{ print $3 }')
+
+    local r=$(echo "ibase=16; $a" | bc -q)
+    local g=$(echo "ibase=16; $b" | bc -q)
+    local b=$(echo "ibase=16; $c" | bc -q)
+
+    local dr=$(($r*257))
+    local dg=$(($g*257))
+    local db=$(($b*257))
 
     case $ord in
-	r) p6_return $r ;;
-	g) p6_return $g ;;
-	b) p6_return $b ;;
+	r) p6_return $dr ;;
+	g) p6_return $dg ;;
+	b) p6_return $db ;;
     esac
 }

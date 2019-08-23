@@ -3,5 +3,5 @@
 p6_remote_ssh_do() {
   local host="$1"
 
-  p6_log_and_run ssh $host
+  p6_run_read_cmd ssh $host
 }

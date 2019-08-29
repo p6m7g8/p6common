@@ -17,4 +17,6 @@ p6_init() {
   for file in "$dir"/lib/*.sh; do
     p6_file_load "$file"
   done
+
+  p6_file_load "$dir/conf/defaults.conf"
 }

@@ -104,7 +104,7 @@ p6_h5() {
 p6_run_read_cmd() {
     local cmd="$@"
 
-    if p6_debug -o p6_verbose; then
+    if p6_debug || p6_verbose; then
 	p6_log "$cmd" | perl -p -e "s, , \\\\\n\t,g"
     fi
 

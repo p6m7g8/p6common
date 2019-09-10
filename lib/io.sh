@@ -142,15 +142,15 @@ p6_run_write_cmd() {
 #<
 ##############################################################################
 p6_return_int() {
-  local int="$1"
+    local int="$1"
 
-  return $int
+    return $int
 }
 
 ##############################################################################
 #>
 #
-# Replaces return of 0 or 1
+# Replaces return of 0 or 1 and works in tests or conditionals
 #
 #<
 ##############################################################################
@@ -162,12 +162,12 @@ p6_return_bool() {
 
 p6_return_true() {
 
-    p6_return_bool 0
+    p6_return_bool 1
 }
 
 p6_return_false() {
 
-    p6_return_bool 1
+    p6_return_bool 0
 }
 
 ##############################################################################

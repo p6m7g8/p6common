@@ -1,3 +1,5 @@
+#!/bin/sh
+
 p6_template_fill_in() {
     local infile="$1"
     local outfile="$2"

@@ -1,3 +1,5 @@
+#!/bin/sh
+
 p6_openssl_req_509() {
     local key_file="$1"
     local crt_file="$2"

@@ -1,3 +1,5 @@
+#!/bin/sh
+
 p6_transient_create() {
     local dir_name="$1"
     local len="${2:-4}"

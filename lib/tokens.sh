@@ -1,3 +1,5 @@
+#!/bin/sh
+
 p6_hash() {
     local string="$1"
 

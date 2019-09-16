@@ -1,3 +1,5 @@
+#!/bin/sh
+
 ##############################################################################
 #
 # These are intentionally global.  No global should exist without being

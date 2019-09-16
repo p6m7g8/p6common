@@ -1,3 +1,5 @@
+#!/bin/sh
+
 p6_lang_version() {
     local prefix="$1"
 

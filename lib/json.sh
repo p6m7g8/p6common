@@ -1,3 +1,5 @@
+#!/bin/sh
+
 p6_debug__json() {
     local msg="$1"
 

@@ -1,3 +1,5 @@
+#!/bin/sh
+
 p6_ssh_key_check() {
     local priv="$1"
     local test_pub="$2"

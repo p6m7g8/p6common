@@ -1,3 +1,5 @@
+#!/bin/sh
+
 p6_retry_delay_doubling() {
 
     p6_retry_delay "double" "$@"

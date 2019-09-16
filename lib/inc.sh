@@ -1,3 +1,5 @@
+#!/bin/sh
+
 p6_include__debug() {
     local msg="$1"
 

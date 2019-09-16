@@ -1,3 +1,5 @@
+#!/bin/sh
+
 ##############################################################################
 #
 # version_next() - Update version to specified or requested next one.

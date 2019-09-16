@@ -1,3 +1,5 @@
+#!/bin/sh
+
 p6_color_say() {
     local color_fg="$1"
     local color_bg="$2"

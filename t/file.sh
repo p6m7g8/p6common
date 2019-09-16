@@ -10,6 +10,7 @@ main() {
     . ../p6test/lib/api.sh
 
     . lib/io.sh
+    . lib/debug.sh
     . lib/file.sh
 
     p6_test_setup "21"
@@ -34,8 +35,8 @@ main() {
 	p6_test_run "p6_file_exists" "/nonexistent"
 	p6_test_assert_run_ok "/nonexistent: dne" 1
 
-	p6_test_run "p6_file_exists" "$HOME/README.md"
-	p6_test_assert_run_ok "$HOME/README.md is -r"
+	p6_test_run "p6_file_exists" "$P6_TEST_DIR_ORIG/README.md"
+	p6_test_assert_run_ok "Test file is -r per"
     )
     p6_test_finish
 

@@ -6,10 +6,10 @@ p6_transient_create() {
 	p6_return ""
     else
 	local rand
-	if [ -n "$P6_TEST_TRANSIENT_CREATE_RAND" ]; then
+	if ! p6_string_blank "$P6_TEST_TRANSIENT_CREATE_RAND"; then
 	    rand=TEST_MODE
 	else
-	    rand=$(p6_mkpasswd "$len")
+	    rand=$(p6_token "$len")
 	fi
 
 	dir_name=$P6_DIR_TRANSIENTS/$dir_name/$rand

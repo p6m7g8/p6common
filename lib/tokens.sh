@@ -18,7 +18,7 @@ p6_token() {
 
     local token
     if ! p6_string_blank "$len"; then
-	token=$(cat /dev/urandom | env LC_CTYPE=C tr -dc a-zA-Z0-9 | head -c $len)
+	token=$(cat /dev/urandom | LC_CTYPE=C tr -dc a-zA-Z0-9 | head -c $len)
     fi
 
     p6_return "$token"

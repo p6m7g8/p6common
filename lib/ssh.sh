@@ -46,7 +46,7 @@ p6_ssh_key_delete() {
     p6_run_write_cmd ssh-add -D $flag_K $key_file_priv
 }
 
-p6_ssh_pub_key_from_priv() {
+p6_ssh_key_pub_from_priv() {
     local key_file_priv="$1"
     local key_file_pub="${2:-${key_file_priv}.pub}"
 

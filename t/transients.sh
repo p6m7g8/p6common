@@ -11,6 +11,7 @@ main() {
 
     . lib/const.sh
     . lib/io.sh
+    . lib/debug.sh
     . lib/tokens.sh
     . lib/dir.sh
     . lib/file.sh

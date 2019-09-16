@@ -10,6 +10,7 @@ main() {
     . ../p6test/lib/api.sh
 
     . lib/io.sh
+    . lib/debug.sh
     . lib/string.sh
     . lib/dir.sh
     . lib/path.sh
@@ -37,10 +38,8 @@ main() {
 	p6_test_run "p6_path_if /nonexistent"
 	p6_test_assert_run_ok "/nonexistent" "1"
 
-	env |grep ^PATH
-	p6_test_run "PATH=/bin:/usr/bin p6_path_if $HOME/bin"
-	p6_test_assert_run_ok "$HOME/bin"
-	env |grep ^PATH
+	p6_test_run "PATH=/bin:/usr/bin p6_path_if $P6_TEST_DIR_ORIG/bin"
+	p6_test_assert_run_ok "$P6_TEST_DIR_ORIG/bin" "0"
     )
     p6_test_finish
 

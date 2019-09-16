@@ -10,6 +10,7 @@ main() {
     . ../p6test/lib/api.sh
 
     . lib/io.sh
+    . lib/debug.sh
     . lib/string.sh
     . lib/tokens.sh
 

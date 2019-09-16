@@ -36,5 +36,10 @@ p6_path_default() {
 
 p6_path_current() {
 
-    env | awk -F"=" '/^PATH=/ { print $2 }' | perl -F: -MData::Dumper -lane 'print Dumper \@F' | sed -e "s/[',]//g" | egrep -v '\]|\[' | grep /
+    env | \
+	awk -F"=" '/^PATH=/ { print $2 }' | \
+	perl -F: -MData::Dumper -lane 'print Dumper \@F' | \
+	sed -e "s/[',]//g" | \
+	egrep -v '\]|\[' | \
+	grep /
 }

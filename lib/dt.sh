@@ -1,6 +1,6 @@
 #!/bin/sh
 
-p6_debug__dt() {
+p6_dt__debug() {
     local msg="$1"
 
     p6_debug "p6_dt: $msg"
@@ -10,7 +10,7 @@ p6_dt__date() {
     local fmt="$1"
     local offset="$2"
 
-    p6_debug__dt "_date(): date \"$fmt\" \"$offset\""
+    p6_dt__debug "_date(): date \"$fmt\" \"$offset\""
 
     local dt
     if [ -z "$offset" ]; then
@@ -52,5 +52,5 @@ p6_dt_tomorrow() {
 p6_dt_mtime() {
     local file="$1"
 
-    command stat -f "%m" $file
+    stat -f "%m" $file
 }

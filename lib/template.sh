@@ -1,5 +1,11 @@
 #!/bin/sh
 
+p6_template__debug() {
+    local msg="$1"
+
+    p6_debug "p6_template: $msg"
+}
+
 p6_template_fill_in() {
     local infile="$1"
     local outfile="$2"
@@ -12,10 +18,10 @@ p6_template_fill_in() {
     IFS=^
     for sed_re in $(echo $@); do
 	if [ x"$q_flag" = x"no_quotes" ]; then
-	    p6_debug "N: sed -i ''  -e $sed_re $outfile"
+	    p6_template__debug "N: sed -i ''  -e $sed_re $outfile"
 	    sed -i '' -e $sed_re $outfile
 	else
-	    p6_debug "Q: sed -i ''  -e \"$sed_re\" $outfile"
+	    p6_template__debug "Q: sed -i ''  -e \"$sed_re\" $outfile"
 	    sed -i '' -e "$sed_re" $outfile
 	fi
     done
@@ -32,15 +38,15 @@ p6_template_fill_args() {
     local args
     local save_ifs=$IFS
     IFS=$split
-    for pair in $(echo $@); do
-	local k=$(echo $pair | cut -f 1 -d '=')
-	local v=$(echo $pair | cut -f 2- -d '=')
+    for pair in $(p6_echo $@); do
+	local k=$(p6_echo "$pair" | cut -f 1 -d '=')
+	local v=$(p6_echo "$pair" | cut -f 2- -d '=')
 
 	args="${args}s${sep}${mark}${k}${mark}${sep}${v}${sep}g^"
     done
     IFS=$save_ifs
 
-    echo $args | sed -e 's,\^$,,'
+    p6_echo "$args" | sed -e 's,\^$,,'
 }
 
 p6_template_process() {
@@ -55,5 +61,5 @@ p6_template_process() {
     p6_template_fill_in "$infile" "$outfile" "" "$fill_args"
     p6_file_display "$outfile"
 
-    p6_transient_delete "$outfile"
+    p6_transient_delete "$dir"
 }

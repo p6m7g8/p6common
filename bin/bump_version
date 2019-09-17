@@ -1,9 +1,0 @@
-#!/bin/sh
-
-main() {
-  load_config
-
-  version_bump "$@"
-}
-
-main "$@"

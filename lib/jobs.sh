@@ -6,6 +6,49 @@ p6_run__debug() {
     p6_debug "p6_run: $msg"
 }
 
+##############################################################################
+#>
+#
+# Log & 'linewrap' only if debugging
+#
+# Run
+#
+# READ
+#<
+##############################################################################
+p6_run_read_cmd() {
+    local cmd="$@"
+
+    if p6_debug || p6_verbose; then
+	p6_log "$cmd" | perl -p -e "s, , \\\\\n\t,g"
+    fi
+
+    eval "$cmd"
+}
+
+##############################################################################
+#>
+#
+# Log & 'linewrap' if debug or dryrun
+#
+#
+# WRITE
+#<
+##############################################################################
+p6_run_write_cmd() {
+    local cmd="$@"
+
+    if p6_dryruning; then
+	p6_log "$cmd" | perl -p -e "s, , \\\\\n\t,g"
+	# XXX: intentional no run
+    else
+	if p6_debugging; then
+	    p6_log "$cmd" | perl -p -e "s, , \\\\\n\t,g"
+	fi
+	eval "$cmd"
+    fi
+}
+
 p6_run_retry() {
     local stop="$1"
     local fail="$2"

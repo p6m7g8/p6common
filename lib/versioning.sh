@@ -1,8 +1,14 @@
 #!/bin/sh
 
+p6_version__debug() {
+    local msg="$1"
+
+    p6_debug "p6_version: $msg"
+}
+
 ##############################################################################
 #
-# version_next() - Update version to specified or requested next one.
+# p6_version_next() - Update version to specified or requested next one.
 #
 # Outputs the next_version for file=[conf/meta:version].
 #
@@ -19,7 +25,7 @@
 #     No sanity check is done on custom versions for next_version.
 #
 ##############################################################################
-version_next() {
+p6_version_next() {
     local next_version="$1"
     local file="${2:-conf/meta}"
 
@@ -27,11 +33,11 @@ version_next() {
       major|minor|patch|dev|alpha|beta|rc|release)
 	  local current_version=$(awk -F: '/version/ { print $2 }')
 
-	  local major=$(echo $current_version | cut -f 1 -d .)
-	  local minor=$(echo $current_version | cut -f 2 -d .)
-	  local patch=$(echo $current_version | cut -f 3 -d .)
+	  local major=$(p6_echo "$current_version" | cut -f 1 -d .)
+	  local minor=$(p6_echo "$current_version" | cut -f 2 -d .)
+	  local patch=$(p6_echo "$current_version" | cut -f 3 -d .)
 
-	  local extra=$(echo $current_version | cut -f 2 -d '-')
+	  local extra=$(p6_echo "$current_version" | cut -f 2 -d '-')
 
 	  case $next_version in
 	      major)
@@ -58,12 +64,12 @@ version_next() {
 	  ;;
     esac
 
-    echo $next_version
+    p6_return "$next_version"
 }
 
 ##############################################################################
 #
-# version_get() - Outputs the version in file=[conf/meta:version].
+# p6_version_get() - Outputs the version in file=[conf/meta:version].
 #
 # Outputs the version in file=[conf/meta:version].
 #
@@ -78,17 +84,17 @@ version_next() {
 # Notes:
 #
 ##############################################################################
-version_get() {
+p6_version_get() {
     local file="${1:-conf/meta}"
 
     local version=$(awk -F: '/version/ { print $2 }' $file)
 
-    echo $version
+    p6_return "$version"
 }
 
 ##############################################################################
 #
-# version_bump() - Updates software to the specified or requested version.
+# p6_version_bump() - Updates software to the specified or requested version.
 #
 # Updates version in file=[conf/meta:version].
 #
@@ -103,13 +109,13 @@ version_get() {
 # Notes:
 #
 ##############################################################################
-version_bump() {
+p6_version_bump() {
     local version="$1"
     local file="${2:-conf/meta}"
 
-    local next_version=$(version_next "$version" "$file")
+    local next_version=$(p6_version_next "$version" "$file")
 
     sed -i '' -e "s,version:.*,version:    $next_version,g" $file
 
-    echo $next_version
+    p6_return "$next_version"
 }

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-p6_debug__path() {
+p6_path__debug() {
     local msg="$1"
 
     p6_debug "p6_path: $msg"
@@ -11,17 +11,17 @@ p6_path_if() {
 
     if p6_dir_exists "$dir"; then
 	PATH=$(p6_string_append "$PATH" "$dir" ":")
-	p6_debug__path "if(): $dir appended to PATH "
+	p6_path__debug "if(): $dir appended to PATH "
 	p6_return_bool "0"
     else
-	p6_debug__path "if(): $dir DNE, NOT appended to PATH"
+	p6_path__debug "if(): $dir DNE, NOT appended to PATH"
 	p6_return_bool "1"
     fi
 }
 
 p6_path_default() {
 
-    p6_debug__path "default(): unset"
+    p6_path__debug "default(): unset"
 
     PATH=
     path_if $HOME/bin
@@ -33,7 +33,7 @@ p6_path_default() {
     path_if /bin
     path_if /sbin
 
-    p6_debug__path "default(): $PATH"
+    p6_path__debug "default(): $PATH"
 }
 
 p6_path_current() {

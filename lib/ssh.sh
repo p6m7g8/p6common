@@ -1,5 +1,11 @@
 #!/bin/sh
 
+p6_ssh__debug() {
+    local msg="$1"
+
+    p6_debug "p6_ssh: $msg"
+}
+
 p6_ssh_key_check() {
     local priv="$1"
     local test_pub="$2"

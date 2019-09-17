@@ -1,5 +1,11 @@
 #!/bin/sh
 
+p6_transient__debug() {
+    local msg="$1"
+
+    p6_debug "p6_transient: $msg"
+}
+
 p6_transient_create() {
     local dir_name="$1"
     local len="${2:-4}"
@@ -11,7 +17,7 @@ p6_transient_create() {
 	if ! p6_string_blank "$P6_TEST_TRANSIENT_CREATE_RAND"; then
 	    rand=TEST_MODE
 	else
-	    rand=$(p6_token "$len")
+	    rand=$(p6_token_random "$len")
 	fi
 
 	dir_name=$P6_DIR_TRANSIENTS/$dir_name/$rand
@@ -44,9 +50,9 @@ p6_transient__cleanup() {
 	p6_transient_delete "$dir"
     done
 
-    p6_die "$P6_TRUE" "# p6_transient__cleanup"
+#    p6_die "$P6_TRUE" "# p6_transient__cleanup"
 }
-#trap p6_transient__cleanup 0 1 2 3 6 14 15
+trap p6_transient__cleanup 0 1 2 3 6 14 15
 
 p6_transient__log() {
     local dir="$1"

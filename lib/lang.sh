@@ -88,5 +88,5 @@ p6_lang_env_2_cmd() {
 	lua)   rcmd=lua    ;;
     esac
 
-    p6_prefix "$rcmd"
+    p6_return "$rcmd"
 }

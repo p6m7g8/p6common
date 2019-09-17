@@ -5,6 +5,7 @@ p6_pgs() {
     find . -type f | xargs perl -pi -e "s,$1,$2,g"
 }
 
+#XXX: duped in string
 p6_len() {
     local s="$1"
 

@@ -1,5 +1,11 @@
 #!/bin/sh
 
+p6_openssl__debug() {
+    local msg="$1"
+
+    p6_debug "p6_openssl: $msg"
+}
+
 p6_openssl_req_509() {
     local key_file="$1"
     local crt_file="$2"

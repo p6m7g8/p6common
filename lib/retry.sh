@@ -1,5 +1,11 @@
 #!/bin/sh
 
+p6_retry__debug() {
+    local msg="$1"
+
+    p6_debug "p6_retry: $msg"
+}
+
 p6_retry_delay_doubling() {
 
     p6_retry_delay "double" "$@"

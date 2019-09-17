@@ -18,7 +18,7 @@ main() {
     . lib/string.sh
     . lib/transients.sh
 
-    p6_test_setup "12"
+    p6_test_setup "13"
 
     p6_test_start "p6_transient_create"
     (
@@ -48,6 +48,8 @@ main() {
 	p6_transient__cleanup
 	p6_test_assert_dir_not_exists "/tmp/p6/transients/tmp/TEST_MODE" "tmp: cleaned up"
     )
+    p6_test_finish
+
     p6_test_teardown
 }
 

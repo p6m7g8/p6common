@@ -1,22 +1,28 @@
 #!/bin/sh
 
+p6_lang__debug() {
+    local msg="$1"
+
+    p6_debug "p6_langs: $msg"
+}
+
 p6_lang_version() {
     local prefix="$1"
 
     local cmd="${prefix}env"
-    cmd=$(echo $cmd | sed -e 's,nodeenv,nodenv,')
+    cmd=$(p6_echo "$cmd" | sed -e 's,nodeenv,nodenv,')
 
     local ver
 
     if command -v $cmd > /dev/null; then
 	ver="$($cmd version-name 2>/dev/null)"
 
-	local v=$(echo $ver | sed -e "s,$prefix,," -e 's,^-,,')
+	local v=$(p6_echo "$ver" | sed -e "s,$prefix,," -e 's,^-,,')
 
 	if [ x"$v" = x"system" ]; then
 	    p6_lang_system_version "$prefix"
 	else
-	    echo "$v"
+	    p6_return "$v"
 	fi
     else
 	p6_lang_system_version "$prefix"
@@ -41,9 +47,9 @@ p6_lang_system_version() {
 	    scala) ver=$($rcmd -nc -version 2>&1 | awk '{print $5}') ;;
 	    lua)   ver=$($rcmd -v | awk '{print $2}') ;;
 	esac
-	echo "sys@$ver"
+	p6_return "sys@$ver"
     else
-	echo "no"
+	p6_return "no"
     fi
 }
 
@@ -63,7 +69,7 @@ p6_lang_cmd_2_env() {
       lua)      prefix=lua   ;;
     esac
 
-    echo $prefix
+    p6_return "$prefix"
 }
 
 p6_lang_env_2_cmd() {
@@ -82,5 +88,5 @@ p6_lang_env_2_cmd() {
 	lua)   rcmd=lua    ;;
     esac
 
-    echo $rcmd
+    p6_return "$rcmd"
 }

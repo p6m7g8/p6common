@@ -8,14 +8,9 @@ p6df::modules::p6common::init() {
 p6_init() {
   local dir="$1"
 
-  . "$dir"/lib/io.sh
-  . "$dir"/lib/debug.sh
-  . "$dir"/lib/string.sh
-  . "$dir"/lib/file.sh
-
   local file
   for file in "$dir"/lib/*.sh; do
-    p6_file_load "$file"
+    . "$file" # Intentionally not using p6_file_load until its loaded
   done
 
   p6_file_load "$dir/conf/defaults.conf"

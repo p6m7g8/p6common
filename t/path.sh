@@ -38,8 +38,8 @@ main() {
 	p6_test_run "p6_path_if /nonexistent"
 	p6_test_assert_run_ok "/nonexistent" "1"
 
-	p6_test_run "PATH=/bin:/usr/bin p6_path_if $P6_TEST_DIR_ORIG/bin"
-	p6_test_assert_run_ok "$P6_TEST_DIR_ORIG/bin" "0"
+	p6_test_run "PATH=/bin:/usr/bin p6_path_if $P6_TEST_DIR_ORIG/t"
+	p6_test_assert_run_ok "$P6_TEST_DIR_ORIG/t" "0"
     )
     p6_test_finish
 

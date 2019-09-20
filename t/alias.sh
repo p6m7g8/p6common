@@ -2,9 +2,6 @@
 
 main() {
 
-    . ../p6test/lib/_bootstrap.sh
-    p6_test_bootstrap "../p6common"
-
     p6_test_setup "12"
 
     p6_test_start "p6_alias"

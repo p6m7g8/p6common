@@ -23,6 +23,7 @@ p6_run_read_cmd() {
 	p6_log "$cmd" | perl -p -e "s, , \\\\\n\t,g"
     fi
 
+    # XXX: p6_run_eval
     eval "$cmd"
 }
 
@@ -45,6 +46,7 @@ p6_run_write_cmd() {
 	if p6_debugging; then
 	    p6_log "$cmd" | perl -p -e "s, , \\\\\n\t,g"
 	fi
+	# XXX: p6_run_eval
 	eval "$cmd"
     fi
 }
@@ -75,10 +77,10 @@ p6_run_parallel() {
     shift 4
 
     local thing
-    for thing in $(echo $things); do
+    for thing in $(p6_echo "$things"); do
 	((i=i%parallel)); ((i++==0)) && wait
 	p6_run__debug "run_parallel(): $cmd @ $thing"
-	echo "$cmd [$@] '$thing'"
+	p6_echo "$cmd [$@] '$thing'"
 	local rc="$($cmd $@ "$thing")" &
     done
 }
@@ -89,7 +91,7 @@ p6_run_serial() {
     shift 2
 
     local thing
-    for thing in $(echo $things); do
+    for thing in $(p6_echo "$things"); do
 	p6_run__debug "run_serial(): $cmd @ $thing"
 	local rc="$($cmd $@ "$thing")"
     done
@@ -100,7 +102,7 @@ p6_run_if_not_in() {
     local skip_list="$2"
 
     local item
-    for item in $(echo $skip_list); do
+    for item in $(p6_echo "$skip_list"); do
 	if [ "$item" = "$script" ]; then
 	    p6_return_bool 0
 	fi

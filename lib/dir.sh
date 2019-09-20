@@ -20,22 +20,49 @@ p6_dir_load() {
     done
 }
 
+p6_dir_list() {
+    local dir="$1"
+
+    local children
+    if p6_dir_exists "$dir"; then
+	children=$(p6_dir_cd "$dir" ; ls -1 | xargs)
+	p6_dir__debug "list(): collected [$dir] -> [$children]"
+    else
+	p6_dir__debug "list(): [$dir] DNE"
+    fi
+
+    p6_return "$children"
+}
+
 p6_dirs_list() {
     local dirs="$@"
 
     p6_dir__debug "list(): $dirs"
 
+    local entries
     local dir
     for dir in $dirs; do
-	if p6_dir_exists "$dir"; then
-	    local children=$(p6_dir_cd "$dir" ; ls -1 | xargs)
-	    p6_dir__debug "list(): collecting $dir -> [$children]"
-	else
-	    p6_dir__debug "list(): $dir DNE"
-	fi
+	local children=$(p6_dir_list "$dir")
+	p6_string_append "$entries" "$children" " "
     done
 
-    echo $children
+    p6_return "$entries"
+}
+
+p6_dir_list_recursive() {
+    local dir="$1"
+
+    p6_dir__debug "list_recursive(): $dir"
+
+    local descendants=$(
+	find $dir \
+	     -type f | \
+	    xargs
+	  )
+
+    p6_dir__debug "list_recursive(): $descendants"
+
+    p6_return "$descendants"
 }
 
 p6_dir_exists() {
@@ -43,9 +70,9 @@ p6_dir_exists() {
 
     local rv=-1
     if [ -d "$dir" ]; then
-	rv=0
+	rv=$P6_TRUE
     else
-	rv=1
+	rv=$P6_FALSE
     fi
 
     p6_dir__debug "exists(): $dir -> $rv"

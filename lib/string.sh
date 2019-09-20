@@ -34,7 +34,7 @@ p6_string_append() {
 
   local rv="${str}${sep}${add}"
 
-  p6_string__debug "append(): [$str + $add w/ $sep] -> $rv"
+  p6_string__debug "append(): [$str] + [$add] by [$sep] -> $rv"
 
   p6_return "$rv"
 }

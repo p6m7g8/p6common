@@ -23,6 +23,7 @@ p6_transient_create() {
 	dir_name=$P6_DIR_TRANSIENTS/$dir_name/$rand
 
 	if p6_dir_exists "$dir_name"; then
+	    p6_transient__log "$dir_name"
 	    p6_return ""
 	else
 	    p6_debug "p6_misc: transient_create(): $dir_name [$len]"

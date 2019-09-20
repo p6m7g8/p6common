@@ -27,7 +27,7 @@ p6_ssh_key_check() {
 p6_ssh_key_fingerprint() {
     locak key_file_pub="$1"
 
-    p6_run_write_cmd ssh-keygen -lf $key_file_pub
+    p6_run_read_cmd ssh-keygen -lf $key_file_pub
 }
 
 p6_ssh_key_add() {

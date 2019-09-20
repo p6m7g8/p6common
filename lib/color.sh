@@ -93,7 +93,7 @@ p6_color_name_to_rgb() {
 	white)    rgb="ffffff" ;;
     esac
 
-    rgb=$(echo $rgb | tr '[a-z]' '[A-Z]')
+    rgb=$(p6_echo "$rgb" | tr '[a-z]' '[A-Z]')
 
     p6_return "$rgb"
 }
@@ -121,13 +121,13 @@ p6_color_hex_to_d16b() {
     local hex="$1"
     local ord="$2"
 
-    local i=$(echo $hex | sed 's/../&,/g' | awk -F "," '{ print $1 }')
-    local j=$(echo $hex | sed 's/../&,/g' | awk -F "," '{ print $2 }')
-    local k=$(echo $hex | sed 's/../&,/g' | awk -F "," '{ print $3 }')
+    local i=$(p6_echo "$hex" | sed 's/../&,/g' | awk -F "," '{ print $1 }')
+    local j=$(p6_echo "$hex" | sed 's/../&,/g' | awk -F "," '{ print $2 }')
+    local k=$(p6_echo "$hex" | sed 's/../&,/g' | awk -F "," '{ print $3 }')
 
-    local r=$(echo "ibase=16; $i" | bc -q)
-    local g=$(echo "ibase=16; $j" | bc -q)
-    local b=$(echo "ibase=16; $k" | bc -q)
+    local r=$(p6_echo "ibase=16; $i" | bc -q)
+    local g=$(p6_echo "ibase=16; $j" | bc -q)
+    local b=$(p6_echo "ibase=16; $k" | bc -q)
 
     local dr=$(($r*257))
     local dg=$(($g*257))

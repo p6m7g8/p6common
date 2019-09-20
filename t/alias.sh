@@ -2,17 +2,8 @@
 
 main() {
 
-    . ../p6test/lib/_colors.sh
-    . ../p6test/lib/_util.sh
-    . ../p6test/lib/backends/tap.sh
-    . ../p6test/lib/asserts/aserts.sh
-    . ../p6test/lib/harness.sh
-    . ../p6test/lib/api.sh
-
-    . lib/io.sh
-    . lib/debug.sh
-    . lib/alias.sh
-    . lib/string.sh
+    . ../p6test/lib/_bootstrap.sh
+    p6_test_bootstrap "../p6common"
 
     p6_test_setup "12"
 

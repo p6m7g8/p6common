@@ -106,6 +106,7 @@ p6_file_append() {
     local file="$1"
     local contents="$2"
 
+    p6_file__debug "append(): $contents -> $file"
     p6_echo "$contents" >> $file
 }
 

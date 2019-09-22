@@ -39,7 +39,7 @@ p6_verbose() {
     shift
 
     P6_VERBOSE=${P6_VERBOSE:-0}
-    [ $VERBOSE -ne 0 -a \( $level -gt $P6_VERBOSE -o $level -eq $P6_VERBOSE \) ] && p6_msg "$@"
+    [ $P6_VERBOSE -ne 0 -a \( $level -gt $P6_VERBOSE -o $level -eq $P6_VERBOSE \) ] && p6_msg "$@"
 }
 
 ##############################################################################
@@ -58,7 +58,7 @@ p6_verbose() {
 p6_debug() {
 
     if p6_debugging; then
-	p6_log "$@"
+	p6_msg "$@" >> /tmp/p6/debug.log
     fi
 }
 
@@ -77,7 +77,7 @@ p6_debug() {
 #############################################################################
 p6_log() {
 
-    p6_msg "$@" >> /tmp/p6.log
+    p6_msg "$@" >> /tmp/p6/log.log
 }
 
 ##############################################################################

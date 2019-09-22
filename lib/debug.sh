@@ -1,20 +1,41 @@
 #!/bin/sh
 
+##############################################################################
+#<
+#
+# Function: p6_debug__debug(msg,)
+#
+# Arg(s):
+#    msg - msg to log [default: ]
+#
+# Return(s):
+#
+# Side Effects:
+#
+#>
+#############################################################################
 p6_debug__debug() {
-    local msg="$1"
+    local msg="$1" # msg to log
 
     p6_debug "debug: $msg"
 }
 
 ##############################################################################
-#>
-#
-# On screen (stdout) msgs for developers if verbosity level is high enough
-#
 #<
-##############################################################################
+#
+# Function: p6_verbose(level,)
+#
+# Arg(s):
+#    level - minimum verbosity before output [default: ]
+#
+# Return(s):
+#
+# Side Effects:
+#
+#>
+#############################################################################
 p6_verbose() {
-    local level="$1"
+    local level="$1" # minimum verbosity before output
     shift
 
     P6_VERBOSE=${P6_VERBOSE:-0}
@@ -22,12 +43,18 @@ p6_verbose() {
 }
 
 ##############################################################################
-#>
-#
-# On screen (stdout) msgs & to the log file for developers
-#
 #<
-##############################################################################
+#
+# Function: p6_debug()
+#
+# Arg(s):
+#
+# Return(s):
+#
+# Side Effects:
+#
+#>
+#############################################################################
 p6_debug() {
 
     if p6_debugging; then
@@ -36,22 +63,63 @@ p6_debug() {
 }
 
 ##############################################################################
-#>
-#
-# Log to log file
-#
 #<
-##############################################################################
+#
+# Function: p6_log()
+#
+# Arg(s):
+#
+# Return(s):
+#
+# Side Effects:
+#
+#>
+#############################################################################
 p6_log() {
+
     p6_msg "$@" >> /tmp/p6.log
 }
 
+##############################################################################
+#<
+#
+# Function: p6_debugging(rv,)
+#
+# Arg(s):
+#    rv -  [default: ]
+#
+# Return(s):
+#    $rv -
+#
+# Side Effects:
+#
+#>
+#############################################################################
 p6_debugging() {
 
-    [ -n "${P6_DEBUG}" ]
+    local rv=[ -n "${P6_DEBUG}" ]
+
+    p6_return_bool "$rv"; # whether debugging
 }
 
+##############################################################################
+#<
+#
+# Function: p6_dryruning(rv,)
+#
+# Arg(s):
+#    rv -  [default: ]
+#
+# Return(s):
+#    $rv -
+#
+# Side Effects:
+#
+#>
+#############################################################################
 p6_dryruning() {
 
-    [ -n "${P6_DRY_RUN}" ]
+    local rv=[ -n "${P6_DRY_RUN}" ]
+
+    p6_return_bool "$rv"; # whether dryrunning
 }

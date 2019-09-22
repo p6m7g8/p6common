@@ -1,12 +1,21 @@
 #!/bin/sh
 
+######################################################################
+#<
+#
+# Function:
+#      = p6_version__debug()
+#
+#
+#
+#>
+######################################################################
 p6_version__debug() {
     local msg="$1"
 
     p6_debug "p6_version: $msg"
 }
 
-##############################################################################
 #
 # p6_version_next() - Update version to specified or requested next one.
 #
@@ -24,7 +33,21 @@ p6_version__debug() {
 # Notes:
 #     No sanity check is done on custom versions for next_version.
 #
-##############################################################################
+######################################################################
+#<
+#
+# Function:
+#     $next_version = p6_version_next(next_version, file)
+#
+# Arg(s):
+#    next_version - 
+#    file - 
+#
+# Return(s):
+#    $next_version - 
+#
+#>
+######################################################################
 p6_version_next() {
     local next_version="$1"
     local file="${2:-conf/meta}"
@@ -67,7 +90,6 @@ p6_version_next() {
     p6_return "$next_version"
 }
 
-##############################################################################
 #
 # p6_version_get() - Outputs the version in file=[conf/meta:version].
 #
@@ -83,7 +105,20 @@ p6_version_next() {
 #
 # Notes:
 #
-##############################################################################
+######################################################################
+#<
+#
+# Function:
+#     $version = p6_version_get(file)
+#
+# Arg(s):
+#    file - 
+#
+# Return(s):
+#    $version - 
+#
+#>
+######################################################################
 p6_version_get() {
     local file="${1:-conf/meta}"
 
@@ -92,7 +127,6 @@ p6_version_get() {
     p6_return "$version"
 }
 
-##############################################################################
 #
 # p6_version_bump() - Updates software to the specified or requested version.
 #
@@ -108,7 +142,21 @@ p6_version_get() {
 #
 # Notes:
 #
-##############################################################################
+######################################################################
+#<
+#
+# Function:
+#     $next_version = p6_version_bump(version, file)
+#
+# Arg(s):
+#    version - 
+#    file - 
+#
+# Return(s):
+#    $next_version - 
+#
+#>
+######################################################################
 p6_version_bump() {
     local version="$1"
     local file="${2:-conf/meta}"

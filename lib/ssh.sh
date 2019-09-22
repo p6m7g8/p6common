@@ -1,11 +1,36 @@
 #!/bin/sh
 
+######################################################################
+#<
+#
+# Function:
+#      = p6_ssh__debug()
+#
+#
+#
+#>
+######################################################################
 p6_ssh__debug() {
     local msg="$1"
 
     p6_debug "p6_ssh: $msg"
 }
 
+######################################################################
+#<
+#
+# Function:
+#     $rc = p6_ssh_key_check(priv, test_pub)
+#
+# Arg(s):
+#    priv - 
+#    test_pub - 
+#
+# Return(s):
+#    $rc - 
+#
+#>
+######################################################################
 p6_ssh_key_check() {
     local priv="$1"
     local test_pub="$2"
@@ -24,12 +49,34 @@ p6_ssh_key_check() {
     p6_return "$rc"
 }
 
+######################################################################
+#<
+#
+# Function:
+#      = p6_ssh_key_fingerprint()
+#
+#
+#
+#>
+######################################################################
 p6_ssh_key_fingerprint() {
     locak key_file_pub="$1"
 
     p6_run_read_cmd ssh-keygen -lf $key_file_pub
 }
 
+######################################################################
+#<
+#
+# Function:
+#      = p6_ssh_key_add(key_file_priv)
+#
+# Arg(s):
+#    key_file_priv - 
+#
+#
+#>
+######################################################################
 p6_ssh_key_add() {
     local key_file_priv="$1"
 
@@ -42,6 +89,18 @@ p6_ssh_key_add() {
     p6_run_write_cmd ssh-add $flag_K $key_file_priv
 }
 
+######################################################################
+#<
+#
+# Function:
+#      = p6_ssh_key_delete(key_file_priv)
+#
+# Arg(s):
+#    key_file_priv - 
+#
+#
+#>
+######################################################################
 p6_ssh_key_delete() {
     local key_file_priv="$1"
 
@@ -54,6 +113,19 @@ p6_ssh_key_delete() {
     p6_run_write_cmd ssh-add -D $flag_K $key_file_priv
 }
 
+######################################################################
+#<
+#
+# Function:
+#      = p6_ssh_key_pub_from_priv(key_file_priv, key_file_pub)
+#
+# Arg(s):
+#    key_file_priv - 
+#    key_file_pub - 
+#
+#
+#>
+######################################################################
 p6_ssh_key_pub_from_priv() {
     local key_file_priv="$1"
     local key_file_pub="${2:-${key_file_priv}.pub}"
@@ -61,12 +133,37 @@ p6_ssh_key_pub_from_priv() {
     p6_run_write_cmd ssh-keygen -y -f $key_file_priv > $key_file_pub
 }
 
+######################################################################
+#<
+#
+# Function:
+#      = p6_ssh_key_make(key_file_priv)
+#
+# Arg(s):
+#    key_file_priv - 
+#
+#
+#>
+######################################################################
 p6_ssh_key_make() {
     local key_file_priv="$1"
 
     p6_run_write_cmd ssh-keygen -t rsa -b 4096 -f $key_file_priv -N "''"
 }
 
+######################################################################
+#<
+#
+# Function:
+#      = p6_ssh_key_remove(key_file_priv, key_file_pub)
+#
+# Arg(s):
+#    key_file_priv - 
+#    key_file_pub - 
+#
+#
+#>
+######################################################################
 p6_ssh_key_remove() {
     local key_file_priv="$1"
     local key_file_pub="${2:-${key_file_priv}.pub}"
@@ -75,6 +172,18 @@ p6_ssh_key_remove() {
     p6_file_rmf $key_file_priv
 }
 
+######################################################################
+#<
+#
+# Function:
+#      = p6_ssh_keys_chmod(key_file_priv)
+#
+# Arg(s):
+#    key_file_priv - 
+#
+#
+#>
+######################################################################
 p6_ssh_keys_chmod() {
     local key_file_priv="$1"
 

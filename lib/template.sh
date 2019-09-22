@@ -1,11 +1,35 @@
 #!/bin/sh
 
+######################################################################
+#<
+#
+# Function:
+#      = p6_template__debug()
+#
+#
+#
+#>
+######################################################################
 p6_template__debug() {
     local msg="$1"
 
     p6_debug "p6_template: $msg"
 }
 
+######################################################################
+#<
+#
+# Function:
+#      = p6_template_fill_in(infile, outfile, q_flag)
+#
+# Arg(s):
+#    infile - 
+#    outfile - 
+#    q_flag - 
+#
+#
+#>
+######################################################################
 p6_template_fill_in() {
     local infile="$1"
     local outfile="$2"
@@ -28,6 +52,20 @@ p6_template_fill_in() {
     IFS=$save_ifs
 }
 
+######################################################################
+#<
+#
+# Function:
+#      = p6_template_fill_args(mark, sep, split)
+#
+# Arg(s):
+#    mark - 
+#    sep - 
+#    split - 
+#
+#
+#>
+######################################################################
 p6_template_fill_args() {
     local mark="$1"
     local sep="$2"
@@ -49,6 +87,18 @@ p6_template_fill_args() {
     p6_echo "$args" | sed -e 's,\^$,,'
 }
 
+######################################################################
+#<
+#
+# Function:
+#      = p6_template_process(infile)
+#
+# Arg(s):
+#    infile - 
+#
+#
+#>
+######################################################################
 p6_template_process() {
     local infile="$1"
     shift 1

@@ -1,12 +1,10 @@
 #!/bin/sh
 
-##############################################################################
 #
 # These are intentionally global.  No global should exist without being
 # delcared here first.  Other modules may add local namespace prefixed globals
 # that are internal to it.
 #
-##############################################################################
 TMPDIR=${TMPDIR:-/tmp}
 
 P6_DIR=$TMPDIR/p6

@@ -38,6 +38,12 @@ p6_return_int() {
      p6_return "$int"
 }
 
+p6_return_size_t() {
+     local int="$1"
+
+     p6_return "$int"
+}
+
 p6_return_string() {
      local str="$1"
 

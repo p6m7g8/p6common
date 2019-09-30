@@ -14,6 +14,8 @@ p6_template__debug() {
     local msg="$1"
 
     p6_debug "p6_template: $msg"
+
+    p6_return_void
 }
 
 ######################################################################
@@ -50,6 +52,8 @@ p6_template_fill_in() {
 	fi
     done
     IFS=$save_ifs
+
+    p6_return_void
 }
 
 ######################################################################
@@ -84,7 +88,9 @@ p6_template_fill_args() {
     done
     IFS=$save_ifs
 
-    p6_echo "$args" | sed -e 's,\^$,,'
+    local fills=$(p6_echo "$args" | sed -e 's,\^$,,')
+
+    p6_return_str "$fills";
 }
 
 ######################################################################
@@ -112,4 +118,6 @@ p6_template_process() {
     p6_file_display "$outfile"
 
     p6_transient_delete "$dir"
+
+    p6_return_void
 }

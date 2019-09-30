@@ -14,6 +14,8 @@ p6_version__debug() {
     local msg="$1"
 
     p6_debug "p6_version: $msg"
+
+    p6_return_void
 }
 
 #
@@ -87,7 +89,7 @@ p6_version_next() {
 	  ;;
     esac
 
-    p6_return "$next_version"
+    p6_return_str "$next_version"
 }
 
 #
@@ -124,7 +126,7 @@ p6_version_get() {
 
     local version=$(awk -F: '/version/ { print $2 }' $file)
 
-    p6_return "$version"
+    p6_return_str "$version"
 }
 
 #
@@ -165,5 +167,5 @@ p6_version_bump() {
 
     sed -i '' -e "s,version:.*,version:    $next_version,g" $file
 
-    p6_return "$next_version"
+    p6_return_str "$next_version"
 }

@@ -14,6 +14,8 @@ p6_debug__debug() {
     local msg="$1" # msg to log
 
     p6_debug "debug: $msg"
+
+    p6_return_void
 }
 
 ######################################################################
@@ -34,6 +36,8 @@ p6_verbose() {
 
     P6_VERBOSE=${P6_VERBOSE:-0}
     [ $P6_VERBOSE -ne 0 -a \( $level -gt $P6_VERBOSE -o $level -eq $P6_VERBOSE \) ] && p6_msg "$@"
+
+    p6_return_void
 }
 
 ######################################################################
@@ -66,6 +70,8 @@ p6_debug() {
 p6_log() {
 
     p6_msg "$@" >> /tmp/p6/log.log
+
+    p6_return_void
 }
 
 ######################################################################

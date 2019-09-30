@@ -14,6 +14,8 @@ p6_path__debug() {
     local msg="$1"
 
     p6_debug "p6_path: $msg"
+
+    p6_return_void
 }
 
 ######################################################################
@@ -26,8 +28,6 @@ p6_path__debug() {
 #    dir - 
 #
 # Return(s):
-#     - 
-#    1 - 
 #
 #>
 ######################################################################
@@ -37,10 +37,10 @@ p6_path_if() {
     if p6_dir_exists "$dir"; then
 	PATH=$(p6_string_append "$PATH" "$dir" ":")
 	p6_path__debug "if(): $dir appended to PATH "
-	p6_return_bool "0"
+	p6_return_true
     else
 	p6_path__debug "if(): $dir DNE, NOT appended to PATH"
-	p6_return_bool "1"
+	p6_return_false
     fi
 }
 
@@ -69,6 +69,8 @@ p6_path_default() {
     path_if /sbin
 
     p6_path__debug "default(): $PATH"
+
+    p6_return_void
 }
 
 ######################################################################
@@ -89,4 +91,6 @@ p6_path_current() {
 	sed -e "s/[',]//g" | \
 	egrep -v '\]|\[' | \
 	grep /
+
+    p6_return_void
 }

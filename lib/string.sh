@@ -14,6 +14,8 @@ p6_string__debug() {
     local msg="$1"
 
     p6_debug "p6_string: $msg"
+
+    p6_return_void
 }
 
 ######################################################################
@@ -33,12 +35,7 @@ p6_string__debug() {
 p6_string_blank() {
     local str="$1"
 
-    local rv=-1
-    if [ -z "$str" ]; then
-	rv=0
-    else
-	rv=1
-    fi
+    local rv=$([ -z "$str" ])
 
     p6_string__debug "blank(): [$str] -> $rv"
 
@@ -62,7 +59,7 @@ p6_string_blank() {
 p6_string_len() {
     local str="$1"
 
-    p6_return "${#str}"
+    p6_return_int "${#str}"
 }
 
 ######################################################################
@@ -90,7 +87,7 @@ p6_string_append() {
 
   p6_string__debug "append(): [$str] + [$add] by [$sep] -> $rv"
 
-  p6_return "$rv"
+  p6_return_str "$rv"
 }
 
 ######################################################################
@@ -114,7 +111,7 @@ p6_string_lc() {
 
     p6_string__debug "lc(): [$str] -> [$str_lc]"
 
-    p6_return "$str_lc"
+    p6_return_str "$str_lc"
 }
 
 ######################################################################
@@ -138,7 +135,7 @@ p6_string_uc() {
 
     p6_string__debug "uc(): [$str] -> [$str_lc]"
 
-    p6_return "$str_uc"
+    p6_return_str "$str_uc"
 }
 
 ######################################################################
@@ -166,7 +163,7 @@ p6_string_replace() {
 
     p6_string__debug "replace([$from]->[$to]): [$str] -> [$str_r]"
 
-    p6_return "$str_r"
+    p6_return_str "$str_r"
 }
 
 ######################################################################
@@ -191,5 +188,5 @@ p6_string_init_cap() {
 	    awk '{for(i=1;i<=NF;i++){ $i=toupper(substr($i,1,1)) substr($i,2) }}1'
 	  )
 
-    p6_return "$str_ic"
+    p6_return_str "$str_ic"
 }

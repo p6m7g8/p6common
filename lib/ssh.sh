@@ -14,6 +14,8 @@ p6_ssh__debug() {
     local msg="$1"
 
     p6_debug "p6_ssh: $msg"
+
+    p6_return_void
 }
 
 ######################################################################
@@ -46,7 +48,7 @@ p6_ssh_key_check() {
 
     p6_transient_delete "$dir"
 
-    p6_return "$rc"
+    p6_return_code "$rc"
 }
 
 ######################################################################
@@ -63,6 +65,8 @@ p6_ssh_key_fingerprint() {
     locak key_file_pub="$1"
 
     p6_run_read_cmd ssh-keygen -lf $key_file_pub
+
+    p6_return_void
 }
 
 ######################################################################
@@ -87,6 +91,8 @@ p6_ssh_key_add() {
     esac
 
     p6_run_write_cmd ssh-add $flag_K $key_file_priv
+
+    p6_return_void
 }
 
 ######################################################################
@@ -111,6 +117,8 @@ p6_ssh_key_delete() {
     esac
 
     p6_run_write_cmd ssh-add -D $flag_K $key_file_priv
+
+    p6_return_void
 }
 
 ######################################################################
@@ -131,6 +139,8 @@ p6_ssh_key_pub_from_priv() {
     local key_file_pub="${2:-${key_file_priv}.pub}"
 
     p6_run_write_cmd ssh-keygen -y -f $key_file_priv > $key_file_pub
+
+    p6_return_void
 }
 
 ######################################################################
@@ -149,6 +159,8 @@ p6_ssh_key_make() {
     local key_file_priv="$1"
 
     p6_run_write_cmd ssh-keygen -t rsa -b 4096 -f $key_file_priv -N "''"
+
+    p6_return_void
 }
 
 ######################################################################
@@ -192,4 +204,6 @@ p6_ssh_keys_chmod() {
     p6_run_write_cmd chmod 700 $dir
     p6_run_write_cmd chmod 600 $key_file_priv
 #    p6_run_write_cmd chmod 644 $key_file_pub
+
+    p6_return_void
 }

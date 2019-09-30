@@ -14,6 +14,8 @@ p6_os__debug() {
     local msg="$1"
 
     p6_debug "p6_os: $msg"
+
+    p6_return_void
 }
 
 ######################################################################
@@ -34,5 +36,5 @@ p6_os_name() {
 
     p6_os__debug "name(): $name"
 
-    p6_return "$name"
+    p6_return_str "$name"
 }

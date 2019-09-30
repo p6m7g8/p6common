@@ -14,6 +14,8 @@ p6_env__debug() {
     local msg="$1"
 
     p6_debug "p6_env: $msg"
+
+    p6_return_void
 }
 
 ######################################################################
@@ -37,6 +39,8 @@ p6_env_export() {
     eval "export $var=\"$val\""
 
     p6_env__debug "export(): [$var] => [$val]"
+
+    p6_return_void
 }
 
 ######################################################################
@@ -58,6 +62,8 @@ p6_env_export_un() {
 
     ## XXX: p6_unset
     unset $k
+
+    p6_return_void
 }
 
 ######################################################################
@@ -80,4 +86,6 @@ p6_env_list() {
     else
 	env | grep $glob
     fi
+
+    p6_return_void
 }

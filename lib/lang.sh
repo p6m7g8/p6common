@@ -14,6 +14,8 @@ p6_lang__debug() {
     local msg="$1"
 
     p6_debug "p6_langs: $msg"
+
+    p6_return_void
 }
 
 ######################################################################
@@ -46,7 +48,7 @@ p6_lang_version() {
 	if [ x"$v" = x"system" ]; then
 	    p6_lang_system_version "$prefix"
 	else
-	    p6_return "$v"
+	    p6_return_str "$v"
 	fi
     else
 	p6_lang_system_version "$prefix"
@@ -86,9 +88,9 @@ p6_lang_system_version() {
 	    scala) ver=$($rcmd -nc -version 2>&1 | awk '{print $5}') ;;
 	    lua)   ver=$($rcmd -v | awk '{print $2}') ;;
 	esac
-	p6_return "sys@$ver"
+	p6_return_str "sys@$ver"
     else
-	p6_return "no"
+	p6_return_str "no"
     fi
 }
 
@@ -122,7 +124,7 @@ p6_lang_cmd_2_env() {
       lua)      prefix=lua   ;;
     esac
 
-    p6_return "$prefix"
+    p6_return_str "$prefix"
 }
 
 ######################################################################
@@ -155,5 +157,5 @@ p6_lang_env_2_cmd() {
 	lua)   rcmd=lua    ;;
     esac
 
-    p6_return "$rcmd"
+    p6_return_str "$rcmd"
 }

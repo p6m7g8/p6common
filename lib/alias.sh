@@ -14,6 +14,8 @@ p6_alias__debug() {
     local msg="$1"
 
     p6_debug "p6_alias: $msg"
+
+    p6_return_void
 }
 
 ######################################################################
@@ -41,6 +43,8 @@ p6_alias_cd_dirs() {
     else
 	p6_alias__debug "cd_dirs(): $dir DNE"
     fi
+
+    p6_return_void
 }
 
 # XXX: rename p6_alias_create
@@ -68,4 +72,5 @@ p6_alias() {
 	    alias $from="$to"
 	fi
     fi
+    p6_return_void
 }

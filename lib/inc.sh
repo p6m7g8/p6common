@@ -14,6 +14,8 @@ p6_include__debug() {
     local msg="$1"
 
     p6_debug "p6_include: $msg"
+
+    p6_return_void
 }
 
 ######################################################################
@@ -40,4 +42,6 @@ p6_include_module() {
 
     p6_include__debug "module(): $module/$start"
     p6_file_load "$module/$start"
+
+    p6_return_void
 }

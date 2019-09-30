@@ -14,6 +14,8 @@ p6_token__debug() {
     local msg="$1"
 
     p6_debug "p6_token: $msg"
+
+    p6_return_void
 }
 
 ######################################################################
@@ -42,7 +44,7 @@ p6_token_hash() {
 	fi
     fi
 
-    p6_return "$hashed"
+    p6_return_str "$hashed"
 }
 
 ######################################################################
@@ -67,7 +69,7 @@ p6_token_random() {
 	token=$(cat /dev/urandom | LC_CTYPE=C tr -dc a-zA-Z0-9 | head -c $len)
     fi
 
-    p6_return "$token"
+    p6_return_str "$token"
 }
 
 ######################################################################
@@ -89,5 +91,5 @@ p6_token_passwd() {
 
     local pass=$(p6_token_random "$len")
 
-    p6_return "$pass"
+    p6_return_str "$pass"
 }

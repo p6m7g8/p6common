@@ -14,6 +14,8 @@ p6_color__debug() {
     local msg="$1"
 
     p6_debug "p6_color: $msg"
+
+    p6_return_void
 }
 
 ######################################################################
@@ -46,7 +48,9 @@ p6_color_say() {
     if [ -z "$P6_TEST_COLOR_OFF" ]; then
        tput sgr0
     fi
-    ps_msg
+    p6_msg
+
+    p6_return_void
 }
 
 ######################################################################
@@ -81,7 +85,7 @@ p6_color_to_code() {
 
     p6_color__debug "say(): [$color] -> [$code]"
 
-    p6_return "$code"
+    p6_return_int "$code"
 }
 
 ######################################################################
@@ -98,7 +102,7 @@ p6_color_to_code() {
 ######################################################################
 p6_color_opacity_factor() {
 
-    p6_return "0.0"
+    p6_return_float "0.0"
 }
 
 ######################################################################
@@ -139,7 +143,7 @@ p6_color_name_to_rgb() {
 
     rgb=$(p6_echo "$rgb" | tr '[a-z]' '[A-Z]')
 
-    p6_return "$rgb"
+    p6_return_str "$rgb"
 }
 
 ######################################################################
@@ -176,8 +180,8 @@ p6_color_hex_to_d16b() {
     local db=$(($b*257))
 
     case $ord in
-	r) p6_return "$dr" ;;
-	g) p6_return "$dg" ;;
-	b) p6_return "$db" ;;
+	r) p6_return_str "$dr" ;;
+	g) p6_return_str "$dg" ;;
+	b) p6_return_str "$db" ;;
     esac
 }

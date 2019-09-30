@@ -14,6 +14,8 @@ p6_file__debug() {
     local msg="$1"
 
     p6_debug "p6_file: $msg"
+
+    p6_return_void
 }
 
 ######################################################################
@@ -35,6 +37,8 @@ p6_file_load() {
 	p6_file__debug "load(): $file"
 	. $file
     fi
+
+    p6_return_void
 }
 
 ######################################################################
@@ -56,6 +60,8 @@ p6_file_move() {
 
     p6_file__debug "move(): $src $dst"
     mv $src $dst
+
+    p6_return_void
 }
 
 ######################################################################
@@ -77,6 +83,8 @@ p6_file_copy() {
 
     p6_file__debug "copy(): $src $dst"
     cp $src $dst
+
+    p6_return_void
 }
 
 ######################################################################
@@ -96,6 +104,8 @@ p6_file_rmf() {
 
     p6_file__debug "rmf(): rm -f $file"
     rm -f $file
+
+    p6_return_void
 }
 
 ######################################################################
@@ -115,6 +125,8 @@ p6_file_unlink() {
 
     p6_file__debug "unlink(): unlink $file"
     unlink $file
+
+    p6_return_void
 }
 
 ######################################################################
@@ -136,6 +148,8 @@ p6_file_contains() {
 
     p6_file__debug "contains(): /$pattern/ $file"
     grep "$pattern" $file
+
+    p6_return_void
 }
 
 ######################################################################
@@ -155,6 +169,8 @@ p6_file_line_delete_last() {
 
     p6_file__debug "line_delete_last(): sed -i '' -e '$d' $file"
     sed -i '' -e '$d' $file
+
+    p6_return_void
 }
 
 ######################################################################
@@ -176,6 +192,8 @@ p6_file_repalce() {
 
     p6_file__debug "replace(): sed -i '' -e $sed_cmd $file"
     sed -i '' -e $sed_cmd $file
+
+    p6_return_void
 }
 
 ######################################################################
@@ -195,8 +213,7 @@ p6_file_repalce() {
 p6_file_exists() {
     local file="$1"
 
-    local rv=-1
-    [ -r "$file" ] && rv=0 || rv=1
+    local rv=$([ -r "$file" ])
     p6_file__debug "exists(): $file -> $rv"
 
     p6_return_bool "$rv"
@@ -221,6 +238,8 @@ p6_file_display() {
     if p6_file_exists "$file"; then
 	cat $file
     fi
+
+    p6_return_void
 }
 
 ######################################################################
@@ -240,6 +259,8 @@ p6_file_create() {
 
     p6_file__debug "create(): touch $file"
     touch $file
+
+    p6_return_void
 }
 
 ######################################################################
@@ -261,6 +282,8 @@ p6_file_write() {
 
     p6_file__debug "write(): $contents -> $file"
     p6_echo "$contents" > $file
+
+    p6_return_void
 }
 
 ######################################################################
@@ -282,6 +305,8 @@ p6_file_append() {
 
     p6_file__debug "append(): $contents -> $file"
     p6_echo "$contents" >> $file
+
+    p6_return_void
 }
 
 ######################################################################
@@ -303,6 +328,8 @@ p6_file_ma_sync() {
 
     p6_file__debug "ma_sync(): $from -> $to"
     touch -r $from $to
+
+    p6_return_void
 }
 
 ######################################################################
@@ -324,6 +351,8 @@ p6_file_symlink() {
 
     p6_file__debug "symlink(): $to -> $from"
     ln -s $to $from
+
+    p6_return_void
 }
 
 ######################################################################
@@ -354,7 +383,7 @@ p6_file_cascade() {
 	    p6_file__debug "cascade(): Checking: $path/$cmd"
 	    if p6_file_exists "$path/$cmd"; then
 		p6_file__debug "cascade(): Found: $path/$cmd"
-		p6_return "$path/$cmd"
+		p6_return_str "$path/$cmd"
 	    fi
 	else
 	    local ext
@@ -362,7 +391,7 @@ p6_file_cascade() {
 		p6_file__debug "cascade(): [$ext] Checking: $path/$cmd$ext"
 		if p6_file_exists "$path/$cmd$ext"; then
 		    p6_file__debug "cascade(): [$ext] Found: $path/$cmd$ext"
-		    p6_return "$path/$cmd$ext"
+		    p6_return_str "$path/$cmd$ext"
 		fi
 	    done
 	fi

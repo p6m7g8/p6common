@@ -14,6 +14,8 @@ p6_run__debug() {
     local msg="$1"
 
     p6_debug "p6_run: $msg"
+
+    p6_return_void
 }
 
 ######################################################################
@@ -97,7 +99,7 @@ p6_run_retry() {
 	i=$(p6_retry_delay_doubling "$i")
     done
 
-    p6_retun "$status"
+    p6_retun_code "$status"
 }
 
 ######################################################################
@@ -178,11 +180,11 @@ p6_run_if_not_in() {
     local item
     for item in $(p6_echo "$skip_list"); do
 	if [ "$item" = "$script" ]; then
-	    p6_return_bool 0
+	    p6_return_true
 	fi
     done
 
-    p6_return_bool 1
+    p6_return_false
 }
 
 ######################################################################

@@ -14,6 +14,8 @@ p6_dir__debug() {
     local msg="$1"
 
     p6_debug "p6_dir: $msg"
+
+    p6_return_void
 }
 
 ######################################################################
@@ -40,6 +42,8 @@ p6_dir_load() {
 	     p6_file_load "$dir/$child"
 	done
     done
+
+    p6_return_void
 }
 
 ######################################################################
@@ -67,7 +71,7 @@ p6_dir_list() {
 	p6_dir__debug "list(): [$dir] DNE"
     fi
 
-    p6_return "$children"
+    p6_return_array "$children"
 }
 
 ######################################################################
@@ -96,7 +100,7 @@ p6_dirs_list() {
 	p6_string_append "$entries" "$children" " "
     done
 
-    p6_return "$entries"
+    p6_return_array "$entries"
 }
 
 ######################################################################
@@ -126,7 +130,7 @@ p6_dir_list_recursive() {
 
     p6_dir__debug "list_recursive(): $descendants"
 
-    p6_return "$descendants"
+    p6_return_array "$descendants"
 }
 
 ######################################################################
@@ -179,6 +183,8 @@ p6_dir_rmrf() {
 	p6_dir__debug "rmrf(): rm -rf $dir"
 	rm -rf $dir
     fi
+
+    p6_return_void
 }
 
 ######################################################################
@@ -200,6 +206,8 @@ p6_dir_mk() {
 	p6_dir__debug "mk(): mkdir -p $dir"
 	mkdir -p $dir
     fi
+
+    p6_return_void
 }
 
 ######################################################################
@@ -221,6 +229,8 @@ p6_dir_cp() {
 
     p6_dir__debug "cp(): cp -R $src $dst"
     cp -R $src $dst
+
+    p6_return_void
 }
 
 ######################################################################
@@ -242,6 +252,8 @@ p6_dir_mv() {
 
     p6_dir__debug "mv(): mv $src $dst"
     mv $src $dst
+
+    p6_return_void
 }
 
 ######################################################################
@@ -261,4 +273,6 @@ p6_dir_cd() {
 
     p6_dir__debug "cd(): cd $dir"
     cd $dir
+
+    p6_return_void
 }

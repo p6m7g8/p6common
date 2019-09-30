@@ -14,6 +14,8 @@ p6_json__debug() {
     local msg="$1"
 
     p6_debug "p6_json: $msg"
+    
+    p6_return_void
 }
 
 ######################################################################
@@ -45,7 +47,7 @@ p6_json_key_2_value() {
     )
     p6_json__debug "key_2_value(): $val"
 
-    p6_return "$val"
+    p6_return_str "$val"
 }
 
 ######################################################################
@@ -78,5 +80,5 @@ p6_json_value_2_key() {
     )
     p6_json__debug "key_2_value(): $val"
 
-    p6_return "$val"
+    p6_return_str "$val"
 }

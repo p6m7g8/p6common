@@ -14,6 +14,8 @@ p6_retry__debug() {
     local msg="$1"
 
     p6_debug "p6_retry: $msg"
+
+    p6_return_void
 }
 
 ######################################################################
@@ -29,6 +31,8 @@ p6_retry__debug() {
 p6_retry_delay_doubling() {
 
     p6_retry_delay "double" "$@"
+
+    p6_return_void
 }
 
 ######################################################################
@@ -44,6 +48,8 @@ p6_retry_delay_doubling() {
 p6_retry_delay_log() {
 
     p6_retry_delay "log" "$@"
+
+    p6_return_void
 }
 
 ######################################################################
@@ -75,5 +81,5 @@ p6_retry_delay() {
 	p6_die "25" "FATAL"
     fi
 
-    p6_return "$i"
+    p6_return_int "$i"
 }

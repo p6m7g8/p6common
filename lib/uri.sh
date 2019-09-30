@@ -14,6 +14,8 @@ p6_uri__debug() {
     local msg="$1"
 
     p6_debug "p6_uri: $msg"
+
+    p6_return_void
 }
 
 ######################################################################
@@ -39,7 +41,7 @@ p6_uri_name() {
     fi
     p6_uri__debug "name(): $uri -> $name"
 
-    p6_return "$name"
+    p6_return_str "$name"
 }
 
 ######################################################################
@@ -65,5 +67,5 @@ p6_uri_path() {
     fi
     p6_uri__debug "name(): $uri -> $name"
 
-    p6_return "$name"
+    p6_return_str "$name"
 }

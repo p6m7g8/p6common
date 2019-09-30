@@ -13,6 +13,8 @@
 p6_pgs() {
 
     find . -type f | xargs perl -pi -e "s,$1,$2,g"
+
+    p6_return_void
 }
 
 #XXX: duped in string
@@ -31,7 +33,9 @@ p6_pgs() {
 p6_len() {
     local s="$1"
 
-    p6_return "${#s}"
+    local len="${#s}"
+ 
+    p6_return_size_t "$len"
 }
 
 ######################################################################
@@ -61,4 +65,6 @@ p6_xclean() {
 	    -name "=~+*" \
 	\) \
 	-print -exec rm -f "{}" \;
+
+    p6_return_void
 }

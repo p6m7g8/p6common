@@ -27,4 +27,6 @@ p6_bootstrap() {
   done
 
   p6_path_if "$dir/bin"
+
+  p6_return_void
 }

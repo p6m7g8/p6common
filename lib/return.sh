@@ -26,6 +26,11 @@ p6_return_false() {
   p6_return_code $P6_FALSE
 }
 
+p6_return_void() {
+
+  return
+}
+
 p6_return_bool() {
      local bool="$1"
 

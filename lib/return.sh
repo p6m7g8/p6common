@@ -2,72 +2,52 @@
 #<
 #
 # Function:
-#	code  = p6_return(rv)
+#	rc = p6_return_code(rc)
 #
 #  Args:
-#	rv - 
+#	rc - the CODE to return
 #
 #  Returns:
-#	code - 
-#
-#>
-######################################################################
-p6_return() {
-    local rv="$1"
-
-    p6_echo "$rv"
-
-    p6_return_code 0
-}
-
-######################################################################
-#<
-#
-# Function:
-#	p6_return_code(rc)
-#
-#  Args:
-#	rc - 
+#	the CODE is returned
 #
 #>
 ######################################################################
 p6_return_code() {
-    local rc="$1"
+    local rc="$1" # the CODE to return
 
-    return $rc
+    return $rc # the code is returned
 }
 
-# public
 ######################################################################
 #<
 #
 # Function:
-#	code  = p6_return_true()
+#	TRUE  = p6_return_true()
 #
 #  Returns:
-#	code - 
+#	TRUE
 #
 #>
 ######################################################################
 p6_return_true() {
 
-  p6_return_code $P6_TRUE
+  p6_return_code $P6_TRUE # return true code
 }
 
 ######################################################################
 #<
 #
 # Function:
-#	code  = p6_return_false()
+#	 FAIL  = p6_return_false()
 #
 #  Returns:
-#	code - 
+#	 FAIL
 #
 #>
 ######################################################################
 p6_return_false() {
 
-  p6_return_code $P6_FALSE
+  p6_return_code $P6_FALSE # return fail code
 }
 
 ######################################################################
@@ -80,145 +60,167 @@ p6_return_false() {
 ######################################################################
 p6_return_void() {
 
-  return
+  return # return void
 }
 
 ######################################################################
 #<
 #
 # Function:
-#	unkown bool = p6_return_bool(bool)
+#	bool = p6_return_bool(bool)
 #
 #  Args:
-#	bool - 
+#	bool - a boolean
 #
 #  Returns:
-#	unkown - bool
+#	the boolean is returned
 #
 #>
 ######################################################################
 p6_return_bool() {
-     local bool="$1"
+     local bool="$1" # a boolean
 
-     p6_return "$bool"
+     p6_return "$bool" # a boolean is returned
 }
 
 ######################################################################
 #<
 #
 # Function:
-#	unkown int = p6_return_int(int)
+#	 int = p6_return_int(int)
 #
 #  Args:
-#	int - 
+#	 int - an integer
 #
 #  Returns:
-#	unkown - int
+#	 the integer is returned
 #
 #>
 ######################################################################
 p6_return_int() {
-     local int="$1"
+     local int="$1" # an integer
 
-     p6_return "$int"
+     p6_return "$int" # the integer is returned
 }
 
 ######################################################################
 #<
 #
 # Function:
-#	unkown int = p6_return_size_t(int)
+#	 int = p6_return_size_t(int)
 #
 #  Args:
-#	int - 
+#	 int - a positive integer
 #
 #  Returns:
-#	unkown - int
+#	 the positivie integer is returned
 #
 #>
 ######################################################################
 p6_return_size_t() {
-     local int="$1"
+     local int="$1" # a positive integer
 
-     p6_return "$int"
+     p6_return "$int" # the positivie integer is returned
 }
 
 ######################################################################
 #<
 #
 # Function:
-#	unkown str = p6_return_string(str)
+#	 str = p6_return_string(str)
 #
 #  Args:
-#	str - 
+#	 str - a string
 #
 #  Returns:
-#	unkown - str
+#	 the string is returned
 #
 #>
 ######################################################################
 p6_return_string() {
-     local str="$1"
+     local str="$1" # a string
 
-     p6_return "$str"
+     p6_return "$str" # the string is returned
 }
 
 ######################################################################
 #<
 #
 # Function:
-#	unkown list = p6_return_list(str)
+#	 list = p6_return_list(list)
 #
 #  Args:
-#	str - 
+#	 list - a list
 #
 #  Returns:
-#	unkown - list
+#	 the list is returned
 #
 #>
 ######################################################################
 p6_return_list() {
-     local str="$1"
+     local list="$1" # a list
 
-     p6_return "$list"
+     p6_return "$list" # the list is returned
 }
 
 ######################################################################
 #<
 #
 # Function:
-#	unkown hash = p6_return_hash(hash)
+#	 hash = p6_return_hash(hash)
 #
 #  Args:
-#	hash - 
+#	 hash - a hash
 #
 #  Returns:
-#	unkown - hash
+#	 the hash is returned
 #
 #>
 ######################################################################
 p6_return_hash() {
-     local hash="$1"
+     local hash="$1" # a hash
 
-     p6_return "$hash"
+     p6_return "$hash" # the hash is returned
 }
 
 ######################################################################
 #<
 #
 # Function:
-#	unkown arr = p6_return_array(arr)
+#	 arr = p6_return_array(arr)
 #
 #  Args:
-#	arr - 
+#	 arr - an array
 #
 #  Returns:
-#	unkown - arr
+#	 the array is returned
 #
 #>
 ######################################################################
 p6_return_array() {
-     local arr="$1"
- 
-     p6_return "$arr"
+     local arr="$1" # an array
+
+     p6_return "$arr" # the array is returned
+}
+
+######################################################################
+#<
+#
+# Function:
+#	rv  = p6_return(rv)
+#
+#  Args:
+#	rv - the VALUE to return
+#
+#  Returns:
+#	SUCCESS
+#
+#>
+######################################################################
+p6_return() {
+    local rv="$1" # the VALUE to return
+
+    p6_echo "$rv" # "return" the VALUE
+
+    p6_return_code "0" # return success
 }

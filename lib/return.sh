@@ -1,11 +1,11 @@
-#!/bin/sh
-
-# private
 ######################################################################
 #<
 #
 # Function:
-#	code  = p6_return()
+#	code  = p6_return(rv)
+#
+#  Args:
+#	rv - 
 #
 #  Returns:
 #	code - 

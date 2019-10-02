@@ -4,9 +4,7 @@
 #<
 #
 # Function:
-#      = p6_string__debug()
-#
-#
+#	void() = p6_string__debug(
 #
 #>
 ######################################################################
@@ -22,13 +20,10 @@ p6_string__debug() {
 #<
 #
 # Function:
-#     $rv = p6_string_blank(str)
+#	bool($rv) = p6_string_blank(str, 
 #
-# Arg(s):
-#    str - 
-#
-# Return(s):
-#    $rv - 
+#  Args:
+#	str - 
 #
 #>
 ######################################################################
@@ -46,13 +41,10 @@ p6_string_blank() {
 #<
 #
 # Function:
-#     ${#str} = p6_string_len(str)
+#	int(${#str}) = p6_string_len(str, 
 #
-# Arg(s):
-#    str - 
-#
-# Return(s):
-#    ${#str} - 
+#  Args:
+#	str - 
 #
 #>
 ######################################################################
@@ -66,15 +58,12 @@ p6_string_len() {
 #<
 #
 # Function:
-#     $rv = p6_string_append(str, add, sep)
+#	str($rv) = p6_string_append(str, add, sep, 
 #
-# Arg(s):
-#    str - 
-#    add - 
-#    sep - 
-#
-# Return(s):
-#    $rv - 
+#  Args:
+#	str - 
+#	add - 
+#	sep - 
 #
 #>
 ######################################################################
@@ -94,13 +83,10 @@ p6_string_append() {
 #<
 #
 # Function:
-#     $str_lc = p6_string_lc(str)
+#	str($str_lc) = p6_string_lc(str, 
 #
-# Arg(s):
-#    str - 
-#
-# Return(s):
-#    $str_lc - 
+#  Args:
+#	str - 
 #
 #>
 ######################################################################
@@ -118,13 +104,10 @@ p6_string_lc() {
 #<
 #
 # Function:
-#     $str_uc = p6_string_uc(str)
+#	str($str_uc) = p6_string_uc(str, 
 #
-# Arg(s):
-#    str - 
-#
-# Return(s):
-#    $str_uc - 
+#  Args:
+#	str - 
 #
 #>
 ######################################################################
@@ -142,15 +125,12 @@ p6_string_uc() {
 #<
 #
 # Function:
-#     $str_r = p6_string_replace(str, from, to)
+#	str($str_r) = p6_string_replace(str, from, to, 
 #
-# Arg(s):
-#    str - 
-#    from - 
-#    to - 
-#
-# Return(s):
-#    $str_r - 
+#  Args:
+#	str - 
+#	from - 
+#	to - 
 #
 #>
 ######################################################################
@@ -170,13 +150,10 @@ p6_string_replace() {
 #<
 #
 # Function:
-#     $str_ic = p6_string_init_cap(str)
+#	str($str_ic) = p6_string_init_cap(str, 
 #
-# Arg(s):
-#    str - 
-#
-# Return(s):
-#    $str_ic - 
+#  Args:
+#	str - 
 #
 #>
 ######################################################################

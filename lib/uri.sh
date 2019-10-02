@@ -4,9 +4,7 @@
 #<
 #
 # Function:
-#      = p6_uri__debug()
-#
-#
+#	void() = p6_uri__debug(
 #
 #>
 ######################################################################
@@ -22,13 +20,10 @@ p6_uri__debug() {
 #<
 #
 # Function:
-#     $name = p6_uri_name(uri)
+#	str($name) = p6_uri_name(uri, 
 #
-# Arg(s):
-#    uri - 
-#
-# Return(s):
-#    $name - 
+#  Args:
+#	uri - 
 #
 #>
 ######################################################################
@@ -48,13 +43,10 @@ p6_uri_name() {
 #<
 #
 # Function:
-#     $name = p6_uri_path(uri)
+#	str($name) = p6_uri_path(uri, 
 #
-# Arg(s):
-#    uri - 
-#
-# Return(s):
-#    $name - 
+#  Args:
+#	uri - 
 #
 #>
 ######################################################################

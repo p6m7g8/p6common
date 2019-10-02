@@ -4,9 +4,7 @@
 #<
 #
 # Function:
-#      = p6_transient__debug()
-#
-#
+#	void() = p6_transient__debug(
 #
 #>
 ######################################################################
@@ -22,14 +20,11 @@ p6_transient__debug() {
 #<
 #
 # Function:
-#     str = p6_transient_create(dir_name, len)
+#	unkown() = p6_transient_create(dir_name, [len=4], 
 #
-# Arg(s):
-#    dir_name - 
-#    len - 
-#
-# Return(s):
-#    $dir_name - 
+#  Args:
+#	dir_name - 
+#	len - 
 #
 #>
 ######################################################################
@@ -67,11 +62,10 @@ p6_transient_create() {
 #<
 #
 # Function:
-#      = p6_transient_delete(dir)
+#	void() = p6_transient_delete(dir, 
 #
-# Arg(s):
-#    dir - 
-#
+#  Args:
+#	dir - 
 #
 #>
 ######################################################################
@@ -89,9 +83,7 @@ p6_transient_delete() {
 #<
 #
 # Function:
-#      = p6_transient__cleanup()
-#
-#
+#	void() = p6_transient__cleanup(
 #
 #>
 ######################################################################
@@ -112,11 +104,10 @@ trap p6_transient__cleanup 0 1 2 3 6 14 15
 #<
 #
 # Function:
-#      = p6_transient__log(dir)
+#	void() = p6_transient__log(dir, 
 #
-# Arg(s):
-#    dir - 
-#
+#  Args:
+#	dir - 
 #
 #>
 ######################################################################

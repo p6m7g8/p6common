@@ -4,9 +4,7 @@
 #<
 #
 # Function:
-#      = p6_env__debug()
-#
-#
+#	void() = p6_env__debug(
 #
 #>
 ######################################################################
@@ -22,12 +20,11 @@ p6_env__debug() {
 #<
 #
 # Function:
-#      = p6_env_export(var, val)
+#	void() = p6_env_export(var, val, 
 #
-# Arg(s):
-#    var - 
-#    val - 
-#
+#  Args:
+#	var - 
+#	val - 
 #
 #>
 ######################################################################
@@ -47,11 +44,10 @@ p6_env_export() {
 #<
 #
 # Function:
-#      = p6_env_export_un(var)
+#	void() = p6_env_export_un(var, 
 #
-# Arg(s):
-#    var - 
-#
+#  Args:
+#	var - 
 #
 #>
 ######################################################################
@@ -70,11 +66,10 @@ p6_env_export_un() {
 #<
 #
 # Function:
-#      = p6_env_list(glob)
+#	void() = p6_env_list(glob, 
 #
-# Arg(s):
-#    glob - 
-#
+#  Args:
+#	glob - 
 #
 #>
 ######################################################################

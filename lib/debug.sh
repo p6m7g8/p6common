@@ -4,9 +4,7 @@
 #<
 #
 # Function:
-#      = p6_debug__debug()
-#
-#
+#	void() = p6_debug__debug(
 #
 #>
 ######################################################################
@@ -22,11 +20,10 @@ p6_debug__debug() {
 #<
 #
 # Function:
-#      = p6_verbose(level)
+#	void() = p6_verbose(level, 
 #
-# Arg(s):
-#    level - minimum verbosity before output
-#
+#  Args:
+#	level - minimum verbosity before output
 #
 #>
 ######################################################################
@@ -44,9 +41,7 @@ p6_verbose() {
 #<
 #
 # Function:
-#      = p6_debug()
-#
-#
+#	p6_debug(
 #
 #>
 ######################################################################
@@ -61,9 +56,7 @@ p6_debug() {
 #<
 #
 # Function:
-#      = p6_log()
-#
-#
+#	void() = p6_log(
 #
 #>
 ######################################################################
@@ -78,11 +71,7 @@ p6_log() {
 #<
 #
 # Function:
-#     $rv = p6_debugging()
-#
-#
-# Return(s):
-#    $rv - whether debugging
+#	bool($rv) = p6_debugging(
 #
 #>
 ######################################################################
@@ -97,11 +86,7 @@ p6_debugging() {
 #<
 #
 # Function:
-#     $rv = p6_dryruning()
-#
-#
-# Return(s):
-#    $rv - whether dryrunning
+#	bool($rv) = p6_dryruning(
 #
 #>
 ######################################################################

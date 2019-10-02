@@ -4,9 +4,7 @@
 #<
 #
 # Function:
-#      = p6_run__debug()
-#
-#
+#	void() = p6_run__debug(
 #
 #>
 ######################################################################
@@ -22,11 +20,10 @@ p6_run__debug() {
 #<
 #
 # Function:
-#      = p6_run_read_cmd(cmd)
+#	p6_run_read_cmd(cmd, 
 #
-# Arg(s):
-#    cmd - 
-#
+#  Args:
+#	cmd - 
 #
 #>
 ######################################################################
@@ -45,11 +42,10 @@ p6_run_read_cmd() {
 #<
 #
 # Function:
-#      = p6_run_write_cmd(cmd)
+#	p6_run_write_cmd(cmd, 
 #
-# Arg(s):
-#    cmd - 
-#
+#  Args:
+#	cmd - 
 #
 #>
 ######################################################################
@@ -72,15 +68,12 @@ p6_run_write_cmd() {
 #<
 #
 # Function:
-#     str = p6_run_retry(stop, fail, func)
+#	p6_run_retry(stop, fail, func, 
 #
-# Arg(s):
-#    stop - 
-#    fail - 
-#    func - 
-#
-# Return(s):
-#     - 
+#  Args:
+#	stop - 
+#	fail - 
+#	func - 
 #
 #>
 ######################################################################
@@ -106,13 +99,12 @@ p6_run_retry() {
 #<
 #
 # Function:
-#      = p6_run_parallel(parallel, things, cmd)
+#	p6_run_parallel(parallel, things, cmd, 
 #
-# Arg(s):
-#    parallel - 
-#    things - 
-#    cmd - 
-#
+#  Args:
+#	parallel - 
+#	things - 
+#	cmd - 
 #
 #>
 ######################################################################
@@ -136,12 +128,11 @@ p6_run_parallel() {
 #<
 #
 # Function:
-#      = p6_run_serial(things, cmd)
+#	p6_run_serial(things, cmd, 
 #
-# Arg(s):
-#    things - 
-#    cmd - 
-#
+#  Args:
+#	things - 
+#	cmd - 
 #
 #>
 ######################################################################
@@ -161,15 +152,11 @@ p6_run_serial() {
 #<
 #
 # Function:
-#     bool = p6_run_if_not_in(script, skip_list)
+#	true() = p6_run_if_not_in(script, skip_list, 
 #
-# Arg(s):
-#    script - 
-#    skip_list - 
-#
-# Return(s):
-#     - 
-#     - 
+#  Args:
+#	script - 
+#	skip_list - 
 #
 #>
 ######################################################################
@@ -191,16 +178,15 @@ p6_run_if_not_in() {
 #<
 #
 # Function:
-#      = p6_run_script(cmd_env, shell, set_flags, cmd, exts, arg_list)
+#	p6_run_script(cmd_env, shell, set_flags, cmd, [exts=.sh], arg_list, 
 #
-# Arg(s):
-#    cmd_env - 
-#    shell - 
-#    set_flags - 
-#    cmd - 
-#    exts - 
-#    arg_list - 
-#
+#  Args:
+#	cmd_env - 
+#	shell - 
+#	set_flags - 
+#	cmd - 
+#	exts - 
+#	arg_list - 
 #
 #>
 ######################################################################

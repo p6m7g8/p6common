@@ -4,9 +4,7 @@
 #<
 #
 # Function:
-#      = p6_retry__debug()
-#
-#
+#	void() = p6_retry__debug(
 #
 #>
 ######################################################################
@@ -22,9 +20,7 @@ p6_retry__debug() {
 #<
 #
 # Function:
-#      = p6_retry_delay_doubling()
-#
-#
+#	void() = p6_retry_delay_doubling(
 #
 #>
 ######################################################################
@@ -39,9 +35,7 @@ p6_retry_delay_doubling() {
 #<
 #
 # Function:
-#      = p6_retry_delay_log()
-#
-#
+#	void() = p6_retry_delay_log(
 #
 #>
 ######################################################################
@@ -56,13 +50,10 @@ p6_retry_delay_log() {
 #<
 #
 # Function:
-#     $i = p6_retry_delay(type)
+#	int($i) = p6_retry_delay(type, 
 #
-# Arg(s):
-#    type - 
-#
-# Return(s):
-#    $i - 
+#  Args:
+#	type - 
 #
 #>
 ######################################################################

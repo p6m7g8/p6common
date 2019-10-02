@@ -4,7 +4,7 @@
 #<
 #
 # Function:
-#	void() = p6_alias__debug(
+#	p6_alias__debug()
 #
 #>
 ######################################################################
@@ -20,7 +20,7 @@ p6_alias__debug() {
 #<
 #
 # Function:
-#	void() = p6_alias_cd_dirs(dir, 
+#	p6_alias_cd_dirs(dir)
 #
 #  Args:
 #	dir - 
@@ -49,7 +49,7 @@ p6_alias_cd_dirs() {
 #<
 #
 # Function:
-#	void() = p6_alias(from, to, 
+#	p6_alias(from, to)
 #
 #  Args:
 #	from - 

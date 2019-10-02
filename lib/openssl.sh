@@ -4,7 +4,7 @@
 #<
 #
 # Function:
-#	void() = p6_openssl__debug(
+#	p6_openssl__debug()
 #
 #>
 ######################################################################
@@ -20,7 +20,7 @@ p6_openssl__debug() {
 #<
 #
 # Function:
-#	void() = p6_openssl_req_509(key_file, crt_file, cert_exp, cert_subject, 
+#	p6_openssl_req_509(key_file, crt_file, cert_exp, cert_subject)
 #
 #  Args:
 #	key_file - 
@@ -45,7 +45,7 @@ p6_openssl_req_509() {
 #<
 #
 # Function:
-#	void() = p6_openssl_genrsa(key_file, cert_bits, 
+#	p6_openssl_genrsa(key_file, cert_bits)
 #
 #  Args:
 #	key_file - 
@@ -66,7 +66,7 @@ p6_openssl_genrsa() {
 #<
 #
 # Function:
-#	void() = p6_openssl_sha1(
+#	p6_openssl_sha1()
 #
 #>
 ######################################################################
@@ -81,7 +81,7 @@ p6_openssl_sha1() {
 #<
 #
 # Function:
-#	void() = p6_openssl_sha256(
+#	p6_openssl_sha256()
 #
 #>
 ######################################################################
@@ -96,7 +96,7 @@ p6_openssl_sha256() {
 #<
 #
 # Function:
-#	void() = p6_openssl_b64(
+#	p6_openssl_b64()
 #
 #>
 ######################################################################
@@ -111,7 +111,7 @@ p6_openssl_b64() {
 #<
 #
 # Function:
-#	void() = p6_openssl_b64_d(
+#	p6_openssl_b64_d()
 #
 #>
 ######################################################################

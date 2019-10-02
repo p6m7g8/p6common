@@ -4,7 +4,7 @@
 #<
 #
 # Function:
-#	void() = p6_lang__debug(
+#	p6_lang__debug()
 #
 #>
 ######################################################################
@@ -20,10 +20,13 @@ p6_lang__debug() {
 #<
 #
 # Function:
-#	str($v) = p6_lang_version(prefix, 
+#	str v = p6_lang_version(prefix)
 #
 #  Args:
 #	prefix - 
+#
+#  Returns:
+#	str - v
 #
 #>
 ######################################################################
@@ -54,10 +57,13 @@ p6_lang_version() {
 #<
 #
 # Function:
-#	str(sys@$ver) = p6_lang_system_version(prefix, 
+#	str sys@$ver = p6_lang_system_version(prefix)
 #
 #  Args:
 #	prefix - 
+#
+#  Returns:
+#	str - sys@$ver#	str - no
 #
 #>
 ######################################################################
@@ -89,10 +95,13 @@ p6_lang_system_version() {
 #<
 #
 # Function:
-#	str($prefix) = p6_lang_cmd_2_env(cmd, 
+#	str prefix = p6_lang_cmd_2_env(cmd)
 #
 #  Args:
 #	cmd - 
+#
+#  Returns:
+#	str - prefix
 #
 #>
 ######################################################################
@@ -119,10 +128,13 @@ p6_lang_cmd_2_env() {
 #<
 #
 # Function:
-#	str($rcmd) = p6_lang_env_2_cmd(prefix, 
+#	str rcmd = p6_lang_env_2_cmd(prefix)
 #
 #  Args:
 #	prefix - 
+#
+#  Returns:
+#	str - rcmd
 #
 #>
 ######################################################################

@@ -4,7 +4,7 @@
 #<
 #
 # Function:
-#	void() = p6_json__debug(
+#	p6_json__debug()
 #
 #>
 ######################################################################
@@ -20,11 +20,14 @@ p6_json__debug() {
 #<
 #
 # Function:
-#	str($val) = p6_json_key_2_value(key, file, 
+#	str val = p6_json_key_2_value(key, file)
 #
 #  Args:
 #	key - 
 #	file - 
+#
+#  Returns:
+#	str - val
 #
 #>
 ######################################################################
@@ -49,11 +52,14 @@ p6_json_key_2_value() {
 #<
 #
 # Function:
-#	str($val) = p6_json_value_2_key(key, file, 
+#	str val = p6_json_value_2_key(key, file)
 #
 #  Args:
 #	key - 
 #	file - 
+#
+#  Returns:
+#	str - val
 #
 #>
 ######################################################################

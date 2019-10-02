@@ -4,7 +4,7 @@
 #<
 #
 # Function:
-#	void() = p6_debug__debug(
+#	p6_debug__debug()
 #
 #>
 ######################################################################
@@ -20,7 +20,7 @@ p6_debug__debug() {
 #<
 #
 # Function:
-#	void() = p6_verbose(level, 
+#	p6_verbose(level)
 #
 #  Args:
 #	level - minimum verbosity before output
@@ -41,7 +41,7 @@ p6_verbose() {
 #<
 #
 # Function:
-#	p6_debug(
+#	p6_debug()
 #
 #>
 ######################################################################
@@ -56,7 +56,7 @@ p6_debug() {
 #<
 #
 # Function:
-#	void() = p6_log(
+#	p6_log()
 #
 #>
 ######################################################################
@@ -71,7 +71,10 @@ p6_log() {
 #<
 #
 # Function:
-#	bool($rv) = p6_debugging(
+#	bool rv = p6_debugging()
+#
+#  Returns:
+#	bool - rv: whether debugging
 #
 #>
 ######################################################################
@@ -86,7 +89,10 @@ p6_debugging() {
 #<
 #
 # Function:
-#	bool($rv) = p6_dryruning(
+#	bool rv = p6_dryruning()
+#
+#  Returns:
+#	bool - rv: whether dryrunning
 #
 #>
 ######################################################################

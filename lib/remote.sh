@@ -6,7 +6,7 @@
 #<
 #
 # Function:
-#	void() = p6_remote__debug(
+#	p6_remote__debug()
 #
 #>
 ######################################################################
@@ -22,7 +22,7 @@ p6_remote__debug() {
 #<
 #
 # Function:
-#	void() = p6_remote_ssh_do(cmd, 
+#	p6_remote_ssh_do(cmd)
 #
 #  Args:
 #	cmd - 

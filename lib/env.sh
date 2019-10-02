@@ -4,7 +4,7 @@
 #<
 #
 # Function:
-#	void() = p6_env__debug(
+#	p6_env__debug()
 #
 #>
 ######################################################################
@@ -20,7 +20,7 @@ p6_env__debug() {
 #<
 #
 # Function:
-#	void() = p6_env_export(var, val, 
+#	p6_env_export(var, val)
 #
 #  Args:
 #	var - 
@@ -44,7 +44,7 @@ p6_env_export() {
 #<
 #
 # Function:
-#	void() = p6_env_export_un(var, 
+#	p6_env_export_un(var)
 #
 #  Args:
 #	var - 
@@ -66,7 +66,7 @@ p6_env_export_un() {
 #<
 #
 # Function:
-#	void() = p6_env_list(glob, 
+#	p6_env_list(glob)
 #
 #  Args:
 #	glob - 

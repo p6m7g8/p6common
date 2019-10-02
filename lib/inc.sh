@@ -4,7 +4,7 @@
 #<
 #
 # Function:
-#	void() = p6_include__debug(
+#	p6_include__debug()
 #
 #>
 ######################################################################
@@ -20,11 +20,11 @@ p6_include__debug() {
 #<
 #
 # Function:
-#	void() = p6_include_module(module, [start=init.sh], 
+#	p6_include_module(module, [start=init.sh])
 #
 #  Args:
 #	module - 
-#	start - 
+#	OPTIONAL start -  [init.sh]
 #
 #>
 ######################################################################

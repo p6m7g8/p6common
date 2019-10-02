@@ -5,7 +5,10 @@
 #<
 #
 # Function:
-#	code() = p6_return(
+#	code  = p6_return()
+#
+#  Returns:
+#	code - 
 #
 #>
 ######################################################################
@@ -21,7 +24,7 @@ p6_return() {
 #<
 #
 # Function:
-#	p6_return_code(rc, 
+#	p6_return_code(rc)
 #
 #  Args:
 #	rc - 
@@ -39,7 +42,10 @@ p6_return_code() {
 #<
 #
 # Function:
-#	code() = p6_return_true(
+#	code  = p6_return_true()
+#
+#  Returns:
+#	code - 
 #
 #>
 ######################################################################
@@ -52,7 +58,10 @@ p6_return_true() {
 #<
 #
 # Function:
-#	code() = p6_return_false(
+#	code  = p6_return_false()
+#
+#  Returns:
+#	code - 
 #
 #>
 ######################################################################
@@ -65,7 +74,7 @@ p6_return_false() {
 #<
 #
 # Function:
-#	p6_return_void(
+#	p6_return_void()
 #
 #>
 ######################################################################
@@ -78,10 +87,13 @@ p6_return_void() {
 #<
 #
 # Function:
-#	unkown($bool) = p6_return_bool(bool, 
+#	unkown bool = p6_return_bool(bool)
 #
 #  Args:
 #	bool - 
+#
+#  Returns:
+#	unkown - bool
 #
 #>
 ######################################################################
@@ -95,10 +107,13 @@ p6_return_bool() {
 #<
 #
 # Function:
-#	unkown($int) = p6_return_int(int, 
+#	unkown int = p6_return_int(int)
 #
 #  Args:
 #	int - 
+#
+#  Returns:
+#	unkown - int
 #
 #>
 ######################################################################
@@ -112,10 +127,13 @@ p6_return_int() {
 #<
 #
 # Function:
-#	unkown($int) = p6_return_size_t(int, 
+#	unkown int = p6_return_size_t(int)
 #
 #  Args:
 #	int - 
+#
+#  Returns:
+#	unkown - int
 #
 #>
 ######################################################################
@@ -129,10 +147,13 @@ p6_return_size_t() {
 #<
 #
 # Function:
-#	unkown($str) = p6_return_string(str, 
+#	unkown str = p6_return_string(str)
 #
 #  Args:
 #	str - 
+#
+#  Returns:
+#	unkown - str
 #
 #>
 ######################################################################
@@ -146,10 +167,13 @@ p6_return_string() {
 #<
 #
 # Function:
-#	unkown($list) = p6_return_list(str, 
+#	unkown list = p6_return_list(str)
 #
 #  Args:
 #	str - 
+#
+#  Returns:
+#	unkown - list
 #
 #>
 ######################################################################
@@ -163,10 +187,13 @@ p6_return_list() {
 #<
 #
 # Function:
-#	unkown($hash) = p6_return_hash(hash, 
+#	unkown hash = p6_return_hash(hash)
 #
 #  Args:
 #	hash - 
+#
+#  Returns:
+#	unkown - hash
 #
 #>
 ######################################################################
@@ -180,10 +207,13 @@ p6_return_hash() {
 #<
 #
 # Function:
-#	unkown($arr) = p6_return_array(arr, 
+#	unkown arr = p6_return_array(arr)
 #
 #  Args:
 #	arr - 
+#
+#  Returns:
+#	unkown - arr
 #
 #>
 ######################################################################

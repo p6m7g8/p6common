@@ -4,7 +4,7 @@
 #<
 #
 # Function:
-#	void() = p6_string__debug(
+#	p6_string__debug()
 #
 #>
 ######################################################################
@@ -20,10 +20,13 @@ p6_string__debug() {
 #<
 #
 # Function:
-#	bool($rv) = p6_string_blank(str, 
+#	bool rv = p6_string_blank(str)
 #
 #  Args:
 #	str - 
+#
+#  Returns:
+#	bool - rv
 #
 #>
 ######################################################################
@@ -41,10 +44,13 @@ p6_string_blank() {
 #<
 #
 # Function:
-#	int(${#str}) = p6_string_len(str, 
+#	int {#str} = p6_string_len(str)
 #
 #  Args:
 #	str - 
+#
+#  Returns:
+#	int - {#str}
 #
 #>
 ######################################################################
@@ -58,12 +64,15 @@ p6_string_len() {
 #<
 #
 # Function:
-#	str($rv) = p6_string_append(str, add, sep, 
+#	str rv = p6_string_append(str, add, sep)
 #
 #  Args:
 #	str - 
 #	add - 
 #	sep - 
+#
+#  Returns:
+#	str - rv
 #
 #>
 ######################################################################
@@ -83,10 +92,13 @@ p6_string_append() {
 #<
 #
 # Function:
-#	str($str_lc) = p6_string_lc(str, 
+#	str str_lc = p6_string_lc(str)
 #
 #  Args:
 #	str - 
+#
+#  Returns:
+#	str - str_lc
 #
 #>
 ######################################################################
@@ -104,10 +116,13 @@ p6_string_lc() {
 #<
 #
 # Function:
-#	str($str_uc) = p6_string_uc(str, 
+#	str str_uc = p6_string_uc(str)
 #
 #  Args:
 #	str - 
+#
+#  Returns:
+#	str - str_uc
 #
 #>
 ######################################################################
@@ -125,12 +140,15 @@ p6_string_uc() {
 #<
 #
 # Function:
-#	str($str_r) = p6_string_replace(str, from, to, 
+#	str str_r = p6_string_replace(str, from, to)
 #
 #  Args:
 #	str - 
 #	from - 
 #	to - 
+#
+#  Returns:
+#	str - str_r
 #
 #>
 ######################################################################
@@ -150,10 +168,13 @@ p6_string_replace() {
 #<
 #
 # Function:
-#	str($str_ic) = p6_string_init_cap(str, 
+#	str str_ic = p6_string_init_cap(str)
 #
 #  Args:
 #	str - 
+#
+#  Returns:
+#	str - str_ic
 #
 #>
 ######################################################################

@@ -4,7 +4,7 @@
 #<
 #
 # Function:
-#	void() = p6_token__debug(
+#	p6_token__debug()
 #
 #>
 ######################################################################
@@ -20,10 +20,13 @@ p6_token__debug() {
 #<
 #
 # Function:
-#	str($hashed) = p6_token_hash(string, 
+#	str hashed = p6_token_hash(string)
 #
 #  Args:
 #	string - 
+#
+#  Returns:
+#	str - hashed
 #
 #>
 ######################################################################
@@ -46,10 +49,13 @@ p6_token_hash() {
 #<
 #
 # Function:
-#	str($token) = p6_token_random(len, 
+#	str token = p6_token_random(len)
 #
 #  Args:
 #	len - 
+#
+#  Returns:
+#	str - token
 #
 #>
 ######################################################################
@@ -68,10 +74,13 @@ p6_token_random() {
 #<
 #
 # Function:
-#	str($pass) = p6_token_passwd(len, 
+#	str pass = p6_token_passwd(len)
 #
 #  Args:
 #	len - 
+#
+#  Returns:
+#	str - pass
 #
 #>
 ######################################################################

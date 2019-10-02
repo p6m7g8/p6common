@@ -4,7 +4,7 @@
 #<
 #
 # Function:
-#	void() = p6_dt__debug(
+#	p6_dt__debug()
 #
 #>
 ######################################################################
@@ -20,11 +20,14 @@ p6_dt__debug() {
 #<
 #
 # Function:
-#	str($dt) = p6_dt__date(fmt, offset, 
+#	str dt = p6_dt__date(fmt, offset)
 #
 #  Args:
 #	fmt - 
 #	offset - 
+#
+#  Returns:
+#	str - dt
 #
 #>
 ######################################################################
@@ -53,7 +56,7 @@ p6_dt__date() {
 #<
 #
 # Function:
-#	p6_dt_now_epoch_seconds(
+#	p6_dt_now_epoch_seconds()
 #
 #>
 ######################################################################
@@ -66,7 +69,7 @@ p6_dt_now_epoch_seconds() {
 #<
 #
 # Function:
-#	p6_dt_now(
+#	p6_dt_now()
 #
 #>
 ######################################################################
@@ -79,7 +82,7 @@ p6_dt_now() {
 #<
 #
 # Function:
-#	p6_dt_yesterday(
+#	p6_dt_yesterday()
 #
 #>
 ######################################################################
@@ -93,7 +96,7 @@ p6_dt_yesterday() {
 #<
 #
 # Function:
-#	p6_dt_tomorrow(
+#	p6_dt_tomorrow()
 #
 #>
 ######################################################################
@@ -107,7 +110,7 @@ p6_dt_tomorrow() {
 #<
 #
 # Function:
-#	p6_dt_mtime(file, 
+#	p6_dt_mtime(file)
 #
 #  Args:
 #	file - 

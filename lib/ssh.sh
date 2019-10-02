@@ -4,7 +4,7 @@
 #<
 #
 # Function:
-#	void() = p6_ssh__debug(
+#	p6_ssh__debug()
 #
 #>
 ######################################################################
@@ -20,11 +20,14 @@ p6_ssh__debug() {
 #<
 #
 # Function:
-#	code($rc) = p6_ssh_key_check(priv, test_pub, 
+#	code rc = p6_ssh_key_check(priv, test_pub)
 #
 #  Args:
 #	priv - 
 #	test_pub - 
+#
+#  Returns:
+#	code - rc
 #
 #>
 ######################################################################
@@ -50,7 +53,7 @@ p6_ssh_key_check() {
 #<
 #
 # Function:
-#	void() = p6_ssh_key_fingerprint(
+#	p6_ssh_key_fingerprint()
 #
 #>
 ######################################################################
@@ -66,7 +69,7 @@ p6_ssh_key_fingerprint() {
 #<
 #
 # Function:
-#	void() = p6_ssh_key_add(key_file_priv, 
+#	p6_ssh_key_add(key_file_priv)
 #
 #  Args:
 #	key_file_priv - 
@@ -91,7 +94,7 @@ p6_ssh_key_add() {
 #<
 #
 # Function:
-#	void() = p6_ssh_key_delete(key_file_priv, 
+#	p6_ssh_key_delete(key_file_priv)
 #
 #  Args:
 #	key_file_priv - 
@@ -116,11 +119,11 @@ p6_ssh_key_delete() {
 #<
 #
 # Function:
-#	void() = p6_ssh_key_pub_from_priv(key_file_priv, [key_file_pub=${key_file_priv], 
+#	p6_ssh_key_pub_from_priv(key_file_priv, [key_file_pub=${key_file_priv])
 #
 #  Args:
 #	key_file_priv - 
-#	key_file_pub - 
+#	OPTIONAL key_file_pub -  [${key_file_priv]
 #
 #>
 ######################################################################
@@ -137,7 +140,7 @@ p6_ssh_key_pub_from_priv() {
 #<
 #
 # Function:
-#	void() = p6_ssh_key_make(key_file_priv, 
+#	p6_ssh_key_make(key_file_priv)
 #
 #  Args:
 #	key_file_priv - 
@@ -156,11 +159,11 @@ p6_ssh_key_make() {
 #<
 #
 # Function:
-#	p6_ssh_key_remove(key_file_priv, [key_file_pub=${key_file_priv], 
+#	p6_ssh_key_remove(key_file_priv, [key_file_pub=${key_file_priv])
 #
 #  Args:
 #	key_file_priv - 
-#	key_file_pub - 
+#	OPTIONAL key_file_pub -  [${key_file_priv]
 #
 #>
 ######################################################################
@@ -176,7 +179,7 @@ p6_ssh_key_remove() {
 #<
 #
 # Function:
-#	void() = p6_ssh_keys_chmod(key_file_priv, 
+#	p6_ssh_keys_chmod(key_file_priv)
 #
 #  Args:
 #	key_file_priv - 

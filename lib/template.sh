@@ -4,7 +4,7 @@
 #<
 #
 # Function:
-#	void() = p6_template__debug(
+#	p6_template__debug()
 #
 #>
 ######################################################################
@@ -20,7 +20,7 @@ p6_template__debug() {
 #<
 #
 # Function:
-#	void() = p6_template_fill_in(infile, outfile, q_flag, 
+#	p6_template_fill_in(infile, outfile, q_flag)
 #
 #  Args:
 #	infile - 
@@ -57,12 +57,15 @@ p6_template_fill_in() {
 #<
 #
 # Function:
-#	str($fills) = p6_template_fill_args(mark, sep, split, 
+#	str fills = p6_template_fill_args(mark, sep, split)
 #
 #  Args:
 #	mark - 
 #	sep - 
 #	split - 
+#
+#  Returns:
+#	str - fills
 #
 #>
 ######################################################################
@@ -93,7 +96,7 @@ p6_template_fill_args() {
 #<
 #
 # Function:
-#	void() = p6_template_process(infile, 
+#	p6_template_process(infile)
 #
 #  Args:
 #	infile - 

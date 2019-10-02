@@ -2,10 +2,10 @@
 #<
 #
 # Function:
-#	void() = p6_bootstrap([dir=$P6_DFZ_SRC_P6M7G8_DIR/p6common], 
+#	p6_bootstrap([dir=$P6_DFZ_SRC_P6M7G8_DIR/p6common])
 #
 #  Args:
-#	dir - 
+#	OPTIONAL dir -  [$P6_DFZ_SRC_P6M7G8_DIR/p6common]
 #
 #>
 ######################################################################

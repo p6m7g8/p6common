@@ -36,7 +36,7 @@ p6_transient_create() {
     local len="${2:-4}"
 
     if p6_string_blank "$dir_name"; then
-	p6_return ""
+	p6_return_str ""
     else
 	local rand
 	if ! p6_string_blank "$P6_TEST_TRANSIENT_CREATE_RAND"; then

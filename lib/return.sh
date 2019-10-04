@@ -5,7 +5,7 @@
 #	p6_return_code(rc)
 #
 #  Args:
-#	rc -
+#	rc - 
 #
 #>
 ######################################################################
@@ -22,7 +22,7 @@ p6_return_code() {
 #	code  = p6_return_true()
 #
 #  Returns:
-#	code -
+#	code - 
 #
 #>
 #/ Synopsis
@@ -41,7 +41,7 @@ p6_return_true() {
 #	code  = p6_return_false()
 #
 #  Returns:
-#	code -
+#	code - 
 #
 #>
 #/ Synopsis
@@ -79,7 +79,7 @@ p6_return_void() {
 #	code bool = p6_return_bool(bool)
 #
 #  Args:
-#	bool -
+#	bool - 
 #
 #  Returns:
 #	code - bool
@@ -113,7 +113,7 @@ p6_return_bool() {
 #	p6_return_size_t(size_t)
 #
 #  Args:
-#	size_t -
+#	size_t - 
 #
 #>
 #/ Synopsis
@@ -143,7 +143,7 @@ p6_return_size_t() {
 #	p6_return_int(int)
 #
 #  Args:
-#	int -
+#	int - 
 #
 #>
 #/ Synopsis
@@ -169,7 +169,7 @@ p6_return_int() {
 #	p6_return_float(float)
 #
 #  Args:
-#	float -
+#	float - 
 #
 #>
 #/ Synopsis
@@ -195,7 +195,7 @@ p6_return_float() {
 #	p6_return_str(str)
 #
 #  Args:
-#	str -
+#	str - 
 #
 #>
 #/ Synopsis
@@ -216,7 +216,7 @@ p6_return_str() {
 #	p6_return_path(path)
 #
 #  Args:
-#	path -
+#	path - 
 #
 #>
 #/ Synopsis
@@ -243,7 +243,7 @@ p6_return_path() {
 #	p6_return_words(words)
 #
 #  Args:
-#	words -
+#	words - 
 #
 #>
 #/ Synopsis
@@ -268,7 +268,7 @@ p6_return_words() {
 #	code P6_RETURN_SUCCESS = p6__return(rv)
 #
 #  Args:
-#	rv -
+#	rv - 
 #
 #  Returns:
 #	code - P6_RETURN_SUCCESS
@@ -293,7 +293,7 @@ p6__return() {
 #	code P6_RETURN_SUCCESS = p6_return(rv)
 #
 #  Args:
-#	rv -
+#	rv - 
 #
 #  Returns:
 #	code - P6_RETURN_SUCCESS

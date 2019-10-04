@@ -54,13 +54,13 @@ p6_color_say() {
 #<
 #
 # Function:
-#	int code = p6_color_to_code(color)
+#	size_t code = p6_color_to_code(color)
 #
 #  Args:
 #	color - 
 #
 #  Returns:
-#	int - code
+#	size_t - code
 #
 #>
 ######################################################################

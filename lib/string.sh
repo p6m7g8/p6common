@@ -45,13 +45,13 @@ p6_string_blank() {
 #<
 #
 # Function:
-#	int {#str} = p6_string_len(str)
+#	size_t {#str} = p6_string_len(str)
 #
 #  Args:
 #	str - 
 #
 #  Returns:
-#	int - {#str}
+#	size_t - {#str}
 #
 #>
 ######################################################################

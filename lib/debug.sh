@@ -76,7 +76,7 @@ p6_log() {
 #	bool rv = p6_debugging()
 #
 #  Returns:
-#	bool - rv: whether debugging
+#	bool - rv
 #
 #>
 ######################################################################
@@ -95,7 +95,7 @@ p6_debugging() {
 #	bool rv = p6_dryruning()
 #
 #  Returns:
-#	bool - rv: whether dryrunning
+#	bool - rv
 #
 #>
 ######################################################################

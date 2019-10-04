@@ -50,13 +50,13 @@ p6_retry_delay_log() {
 #<
 #
 # Function:
-#	int i = p6_retry_delay(type)
+#	size_t i = p6_retry_delay(type)
 #
 #  Args:
 #	type - 
 #
 #  Returns:
-#	int - i
+#	size_t - i
 #
 #>
 ######################################################################

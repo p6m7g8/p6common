@@ -20,10 +20,10 @@ p6_pgs() {
 #<
 #
 # Function:
-#	size len = p6_len()
+#	size_t len = p6_len()
 #
 #  Returns:
-#	size - len
+#	size_t - len
 #
 #>
 ######################################################################

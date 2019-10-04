@@ -56,7 +56,10 @@ p6_dt__date() {
 #<
 #
 # Function:
-#	p6_dt_now_epoch_seconds()
+#	size_t epoch_seconds = p6_dt_now_epoch_seconds()
+#
+#  Returns:
+#	size_t - epoch_seconds
 #
 #>
 ######################################################################
@@ -71,7 +74,10 @@ p6_dt_now_epoch_seconds() {
 #<
 #
 # Function:
-#	p6_dt_now()
+#	str dt = p6_dt_now()
+#
+#  Returns:
+#	str - dt
 #
 #>
 ######################################################################
@@ -86,7 +92,10 @@ p6_dt_now() {
 #<
 #
 # Function:
-#	p6_dt_yesterday()
+#	str dt = p6_dt_yesterday()
+#
+#  Returns:
+#	str - dt
 #
 #>
 ######################################################################
@@ -103,7 +112,10 @@ p6_dt_yesterday() {
 #<
 #
 # Function:
-#	p6_dt_tomorrow()
+#	str dt = p6_dt_tomorrow()
+#
+#  Returns:
+#	str - dt
 #
 #>
 ######################################################################
@@ -120,10 +132,13 @@ p6_dt_tomorrow() {
 #<
 #
 # Function:
-#	p6_dt_mtime(file)
+#	size_t modified_epoch_seconds = p6_dt_mtime(file)
 #
 #  Args:
 #	file - 
+#
+#  Returns:
+#	size_t - modified_epoch_seconds
 #
 #>
 ######################################################################

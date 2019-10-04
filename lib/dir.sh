@@ -47,13 +47,10 @@ p6_dir_load() {
 #<
 #
 # Function:
-#	array children = p6_dir_list(dir)
+#	p6_dir_list(dir)
 #
 #  Args:
 #	dir - 
-#
-#  Returns:
-#	array - children
 #
 #>
 ######################################################################
@@ -75,13 +72,10 @@ p6_dir_list() {
 #<
 #
 # Function:
-#	array entries = p6_dirs_list(dirs)
+#	p6_dirs_list(dirs)
 #
 #  Args:
 #	dirs - 
-#
-#  Returns:
-#	array - entries
 #
 #>
 ######################################################################
@@ -104,13 +98,10 @@ p6_dirs_list() {
 #<
 #
 # Function:
-#	array descendants = p6_dir_list_recursive(dir)
+#	p6_dir_list_recursive(dir)
 #
 #  Args:
 #	dir - 
-#
-#  Returns:
-#	array - descendants
 #
 #>
 ######################################################################
@@ -137,18 +128,11 @@ p6_dir_list_recursive() {
 #	bool rv = p6_dir_exists(dir)
 #
 #  Args:
-#	dir -
+#	dir - 
 #
 #  Returns:
 #	bool - rv
 #
-#  Depends:
-#	dir
-#	return
-#
-#  Environment:
-#	_FALSE
-#	_TRUE
 #>
 ######################################################################
 p6_dir_exists() {

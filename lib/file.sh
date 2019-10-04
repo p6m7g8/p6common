@@ -193,14 +193,10 @@ p6_file_repalce() {
 #	bool rv = p6_file_exists(file)
 #
 #  Args:
-#	file -
+#	file - 
 #
 #  Returns:
 #	bool - rv
-#
-#  Depends:
-#	file
-#	return
 #
 #>
 ######################################################################
@@ -349,14 +345,14 @@ p6_file_symlink() {
 #<
 #
 # Function:
-#	str path/$cmd = p6_file_cascade(cmd, exts)
+#	path path/$cmd = p6_file_cascade(cmd, exts)
 #
 #  Args:
 #	cmd - 
 #	exts - 
 #
 #  Returns:
-#	str - path/$cmd#	str - path/$cmd$ext
+#	path - path/$cmd#	path - path/$cmd$ext
 #
 #>
 ######################################################################

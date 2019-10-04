@@ -80,9 +80,10 @@ p6_log() {
 ######################################################################
 p6_debugging() {
 
-    local rv=$([ -n "${P6_DEBUG}" ])
+    test -n "${P6_DEBUG}"
+    local rv=$?
 
-    p6_return_bool "$rv" # whether debugging
+    p6_return_bool "$rv"
 }
 
 ######################################################################
@@ -98,7 +99,8 @@ p6_debugging() {
 ######################################################################
 p6_dryruning() {
 
-    local rv=[ -n "${P6_DRY_RUN}" ]
+    test -n "${P6_DRY_RUN}"
+    local rv=$?
 
-    p6_return_bool "$rv" # whether dryrunning
+    p6_return_bool "$rv"
 }

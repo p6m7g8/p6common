@@ -173,6 +173,8 @@ p6_ssh_key_remove() {
 
     p6_file_rmf $key_file_pub
     p6_file_rmf $key_file_priv
+
+    p6_return_void
 }
 
 ######################################################################

@@ -50,6 +50,8 @@ p6_debug() {
     if p6_debugging; then
 	p6_msg "$@" >> /tmp/p6/debug.log
     fi
+
+    p6_return_void
 }
 
 ######################################################################

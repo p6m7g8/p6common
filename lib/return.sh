@@ -5,7 +5,7 @@
 #	p6_return_code(rc)
 #
 #  Args:
-#	rc - 
+#	rc -
 #
 #>
 ######################################################################
@@ -22,7 +22,7 @@ p6_return_code() {
 #	code  = p6_return_true()
 #
 #  Returns:
-#	code - 
+#	code -
 #
 #>
 #/ Synopsis
@@ -41,7 +41,7 @@ p6_return_true() {
 #	code  = p6_return_false()
 #
 #  Returns:
-#	code - 
+#	code -
 #
 #>
 #/ Synopsis
@@ -79,7 +79,7 @@ p6_return_void() {
 #	code bool = p6_return_bool(bool)
 #
 #  Args:
-#	bool - 
+#	bool -
 #
 #  Returns:
 #	code - bool
@@ -94,13 +94,15 @@ p6_return_void() {
 p6_return_bool() {
     local bool="$1"
 
-    # case $bool in
-    #	0|1) ;;
-    #	*) p6_die "$P6_EXIT_ARGS" "[$bool] is neither 0|1" ;;
-    # esac
+    case $bool in
+	0|1) ;;
+	*) p6_die "$P6_EXIT_ARGS" "[$bool] is neither 0|1" ;;
+    esac
+
     if [ -z "$bool" ]; then
 	p6_error "bool is blank"
     fi
+
     p6_return_code "$bool"
 }
 
@@ -111,7 +113,7 @@ p6_return_bool() {
 #	p6_return_size_t(size_t)
 #
 #  Args:
-#	size_t - 
+#	size_t -
 #
 #>
 #/ Synopsis
@@ -141,7 +143,7 @@ p6_return_size_t() {
 #	p6_return_int(int)
 #
 #  Args:
-#	int - 
+#	int -
 #
 #>
 #/ Synopsis
@@ -164,10 +166,36 @@ p6_return_int() {
 #<
 #
 # Function:
+#	p6_return_float(float)
+#
+#  Args:
+#	float -
+#
+#>
+#/ Synopsis
+#/    Any floating point
+#/    No blanks
+#/
+######################################################################
+p6_return_float() {
+    local float="$1"
+
+    case $float in
+	[0-9]+\.[0-9]+) ;;
+	*) p6_die "$P6_EXIT_ARGS" "[$float] is not a float" ;;
+    esac
+
+    p6__return "$float"
+}
+
+######################################################################
+#<
+#
+# Function:
 #	p6_return_str(str)
 #
 #  Args:
-#	str - 
+#	str -
 #
 #>
 #/ Synopsis
@@ -188,7 +216,7 @@ p6_return_str() {
 #	p6_return_path(path)
 #
 #  Args:
-#	path - 
+#	path -
 #
 #>
 #/ Synopsis
@@ -215,7 +243,7 @@ p6_return_path() {
 #	p6_return_words(words)
 #
 #  Args:
-#	words - 
+#	words -
 #
 #>
 #/ Synopsis
@@ -240,7 +268,7 @@ p6_return_words() {
 #	code P6_RETURN_SUCCESS = p6__return(rv)
 #
 #  Args:
-#	rv - 
+#	rv -
 #
 #  Returns:
 #	code - P6_RETURN_SUCCESS
@@ -265,7 +293,7 @@ p6__return() {
 #	code P6_RETURN_SUCCESS = p6_return(rv)
 #
 #  Args:
-#	rv - 
+#	rv -
 #
 #  Returns:
 #	code - P6_RETURN_SUCCESS

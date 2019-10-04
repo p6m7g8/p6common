@@ -33,7 +33,8 @@ p6_string__debug() {
 p6_string_blank() {
     local str="$1"
 
-    local rv=$([ -z "$str" ])
+    test -z "$str"
+    local rv=$?
 
     p6_string__debug "blank(): [$str] -> $rv"
 
@@ -57,7 +58,7 @@ p6_string_blank() {
 p6_string_len() {
     local str="$1"
 
-    p6_return_int "${#str}"
+    p6_return_size_t "${#str}"
 }
 
 ######################################################################

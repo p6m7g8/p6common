@@ -62,7 +62,9 @@ p6_dt__date() {
 ######################################################################
 p6_dt_now_epoch_seconds() {
 
-    p6_dt__date "+%s"
+    local epoch_seconds=$(p6_dt__date "+%s")
+
+    p6_return_size_t "$epoch_seconds"
 }
 
 ######################################################################
@@ -75,7 +77,9 @@ p6_dt_now_epoch_seconds() {
 ######################################################################
 p6_dt_now() {
 
-    p6_dt__date "+%Y%m%d"
+    local dt=$(p6_dt__date "+%Y%m%d")
+
+    p6_return_str "$dt"
 }
 
 ######################################################################
@@ -89,7 +93,10 @@ p6_dt_now() {
 p6_dt_yesterday() {
 
     local fmt="+%Y%m%d"
-    p6_dt__date "$fmt" "-1"
+
+    local dt=$(p6_dt__date "$fmt" "-1")
+
+    p6_return_str "$dt"
 }
 
 ######################################################################
@@ -103,7 +110,10 @@ p6_dt_yesterday() {
 p6_dt_tomorrow() {
 
     local fmt="+%Y%m%d"
-    p6_dt__date "$fmt" "1"
+
+    local dt=$(p6_dt__date "$fmt" "1")
+
+    p6_return_str "$dt"
 }
 
 ######################################################################
@@ -120,5 +130,7 @@ p6_dt_tomorrow() {
 p6_dt_mtime() {
     local file="$1"
 
-    stat -f "%m" $file
+    local modified_epoch_seconds=$(stat -f "%m" $file)
+
+    p6_return_size_t "$modified_epoch_seconds"
 }

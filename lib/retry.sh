@@ -75,5 +75,5 @@ p6_retry_delay() {
 	p6_die "25" "FATAL"
     fi
 
-    p6_return_int "$i"
+    p6_return_size_t "$i"
 }

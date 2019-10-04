@@ -372,7 +372,7 @@ p6_file_cascade() {
 	    p6_file__debug "cascade(): Checking: $path/$cmd"
 	    if p6_file_exists "$path/$cmd"; then
 		p6_file__debug "cascade(): Found: $path/$cmd"
-		p6_return_str "$path/$cmd"
+		p6_return_path "$path/$cmd"
 	    fi
 	else
 	    local ext
@@ -380,7 +380,7 @@ p6_file_cascade() {
 		p6_file__debug "cascade(): [$ext] Checking: $path/$cmd$ext"
 		if p6_file_exists "$path/$cmd$ext"; then
 		    p6_file__debug "cascade(): [$ext] Found: $path/$cmd$ext"
-		    p6_return_str "$path/$cmd$ext"
+		    p6_return_path "$path/$cmd$ext"
 		fi
 	    done
 	fi

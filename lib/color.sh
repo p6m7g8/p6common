@@ -82,7 +82,7 @@ p6_color_to_code() {
 
     p6_color__debug "say(): [$color] -> [$code]"
 
-    p6_return_int "$code"
+    p6_return_size_t "$code"
 }
 
 ######################################################################

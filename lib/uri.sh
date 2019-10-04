@@ -39,7 +39,7 @@ p6_uri_name() {
     fi
     p6_uri__debug "name(): $uri -> $name"
 
-    p6_return_str "$name"
+    p6_return_path "$name"
 }
 
 ######################################################################
@@ -65,5 +65,5 @@ p6_uri_path() {
     fi
     p6_uri__debug "name(): $uri -> $name"
 
-    p6_return_str "$name"
+    p6_return_path "$name"
 }

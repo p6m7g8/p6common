@@ -146,6 +146,8 @@ p6_run_serial() {
 	p6_run__debug "run_serial(): $cmd @ $thing"
 	local rc="$($cmd $@ "$thing")"
     done
+
+    p6_return_void
 }
 
 ######################################################################

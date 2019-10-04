@@ -193,17 +193,23 @@ p6_file_repalce() {
 #	bool rv = p6_file_exists(file)
 #
 #  Args:
-#	file - 
+#	file -
 #
 #  Returns:
 #	bool - rv
+#
+#  Depends:
+#	file
+#	return
 #
 #>
 ######################################################################
 p6_file_exists() {
     local file="$1"
 
-    local rv=$([ -r "$file" ])
+    test -r "$file"
+    local rv=$?
+
     p6_file__debug "exists(): $file -> $rv"
 
     p6_return_bool "$rv"

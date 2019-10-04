@@ -68,7 +68,7 @@ p6_dir_list() {
 	p6_dir__debug "list(): [$dir] DNE"
     fi
 
-    p6_return_array "$children"
+    p6_return_words "$children"
 }
 
 ######################################################################
@@ -97,7 +97,7 @@ p6_dirs_list() {
 	p6_string_append "$entries" "$children" " "
     done
 
-    p6_return_array "$entries"
+    p6_return_words "$entries"
 }
 
 ######################################################################
@@ -127,7 +127,7 @@ p6_dir_list_recursive() {
 
     p6_dir__debug "list_recursive(): $descendants"
 
-    p6_return_array "$descendants"
+    p6_return_words "$descendants"
 }
 
 ######################################################################
@@ -137,22 +137,25 @@ p6_dir_list_recursive() {
 #	bool rv = p6_dir_exists(dir)
 #
 #  Args:
-#	dir - 
+#	dir -
 #
 #  Returns:
 #	bool - rv
 #
+#  Depends:
+#	dir
+#	return
+#
+#  Environment:
+#	_FALSE
+#	_TRUE
 #>
 ######################################################################
 p6_dir_exists() {
     local dir="$1"
 
-    local rv=-1
-    if [ -d "$dir" ]; then
-	rv=$P6_TRUE
-    else
-	rv=$P6_FALSE
-    fi
+    test -d "$dir"
+    local rv=$?
 
     p6_dir__debug "exists(): $dir -> $rv"
 

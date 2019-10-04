@@ -14,6 +14,7 @@ p6_bootstrap() {
 
   # XXX: Chicken in Egg....
   . $dir/../p6common/lib/const.sh
+  . $dir/../p6common/lib/return.sh
   . $dir/../p6common/lib/io.sh
   . $dir/../p6common/lib/debug.sh
   . $dir/../p6common/lib/string.sh

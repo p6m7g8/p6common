@@ -1,226 +1,147 @@
-######################################################################
-#<
-#
-# Function:
-#	rc = p6_return_code(rc)
-#
-#  Args:
-#	rc - the CODE to return
-#
-#  Returns:
-#	the CODE is returned
-#
-#>
-######################################################################
 p6_return_code() {
-    local rc="$1" # the CODE to return
+    local rc="$1"
 
-    return $rc # the code is returned
+    return $rc
 }
 
-######################################################################
-#<
-#
-# Function:
-#	TRUE  = p6_return_true()
-#
-#  Returns:
-#	TRUE
-#
-#>
-######################################################################
+#/ Synopsis
+#/    Suitable for use in conditionals
+#/
 p6_return_true() {
 
-  p6_return_code $P6_TRUE # return true code
+  p6_return_code $P6_TRUE
 }
 
-######################################################################
-#<
-#
-# Function:
-#	 FAIL  = p6_return_false()
-#
-#  Returns:
-#	 FAIL
-#
-#>
-######################################################################
+#/ Synopsis
+#/    Suitable for use in conditionals
+#/
 p6_return_false() {
 
-  p6_return_code $P6_FALSE # return fail code
+  p6_return_code $P6_FALSE
 }
 
-######################################################################
-#<
-#
-# Function:
-#	p6_return_void()
-#
-#>
-######################################################################
+#/ Synopsis
+#/    The literal absence of a return value
+#/    Do not use this in conditionals
+#/    Do not use this in blank string checks
+#/    Use me when the function simply groups commands for re-use
+#/
 p6_return_void() {
 
-  return # return void
+  return
 }
 
-######################################################################
-#<
-#
-# Function:
-#	bool = p6_return_bool(bool)
-#
-#  Args:
-#	bool - a boolean
-#
-#  Returns:
-#	the boolean is returned
-#
-#>
-######################################################################
+#/ Synopsis
+#/    Exactly 0 or 1
+#/    No blanks
+#/    Suitable for use in conditionals
+#/
 p6_return_bool() {
-     local bool="$1" # a boolean
+    local bool="$1"
 
-     p6_return "$bool" # a boolean is returned
+    # case $bool in
+    #	0|1) ;;
+    #	*) p6_die "$P6_EXIT_ARGS" "[$bool] is neither 0|1" ;;
+    # esac
+    if [ -z "$bool" ]; then
+	p6_error "bool is blank"
+    fi
+    p6_return_code "$bool"
 }
 
-######################################################################
-#<
-#
-# Function:
-#	 int = p6_return_int(int)
-#
-#  Args:
-#	 int - an integer
-#
-#  Returns:
-#	 the integer is returned
-#
-#>
-######################################################################
-p6_return_int() {
-     local int="$1" # an integer
-
-     p6_return "$int" # the integer is returned
-}
-
-######################################################################
-#<
-#
-# Function:
-#	 int = p6_return_size_t(int)
-#
-#  Args:
-#	 int - a positive integer
-#
-#  Returns:
-#	 the positivie integer is returned
-#
-#>
-######################################################################
+#/ Synopsis
+#/    Any Positive Integer
+#/    No blanks
+#/
 p6_return_size_t() {
-     local int="$1" # a positive integer
+    local size_t="$1"
 
-     p6_return "$int" # the positivie integer is returned
+    case $size_t in
+	[0-9]+) ;;
+	*) p6_die "$P6_EXIT_ARGS" "size_t is not a number" ;;
+    esac
+
+    if [ x"$size_t" -lt 0 ]; then
+	p6_die "$P6_EXIT_ARGS" "[$size_t] is not a positive number"
+    fi
+
+    p6__return "$size_t"
 }
 
-######################################################################
-#<
-#
-# Function:
-#	 str = p6_return_string(str)
-#
-#  Args:
-#	 str - a string
-#
-#  Returns:
-#	 the string is returned
-#
-#>
-######################################################################
-p6_return_string() {
-     local str="$1" # a string
+#/ Synopsis
+#/    Any Positive Integer
+#/    No blanks
+#/
+p6_return_int() {
+    local int="$1"
 
-     p6_return "$str" # the string is returned
+    case $int in
+	[0-9]+) ;;
+	*) p6_die "$P6_EXIT_ARGS" "[$int] is not a number" ;;
+    esac
+
+    p6__return "$int"
 }
 
-######################################################################
-#<
-#
-# Function:
-#	 list = p6_return_list(list)
-#
-#  Args:
-#	 list - a list
-#
-#  Returns:
-#	 the list is returned
-#
-#>
-######################################################################
-p6_return_list() {
-     local list="$1" # a list
+#/ Synopsis
+#/    Any string
+#/    BLANKS allowed
+#/
+p6_return_str() {
+    local str="$1"
 
-     p6_return "$list" # the list is returned
+    p6__return "$str"
 }
 
-######################################################################
-#<
-#
-# Function:
-#	 hash = p6_return_hash(hash)
-#
-#  Args:
-#	 hash - a hash
-#
-#  Returns:
-#	 the hash is returned
-#
-#>
-######################################################################
-p6_return_hash() {
-     local hash="$1" # a hash
+#/ Synopsis
+#/    Specialized string of well formed simple unix paths
+#/    Only /, letters, numbers, -, _, @, +, ~, ., ','
+#/    NO SPACES, QUOTES etc...
+#/
+p6_return_path() {
+    local path="$1"
 
-     p6_return "$hash" # the hash is returned
+    case $path in
+	[a-zA-Z0-9/-_@+~.,]+) ;;
+	*) p6_die "$P6_EXIT_ARGS" "[$path] is not a path" ;;
+    esac
+
+    p6__return "$path"
 }
 
-######################################################################
-#<
-#
-# Function:
-#	 arr = p6_return_array(arr)
-#
-#  Args:
-#	 arr - an array
-#
-#  Returns:
-#	 the array is returned
-#
-#>
-######################################################################
-p6_return_array() {
-     local arr="$1" # an array
+#/ Synopsis
+#/    A word is a loop item. Words is a collection of words.
+#/    Words should be split on $IFS
+#/    "" or '' count as a blank word
+#/
+p6_return_words() {
+    local words="$1"
 
-     p6_return "$arr" # the array is returned
+    p6__return "$words"
 }
 
-######################################################################
-#<
+##############################################################################
 #
-# Function:
-#	rv  = p6_return(rv)
+# Private
 #
-#  Args:
-#	rv - the VALUE to return
+###############################################################################
+p6__return() {
+    local rv="$1"
+
+    p6_echo "$rv"
+
+    p6_return_code "$P6_RETURN_SUCCESS"
+}
+
+##############################################################################
 #
-#  Returns:
-#	SUCCESS
+# Deprecated
 #
-#>
-######################################################################
+###############################################################################
 p6_return() {
-    local rv="$1" # the VALUE to return
+    local rv="$1"
 
-    p6_echo "$rv" # "return" the VALUE
+    p6_echo "$rv"
 
-    p6_return_code "0" # return success
+    p6_return_code "$P6_RETURN_SUCCESS"
 }

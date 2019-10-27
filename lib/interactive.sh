@@ -41,7 +41,7 @@ p6_int_confirm_ask() {
     if [ x"${answer}" = x"n" ]; then
 	if [ -n "${TEST_MODE}" ]; then
 	    p6_msg "Asked to Exit"
-	    p6_return_code "42" 
+	    p6_return_code_as_code "42"
 	else
 	    p6_die "42" "Asked to Exit."
 	fi

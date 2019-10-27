@@ -32,8 +32,7 @@ p6_env_export() {
     local var="$1"
     local val="$2"
 
-    ## XXX: p6_run_eval
-    eval "export $var=\"$val\""
+    p6_run_code "export $var=\"$val\""
 
     p6_env__debug "export(): [$var] => [$val]"
 

@@ -58,7 +58,9 @@ p6_string_blank() {
 p6_string_len() {
     local str="$1"
 
-    p6_return_size_t "${#str}"
+    local len="${#str}"
+
+    p6_return_size_t "$len"
 }
 
 ######################################################################

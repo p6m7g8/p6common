@@ -83,6 +83,14 @@ p6__header() {
     p6_return_void
 }
 
+p6__deprecated() {
+  local thing="$1"
+
+  p6_msg "DEPRECATED: $thing"
+
+  p6_return_void
+}
+
 ######################################################################
 #<
 #

@@ -42,11 +42,12 @@ p6_ssh_key_check() {
     ssh-keygen -y -e -f "$priv" > $pub_from_priv
     ssh-keygen -y -e -f "$test_pub" > $pub_from_pub
 
-    local rc=$(cmp -s $pub_from_priv $pub_from_pub)
+    cmp -s $pub_from_priv $pub_from_pub
+    local rc=$?
 
     p6_transient_delete "$dir"
 
-    p6_return_code "$rc"
+    p6_return_code_as_code "$rc"
 }
 
 ######################################################################

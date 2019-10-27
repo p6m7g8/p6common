@@ -16,6 +16,15 @@ p6_run__debug() {
     p6_return_void
 }
 
+p6_run_code() {
+    local code="$*"
+
+    eval "$code"
+    local rc=$?
+
+    p6_return_code_as_code "$rc"
+}
+
 ######################################################################
 #<
 #
@@ -34,8 +43,10 @@ p6_run_read_cmd() {
 	p6_log "$cmd" | perl -p -e "s, , \\\\\n\t,g"
     fi
 
-    # XXX: p6_run_eval
-    eval "$cmd"
+    p6_run_code "$cmd"
+    local rc=$?
+
+    p6_return_code_as_code "$rc"
 }
 
 ######################################################################
@@ -55,12 +66,16 @@ p6_run_write_cmd() {
     if p6_dryruning; then
 	p6_log "$cmd" | perl -p -e "s, , \\\\\n\t,g"
 	# XXX: intentional no run
+	p6_return_true
     else
 	if p6_debugging; then
 	    p6_log "$cmd" | perl -p -e "s, , \\\\\n\t,g"
 	fi
-	# XXX: p6_run_eval
-	eval "$cmd"
+
+	p6_run_code "$cmd"
+	local rc=$?
+
+	p6_return_code_as_code "$rc"
     fi
 }
 
@@ -92,7 +107,7 @@ p6_run_retry() {
 	i=$(p6_retry_delay_doubling "$i")
     done
 
-    p6_retun_code "$status"
+    p6_retun_code_as_code "$status"
 }
 
 ######################################################################

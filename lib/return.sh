@@ -138,7 +138,7 @@ p6_return_int() {
     local int="$1"
 
     case $int in
-	[0-9]+) ;;
+	[0-9]*) ;;
 	*) p6_die "$P6_EXIT_ARGS" "[$int] is not a number" ;;
     esac
 
@@ -164,7 +164,7 @@ p6_return_float() {
     local float="$1"
 
     case $float in
-	[0-9]+\.[0-9]+) ;;
+	[0-9]+\.[0-9]*) ;;
 	*) p6_die "$P6_EXIT_ARGS" "[$float] is not a float" ;;
     esac
 
@@ -212,7 +212,7 @@ p6_return_path() {
     local path="$1"
 
     case $path in
-	[a-zA-Z0-9/-_@+~.,]+) ;;
+	[a-zA-Z0-9/-_@+~.,][a-zA-Z0-9/-_@+~.,]*) ;;
 	*) p6_die "$P6_EXIT_ARGS" "[$path] is not a path" ;;
     esac
 
@@ -290,7 +290,7 @@ p6_return_code__validate() {
     case $rc in
       [0-9]*) ;;
 	   *)
-		p6_error "$P6_EXIT_ARGS" "[$rc] is not a number" 
+		p6_error "$P6_EXIT_ARGS" "[$rc] is not a number"
 		p6_return_void
 		;;
     esac
@@ -319,7 +319,7 @@ p6_return_code__validate() {
 p6_return() {
     local rv="$1"
 
-    p6_deprecated "p6_return()"
+    p6__deprecated "p6_return()"
 
     p6_echo "$rc"
 

@@ -51,7 +51,7 @@ p6_transient_create() {
 	    p6_transient__log "$dir_name"
 	    p6_return_str ""
 	else
-	    p6_debug "p6_misc: transient_create(): $dir_name [$len]"
+	    p6_transient__debug "create(): CREATED [dir_name=$dir_name] [len=$len]"
 	    p6_dir_mk "$dir_name"
 	    p6_transient__log "$dir_name"
 
@@ -68,14 +68,14 @@ p6_transient_create() {
 #	p6_transient_delete(dir)
 #
 #  Args:
-#	dir - 
+#	dir -
 #
 #>
 ######################################################################
 p6_transient_delete() {
     local dir="$1"
 
-    p6_debug "p6_misc: transient_delete(): $dir"
+    p6_transient__debug "delete(): [$dir]"
     p6_dir_rmrf "$dir"
 
     p6_return_void
@@ -110,12 +110,14 @@ trap p6_transient__cleanup 0 1 2 3 6 14 15
 #	p6_transient__log(dir)
 #
 #  Args:
-#	dir - 
+#	dir -
 #
 #>
 ######################################################################
 p6_transient__log() {
     local dir="$1"
+
+    p6_transient__debug "__log(): [$dir]"
 
     p6_file_append "$P6_TRANSIENT_LOG" "$dir"
 

@@ -164,9 +164,9 @@ p6_return_float() {
     local float="$1"
 
     case $float in
-	[0-9]+\.[0-9]*) ;;
+	*.*) ;;
 	*) p6_die "$P6_EXIT_ARGS" "[$float] is not a float" ;;
-    esac
+   esac
 
     p6_return__ "$float"
 }

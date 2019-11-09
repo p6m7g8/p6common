@@ -63,7 +63,7 @@ p6_run_read_cmd() {
 p6_run_write_cmd() {
     local cmd="$@"
 
-    if p6_dryruning; then
+    if p6_dryrunning; then
 	p6_log "$cmd" | perl -p -e "s, , \\\\\n\t,g"
 	# XXX: intentional no run
 	p6_return_true
@@ -98,7 +98,7 @@ p6_run_retry() {
     local func="$3"
     shift 3
 
-    p6_dryruning && p6_return
+    p6_dryrunning && p6_return
 
     local i=1
     while [ : ]; do

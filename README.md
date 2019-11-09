@@ -34,7 +34,7 @@ A POSIX.2 compliant BSD sh shell wrapper library.
 - P6_EXIT_ARGS=2
 
 ### io & debug
-- p6_dryruning()
+- p6_dryrunning()
 - p6_verbose()
 - p6_debug()
 - p6_log()

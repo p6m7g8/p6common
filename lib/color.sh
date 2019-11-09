@@ -163,13 +163,28 @@ p6_color_hex_to_d16b() {
     local g=$(p6_echo "ibase=16; $j" | bc -q)
     local b=$(p6_echo "ibase=16; $k" | bc -q)
 
+    if p6_string_blank "$r"; then
+	r=0
+    fi
+
+    if p6_string_blank "$g"; then
+	g=0
+    fi
+
+    if p6_string_blank "$b"; then
+	b=0
+    fi
+
     local dr=$(($r*257))
     local dg=$(($g*257))
     local db=$(($b*257))
+
+    p6_color__debug "hex_to_d16b(): [hex=$hex] [ord=$ord] -> [dr=$dr] [dg=$dg] [db=$db]"
 
     case $ord in
 	r) p6_return_str "$dr" ;;
 	g) p6_return_str "$dg" ;;
 	b) p6_return_str "$db" ;;
+	*) p6_error "no such channel" ;;
     esac
 }

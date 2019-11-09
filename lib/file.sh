@@ -30,6 +30,8 @@ p6_file__debug() {
 p6_file_load() {
     local file="$1"
 
+    file="$P6_PREFIX$file"
+
     if p6_file_exists "$file"; then
 	p6_file__debug "load(): $file"
 	. $file

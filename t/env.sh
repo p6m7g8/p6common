@@ -8,12 +8,23 @@ main() {
     . ../p6test/lib/_bootstrap.sh
     p6_p6test_bootstrap "../p6test"
 
-    p6_test_setup "3"
+    p6_test_setup "22"
 
-    p6_test_start "p6_colors"
+    p6_test_start "p6_env_export"
     (
-	p6_test_run "false"
-	p6_test_assert_run_ok "none"
+	true
+    )
+    p6_test_finish
+
+    p6_test_start "p6_env_export_un"
+    (
+	true
+    )
+    p6_test_finish
+
+    p6_test_start "p6_env_list"
+    (
+	true
     )
     p6_test_finish
 

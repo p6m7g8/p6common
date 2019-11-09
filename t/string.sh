@@ -2,6 +2,9 @@
 
 main() {
 
+    . ../p6common/lib/_bootstrap.sh
+    p6_bootstrap "../p6common"
+
     . ../p6test/lib/_bootstrap.sh
     p6_p6test_bootstrap "../p6test"
 

@@ -2,10 +2,13 @@
 
 main() {
 
+    . ../p6common/lib/_bootstrap.sh
+    p6_bootstrap "../p6common"
+
     . ../p6test/lib/_bootstrap.sh
     p6_p6test_bootstrap "../p6test"
 
-    p6_test_setup "21"
+    p6_test_setup "210"
 
     p6_test_start "p6_dir_exists"
     (
@@ -32,6 +35,59 @@ main() {
     )
     p6_test_finish
 
+    p6_test_start "p6_dir_load"
+    (
+	true
+    )
+    p6_test_finish
+
+    p6_test_start "p6_dir_list"
+    (
+	true
+    )
+    p6_test_finish
+
+    p6_test_start "p6_dirs_list"
+    (
+	true
+    )
+    p6_test_finish
+
+    p6_test_start "p6_dir_list_recursive"
+    (
+	true
+    )
+    p6_test_finish
+
+    p6_test_start "p6_dir_rmrf"
+    (
+	true
+    )
+    p6_test_finish
+
+    p6_test_start "p6_dir_mk"
+    (
+	true
+    )
+    p6_test_finish
+
+    p6_test_start "p6_dir_cp"
+    (
+	true
+    )
+    p6_test_finish
+
+    p6_test_start "p6_dir_mv"
+    (
+	true
+    )
+    p6_test_finish
+
+    p6_test_start "p6_dir_cd"
+    (
+	true
+    )
+    p6_test_finish
 
     p6_test_teardown
 }

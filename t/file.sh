@@ -2,10 +2,13 @@
 
 main() {
 
+    . ../p6common/lib/_bootstrap.sh
+    p6_bootstrap "../p6common"
+
     . ../p6test/lib/_bootstrap.sh
     p6_p6test_bootstrap "../p6test"
 
-    p6_test_setup "21"
+    p6_test_setup "336"
 
     p6_test_start "p6_file_exists"
     (
@@ -32,6 +35,95 @@ main() {
     )
     p6_test_finish
 
+    p6_test_start "p6_file_load"
+    (
+	true
+    )
+    p6_test_finish
+
+    p6_test_start "p6_file_move"
+    (
+	true
+    )
+    p6_test_finish
+
+    p6_test_start "p6_file_copy"
+    (
+	true
+    )
+    p6_test_finish
+
+    p6_test_start "p6_file_rmf"
+    (
+	true
+    )
+    p6_test_finish
+
+    p6_test_start "p6_file_unlink"
+    (
+	true
+    )
+    p6_test_finish
+
+    p6_test_start "p6_file_contains"
+    (
+	true
+    )
+    p6_test_finish
+
+    p6_test_start "p6_file_line_delete_last"
+    (
+	true
+    )
+    p6_test_finish
+
+    p6_test_start "p6_file_replace"
+    (
+	true
+    )
+    p6_test_finish
+
+    p6_test_start "p6_file_display"
+    (
+	true
+    )
+    p6_test_finish
+
+    p6_test_start "p6_file_create"
+    (
+	true
+    )
+    p6_test_finish
+
+    p6_test_start "p6_file_write"
+    (
+	true
+    )
+    p6_test_finish
+
+    p6_test_start "p6_file_append"
+    (
+	true
+    )
+    p6_test_finish
+
+    p6_test_start "p6_file_ma_sync"
+    (
+	true
+    )
+    p6_test_finish
+
+    p6_test_start "p6_file_symlink"
+    (
+	true
+    )
+    p6_test_finish
+
+    p6_test_start "p6_file_cascade"
+    (
+	true
+    )
+    p6_test_finish
 
     p6_test_teardown
 }

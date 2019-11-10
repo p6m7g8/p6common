@@ -3,8 +3,7 @@
 ######################################################################
 #<
 #
-# Function:
-#	p6_token__debug()
+# Function: p6_token__debug()
 #
 #>
 ######################################################################
@@ -19,8 +18,7 @@ p6_token__debug() {
 ######################################################################
 #<
 #
-# Function:
-#	str hashed = p6_token_hash(string)
+# Function: str hashed = p6_token_hash(string)
 #
 #  Args:
 #	string - 
@@ -48,8 +46,7 @@ p6_token_hash() {
 ######################################################################
 #<
 #
-# Function:
-#	str token = p6_token_random(len)
+# Function: str token = p6_token_random(len)
 #
 #  Args:
 #	len - 
@@ -73,8 +70,7 @@ p6_token_random() {
 ######################################################################
 #<
 #
-# Function:
-#	str pass = p6_token_passwd(len)
+# Function: str pass = p6_token_passwd(len)
 #
 #  Args:
 #	len - 

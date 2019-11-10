@@ -3,8 +3,7 @@
 ######################################################################
 #<
 #
-# Function:
-#	p6_dir__debug()
+# Function: p6_dir__debug()
 #
 #>
 ######################################################################
@@ -19,8 +18,7 @@ p6_dir__debug() {
 ######################################################################
 #<
 #
-# Function:
-#	p6_dir_load(dirs)
+# Function: p6_dir_load(dirs)
 #
 #  Args:
 #	dirs - 
@@ -46,11 +44,13 @@ p6_dir_load() {
 ######################################################################
 #<
 #
-# Function:
-#	p6_dir_list(dir)
+# Function: words children = p6_dir_list(dir)
 #
 #  Args:
 #	dir - 
+#
+#  Returns:
+#	words - children
 #
 #>
 ######################################################################
@@ -71,11 +71,13 @@ p6_dir_list() {
 ######################################################################
 #<
 #
-# Function:
-#	p6_dirs_list(dirs)
+# Function: words entries = p6_dirs_list(dirs)
 #
 #  Args:
 #	dirs - 
+#
+#  Returns:
+#	words - entries
 #
 #>
 ######################################################################
@@ -97,11 +99,13 @@ p6_dirs_list() {
 ######################################################################
 #<
 #
-# Function:
-#	p6_dir_list_recursive(dir)
+# Function: words descendants = p6_dir_list_recursive(dir)
 #
 #  Args:
 #	dir - 
+#
+#  Returns:
+#	words - descendants
 #
 #>
 ######################################################################
@@ -124,8 +128,7 @@ p6_dir_list_recursive() {
 ######################################################################
 #<
 #
-# Function:
-#	bool rv = p6_dir_exists(dir)
+# Function: bool rv = p6_dir_exists(dir)
 #
 #  Args:
 #	dir - 
@@ -149,8 +152,7 @@ p6_dir_exists() {
 ######################################################################
 #<
 #
-# Function:
-#	p6_dir_rmrf(dir)
+# Function: p6_dir_rmrf(dir)
 #
 #  Args:
 #	dir - 
@@ -173,8 +175,7 @@ p6_dir_rmrf() {
 ######################################################################
 #<
 #
-# Function:
-#	p6_dir_mk(dir)
+# Function: p6_dir_mk(dir)
 #
 #  Args:
 #	dir - 
@@ -195,8 +196,7 @@ p6_dir_mk() {
 ######################################################################
 #<
 #
-# Function:
-#	p6_dir_cp(src, dst)
+# Function: p6_dir_cp(src, dst)
 #
 #  Args:
 #	src - 
@@ -217,8 +217,7 @@ p6_dir_cp() {
 ######################################################################
 #<
 #
-# Function:
-#	p6_dir_mv(src, dst)
+# Function: p6_dir_mv(src, dst)
 #
 #  Args:
 #	src - 
@@ -239,8 +238,7 @@ p6_dir_mv() {
 ######################################################################
 #<
 #
-# Function:
-#	p6_dir_cd(dir)
+# Function: p6_dir_cd(dir)
 #
 #  Args:
 #	dir - 

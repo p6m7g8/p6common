@@ -3,8 +3,7 @@
 ######################################################################
 #<
 #
-# Function:
-#	p6_run__debug()
+# Function: p6_run__debug()
 #
 #>
 ######################################################################
@@ -16,6 +15,19 @@ p6_run__debug() {
     p6_return_void
 }
 
+######################################################################
+#<
+#
+# Function: code rc = p6_run_code(code)
+#
+#  Args:
+#	code - 
+#
+#  Returns:
+#	code - rc
+#
+#>
+######################################################################
 p6_run_code() {
     local code="$*"
 
@@ -28,11 +40,13 @@ p6_run_code() {
 ######################################################################
 #<
 #
-# Function:
-#	p6_run_read_cmd(cmd)
+# Function: code rc = p6_run_read_cmd(cmd)
 #
 #  Args:
 #	cmd - 
+#
+#  Returns:
+#	code - rc
 #
 #>
 ######################################################################
@@ -52,11 +66,13 @@ p6_run_read_cmd() {
 ######################################################################
 #<
 #
-# Function:
-#	p6_run_write_cmd(cmd)
+# Function: true  = p6_run_write_cmd(cmd)
 #
 #  Args:
 #	cmd - 
+#
+#  Returns:
+#	true - #	code - rc
 #
 #>
 ######################################################################
@@ -82,8 +98,7 @@ p6_run_write_cmd() {
 ######################################################################
 #<
 #
-# Function:
-#	p6_run_retry(stop, fail, func)
+# Function: p6_run_retry(stop, fail, func)
 #
 #  Args:
 #	stop - 
@@ -113,10 +128,10 @@ p6_run_retry() {
 ######################################################################
 #<
 #
-# Function:
-#	p6_run_parallel(parallel, things, cmd)
+# Function: p6_run_parallel(i, parallel, things, cmd)
 #
 #  Args:
+#	i - 
 #	parallel - 
 #	things - 
 #	cmd - 
@@ -142,8 +157,7 @@ p6_run_parallel() {
 ######################################################################
 #<
 #
-# Function:
-#	p6_run_serial(things, cmd)
+# Function: p6_run_serial(things, cmd)
 #
 #  Args:
 #	things - 
@@ -168,8 +182,7 @@ p6_run_serial() {
 ######################################################################
 #<
 #
-# Function:
-#	true  = p6_run_if_not_in(script, skip_list)
+# Function: true  = p6_run_if_not_in(script, skip_list)
 #
 #  Args:
 #	script - 
@@ -197,8 +210,7 @@ p6_run_if_not_in() {
 ######################################################################
 #<
 #
-# Function:
-#	p6_run_script(cmd_env, shell, set_flags, cmd, [exts=.sh], arg_list)
+# Function: p6_run_script(cmd_env, shell, set_flags, cmd, [exts=.sh], arg_list)
 #
 #  Args:
 #	cmd_env - 

@@ -3,8 +3,7 @@
 ######################################################################
 #<
 #
-# Function:
-#	p6_template__debug()
+# Function: p6_template__debug()
 #
 #>
 ######################################################################
@@ -19,8 +18,7 @@ p6_template__debug() {
 ######################################################################
 #<
 #
-# Function:
-#	p6_template_fill_in(infile, outfile, q_flag)
+# Function: p6_template_fill_in(infile, outfile, q_flag)
 #
 #  Args:
 #	infile - 
@@ -56,8 +54,7 @@ p6_template_fill_in() {
 ######################################################################
 #<
 #
-# Function:
-#	str fills = p6_template_fill_args(mark, sep, split)
+# Function: str fills = p6_template_fill_args(mark, sep, split)
 #
 #  Args:
 #	mark - 
@@ -95,8 +92,7 @@ p6_template_fill_args() {
 ######################################################################
 #<
 #
-# Function:
-#	p6_template_process(infile)
+# Function: p6_template_process(infile)
 #
 #  Args:
 #	infile - 

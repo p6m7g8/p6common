@@ -3,8 +3,7 @@
 ######################################################################
 #<
 #
-# Function:
-#	p6_include__debug()
+# Function: p6_include__debug()
 #
 #>
 ######################################################################
@@ -19,8 +18,7 @@ p6_include__debug() {
 ######################################################################
 #<
 #
-# Function:
-#	p6_include_module(module, [start=init.sh])
+# Function: p6_include_module(module, [start=init.sh])
 #
 #  Args:
 #	module - 

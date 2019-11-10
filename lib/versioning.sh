@@ -3,8 +3,7 @@
 ######################################################################
 #<
 #
-# Function:
-#	p6_version__debug()
+# Function: p6_version__debug()
 #
 #>
 ######################################################################
@@ -36,8 +35,7 @@ p6_version__debug() {
 ######################################################################
 #<
 #
-# Function:
-#	str next_version = p6_version_next(next_version, [file=conf/meta])
+# Function: str next_version = p6_version_next(next_version, [file=conf/meta])
 #
 #  Args:
 #	next_version - 
@@ -108,8 +106,7 @@ p6_version_next() {
 ######################################################################
 #<
 #
-# Function:
-#	str version = p6_version_get([file=conf/meta])
+# Function: str version = p6_version_get([file=conf/meta])
 #
 #  Args:
 #	OPTIONAL file -  [conf/meta]
@@ -145,8 +142,7 @@ p6_version_get() {
 ######################################################################
 #<
 #
-# Function:
-#	str next_version = p6_version_bump(version, [file=conf/meta])
+# Function: str next_version = p6_version_bump(version, [file=conf/meta])
 #
 #  Args:
 #	version - 

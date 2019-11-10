@@ -3,8 +3,7 @@
 ######################################################################
 #<
 #
-# Function:
-#	p6_file__debug()
+# Function: p6_file__debug()
 #
 #>
 ######################################################################
@@ -19,8 +18,7 @@ p6_file__debug() {
 ######################################################################
 #<
 #
-# Function:
-#	p6_file_load(file)
+# Function: p6_file_load(file)
 #
 #  Args:
 #	file - 
@@ -43,8 +41,7 @@ p6_file_load() {
 ######################################################################
 #<
 #
-# Function:
-#	p6_file_move(src, dst)
+# Function: p6_file_move(src, dst)
 #
 #  Args:
 #	src - 
@@ -65,8 +62,7 @@ p6_file_move() {
 ######################################################################
 #<
 #
-# Function:
-#	p6_file_copy(src, dst)
+# Function: p6_file_copy(src, dst)
 #
 #  Args:
 #	src - 
@@ -87,8 +83,7 @@ p6_file_copy() {
 ######################################################################
 #<
 #
-# Function:
-#	p6_file_rmf(file)
+# Function: p6_file_rmf(file)
 #
 #  Args:
 #	file - 
@@ -107,8 +102,7 @@ p6_file_rmf() {
 ######################################################################
 #<
 #
-# Function:
-#	p6_file_unlink(file)
+# Function: p6_file_unlink(file)
 #
 #  Args:
 #	file - 
@@ -127,8 +121,7 @@ p6_file_unlink() {
 ######################################################################
 #<
 #
-# Function:
-#	p6_file_contains(pattern, file)
+# Function: p6_file_contains(pattern, file)
 #
 #  Args:
 #	pattern - 
@@ -149,8 +142,7 @@ p6_file_contains() {
 ######################################################################
 #<
 #
-# Function:
-#	p6_file_line_delete_last(file)
+# Function: p6_file_line_delete_last(file)
 #
 #  Args:
 #	file - 
@@ -169,8 +161,7 @@ p6_file_line_delete_last() {
 ######################################################################
 #<
 #
-# Function:
-#	p6_file_repalce(file, sed_cmd)
+# Function: p6_file_repalce(file, sed_cmd)
 #
 #  Args:
 #	file - 
@@ -191,8 +182,7 @@ p6_file_repalce() {
 ######################################################################
 #<
 #
-# Function:
-#	bool rv = p6_file_exists(file)
+# Function: bool rv = p6_file_exists(file)
 #
 #  Args:
 #	file - 
@@ -216,8 +206,7 @@ p6_file_exists() {
 ######################################################################
 #<
 #
-# Function:
-#	p6_file_display(file)
+# Function: p6_file_display(file)
 #
 #  Args:
 #	file - 
@@ -238,8 +227,7 @@ p6_file_display() {
 ######################################################################
 #<
 #
-# Function:
-#	p6_file_create(file)
+# Function: p6_file_create(file)
 #
 #  Args:
 #	file - 
@@ -258,8 +246,7 @@ p6_file_create() {
 ######################################################################
 #<
 #
-# Function:
-#	p6_file_write(file, contents)
+# Function: p6_file_write(file, contents)
 #
 #  Args:
 #	file - 
@@ -280,8 +267,7 @@ p6_file_write() {
 ######################################################################
 #<
 #
-# Function:
-#	p6_file_append(file, contents)
+# Function: p6_file_append(file, contents)
 #
 #  Args:
 #	file - 
@@ -302,8 +288,7 @@ p6_file_append() {
 ######################################################################
 #<
 #
-# Function:
-#	p6_file_ma_sync(from, to)
+# Function: p6_file_ma_sync(from, to)
 #
 #  Args:
 #	from - 
@@ -324,8 +309,7 @@ p6_file_ma_sync() {
 ######################################################################
 #<
 #
-# Function:
-#	p6_file_symlink(to, from)
+# Function: p6_file_symlink(to, from)
 #
 #  Args:
 #	to - 
@@ -346,8 +330,7 @@ p6_file_symlink() {
 ######################################################################
 #<
 #
-# Function:
-#	path path/$cmd = p6_file_cascade(cmd, exts)
+# Function: path path/$cmd = p6_file_cascade(cmd, exts)
 #
 #  Args:
 #	cmd - 

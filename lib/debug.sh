@@ -3,8 +3,7 @@
 ######################################################################
 #<
 #
-# Function:
-#	p6_debug__debug()
+# Function: p6_debug__debug()
 #
 #>
 ######################################################################
@@ -19,8 +18,7 @@ p6_debug__debug() {
 ######################################################################
 #<
 #
-# Function:
-#	p6_verbose(level)
+# Function: p6_verbose(level)
 #
 #  Args:
 #	level - minimum verbosity before output
@@ -49,8 +47,10 @@ p6_verbose() {
 ######################################################################
 #<
 #
-# Function:
-#	p6_debug()
+# Function: p6_debug(msg)
+#
+#  Args:
+#	msg - 
 #
 #>
 ######################################################################
@@ -72,8 +72,7 @@ p6_debug() {
 ######################################################################
 #<
 #
-# Function:
-#	p6_log()
+# Function: p6_log()
 #
 #>
 ######################################################################
@@ -87,8 +86,7 @@ p6_log() {
 ######################################################################
 #<
 #
-# Function:
-#	bool rv = p6_debugging()
+# Function: bool rv = p6_debugging()
 #
 #  Returns:
 #	bool - rv
@@ -103,6 +101,20 @@ p6_debugging() {
     p6_return_bool "$rv"
 }
 
+######################################################################
+#<
+#
+# Function: code rc = p6_debugging_system_on(systems, system)
+#
+#  Args:
+#	systems - 
+#	system - 
+#
+#  Returns:
+#	code - rc
+#
+#>
+######################################################################
 p6_debugging_system_on() {
     local systems="$1"
     local system="$2"
@@ -123,8 +135,7 @@ p6_debugging_system_on() {
 ######################################################################
 #<
 #
-# Function:
-#	bool rv = p6_dryrunning()
+# Function: bool rv = p6_dryrunning()
 #
 #  Returns:
 #	bool - rv

@@ -1,8 +1,7 @@
 ######################################################################
 #<
 #
-# Function:
-#	p6_bootstrap([dir=$P6_DFZ_SRC_P6M7G8_DIR/p6common])
+# Function: p6_bootstrap([dir=$P6_DFZ_SRC_P6M7G8_DIR/p6common])
 #
 #  Args:
 #	OPTIONAL dir -  [$P6_DFZ_SRC_P6M7G8_DIR/p6common]

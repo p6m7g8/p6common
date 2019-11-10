@@ -20,7 +20,7 @@
 - bool rv = p6_dryrunning()
 - code rc = p6_debugging_system_on(systems, system)
 - p6_debug(msg)
-- p6_log()
+- p6_log(msg)
 - p6_verbose(level)
 
 ### dir.sh:

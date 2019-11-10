@@ -74,13 +74,13 @@
 ### io.sh:
 - p6_die(code)
 - p6_echo()
-- p6_error()
-- p6_h1()
-- p6_h2()
-- p6_h3()
-- p6_h4()
-- p6_h5()
-- p6_msg()
+- p6_error(msg)
+- p6_h1(header)
+- p6_h2(header)
+- p6_h3(header)
+- p6_h4(header)
+- p6_h5(header)
+- p6_msg(msg)
 
 ### json.sh:
 - str val = p6_json_key_2_value(key, file)

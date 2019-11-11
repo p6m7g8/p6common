@@ -40,6 +40,29 @@ p6_run_code() {
 ######################################################################
 #<
 #
+# Function: code rc = p6_run_yield(func)
+#
+#  Args:
+#	func - 
+#
+#  Returns:
+#	code - rc
+#
+#>
+######################################################################
+p6_run_yield() {
+    local func="$1"
+    shift 1
+
+    p6_run_code "$func" "$@"
+    local rc=$?
+
+    p6_return_code_as_code "$rc"
+}
+
+######################################################################
+#<
+#
 # Function: code rc = p6_run_read_cmd(cmd)
 #
 #  Args:

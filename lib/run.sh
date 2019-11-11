@@ -31,6 +31,8 @@ p6_run__debug() {
 p6_run_code() {
     local code="$*"
 
+    p6_run__debug "code(): [code=$code]"
+    p6_log "$code"
     eval "$code"
     local rc=$?
 
@@ -74,7 +76,7 @@ p6_run_yield() {
 #>
 ######################################################################
 p6_run_read_cmd() {
-    local cmd="$@"
+    local cmd="$*"
 
     if p6_debug || p6_verbose; then
 	p6_log "$cmd" | perl -p -e "s, , \\\\\n\t,g"
@@ -100,7 +102,7 @@ p6_run_read_cmd() {
 #>
 ######################################################################
 p6_run_write_cmd() {
-    local cmd="$@"
+    local cmd="$*"
 
     if p6_dryrunning; then
 	p6_log "$cmd" | perl -p -e "s, , \\\\\n\t,g"

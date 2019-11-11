@@ -1,7 +1,7 @@
 ######################################################################
 #<
 #
-# Function: code rc = p6_math_le(a, b)
+# Function: code rc = p6_math_lt(a, b)
 #
 #  Args:
 #	a - 
@@ -12,11 +12,35 @@
 #
 #>
 ######################################################################
-p6_math_le() {
+p6_math_lt() {
     local a="$1"
     local b="$2"
 
     test $a -lt $b
+    local rc=$?
+
+    p6_return_code_as_code "$rc"
+}
+
+######################################################################
+#<
+#
+# Function: code rc = p6_math_lte(a, b)
+#
+#  Args:
+#	a - 
+#	b - 
+#
+#  Returns:
+#	code - rc
+#
+#>
+######################################################################
+p6_math_lte() {
+    local a="$1"
+    local b="$2"
+
+    test $a -le $b
     local rc=$?
 
     p6_return_code_as_code "$rc"

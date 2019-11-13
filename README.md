@@ -93,7 +93,8 @@
 - str v = p6_lang_version(prefix)
 
 ### math.sh:
-- code rc = p6_math_le(a, b)
+- code rc = p6_math_lt(a, b)
+- code rc = p6_math_lte(a, b)
 - p6_math_dec(a)
 - p6_math_inc(a)
 
@@ -144,6 +145,7 @@
 ### run.sh:
 - code rc = p6_run_code(code)
 - code rc = p6_run_read_cmd(cmd)
+- code rc = p6_run_yield(func)
 - p6_run_parallel(i, parallel, things, cmd)
 - p6_run_retry(stop, fail, func)
 - p6_run_script(cmd_env, shell, set_flags, cmd, [exts=.sh], arg_list)

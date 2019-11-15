@@ -63,28 +63,28 @@ p6_string_len() {
 ######################################################################
 #<
 #
-# Function: str rv = p6_string_append(str, add, sep)
+# Function: str str_a = p6_string_append(str, add, [sep= ])
 #
 #  Args:
 #	str - 
 #	add - 
-#	sep - 
+#	OPTIONAL sep -  [ ]
 #
 #  Returns:
-#	str - rv
+#	str - str_a
 #
 #>
 ######################################################################
 p6_string_append() {
   local str="$1"
   local add="$2"
-  local sep="$3"
+  local sep="${3:- }"
 
-  local rv="${str}${sep}${add}"
+  local str_a="${str}${sep}${add}"
 
-  p6_string__debug "append(): [$str] + [$add] by [$sep] -> $rv"
+  p6_string__debug "append(): [$str] + [$add] by [$sep] -> [$str_a]"
 
-  p6_return_str "$rv"
+  p6_return_str "$str_a"
 }
 
 ######################################################################

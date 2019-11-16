@@ -1,5 +1,6 @@
 ### _bootstrap.sh:
 - p6_bootstrap([dir=$P6_DFZ_SRC_P6M7G8_DIR/p6common])
+- p6_bootstrap_optimize(dir)
 
 ### alias.sh:
 - p6_alias(from, to)
@@ -70,6 +71,7 @@
 
 ### interactive.sh:
 - code 42 = p6_int_confirm_ask()
+- str PASSWORD = p6_int_password_read()
 
 ### io.sh:
 - p6_die(code)
@@ -165,8 +167,9 @@
 
 ### string.sh:
 - bool rv = p6_string_blank(str)
+- bool rv = p6_string_eq(str, val)
 - size_t len = p6_string_len(str)
-- str rv = p6_string_append(str, add, sep)
+- str str_a = p6_string_append(str, add, [sep= ])
 - str str_ic = p6_string_init_cap(str)
 - str str_lc = p6_string_lc(str)
 - str str_r = p6_string_replace(str, from, to)
@@ -194,4 +197,8 @@
 - str next_version = p6_version_bump(version, [file=conf/meta])
 - str next_version = p6_version_next(next_version, [file=conf/meta])
 - str version = p6_version_get([file=conf/meta])
+
+### zsh.sh:
+- p6_zsh_profile_off()
+- p6_zsh_profile_on(name)
 

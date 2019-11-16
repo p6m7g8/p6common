@@ -42,6 +42,36 @@ p6_string_blank() {
 ######################################################################
 #<
 #
+# Function: bool rv = p6_string_eq(str, val)
+#
+#  Args:
+#	str - 
+#	val - 
+#
+#  Returns:
+#	bool - rv
+#
+#>
+######################################################################
+p6_string_eq() {
+    local str="$1"
+    local val="$2"
+
+    local rv
+    if [ x"$str" = x"$val" ]; then
+	rv=$P6_TRUE
+    else
+	rv=$P6_FALSE
+    fi
+
+    p6_string__debug "blank(): [$str] -> $rv"
+
+    p6_return_bool "$rv"
+}
+
+######################################################################
+#<
+#
 # Function: size_t len = p6_string_len(str)
 #
 #  Args:

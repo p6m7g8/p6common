@@ -45,3 +45,23 @@ p6_int_confirm_ask() {
 	fi
     fi
 }
+
+######################################################################
+#<
+#
+# Function: str PASSWORD = p6_int_password_read()
+#
+#  Returns:
+#	str - PASSWORD
+#
+#>
+######################################################################
+p6_int_password_read() {
+
+    local PASSWORD
+    stty -echo
+    read PASSWORD
+    stty echo
+
+    p6_return_str "$PASSWORD"
+}

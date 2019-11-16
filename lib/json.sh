@@ -36,7 +36,7 @@ p6_json_key_2_value() {
     p6_json__debug "key_2_value(): $key $file"
     local val=$(
 	if [ x"$file" = x"-" ]; then
-	    awk -v k=$key '$1 ~ k { print $2 }' | sed -e 's/[",:]//g' | head -1
+	    awk -F: -v k=$key '$1 ~ k { print $2 }' | sed -e 's/[",:]//g' | head -1
 	else
 	    awk -v k=$key '$1 ~ k { print $2 }' $file | sed -e 's/[",:]//g' | head -1
 	fi

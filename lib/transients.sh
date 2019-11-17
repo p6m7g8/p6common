@@ -58,6 +58,63 @@ p6_transient_create() {
     fi
 }
 
+######################################################################
+#<
+#
+# Function: p6_transient_persist(dir)
+#
+#  Args:
+#	dir - 
+#
+#>
+######################################################################
+p6_transient_persist() {
+    local dir="$1"
+
+    p6_file_create "$dir/persist"
+
+    p6_return_void
+}
+
+######################################################################
+#<
+#
+# Function: p6_transient_persist_un(dir)
+#
+#  Args:
+#	dir - 
+#
+#>
+######################################################################
+p6_transient_persist_un() {
+    local dir="$1"
+
+    p6_file_rmf "$dir/persist"
+
+    p6_return_void
+}
+
+######################################################################
+#<
+#
+# Function: code rc = p6_transient_persist_is(dir)
+#
+#  Args:
+#	dir - 
+#
+#  Returns:
+#	code - rc
+#
+#>
+######################################################################
+p6_transient_persist_is() {
+    local dir="$1"
+
+    local rc=$(p6_file_exists "$dir/persist")
+
+    p6_return_code_as_code "$rc"
+}
+
 # Have a good reason to call this yourself
 ######################################################################
 #<
@@ -72,8 +129,10 @@ p6_transient_create() {
 p6_transient_delete() {
     local dir="$1"
 
-    p6_transient__debug "delete(): [$dir]"
-    p6_dir_rmrf "$dir"
+    if ! p6_transient_persist_is "$dir"; then
+	p6_transient__debug "delete(): [$dir]"
+	p6_dir_rmrf "$dir"
+    fi
 
     p6_return_void
 }

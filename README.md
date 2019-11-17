@@ -190,7 +190,10 @@
 - str token = p6_token_random(len)
 
 ### transients.sh:
+- code rc = p6_transient_persist_is(dir)
 - p6_transient_delete(dir)
+- p6_transient_persist(dir)
+- p6_transient_persist_un(dir)
 - str  = p6_transient_create(dir_name, [len=4])
 
 ### uri.sh:

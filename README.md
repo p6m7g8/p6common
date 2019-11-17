@@ -8,6 +8,7 @@
 
 ### color.sh:
 - p6_color_hex_to_d16b(hex, ord)
+- p6_color_ize(color_fg, color_bg, msg)
 - p6_color_opacity_factor()
 - p6_color_say(color_fg, color_bg, msg)
 - size_t code = p6_color_to_code(color)
@@ -95,8 +96,11 @@
 - str v = p6_lang_version(prefix)
 
 ### math.sh:
+- code rc = p6_math_gt(a, b)
+- code rc = p6_math_gte(a, b)
 - code rc = p6_math_lt(a, b)
 - code rc = p6_math_lte(a, b)
+- int rv = p6_math_sub(a, b)
 - p6_math_dec(a)
 - p6_math_inc(a)
 
@@ -135,14 +139,14 @@
 - code bool = p6_return_bool(bool)
 - code rc = p6_return_code_as_code(rc)
 - code rc = p6_return_code_as_value(rc)
-- p6_return_float(float)
-- p6_return_int(int)
-- p6_return_path(path)
-- p6_return_size_t(size_t)
-- p6_return_str(str)
 - p6_return_void()
-- p6_return_words(words)
 - true  = p6_return(rv)
+- unkown float = p6_return_float(float)
+- unkown int = p6_return_int(int)
+- unkown path = p6_return_path(path)
+- unkown size_t = p6_return_size_t(size_t)
+- unkown str = p6_return_str(str)
+- unkown words = p6_return_words(words)
 
 ### run.sh:
 - code rc = p6_run_code(code)

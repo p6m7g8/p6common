@@ -106,7 +106,7 @@ p6_template_process() {
     local dir=$(p6_transient_create "p6.tmpl")
     local outfile="$dir/outfile"
 
-    local fill_args=$(p6_template_fill_args "" "/" " " "$@")
+    local fill_args=$(p6_template_fill_args "" "%" " " "$@")
 
     p6_template_fill_in "$infile" "$outfile" "" "$fill_args"
     p6_file_display "$outfile"

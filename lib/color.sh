@@ -18,6 +18,40 @@ p6_color__debug() {
 ######################################################################
 #<
 #
+# Function: p6_color_ize(color_fg, color_bg, msg)
+#
+#  Args:
+#	color_fg - 
+#	color_bg - 
+#	msg - 
+#
+#>
+######################################################################
+p6_color_ize() {
+    local color_fg="$1"
+    local color_bg="$2"
+    local msg="$3"
+
+    local code_fg=$(p6_color_to_code "$color_fg")
+    local code_bg=$(p6_color_to_code "$color_bg")
+
+    if [ -z "$P6_TEST_COLOR_OFF" ]; then
+       tput setaf "$code_fg"
+       tput setab "$code_bg"
+    fi
+
+    p6_msg "$msg\c"
+
+    if [ -z "$P6_TEST_COLOR_OFF" ]; then
+       tput sgr0
+    fi
+
+    p6_return_void
+}
+
+######################################################################
+#<
+#
 # Function: p6_color_say(color_fg, color_bg, msg)
 #
 #  Args:
@@ -32,17 +66,7 @@ p6_color_say() {
     local color_bg="$2"
     local msg="$3"
 
-    local code_fg=$(p6_color_to_code "$color_fg")
-    local code_bg=$(p6_color_to_code "$color_bg")
-
-    if [ -z "$P6_TEST_COLOR_OFF" ]; then
-       tput setaf "$code_fg"
-       tput setab "$code_bg"
-    fi
-    p6_msg "$msg\c"
-    if [ -z "$P6_TEST_COLOR_OFF" ]; then
-       tput sgr0
-    fi
+    p6_color_ize "$color_fg" "$color_bg" "%msg"
     p6_msg
 
     p6_return_void

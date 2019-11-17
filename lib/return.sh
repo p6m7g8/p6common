@@ -88,10 +88,13 @@ p6_return_bool() {
 ######################################################################
 #<
 #
-# Function: p6_return_size_t(size_t)
+# Function: unkown size_t = p6_return_size_t(size_t)
 #
 #  Args:
 #	size_t - 
+#
+#  Returns:
+#	unkown - size_t
 #
 #>
 #/ Synopsis
@@ -111,16 +114,19 @@ p6_return_size_t() {
 	p6_die "$P6_EXIT_ARGS" "[$size_t] is not a positive number"
     fi
 
-    p6_return__ "$size_t"
+    p6_return "$size_t"
 }
 
 ######################################################################
 #<
 #
-# Function: p6_return_int(int)
+# Function: unkown int = p6_return_int(int)
 #
 #  Args:
 #	int - 
+#
+#  Returns:
+#	unkown - int
 #
 #>
 #/ Synopsis
@@ -136,16 +142,19 @@ p6_return_int() {
 	*) p6_die "$P6_EXIT_ARGS" "[$int] is not a number" ;;
     esac
 
-    p6_return__ "$int"
+    p6_return "$int"
 }
 
 ######################################################################
 #<
 #
-# Function: p6_return_float(float)
+# Function: unkown float = p6_return_float(float)
 #
 #  Args:
 #	float - 
+#
+#  Returns:
+#	unkown - float
 #
 #>
 #/ Synopsis
@@ -161,16 +170,19 @@ p6_return_float() {
 	*) p6_die "$P6_EXIT_ARGS" "[$float] is not a float" ;;
    esac
 
-    p6_return__ "$float"
+    p6_return "$float"
 }
 
 ######################################################################
 #<
 #
-# Function: p6_return_str(str)
+# Function: unkown str = p6_return_str(str)
 #
 #  Args:
 #	str - 
+#
+#  Returns:
+#	unkown - str
 #
 #>
 #/ Synopsis
@@ -181,16 +193,19 @@ p6_return_float() {
 p6_return_str() {
     local str="$1"
 
-    p6_return__ "$str"
+    p6_return "$str"
 }
 
 ######################################################################
 #<
 #
-# Function: p6_return_path(path)
+# Function: unkown path = p6_return_path(path)
 #
 #  Args:
 #	path - 
+#
+#  Returns:
+#	unkown - path
 #
 #>
 #/ Synopsis
@@ -207,16 +222,19 @@ p6_return_path() {
 	*) p6_die "$P6_EXIT_ARGS" "[$path] is not a path" ;;
     esac
 
-    p6_return__ "$path"
+    p6_return "$path"
 }
 
 ######################################################################
 #<
 #
-# Function: p6_return_words(words)
+# Function: unkown words = p6_return_words(words)
 #
 #  Args:
 #	words - 
+#
+#  Returns:
+#	unkown - words
 #
 #>
 #/ Synopsis
@@ -228,7 +246,7 @@ p6_return_path() {
 p6_return_words() {
     local words="$@"
 
-    p6_return__ "$words"
+    p6_return "$words"
 }
 
 ######################################################################
@@ -273,25 +291,30 @@ p6_return_code_as_value() {
     p6_echo "$rc"
 }
 
-#
-# Private
-#
 ######################################################################
 #<
 #
-# Function: p6_return__(rv)
+# Function: true  = p6_return(rv)
 #
 #  Args:
 #	rv - 
 #
+#  Returns:
+#	true - 
+#
 #>
 ######################################################################
-p6_return__() {
+p6_return() {
     local rv="$1"
 
     p6_echo "$rv"
+
+    p6_return_true
 }
 
+#
+# Private
+#
 ######################################################################
 #<
 #
@@ -322,27 +345,4 @@ p6_return_code__validate() {
     fi
 
     p6_return_void
-}
-
-######################################################################
-#<
-#
-# Function: true  = p6_return(rv)
-#
-#  Args:
-#	rv - 
-#
-#  Returns:
-#	true - 
-#
-#>
-######################################################################
-p6_return() {
-    local rv="$1"
-
-    p6__deprecated "p6_return()"
-
-    p6_echo "$rc"
-
-    p6_return_true
 }

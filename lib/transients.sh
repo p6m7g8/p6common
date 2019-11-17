@@ -61,6 +61,28 @@ p6_transient_create() {
 ######################################################################
 #<
 #
+# Function: code rc = p6_transient_is(dir)
+#
+#  Args:
+#	dir - 
+#
+#  Returns:
+#	code - rc
+#
+#>
+######################################################################
+p6_transient_is() {
+    local dir="$1"
+
+    p6_dir_exists "$dir"
+    local rc=$?
+
+    p6_return_code_as_code "$rc"
+}
+
+######################################################################
+#<
+#
 # Function: p6_transient_persist(dir)
 #
 #  Args:
@@ -110,7 +132,8 @@ p6_transient_persist_un() {
 p6_transient_persist_is() {
     local dir="$1"
 
-    local rc=$(p6_file_exists "$dir/persist")
+    p6_file_exists "$dir/persist"
+    local rc=$?
 
     p6_return_code_as_code "$rc"
 }

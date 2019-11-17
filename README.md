@@ -26,7 +26,7 @@
 - p6_verbose(level)
 
 ### dir.sh:
-- bool rv = p6_dir_exists(dir)
+- code rc = p6_dir_exists(dir)
 - p6_dir_cd(dir)
 - p6_dir_cp(src, dst)
 - p6_dir_load(dirs)
@@ -190,6 +190,7 @@
 - str token = p6_token_random(len)
 
 ### transients.sh:
+- code rc = p6_transient_is(dir)
 - code rc = p6_transient_persist_is(dir)
 - p6_transient_delete(dir)
 - p6_transient_persist(dir)

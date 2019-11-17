@@ -128,13 +128,13 @@ p6_dir_list_recursive() {
 ######################################################################
 #<
 #
-# Function: bool rv = p6_dir_exists(dir)
+# Function: code rc = p6_dir_exists(dir)
 #
 #  Args:
 #	dir - 
 #
 #  Returns:
-#	bool - rv
+#	code - rc
 #
 #>
 ######################################################################
@@ -142,11 +142,11 @@ p6_dir_exists() {
     local dir="$1"
 
     test -d "$dir"
-    local rv=$?
+    local rc=$?
 
-    p6_dir__debug "exists(): $dir -> $rv"
+    p6_dir__debug "exists(): [dir=$dir] -> [rc=$rc]"
 
-    p6_return_bool "$rv"
+    p6_return_code_as_code "$rc"
 }
 
 ######################################################################

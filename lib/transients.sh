@@ -155,11 +155,11 @@ p6_transient_delete() {
     local handler_name="${2:-}"
 
     if p6_string_eq "$handler_name" "cleanup"; then
-	p6_transient__debug "delete(): [handler_name=$handler_name] [dir=$dir]"
+	p6_transient__debug "delete($P6_TRANSIENT_LOG): [handler_name=$handler_name] [dir=$dir]"
 	p6_dir_rmrf "$dir"
     else
 	if ! p6_transient_persist_is "$dir"; then
-	    p6_transient__debug "delete(): [dir=$dir]"
+	    p6_transient__debug "delete($P6_TRANSIENT_LOG): [dir=$dir]"
 	    p6_dir_rmrf "$dir"
 	fi
     fi
@@ -181,6 +181,8 @@ p6_transient__cleanup() {
     for dir in $(p6_file_display "$P6_TRANSIENT_LOG"); do
 	p6_transient_delete "$dir" "cleanup"
     done
+
+    p6_file_rmf "$P6_TRANSIENT_LOG"
 
 #    p6_die "$P6_TRUE" "# p6_transient__cleanup"
 

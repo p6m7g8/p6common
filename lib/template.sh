@@ -34,11 +34,12 @@ p6_template_fill_in() {
     shift 3
 
     p6_file_copy "$infile" "$outfile"
+
     local sed_re
     local save_ifs=$IFS
     IFS=^
-    for sed_re in $(echo $@); do
-	if [ x"$q_flag" = x"no_quotes" ]; then
+    for sed_re in $(p6_echo $@); do
+	if p6_string_eq "$q_flag" "no_quotes"; then
 	    p6_template__debug "N: sed -i ''  -e $sed_re $outfile"
 	    sed -i '' -e $sed_re $outfile
 	else

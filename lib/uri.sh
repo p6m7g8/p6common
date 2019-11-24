@@ -60,7 +60,7 @@ p6_uri_path() {
     if ! p6_string_blank "$uri"; then
 	name=$(dirname $uri)
     fi
-    p6_uri__debug "name(): $uri -> $name"
+    p6_uri__debug "path(): [uri=$uri] -> [name=$name]"
 
     p6_return_path "$name"
 }

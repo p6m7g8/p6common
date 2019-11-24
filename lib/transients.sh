@@ -154,6 +154,10 @@ p6_transient_delete() {
     local dir="$1"
     local handler_name="${2:-}"
 
+    if p6_file_exists "$dir"; then
+	dir=(p6_uri_path "$dir")
+    fi
+
     if p6_string_eq "$handler_name" "cleanup"; then
 	p6_transient__debug "delete($P6_TRANSIENT_LOG): [handler_name=$handler_name] [dir=$dir]"
 	p6_dir_rmrf "$dir"

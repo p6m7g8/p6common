@@ -330,11 +330,12 @@ p6_file_symlink() {
 ######################################################################
 #<
 #
-# Function: path path/$cmd = p6_file_cascade(cmd, exts)
+# Function: path path/$cmd = p6_file_cascade(cmd, exts, ...)
 #
 #  Args:
 #	cmd - 
 #	exts - 
+#	... - 
 #
 #  Returns:
 #	path - path/$cmd#	path - path/$cmd$ext

@@ -61,6 +61,28 @@ p6_transient_create() {
 ######################################################################
 #<
 #
+# Function: path file = p6_transient_create_file(file_name)
+#
+#  Args:
+#	file_name - 
+#
+#  Returns:
+#	path - file
+#
+#>
+######################################################################
+p6_transient_create_file() {
+    local file_name="$1"
+
+    local dir=$(p6_transient_create "$file_name")
+    local file="$dir/file"
+
+    p6_return_path "$file"
+}
+
+######################################################################
+#<
+#
 # Function: code rc = p6_transient_is(dir)
 #
 #  Args:

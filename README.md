@@ -65,7 +65,7 @@
 - p6_file_symlink(to, from)
 - p6_file_unlink(file)
 - p6_file_write(file, contents)
-- path path/$cmd = p6_file_cascade(cmd, exts)
+- path path/$cmd = p6_file_cascade(cmd, exts, ...)
 
 ### inc.sh:
 - p6_include_module(module, [start=init.sh])
@@ -100,9 +100,9 @@
 - code rc = p6_math_gte(a, b)
 - code rc = p6_math_lt(a, b)
 - code rc = p6_math_lte(a, b)
+- int result = p6_math_inc(a, [b=1])
 - int rv = p6_math_sub(a, b)
 - p6_math_dec(a)
-- p6_math_inc(a)
 
 ### misc.sh:
 - p6_pgs()
@@ -151,11 +151,11 @@
 ### run.sh:
 - code rc = p6_run_code(code)
 - code rc = p6_run_read_cmd(cmd)
-- code rc = p6_run_yield(func)
-- p6_run_parallel(i, parallel, things, cmd)
-- p6_run_retry(stop, fail, func)
-- p6_run_script(cmd_env, shell, set_flags, cmd, [exts=.sh], arg_list)
-- p6_run_serial(things, cmd)
+- code rc = p6_run_yield(func, ...)
+- p6_run_parallel(i, parallel, things, cmd, ...)
+- p6_run_retry(stop, fail, func, ...)
+- p6_run_script(cmd_env, shell, set_flags, cmd, [exts=.sh], arg_list, ...)
+- p6_run_serial(things, cmd, ...)
 - true  = p6_run_if_not_in(script, skip_list)
 - true  = p6_run_write_cmd(cmd)
 
@@ -180,9 +180,7 @@
 - str str_uc = p6_string_uc(str)
 
 ### template.sh:
-- p6_template_fill_in(infile, outfile, q_flag)
-- p6_template_process(infile)
-- str fills = p6_template_fill_args(mark, sep, split)
+- str processed = p6_template_process(infile, ...)
 
 ### tokens.sh:
 - str hashed = p6_token_hash(string)
@@ -192,9 +190,10 @@
 ### transients.sh:
 - code rc = p6_transient_is(dir)
 - code rc = p6_transient_persist_is(dir)
-- p6_transient_delete(dir)
+- p6_transient_delete(dir, [handler_name=])
 - p6_transient_persist(dir)
 - p6_transient_persist_un(dir)
+- path file = p6_transient_create_file(file_name)
 - str  = p6_transient_create(dir_name, [len=4])
 
 ### uri.sh:

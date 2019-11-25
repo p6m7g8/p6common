@@ -42,10 +42,11 @@ p6_run_code() {
 ######################################################################
 #<
 #
-# Function: code rc = p6_run_yield(func)
+# Function: code rc = p6_run_yield(func, ...)
 #
 #  Args:
 #	func - 
+#	... - 
 #
 #  Returns:
 #	code - rc
@@ -123,12 +124,13 @@ p6_run_write_cmd() {
 ######################################################################
 #<
 #
-# Function: p6_run_retry(stop, fail, func)
+# Function: p6_run_retry(stop, fail, func, ...)
 #
 #  Args:
 #	stop - 
 #	fail - 
 #	func - 
+#	... - 
 #
 #>
 ######################################################################
@@ -153,13 +155,14 @@ p6_run_retry() {
 ######################################################################
 #<
 #
-# Function: p6_run_parallel(i, parallel, things, cmd)
+# Function: p6_run_parallel(i, parallel, things, cmd, ...)
 #
 #  Args:
 #	i - 
 #	parallel - 
 #	things - 
 #	cmd - 
+#	... - 
 #
 #>
 ######################################################################
@@ -182,11 +185,12 @@ p6_run_parallel() {
 ######################################################################
 #<
 #
-# Function: p6_run_serial(things, cmd)
+# Function: p6_run_serial(things, cmd, ...)
 #
 #  Args:
 #	things - 
 #	cmd - 
+#	... - 
 #
 #>
 ######################################################################
@@ -235,7 +239,7 @@ p6_run_if_not_in() {
 ######################################################################
 #<
 #
-# Function: p6_run_script(cmd_env, shell, set_flags, cmd, [exts=.sh], arg_list)
+# Function: p6_run_script(cmd_env, shell, set_flags, cmd, [exts=.sh], arg_list, ...)
 #
 #  Args:
 #	cmd_env - 
@@ -244,6 +248,7 @@ p6_run_if_not_in() {
 #	cmd - 
 #	OPTIONAL exts -  [.sh]
 #	arg_list - 
+#	... - 
 #
 #>
 ######################################################################

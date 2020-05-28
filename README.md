@@ -1,6 +1,6 @@
 ### _bootstrap.sh:
-- p6_bootstrap([dir=$P6_DFZ_SRC_P6M7G8_DIR/p6common])
-- p6_bootstrap_optimize(dir)
+- p6_bootstrap([dir=$P6_DFZ_SRC_P6M7G8_DIR/p6common], [islocal=])
+- p6_bootstrap_optimize(dir, islocal)
 
 ### alias.sh:
 - p6_alias(from, to)

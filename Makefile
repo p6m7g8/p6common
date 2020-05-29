@@ -1,13 +1,11 @@
+.PHONY:	all release test
+
 DEFAULT_GOAL=	test
 
 all:	test
 
-test:	init
-	p6_test_harness_tests_run t
+test:
+	./scripts/test.sh
 
 release:
 	npx standard-release
-
-init:
-	. ../p6test
-

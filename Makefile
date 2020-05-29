@@ -1,11 +1,4 @@
-.PHONY:	all release test
+TEST_FILE=	scripts/test.sh
+RELEASE_FILE=	scripts/test.sh
 
-DEFAULT_GOAL=	test
-
-all:	test
-
-test:
-	./scripts/test.sh
-
-release:
-	./scripts/release.sh
+include Makefile.inc

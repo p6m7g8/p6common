@@ -8,4 +8,4 @@ test:
 	./scripts/test.sh
 
 release:
-	npx standard-release
+	./scripts/release.sh

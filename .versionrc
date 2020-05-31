@@ -10,6 +10,6 @@
 	{"type":"test","hidden":false}
     ],
     "bumpFiles": [
-        { "filename": "conf/version.txt", "type": "plain-text" }
+        { "filename": "conf/version", "type": "plain-text" }
     ]
 }

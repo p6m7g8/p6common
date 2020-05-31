@@ -1,20 +1,35 @@
-DEFAULT_GOAL=	test
-
+# Optional env or -D
 VERSION?=	patch
 
-TEST_FILE?=	../p6common/scripts/test.sh
-RELEASE_FILE?=	../p6common//scripts/release.sh
+DEFAULT_GOAL=	test
+ROOT_DIR_REL?=	..
+
+# convience 
+TEST_FILE?=	${ROOT_DIR_REL}/p6common/scripts/test.sh
+
+RELEASE_FILE?=	${ROOT_DIR_REL}/p6common/scripts/release.sh
+
+DOC_INLINE_FILE?=	${ROOT_DIR_REL}/p6perl/bin/doc_inline.pl
+DOC_README_FILE?=	${ROOT_DIR_REL}/p6perl/bin/doc_readme.pl
+
+README?=	README.md
 
 all:	test
 
-doc:	
-	perl ../p6perl/bin/doc_inline.pl --module .
-	perl ../p6perl/bin/doc_readme.pl --module . > README.md
+build:
+	npm run build
 
-test:
-	${TEST_FILE}
+lint:
+	npx tslint --project tsconfig.json tslint.yaml
 
-release:
+doc:	lint
+	perl ${DOC_INLINE_FILE} --module .
+	perl ${DOC_README_FILE} --module . > ${README}
+
+test:	doc
+	ROOT_DIR_REL=${ROOT_DIR_REL} ${TEST_FILE}
+
+release: test
 	${RELEASE_FILE} ${VERSION}
 
-.PHONY:	all release test
+.PHONY:	all doc test release

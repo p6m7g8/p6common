@@ -1,35 +1,37 @@
-# Optional env or -D
-VERSION?=	patch
-
 DEFAULT_GOAL=	test
+
 ROOT_DIR_REL?=	..
-
-# convience 
+BUILD_FILE?=	${ROOT_DIR_REL}/p6common/scripts/build.sh
 TEST_FILE?=	${ROOT_DIR_REL}/p6common/scripts/test.sh
-
+LINT_FILE?=	${ROOT_DIR_REL}/p6common/scripts/lint.sh
+DOC_FILE?=	${ROOT_DIR_REL}/p6common/scripts/doc.sh
 RELEASE_FILE?=	${ROOT_DIR_REL}/p6common/scripts/release.sh
-
-DOC_INLINE_FILE?=	${ROOT_DIR_REL}/p6perl/bin/doc_inline.pl
-DOC_README_FILE?=	${ROOT_DIR_REL}/p6perl/bin/doc_readme.pl
-
-README?=	README.md
+DEPLOY_FILE?=	${ROOT_DIR_REL}/p6common/scritps/deploy.sh
 
 all:	test
 
 build:
-	npm run build
+	ROOT_DIR_REL=${ROOT_DIR_REL} ${BUILD_FILE}
 
 lint:
-	npx tslint --project tsconfig.json tslint.yaml
+	ROOT_DIR_REL=${ROOT_DIR_REL} ${LINT_FILE}
 
 doc:	lint
-	perl ${DOC_INLINE_FILE} --module .
-	perl ${DOC_README_FILE} --module . > ${README}
+	ROOT_DIR_REL=${ROOT_DIR_REL} ${DOC_FILE}
 
 test:	doc
 	ROOT_DIR_REL=${ROOT_DIR_REL} ${TEST_FILE}
 
 release: test
-	${RELEASE_FILE} ${VERSION}
+	ROOT_DIR_REL=${ROOT_DIR_REL} ${RELEASE_FILE}
 
-.PHONY:	all doc test release
+deploy:
+	ROOT_DIR_REL=${ROOT_DIR_REL} ${DEPLOY_FILE}
+
+## For use by Maintainers
+x-rmrf-node_modules:
+	-rm -rf node_modules 
+	-rm -rf packages/*/node_modules 
+	-rm -rf packages/@p6-*/*/node_modules
+
+.PHONY:	all build lint doc test release deploy

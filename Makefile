@@ -1,1 +1,1 @@
-include Makefile.inc
+include ../p6common/Makefile.inc

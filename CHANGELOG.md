@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.2](https://github.com/p6m7g8/p6common/compare/v0.0.1...v0.0.2) (2020-06-05)
+
+
+### Features
+
+* **cicd:** adds doc and lint ([#14](https://github.com/p6m7g8/p6common/issues/14)) ([8c4072b](https://github.com/p6m7g8/p6common/commit/8c4072b0151c5becaeeb68433aa9d89f6277a693))
+* **cicd:** adds doc target ([#13](https://github.com/p6m7g8/p6common/issues/13)) ([429e22b](https://github.com/p6m7g8/p6common/commit/429e22bc76a3f0ff6eb114557604b753d0afdcc6))
+* **cicd:** automates publishing the release/tag ([#11](https://github.com/p6m7g8/p6common/issues/11)) ([86d516f](https://github.com/p6m7g8/p6common/commit/86d516f6ce61f2f362cf2b8a9ddd01863a1bea60))
+* **cicd:** supports VERSION env which can be overriden ([#12](https://github.com/p6m7g8/p6common/issues/12)) ([8ee1375](https://github.com/p6m7g8/p6common/commit/8ee13759ec589c3a3a404a53ea6cc1b464d38aa2))
+* **Makefile:** standardizes phases, adds x- ([#15](https://github.com/p6m7g8/p6common/issues/15)) ([42ba586](https://github.com/p6m7g8/p6common/commit/42ba586fbaa1135a18a7510e001e0baf17226381))
+
 ### [0.0.1](https://github.com/p6m7g8/p6common/compare/v0.0.0...v0.0.1) (2020-05-29)
 
 

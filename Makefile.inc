@@ -6,7 +6,7 @@ TEST_FILE?=	${ROOT_DIR_REL}/p6common/scripts/test.sh
 LINT_FILE?=	${ROOT_DIR_REL}/p6common/scripts/lint.sh
 DOC_FILE?=	${ROOT_DIR_REL}/p6common/scripts/doc.sh
 RELEASE_FILE?=	${ROOT_DIR_REL}/p6common/scripts/release.sh
-DEPLOY_FILE?=	${ROOT_DIR_REL}/p6common/scritps/deploy.sh
+DEPLOY_FILE?=	${ROOT_DIR_REL}/p6common/scripts/deploy.sh
 
 all:	test
 

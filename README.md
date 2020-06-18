@@ -1,3 +1,7 @@
+### init.zsh:
+- p6df::modules::p6common::init()
+- p6df::modules::p6common::version()
+
 ### _bootstrap.sh:
 - p6_bootstrap([dir=$P6_DFZ_SRC_P6M7G8_DIR/p6common], [islocal=])
 - p6_bootstrap_optimize(dir, islocal)
@@ -204,6 +208,9 @@
 - str next_version = p6_version_bump(version, [file=conf/meta])
 - str next_version = p6_version_next(next_version, [file=conf/meta])
 - str version = p6_version_get([file=conf/meta])
+
+### word.sh:
+- words items = p6_word_unique()
 
 ### zsh.sh:
 - p6_zsh_profile_off()

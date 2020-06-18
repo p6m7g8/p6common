@@ -1,9 +1,11 @@
-#!/bin/sh
-
+# shellcheck shell=sh
 ######################################################################
 #<
 #
-# Function: p6_run__debug()
+# Function: p6_run__debug(msg)
+#
+#  Args:
+#	msg - 
 #
 #>
 ######################################################################
@@ -80,7 +82,7 @@ p6_run_read_cmd() {
     local cmd="$*"
 
     if p6_debug || p6_verbose; then
-	p6_log "$cmd" | perl -p -e "s, , \\\\\n\t,g"
+	  p6_log "$cmd" | perl -p -e "s, , \\\\\n\t,g"
     fi
 
     p6_run_code "$cmd"
@@ -106,18 +108,18 @@ p6_run_write_cmd() {
     local cmd="$*"
 
     if p6_dryrunning; then
-	p6_log "$cmd" | perl -p -e "s, , \\\\\n\t,g"
-	# XXX: intentional no run
-	p6_return_true
+	  p6_log "$cmd" | perl -p -e "s, , \\\\\n\t,g"
+  	  # XXX: intentional no run
+	  p6_return_true
     else
-	if p6_debugging; then
+	  if p6_debugging; then
 	    p6_log "$cmd" | perl -p -e "s, , \\\\\n\t,g"
-	fi
+	  fi
 
-	p6_run_code "$cmd"
-	local rc=$?
+	  p6_run_code "$cmd"
+	  local rc=$?
 
-	p6_return_code_as_code "$rc"
+	  p6_return_code_as_code "$rc"
     fi
 }
 
@@ -144,9 +146,9 @@ p6_run_retry() {
 
     local i=1
     while [ : ]; do
-	local status=$($func "$@")
-	$($stop "$status" "$@")
-	i=$(p6_retry_delay_doubling "$i")
+	  local status=$($func "$@")
+	  $($stop "$status" "$@")
+	  i=$(p6_retry_delay_doubling "$i")
     done
 
     p6_retun_code_as_code "$status"
@@ -175,10 +177,10 @@ p6_run_parallel() {
 
     local thing
     for thing in $(p6_echo "$things"); do
-	((i=i%parallel)); ((i++==0)) && wait
-	p6_run__debug "run_parallel(): $cmd @ $thing"
-	p6_echo "$cmd [$@] '$thing'"
-	local rc="$($cmd $@ "$thing")" &
+	  ((i=i%parallel)); ((i++==0)) && wait
+	  p6_run__debug "run_parallel(): $cmd @ $thing"
+	  p6_echo "$cmd [$@] '$thing'"
+	  local rc="$($cmd $@ "$thing")" &
     done
 }
 
@@ -201,8 +203,8 @@ p6_run_serial() {
 
     local thing
     for thing in $(p6_echo "$things"); do
-	p6_run__debug "run_serial(): $cmd @ $thing"
-	local rc="$($cmd $@ "$thing")"
+	  p6_run__debug "run_serial(): $cmd @ $thing"
+	  local rc="$($cmd $@ "$thing")"
     done
 
     p6_return_void
@@ -228,9 +230,9 @@ p6_run_if_not_in() {
 
     local item
     for item in $(p6_echo "$skip_list"); do
-	if [ "$item" = "$script" ]; then
+	  if [ "$item" = "$script" ]; then
 	    p6_return_true
-	fi
+	  fi
     done
 
     p6_return_false

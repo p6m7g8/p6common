@@ -113,14 +113,6 @@
 - p6_xclean()
 - size_t len = p6_len(s)
 
-### openssl.sh:
-- p6_openssl_b64()
-- p6_openssl_b64_d()
-- p6_openssl_genrsa(key_file, cert_bits)
-- p6_openssl_req_509(key_file, crt_file, cert_exp, cert_subject)
-- p6_openssl_sha1()
-- p6_openssl_sha256()
-
 ### os.sh:
 - str name = p6_os_name()
 
@@ -210,7 +202,8 @@
 - str version = p6_version_get([file=conf/meta])
 
 ### word.sh:
-- words items = p6_word_unique()
+- words result = p6_word_not(a, b)
+- words words = p6_word_unique(...)
 
 ### zsh.sh:
 - p6_zsh_profile_off()

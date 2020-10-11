@@ -81,10 +81,6 @@ p6_run_yield() {
 p6_run_read_cmd() {
     local cmd="$*"
 
-    if p6_debug || p6_verbose; then
-	  p6_log "$cmd" | perl -p -e "s, , \\\\\n\t,g"
-    fi
-
     p6_run_code "$cmd"
     local rc=$?
 
@@ -94,33 +90,23 @@ p6_run_read_cmd() {
 ######################################################################
 #<
 #
-# Function: true  = p6_run_write_cmd(cmd)
+# Function: code rc = p6_run_write_cmd(cmd)
 #
 #  Args:
 #	cmd - 
 #
 #  Returns:
-#	true - #	code - rc
+#	code - rc
 #
 #>
 ######################################################################
 p6_run_write_cmd() {
     local cmd="$*"
 
-    if p6_dryrunning; then
-	  p6_log "$cmd" | perl -p -e "s, , \\\\\n\t,g"
-  	  # XXX: intentional no run
-	  p6_return_true
-    else
-	  if p6_debugging; then
-	    p6_log "$cmd" | perl -p -e "s, , \\\\\n\t,g"
-	  fi
+	p6_run_code "$cmd"
+	local rc=$?
 
-	  p6_run_code "$cmd"
-	  local rc=$?
-
-	  p6_return_code_as_code "$rc"
-    fi
+	p6_return_code_as_code "$rc"
 }
 
 ######################################################################

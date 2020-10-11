@@ -16,7 +16,7 @@ build:
 lint:
 	ROOT_DIR_REL=${ROOT_DIR_REL} ${LINT_FILE}
 
-doc:	lint
+doc:	
 	ROOT_DIR_REL=${ROOT_DIR_REL} ${DOC_FILE}
 
 test:	doc

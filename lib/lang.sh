@@ -36,18 +36,18 @@ p6_lang_version() {
 
     local ver
 
-    if command -v $cmd > /dev/null; then
-	ver="$($cmd version-name 2>/dev/null)"
+    if p6_run_code "command -v $cmd > /dev/null"; then
+  	  ver="$(p6_run_code $cmd version-name 2>/dev/null)"
 
-	local v=$(p6_echo "$ver" | sed -e "s,$prefix,," -e 's,^-,,')
+	  local v=$(p6_echo "$ver" | sed -e "s,$prefix,," -e 's,^-,,')
 
-	if [ x"$v" = x"system" ]; then
+	  if [ x"$v" = x"system" ]; then
 	    p6_lang_system_version "$prefix"
-	else
+	  else
 	    p6_return_str "$v"
-	fi
+	  fi
     else
-	p6_lang_system_version "$prefix"
+	  p6_lang_system_version "$prefix"
     fi
 }
 
@@ -69,7 +69,7 @@ p6_lang_system_version() {
 
     local rcmd=$(p6_lang_env_2_cmd "$prefix")
 
-    if command -v $rcmd > /dev/null; then
+    if p6_run_code "command -v $rcmd > /dev/null"; then
 	local ver
 	case $prefix in
 	    py)    ver=$($rcmd -V 2>&1 | awk '{print $2}') ;;

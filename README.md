@@ -147,13 +147,13 @@
 ### run.sh:
 - code rc = p6_run_code(code)
 - code rc = p6_run_read_cmd(cmd)
+- code rc = p6_run_write_cmd(cmd)
 - code rc = p6_run_yield(func, ...)
 - p6_run_parallel(i, parallel, things, cmd, ...)
 - p6_run_retry(stop, fail, func, ...)
 - p6_run_script(cmd_env, shell, set_flags, cmd, [exts=.sh], arg_list, ...)
 - p6_run_serial(things, cmd, ...)
 - true  = p6_run_if_not_in(script, skip_list)
-- true  = p6_run_write_cmd(cmd)
 
 ### ssh.sh:
 - code rc = p6_ssh_key_check(priv, test_pub)

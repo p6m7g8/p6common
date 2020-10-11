@@ -1,6 +1,5 @@
 ### init.zsh:
 - p6df::modules::p6common::init()
-- p6df::modules::p6common::version()
 
 ### _bootstrap.sh:
 - p6_bootstrap([dir=$P6_DFZ_SRC_P6M7G8_DIR/p6common], [islocal=])

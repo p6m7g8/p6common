@@ -58,7 +58,7 @@ p6_return_void() {
 # Function: code bool = p6_return_bool(bool)
 #
 #  Args:
-#	bool - 
+#	bool -
 #
 #  Returns:
 #	code - bool
@@ -91,7 +91,7 @@ p6_return_bool() {
 # Function: unkown size_t = p6_return_size_t(size_t)
 #
 #  Args:
-#	size_t - 
+#	size_t -
 #
 #  Returns:
 #	unkown - size_t
@@ -123,7 +123,7 @@ p6_return_size_t() {
 # Function: unkown int = p6_return_int(int)
 #
 #  Args:
-#	int - 
+#	int -
 #
 #  Returns:
 #	unkown - int
@@ -151,7 +151,7 @@ p6_return_int() {
 # Function: unkown float = p6_return_float(float)
 #
 #  Args:
-#	float - 
+#	float -
 #
 #  Returns:
 #	unkown - float
@@ -179,7 +179,7 @@ p6_return_float() {
 # Function: unkown str = p6_return_str(str)
 #
 #  Args:
-#	str - 
+#	str -
 #
 #  Returns:
 #	unkown - str
@@ -202,7 +202,7 @@ p6_return_str() {
 # Function: unkown path = p6_return_path(path)
 #
 #  Args:
-#	path - 
+#	path -
 #
 #  Returns:
 #	unkown - path
@@ -231,7 +231,7 @@ p6_return_path() {
 # Function: unkown words = p6_return_words(words)
 #
 #  Args:
-#	words - 
+#	words -
 #
 #  Returns:
 #	unkown - words
@@ -255,7 +255,7 @@ p6_return_words() {
 # Function: code rc = p6_return_code_as_code(rc)
 #
 #  Args:
-#	rc - 
+#	rc -
 #
 #  Returns:
 #	code - rc
@@ -276,7 +276,7 @@ p6_return_code_as_code() {
 # Function: code rc = p6_return_code_as_value(rc)
 #
 #  Args:
-#	rc - 
+#	rc -
 #
 #  Returns:
 #	code - rc
@@ -297,7 +297,7 @@ p6_return_code_as_value() {
 # Function: true  = p6_return(rv)
 #
 #  Args:
-#	rv - 
+#	rv -
 #
 #  Returns:
 #	true - 
@@ -321,7 +321,7 @@ p6_return() {
 # Function: p6_return_code__validate(rc)
 #
 #  Args:
-#	rc - 
+#	rc -
 #
 #>
 ######################################################################

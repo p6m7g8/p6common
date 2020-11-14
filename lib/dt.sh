@@ -21,8 +21,8 @@ p6_dt__debug() {
 # Function: str dt = p6_dt__date(fmt, offset)
 #
 #  Args:
-#	fmt - 
-#	offset - 
+#	fmt -
+#	offset -
 #
 #  Returns:
 #	str - dt
@@ -128,7 +128,7 @@ p6_dt_tomorrow() {
 # Function: size_t modified_epoch_seconds = p6_dt_mtime(file)
 #
 #  Args:
-#	file - 
+#	file -
 #
 #  Returns:
 #	size_t - modified_epoch_seconds

@@ -21,7 +21,7 @@ p6_path__debug() {
 # Function: true  = p6_path_if(dir)
 #
 #  Args:
-#	dir - 
+#	dir -
 #
 #  Returns:
 #	true - #	false - 

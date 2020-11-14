@@ -21,7 +21,7 @@ p6_string__debug() {
 # Function: bool rv = p6_string_blank(str)
 #
 #  Args:
-#	str - 
+#	str -
 #
 #  Returns:
 #	bool - rv
@@ -45,8 +45,8 @@ p6_string_blank() {
 # Function: bool rv = p6_string_eq(str, val)
 #
 #  Args:
-#	str - 
-#	val - 
+#	str -
+#	val -
 #
 #  Returns:
 #	bool - rv
@@ -75,7 +75,7 @@ p6_string_eq() {
 # Function: size_t len = p6_string_len(str)
 #
 #  Args:
-#	str - 
+#	str -
 #
 #  Returns:
 #	size_t - len
@@ -96,9 +96,9 @@ p6_string_len() {
 # Function: str str_a = p6_string_append(str, add, [sep= ])
 #
 #  Args:
-#	str - 
-#	add - 
-#	OPTIONAL sep -  [ ]
+#	str -
+#	add -
+#	OPTIONAL sep - [ ]
 #
 #  Returns:
 #	str - str_a
@@ -123,7 +123,7 @@ p6_string_append() {
 # Function: str str_lc = p6_string_lc(str)
 #
 #  Args:
-#	str - 
+#	str -
 #
 #  Returns:
 #	str - str_lc
@@ -146,7 +146,7 @@ p6_string_lc() {
 # Function: str str_uc = p6_string_uc(str)
 #
 #  Args:
-#	str - 
+#	str -
 #
 #  Returns:
 #	str - str_uc
@@ -169,9 +169,9 @@ p6_string_uc() {
 # Function: str str_r = p6_string_replace(str, from, to)
 #
 #  Args:
-#	str - 
-#	from - 
-#	to - 
+#	str -
+#	from -
+#	to -
 #
 #  Returns:
 #	str - str_r
@@ -196,7 +196,7 @@ p6_string_replace() {
 # Function: str str_ic = p6_string_init_cap(str)
 #
 #  Args:
-#	str - 
+#	str -
 #
 #  Returns:
 #	str - str_ic

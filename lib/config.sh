@@ -22,7 +22,7 @@ p6_config__debug() {
 # Function: p6_config_load([defaults_file=$(dirname $0)/../conf/defaults.conf])
 #
 #  Args:
-#	OPTIONAL defaults_file -  [$(dirname $0)/../conf/defaults.conf]
+#	OPTIONAL defaults_file - [$(dirname $0)/../conf/defaults.conf]
 #
 #>
 ######################################################################

@@ -21,8 +21,8 @@ p6_include__debug() {
 # Function: p6_include_module(module, [start=init.sh])
 #
 #  Args:
-#	module - 
-#	OPTIONAL start -  [init.sh]
+#	module -
+#	OPTIONAL start - [init.sh]
 #
 #>
 ######################################################################

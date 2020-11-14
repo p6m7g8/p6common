@@ -49,8 +49,8 @@ p6_retry_delay_log() {
 # Function: size_t i = p6_retry_delay(type, i)
 #
 #  Args:
-#	type - 
-#	i - 
+#	type -
+#	i -
 #
 #  Returns:
 #	size_t - i

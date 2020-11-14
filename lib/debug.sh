@@ -15,6 +15,13 @@ p6_debug__debug() {
     p6_return_void
 }
 
+######################################################################
+#<
+#
+# Function: p6_time()
+#
+#>
+######################################################################
 p6_time() {
 
   true
@@ -55,7 +62,7 @@ p6_verbose() {
 # Function: p6_debug(msg)
 #
 #  Args:
-#	msg - 
+#	msg -
 #
 #>
 ######################################################################
@@ -80,7 +87,7 @@ p6_debug() {
 # Function: p6_log(msg)
 #
 #  Args:
-#	msg - 
+#	msg -
 #
 #>
 ######################################################################
@@ -116,8 +123,8 @@ p6_debugging() {
 # Function: code rc = p6_debugging_system_on(systems, system)
 #
 #  Args:
-#	systems - 
-#	system - 
+#	systems -
+#	system -
 #
 #  Returns:
 #	code - rc

@@ -4,8 +4,8 @@
 # Function: code rc = p6_math_lt(a, b)
 #
 #  Args:
-#	a - 
-#	b - 
+#	a -
+#	b -
 #
 #  Returns:
 #	code - rc
@@ -28,8 +28,8 @@ p6_math_lt() {
 # Function: code rc = p6_math_lte(a, b)
 #
 #  Args:
-#	a - 
-#	b - 
+#	a -
+#	b -
 #
 #  Returns:
 #	code - rc
@@ -52,8 +52,8 @@ p6_math_lte() {
 # Function: code rc = p6_math_gt(a, b)
 #
 #  Args:
-#	a - 
-#	b - 
+#	a -
+#	b -
 #
 #  Returns:
 #	code - rc
@@ -76,8 +76,8 @@ p6_math_gt() {
 # Function: code rc = p6_math_gte(a, b)
 #
 #  Args:
-#	a - 
-#	b - 
+#	a -
+#	b -
 #
 #  Returns:
 #	code - rc
@@ -100,8 +100,8 @@ p6_math_gte() {
 # Function: int rv = p6_math_sub(a, b)
 #
 #  Args:
-#	a - 
-#	b - 
+#	a -
+#	b -
 #
 #  Returns:
 #	int - rv
@@ -123,8 +123,8 @@ p6_math_sub() {
 # Function: int result = p6_math_inc(a, [b=1])
 #
 #  Args:
-#	a - 
-#	OPTIONAL b -  [1]
+#	a -
+#	OPTIONAL b - [1]
 #
 #  Returns:
 #	int - result
@@ -146,7 +146,7 @@ p6_math_inc() {
 # Function: p6_math_dec(a)
 #
 #  Args:
-#	a - 
+#	a -
 #
 #>
 ######################################################################

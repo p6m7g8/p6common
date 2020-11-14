@@ -38,8 +38,8 @@ p6_version__debug() {
 # Function: str next_version = p6_version_next(next_version, [file=conf/meta])
 #
 #  Args:
-#	next_version - 
-#	OPTIONAL file -  [conf/meta]
+#	next_version -
+#	OPTIONAL file - [conf/meta]
 #
 #  Returns:
 #	str - next_version
@@ -109,7 +109,7 @@ p6_version_next() {
 # Function: str version = p6_version_get([file=conf/meta])
 #
 #  Args:
-#	OPTIONAL file -  [conf/meta]
+#	OPTIONAL file - [conf/meta]
 #
 #  Returns:
 #	str - version
@@ -145,8 +145,8 @@ p6_version_get() {
 # Function: str next_version = p6_version_bump(version, [file=conf/meta])
 #
 #  Args:
-#	version - 
-#	OPTIONAL file -  [conf/meta]
+#	version -
+#	OPTIONAL file - [conf/meta]
 #
 #  Returns:
 #	str - next_version

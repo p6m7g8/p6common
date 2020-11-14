@@ -21,7 +21,7 @@ p6_uri__debug() {
 # Function: path name = p6_uri_name(uri)
 #
 #  Args:
-#	uri - 
+#	uri -
 #
 #  Returns:
 #	path - name
@@ -46,7 +46,7 @@ p6_uri_name() {
 # Function: path name = p6_uri_path(uri)
 #
 #  Args:
-#	uri - 
+#	uri -
 #
 #  Returns:
 #	path - name

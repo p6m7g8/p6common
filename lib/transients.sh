@@ -21,8 +21,8 @@ p6_transient__debug() {
 # Function: str  = p6_transient_create(dir_name, [len=4])
 #
 #  Args:
-#	dir_name - 
-#	OPTIONAL len -  [4]
+#	dir_name -
+#	OPTIONAL len - [4]
 #
 #  Returns:
 #	str - #	str - #	str - dir_name
@@ -64,7 +64,7 @@ p6_transient_create() {
 # Function: path file = p6_transient_create_file(file_name)
 #
 #  Args:
-#	file_name - 
+#	file_name -
 #
 #  Returns:
 #	path - file
@@ -86,7 +86,7 @@ p6_transient_create_file() {
 # Function: code rc = p6_transient_is(dir)
 #
 #  Args:
-#	dir - 
+#	dir -
 #
 #  Returns:
 #	code - rc
@@ -108,7 +108,7 @@ p6_transient_is() {
 # Function: p6_transient_persist(dir)
 #
 #  Args:
-#	dir - 
+#	dir -
 #
 #>
 ######################################################################
@@ -126,7 +126,7 @@ p6_transient_persist() {
 # Function: p6_transient_persist_un(dir)
 #
 #  Args:
-#	dir - 
+#	dir -
 #
 #>
 ######################################################################
@@ -144,7 +144,7 @@ p6_transient_persist_un() {
 # Function: code rc = p6_transient_persist_is(dir)
 #
 #  Args:
-#	dir - 
+#	dir -
 #
 #  Returns:
 #	code - rc
@@ -167,8 +167,8 @@ p6_transient_persist_is() {
 # Function: p6_transient_delete(dir, [handler_name=])
 #
 #  Args:
-#	dir - 
-#	OPTIONAL handler_name -  []
+#	dir -
+#	OPTIONAL handler_name - []
 #
 #>
 ######################################################################
@@ -222,7 +222,7 @@ trap p6_transient__cleanup 0 1 2 3 6 14 15
 # Function: p6_transient__log(dir)
 #
 #  Args:
-#	dir - 
+#	dir -
 #
 #>
 ######################################################################

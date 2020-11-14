@@ -21,7 +21,7 @@ p6_token__debug() {
 # Function: str hashed = p6_token_hash(string)
 #
 #  Args:
-#	string - 
+#	string -
 #
 #  Returns:
 #	str - hashed
@@ -49,7 +49,7 @@ p6_token_hash() {
 # Function: str token = p6_token_random(len)
 #
 #  Args:
-#	len - 
+#	len -
 #
 #  Returns:
 #	str - token
@@ -73,7 +73,7 @@ p6_token_random() {
 # Function: str pass = p6_token_passwd(len)
 #
 #  Args:
-#	len - 
+#	len -
 #
 #  Returns:
 #	str - pass

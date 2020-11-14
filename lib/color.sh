@@ -21,9 +21,9 @@ p6_color__debug() {
 # Function: p6_color_ize(color_fg, color_bg, msg)
 #
 #  Args:
-#	color_fg - 
-#	color_bg - 
-#	msg - 
+#	color_fg -
+#	color_bg -
+#	msg -
 #
 #>
 ######################################################################
@@ -55,9 +55,9 @@ p6_color_ize() {
 # Function: p6_color_say(color_fg, color_bg, msg)
 #
 #  Args:
-#	color_fg - 
-#	color_bg - 
-#	msg - 
+#	color_fg -
+#	color_bg -
+#	msg -
 #
 #>
 ######################################################################
@@ -78,7 +78,7 @@ p6_color_say() {
 # Function: size_t code = p6_color_to_code(color)
 #
 #  Args:
-#	color - 
+#	color -
 #
 #  Returns:
 #	size_t - code
@@ -124,7 +124,7 @@ p6_color_opacity_factor() {
 # Function: str rgb = p6_color_name_to_rgb(name)
 #
 #  Args:
-#	name - 
+#	name -
 #
 #  Returns:
 #	str - rgb
@@ -164,8 +164,8 @@ p6_color_name_to_rgb() {
 # Function: p6_color_hex_to_d16b(hex, ord)
 #
 #  Args:
-#	hex - 
-#	ord - 
+#	hex -
+#	ord -
 #
 #>
 ######################################################################

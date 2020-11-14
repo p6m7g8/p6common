@@ -48,8 +48,8 @@ p6_word_unique() {
 # Function: words result = p6_word_not(a, b)
 #
 #  Args:
-#	a - 
-#	b - 
+#	a -
+#	b -
 #
 #  Returns:
 #	words - result

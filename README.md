@@ -26,6 +26,7 @@
 - code rc = p6_debugging_system_on(systems, system)
 - p6_debug(msg)
 - p6_log(msg)
+- p6_time()
 - p6_verbose(level)
 
 ### dir.sh:

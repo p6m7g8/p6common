@@ -5,7 +5,7 @@
 # Function: p6_run__debug(msg)
 #
 #  Args:
-#	msg - 
+#	msg -
 #
 #>
 ######################################################################
@@ -23,7 +23,7 @@ p6_run__debug() {
 # Function: code rc = p6_run_code(code)
 #
 #  Args:
-#	code - 
+#	code -
 #
 #  Returns:
 #	code - rc
@@ -47,7 +47,7 @@ p6_run_code() {
 # Function: code rc = p6_run_yield(func, ...)
 #
 #  Args:
-#	func - 
+#	func -
 #	... - 
 #
 #  Returns:
@@ -71,7 +71,7 @@ p6_run_yield() {
 # Function: code rc = p6_run_read_cmd(cmd)
 #
 #  Args:
-#	cmd - 
+#	cmd -
 #
 #  Returns:
 #	code - rc
@@ -93,7 +93,7 @@ p6_run_read_cmd() {
 # Function: code rc = p6_run_write_cmd(cmd)
 #
 #  Args:
-#	cmd - 
+#	cmd -
 #
 #  Returns:
 #	code - rc
@@ -115,9 +115,9 @@ p6_run_write_cmd() {
 # Function: p6_run_retry(stop, fail, func, ...)
 #
 #  Args:
-#	stop - 
-#	fail - 
-#	func - 
+#	stop -
+#	fail -
+#	func -
 #	... - 
 #
 #>
@@ -146,10 +146,10 @@ p6_run_retry() {
 # Function: p6_run_parallel(i, parallel, things, cmd, ...)
 #
 #  Args:
-#	i - 
-#	parallel - 
-#	things - 
-#	cmd - 
+#	i -
+#	parallel -
+#	things -
+#	cmd -
 #	... - 
 #
 #>
@@ -176,8 +176,8 @@ p6_run_parallel() {
 # Function: p6_run_serial(things, cmd, ...)
 #
 #  Args:
-#	things - 
-#	cmd - 
+#	things -
+#	cmd -
 #	... - 
 #
 #>
@@ -202,8 +202,8 @@ p6_run_serial() {
 # Function: true  = p6_run_if_not_in(script, skip_list)
 #
 #  Args:
-#	script - 
-#	skip_list - 
+#	script -
+#	skip_list -
 #
 #  Returns:
 #	true - #	false - 
@@ -230,12 +230,12 @@ p6_run_if_not_in() {
 # Function: p6_run_script(cmd_env, shell, set_flags, cmd, [exts=.sh], arg_list, ...)
 #
 #  Args:
-#	cmd_env - 
-#	shell - 
-#	set_flags - 
-#	cmd - 
-#	OPTIONAL exts -  [.sh]
-#	arg_list - 
+#	cmd_env -
+#	shell -
+#	set_flags -
+#	cmd -
+#	OPTIONAL exts - [.sh]
+#	arg_list -
 #	... - 
 #
 #>

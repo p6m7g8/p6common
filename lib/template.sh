@@ -21,7 +21,7 @@ p6_template__debug() {
 # Function: str processed = p6_template_process(infile, ...)
 #
 #  Args:
-#	infile - 
+#	infile -
 #	... - k=v replacements
 #
 #  Returns:

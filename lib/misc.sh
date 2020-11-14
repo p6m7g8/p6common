@@ -21,7 +21,7 @@ p6_pgs() {
 # Function: size_t len = p6_len(s)
 #
 #  Args:
-#	s - 
+#	s -
 #
 #  Returns:
 #	size_t - len

@@ -1,0 +1,24 @@
+name: Build
+on:
+  pull_request: {}
+  workflow_dispatch: {}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      CI: "true"
+      P6_TEST_COLOR_OFF: "1"
+      P6_DFZ_SRC_P6M7G8_DIR: ".."
+      ROOT_DIR_REL: ".."
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set git identity
+        run: |-
+          git config user.name "Auto-bump"
+          git config user.email "github-actions@github.com"
+      - name: Clone p6perl
+        run: git clone https://github.com/p6m7g8/p6perl ../p6perl
+      - name: p6test
+        run: git clone https://github.com/p6m7g8/p6test ../p6test
+      - name: Test
+        run: ./scripts/test.bash

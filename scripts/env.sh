@@ -1,11 +1,14 @@
 #!/bin/sh
 
-echo "shell=[$SHELL]"
-echo "args=[$@]"
+which yum
+which apt-get
+which apt
+which brew
+which git
 
-pwd
-uname -a
-df -h
+ps -ef
 
-brew list
+echo "======> .."
+ls ..
+
 

@@ -21,4 +21,4 @@ jobs:
       - name: p6test
         run: git clone https://github.com/p6m7g8/p6test ../p6test
       - name: Test
-        run: ./scripts/test.bash
+        run: t/alias.sh

@@ -1,4 +1,4 @@
 #!/bin/sh
 
-apt list
+apt list installed
 ps -ef |grep runner

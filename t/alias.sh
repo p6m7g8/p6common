@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 main() {
 
@@ -18,10 +18,10 @@ main() {
 	p6_test_run "p6_alias" "A"
 	p6_test_assert_run_ok "one arg"
 
-	p6_test_run "p6_alias" "B" "'echo 777'"
+	p6_test_run "p6_alias" "C" "'echo 777'"
 	p6_test_assert_run_ok "two args"
 
-	p6_test_run "B"
+	p6_test_run "alias B='echo 777'; B"
 	p6_test_assert_eq "$(p6_test_run_stdout)" "777" "alias works"
 	p6_test_assert_blank "$(p6_test_run_stderr)" "no stderr"
 

@@ -15,10 +15,10 @@
     },
     "test": {
       "name": "test",
-      "description": "Builds",
+      "description": "Tests",
       "steps": [
         {
-          "exec": "make test"
+          "exec": "true"
         }
       ]
     },

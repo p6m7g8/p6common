@@ -1,7 +1,7 @@
 #!/bin/sh
 
 echo "========> CPANM"
-curl -L https://cpanmin.us | perl App::cpanminus
+curl -L https://cpanmin.us | perl - App::cpanminus
 
 echo "=========> Data::Dumper"
 cpanm --notests --force Data::Dumper

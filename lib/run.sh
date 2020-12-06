@@ -132,12 +132,15 @@ p6_run_retry() {
 
     local i=1
     while [ : ]; do
-	  local status=$($func "$@")
-	  $($stop "$status" "$@")
+	  local _status=$($func "$@")
+          if $($stop "$_status" "$@"); then
+            break
+          fi
+
 	  i=$(p6_retry_delay_doubling "$i")
     done
 
-    p6_retun_code_as_code "$status"
+    p6_return_code_as_code "$status"
 }
 
 ######################################################################

@@ -101,6 +101,7 @@ project.testTask = project.addTask('test', {
   description: 'Tests',
 });
 project.testTask.exec('make test');
+project.testTask.env('PERL5LIB', '../p6perl/lib/perl5');
 
 project.github.addMergifyRules({
   name: 'Label core contributions',

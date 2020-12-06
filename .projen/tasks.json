@@ -16,6 +16,9 @@
     "test": {
       "name": "test",
       "description": "Tests",
+      "env": {
+        "PERL5LIB": "../p6perl/lib/perl5"
+      },
       "steps": [
         {
           "exec": "make test"

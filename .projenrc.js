@@ -15,8 +15,6 @@ const project = new JsiiProject({
 
   projenUpgradeSecret: 'PROJEN_GITHUB_TOKEN',
 
-  codeCov: true,
-
   /* AwsCdkConstructLibraryOptions */
   // cdkAssert: true,                                                          /* Install the @aws-cdk/assert library? */
   // cdkDependencies: undefined,                                               /* Which AWS CDK modules (those that start with "@aws-cdk/") does this library require when consumed? */

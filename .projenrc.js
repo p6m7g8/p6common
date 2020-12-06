@@ -92,6 +92,11 @@ const project = new JsiiProject({
   // workflowNodeVersion: undefined,                                           /* The node version to use in GitHub workflows. */
 });
 
+const buildTask = project.buildTask;
+buildTask.prepend('make deps', {
+  description: 'install dependencies',
+});
+
 project.testTask = project.addTask('test', {
   description: 'Tests',
 });

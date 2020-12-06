@@ -28,6 +28,10 @@
       "description": "Full release build (test+compile)",
       "steps": [
         {
+          "exec": "make deps",
+          "description": "install dependencies"
+        },
+        {
           "spawn": "test"
         },
         {

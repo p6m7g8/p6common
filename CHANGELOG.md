@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.1.1 (2020-12-06)
+
+
+### Bug Fixes
+
+* **actions:** fixes ([#37](https://github.com/p6m7g8/p6common/issues/37)) ([83aff8a](https://github.com/p6m7g8/p6common/commit/83aff8ad14f81a6430ee8e81a54505fc46e05076))
+
 ## [0.1.0](https://github.com/p6m7g8/p6common/compare/v0.0.2...v0.1.0) (2020-12-06)
 
 

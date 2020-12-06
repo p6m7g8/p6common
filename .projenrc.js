@@ -95,7 +95,7 @@ const project = new JsiiProject({
 project.testTask = project.addTask('test', {
   description: 'Tests',
 });
-project.testTask.exec('true');
+project.testTask.exec('make test');
 
 project.github.addMergifyRules({
   name: 'Label core contributions',

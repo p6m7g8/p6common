@@ -1,10 +1,11 @@
 #!/bin/sh
 
 echo "========> CPANM"
-curl -L https://cpanmin.us | perl - --sudo App::cpanminus
+curl -L https://cpanmin.us/ -o cpanm
+chmod +x cpanm
 
 echo "=========> Data::Dumper"
-cpanm --notests --force Data::Dumper
+./cpanm --notests --force Data::Dumper
 
 echo "=========> p6perl"
 if [ ! -d ../p6perl ]; then

@@ -2,7 +2,7 @@ DEFAULT_GOAL=	test
 
 ROOT_DIR_REL?=	..
 BUILD_FILE?=	${ROOT_DIR_REL}/p6common/scripts/build.sh
-TEST_FILE?=	${ROOT_DIR_REL}/p6common/scripts/test.bash
+TEST_FILE?=	${ROOT_DIR_REL}/p6common/scripts/test.sh
 LINT_FILE?=	${ROOT_DIR_REL}/p6common/scripts/lint.sh
 DOC_FILE?=	${ROOT_DIR_REL}/p6common/scripts/doc.sh
 RELEASE_FILE?=	${ROOT_DIR_REL}/p6common/scripts/release.sh

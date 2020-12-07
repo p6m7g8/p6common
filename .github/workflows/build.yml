@@ -14,4 +14,4 @@ jobs:
       - name: Build
         run: /bin/sh scripts/deps.sh
     container:
-      image: alpine-perl
+      image: scottw/alpine-perl

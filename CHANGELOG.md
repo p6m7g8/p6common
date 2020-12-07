@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### 0.1.1 (2020-12-07)
 
+
+### Features
+
+* **tests:** enable tests ([#39](https://github.com/p6m7g8/p6common/issues/39)) ([4dba0fb](https://github.com/p6m7g8/p6common/commit/4dba0fb729a21260f83df01d15afd8b21521e5c7))
+
+### 0.1.1 (2020-12-07)
+
 ### 0.1.1 (2020-12-06)
 
 

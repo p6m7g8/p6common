@@ -23,4 +23,4 @@ apt-get --version
 apt --version
 git --version
 
-apk --no-cache list
+apk --no-cache list installed

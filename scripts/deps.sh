@@ -7,15 +7,9 @@ apk --no-cache add git
 apk --no-cache add bash
 apk --no-cache add perl
 
-echo ----------------------
-ls /bin
-echo ----------------------
-ls /sbin
-echo ----------------------
-ls /usr/bin
-echo ----------------------
-ls /usr/sbin
+curl -L https://cpanmin.us | perl - --sudo App::cpanminus
+
 echo ----------------------
 ls /usr/local/bin
 
-#/usr/bin/cpan install Data::Dumper
+/usr/bin/cpan install Data::Dumper

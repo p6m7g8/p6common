@@ -11,7 +11,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Build
+      - name: Deps
         run: /bin/sh scripts/deps.sh
+      - name: Test
+        run: make test
     container:
       image: scottw/alpine-perl

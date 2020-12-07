@@ -96,7 +96,7 @@ project.buildTask.prepend('deps', {
   description: 'install dependencies',
   env: {
     P6_DFZ_SRC_P6M7G8_DIR: '..',
-    TERM: 'vt100"r',
+    TERM: 'vt100',
   },
   exec: 'make deps',
 });

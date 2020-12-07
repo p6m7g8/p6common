@@ -1,6 +1,6 @@
 #!/bin/sh
 
-apk --no-cache add git
+apk --no-cache add git ncurses
 
 echo "=========> p5-Data::Dumper"
 cpanm -v --notest --force Data::Dumper

@@ -23,7 +23,7 @@ lint:
 doc:
 	ROOT_DIR_REL=${ROOT_DIR_REL} ${DOC_FILE}
 
-test:	doc
+test:
 	ROOT_DIR_REL=${ROOT_DIR_REL} ${TEST_FILE}
 
 release: test

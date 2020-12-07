@@ -6,7 +6,7 @@ if [ -z "$CI" ]; then
 fi
 
 echo "=========> cpanm"
-yum install perl-CPAN
+yum install perl-CPAN -y
 
 echo "=========> p5-Data::Dumper"
 cpanm -v --notest --force Data::Dumper

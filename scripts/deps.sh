@@ -5,7 +5,7 @@ curl -L https://cpanmin.us/ -o cpanm
 chmod +x cpanm
 
 echo "=========> Data::Dumper"
-./cpanm --notest --force Data::Dumper
+./cpanm --notest --force ExtUtils::Manifest Data::Dumper
 
 echo "=========> p6perl"
 if [ ! -d ../p6perl ]; then

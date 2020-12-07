@@ -6,9 +6,8 @@ export PATH
 apk --no-cache add git
 apk --no-cache add bash
 apk --no-cache add perl
-apk --no-cache add curl
 
-curl -L https://cpanmin.us | perl - --sudo App::cpanminus
+wget -L https://cpanmin.us | perl - --sudo App::cpanminus
 
 echo ----------------------
 ls /usr/local/bin

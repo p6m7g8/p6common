@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       CI: "true"
+      P6_DFZ_SRC_P6M7G8_DIR: ".."
     steps:
       - name: Checkout
         uses: actions/checkout@v2

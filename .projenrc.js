@@ -41,7 +41,7 @@ const project = new JsiiProject({
 
   /* NodeProjectCommonOptions */
   // allowLibraryDependencies: true,                                           /* Allow the project to include `peerDependencies` and `bundledDependencies`. */
-  // antitamper: true,                                                         /* Checks that after build there are no modified files on git. */
+  antitamper: false, /* Checks that after build there are no modified files on git. */
   // autoDetectBin: true,                                                      /* Automatically add all executables under the `bin` directory to your `package.json` file under the `bin` section. */
   // bin: undefined,                                                           /* Binary programs vended with your module. */
   // buildWorkflow: true,                                                      /* Define a GitHub workflow for building PRs. */
@@ -92,10 +92,16 @@ const project = new JsiiProject({
   // workflowNodeVersion: undefined,                                           /* The node version to use in GitHub workflows. */
 });
 
+const buildTask = project.buildTask;
+buildTask.prepend('make deps', {
+  description: 'install dependencies',
+});
+
 project.testTask = project.addTask('test', {
   description: 'Tests',
 });
-project.testTask.exec('true');
+project.testTask.exec('make test');
+project.testTask.env('PERL5LIB', '../p6perl/lib/perl5');
 
 project.github.addMergifyRules({
   name: 'Label core contributions',

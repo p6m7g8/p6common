@@ -66,7 +66,7 @@ p6_color_say() {
     local color_bg="$2"
     local msg="$3"
 
-    p6_color_ize "$color_fg" "$color_bg" "%msg"
+    p6_color_ize "$color_fg" "$color_bg" "$msg"
     p6_msg
 
     p6_return_void

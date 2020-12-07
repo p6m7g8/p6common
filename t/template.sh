@@ -12,7 +12,7 @@ main() {
 
     p6_test_start "p6_template_process"
     (
-	true
+        true
     )
     p6_test_finish
 

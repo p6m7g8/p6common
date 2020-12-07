@@ -12,9 +12,9 @@ main() {
 
     p6_test_start "p6_int_confirm_ask"
     (
-	p6_test_skip "p6test doesn't yet do stdin" "future"
-	p6_test_run "p6_int_confirm_ask"
-	p6_test_assert_run_ok "A: " 42
+        p6_test_skip "p6test doesn't yet do stdin" "future"
+        p6_test_run "p6_int_confirm_ask"
+        p6_test_assert_run_ok "A: " 42
     )
     p6_test_finish
 

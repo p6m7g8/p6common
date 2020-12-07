@@ -12,8 +12,8 @@ main() {
 
     p6_test_start "p6_colors"
     (
-	p6_test_run "false"
-	p6_test_assert_run_ok "none"
+        p6_test_run "false"
+        p6_test_assert_run_ok "none" 1
     )
     p6_test_finish
 

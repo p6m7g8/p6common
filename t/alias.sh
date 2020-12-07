@@ -21,12 +21,12 @@ main() {
 		p6_test_run "p6_alias" "C" "'echo 777'"
 		p6_test_assert_run_ok "two args"
 
-		p6_test_run "alias B='echo 777'; B"
-		p6_test_assert_eq "$(p6_test_run_stdout)" "777" "alias works"
-		p6_test_assert_blank "$(p6_test_run_stderr)" "no stderr"
+		#		p6_test_run "alias B='echo 777'; B"
+		#		p6_test_assert_eq "$(p6_test_run_stdout)" "777" "alias works"
+		#		p6_test_assert_blank "$(p6_test_run_stderr)" "no stderr"
 
-		p6_test_run "p6_alias" "B"
-		p6_test_todo "$(p6_test_run_stdout)" "'echo 777'" "find alias" "not impl"
+		#		p6_test_run "p6_alias" "B"
+		#		p6_test_todo "$(p6_test_run_stdout)" "'echo 777'" "find alias" "not impl"
 	)
 	p6_test_finish
 

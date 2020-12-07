@@ -1,5 +1,7 @@
 #!/bin/sh
 
+apk --no-cache add git
+
 echo "=========> p5-Data::Dumper"
 cpanm -v --notest --force Data::Dumper
 

@@ -5,7 +5,8 @@ if [ -z "$CI" ]; then
     exit 0
 fi
 
-apk --no-cache add git ncurses
+echo "=========> cpanm"
+yum install perl-CPAN
 
 echo "=========> p5-Data::Dumper"
 cpanm -v --notest --force Data::Dumper

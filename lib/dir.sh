@@ -89,8 +89,11 @@ p6_dirs_list() {
     local entries
     local dir
     for dir in $dirs; do
-	local children=$(p6_dir_list "$dir")
-	p6_string_append "$entries" "$children" " "
+        local children
+        children=$(p6_dir_list "$dir")
+        if ! p6_string_blank "$children"; then
+            p6_string_append "$entries" "$children" " "
+        fi
     done
 
     p6_return_words "$entries"

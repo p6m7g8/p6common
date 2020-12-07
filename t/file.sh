@@ -8,120 +8,120 @@ main() {
     . ../p6test/lib/_bootstrap.sh
     p6_p6test_bootstrap "../p6test"
 
-    p6_test_setup "336"
+    p6_test_setup "21"
 
     p6_test_start "p6_file_exists"
     (
-	p6_test_run "p6_file_exists"
-	p6_test_assert_run_ok "no arg: dne" 1
+        p6_test_run "p6_file_exists"
+        p6_test_assert_run_ok "no arg: dne" 1
 
-	p6_test_run "p6_file_exists" ""
-	p6_test_assert_run_ok "\"\": dne" 1
+        p6_test_run "p6_file_exists" ""
+        p6_test_assert_run_ok "\"\": dne" 1
 
-	p6_test_run "p6_file_exists" ''
-	p6_test_assert_run_ok "'': dne" 1
+        p6_test_run "p6_file_exists" ''
+        p6_test_assert_run_ok "'': dne" 1
 
-	p6_test_run "p6_file_exists" " "
-	p6_test_assert_run_ok "\" \": dne" 1
+        p6_test_run "p6_file_exists" " "
+        p6_test_assert_run_ok "\" \": dne" 1
 
-	p6_test_run "p6_file_exists" "' '"
-	p6_test_assert_run_ok "\' \': dne" 1
+        p6_test_run "p6_file_exists" "' '"
+        p6_test_assert_run_ok "\' \': dne" 1
 
-	p6_test_run "p6_file_exists" "/nonexistent"
-	p6_test_assert_run_ok "/nonexistent: dne" 1
+        p6_test_run "p6_file_exists" "/nonexistent"
+        p6_test_assert_run_ok "/nonexistent: dne" 1
 
-	p6_test_run "p6_file_exists" "$P6_TEST_DIR_ORIG/README.md"
-	p6_test_assert_run_ok "Test file is -r per"
+        p6_test_run "p6_file_exists" "$P6_TEST_DIR_ORIG/README.md"
+        p6_test_assert_run_ok "Test file is -r per"
     )
     p6_test_finish
 
     p6_test_start "p6_file_load"
     (
-	true
+        true
     )
     p6_test_finish
 
     p6_test_start "p6_file_move"
     (
-	true
+        true
     )
     p6_test_finish
 
     p6_test_start "p6_file_copy"
     (
-	true
+        true
     )
     p6_test_finish
 
     p6_test_start "p6_file_rmf"
     (
-	true
+        true
     )
     p6_test_finish
 
     p6_test_start "p6_file_unlink"
     (
-	true
+        true
     )
     p6_test_finish
 
     p6_test_start "p6_file_contains"
     (
-	true
+        true
     )
     p6_test_finish
 
     p6_test_start "p6_file_line_delete_last"
     (
-	true
+        true
     )
     p6_test_finish
 
     p6_test_start "p6_file_replace"
     (
-	true
+        true
     )
     p6_test_finish
 
     p6_test_start "p6_file_display"
     (
-	true
+        true
     )
     p6_test_finish
 
     p6_test_start "p6_file_create"
     (
-	true
+        true
     )
     p6_test_finish
 
     p6_test_start "p6_file_write"
     (
-	true
+        true
     )
     p6_test_finish
 
     p6_test_start "p6_file_append"
     (
-	true
+        true
     )
     p6_test_finish
 
     p6_test_start "p6_file_ma_sync"
     (
-	true
+        true
     )
     p6_test_finish
 
     p6_test_start "p6_file_symlink"
     (
-	true
+        true
     )
     p6_test_finish
 
     p6_test_start "p6_file_cascade"
     (
-	true
+        true
     )
     p6_test_finish
 

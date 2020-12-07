@@ -6,7 +6,7 @@ if [ -z "$CI" ]; then
 fi
 
 echo "=========> cpanm"
-yum install perl-CPAN -y
+yum install perl-CPAN bc -y
 
 echo "=========> p6perl"
 if [ ! -d ../p6perl ]; then

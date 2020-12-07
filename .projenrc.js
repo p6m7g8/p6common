@@ -96,7 +96,7 @@ project.buildTask.prepend('deps', {
   description: 'install dependencies',
   env: {
     P6_DFZ_SRC_P6M7G8_DIR: '..',
-    TERM: 'xterm-256color',
+    TERM: 'vt100"r',
   },
   exec: 'make deps',
 });
@@ -105,7 +105,7 @@ project.testTask = project.addTask('test', {
   description: 'Tests',
   env: {
     P6_DFZ_SRC_P6M7G8_DIR: '..',
-    TERM: 'xterm-256color',
+    TERM: 'vt100',
     PERL5LIB: '../p6perl/lib/perl5',
   },
   exec: 'make test',

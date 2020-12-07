@@ -7,7 +7,7 @@ apk --no-cache add git
 apk --no-cache add bash
 apk --no-cache add perl
 
-wget -L https://cpanmin.us | perl - --sudo App::cpanminus
+wget https://cpanmin.us -q -O - | perl - --sudo App::cpanminus
 
 echo ----------------------
 ls /usr/local/bin

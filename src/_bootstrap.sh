@@ -16,7 +16,7 @@ p6_bootstrap() {
   p6_bootstrap_optimize "$dir" "$islocal"
 
   local file
-  for file in $(p6_dir_list_recursive "$dir/lib"); do
+  for file in $(p6_dir_list_recursive "$dir/src"); do
       p6_file_load "$file"
   done
 
@@ -43,12 +43,12 @@ p6_bootstrap_optimize() {
 
     if [ x"$islocal" != x"local" ]; then
       # XXX: Chicken in Egg....
-      . $dir/../p6common/lib/const.sh
-      . $dir/../p6common/lib/return.sh
-      . $dir/../p6common/lib/io.sh
-      . $dir/../p6common/lib/debug.sh
-      . $dir/../p6common/lib/string.sh
-      . $dir/../p6common/lib/file.sh
-      . $dir/../p6common/lib/dir.sh
+      . $dir/../p6common/src/const.sh
+      . $dir/../p6common/src/return.sh
+      . $dir/../p6common/src/io.sh
+      . $dir/../p6common/src/debug.sh
+      . $dir/../p6common/src/string.sh
+      . $dir/../p6common/src/file.sh
+      . $dir/../p6common/src/dir.sh
     fi
 }

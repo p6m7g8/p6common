@@ -1,5 +1,10 @@
 #!/bin/sh
 
+if [ -z "$CI" ]; then
+    echo "skipping deps outside of CI"
+    exit 0
+fi
+
 apk --no-cache add git ncurses
 
 echo "=========> p5-Data::Dumper"

@@ -32,7 +32,11 @@
       "steps": [
         {
           "exec": "make deps",
-          "description": "install dependencies"
+          "description": "install dependencies",
+          "env": {
+            "P6_DFZ_SRC_P6M7G8_DIR": "..",
+            "TERM": "xterm-256color"
+          }
         },
         {
           "spawn": "test"

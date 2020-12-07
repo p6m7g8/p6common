@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. ${ROOT_DIR_REL:-..}/p6common/lib/_bootstrap.sh
+. ${ROOT_DIR_REL:-..}/p6common/src/_bootstrap.sh
 p6_bootstrap
 
 p6_bootstrap ${ROOT_DIR_REL:-..}/p6test

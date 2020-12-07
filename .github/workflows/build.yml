@@ -16,6 +16,6 @@ jobs:
       - name: Deps
         run: /bin/sh scripts/deps.sh
       - name: Test
-        run: /bin/sh t/color.sh
+        run: /bin/sh scripts/test.sh
     container:
       image: scottw/alpine-perl

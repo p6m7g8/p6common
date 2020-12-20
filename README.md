@@ -21,6 +21,8 @@
 [![Mergify](https://img.shields.io/endpoint.svg?url=https://gh.mergify.io/badges/p6m7g8/p6common/&style=flat)](https://mergify.io)
 [![codecov](https://codecov.io/gh/p6m7g8/p6common/branch/master/graph/badge.svg?token=14Yj1fZbew)](https://codecov.io/gh/p6m7g8/p6common)
 [![Known Vulnerabilities](https://snyk.io/test/github/p6m7g8/p6common/badge.svg?targetFile=package.json)](https://snyk.io/test/github/p6m7g8/p6common?targetFile=package.json)
+[![Gihub repo dependents](https://badgen.net/github/dependents-repo/p6m7g8/p6common)](https://github.com/p6m7g8/p6common/network/dependents?dependent_type=REPOSITORY)
+[![Gihub package dependents](https://badgen.net/github/dependents-pkg/p6m7g8/p6common)](https://github.com/p6m7g8/p6common/network/dependents?dependent_type=PACKAGE)
 
 ## Summary
 
@@ -212,8 +214,8 @@
 - code rc = p6_run_read_cmd(cmd)
 - code rc = p6_run_write_cmd(cmd)
 - code rc = p6_run_yield(func, ...)
+- code status = p6_run_retry(stop, fail, func, ...)
 - p6_run_parallel(i, parallel, things, cmd, ...)
-- p6_run_retry(stop, fail, func, ...)
 - p6_run_script(cmd_env, shell, set_flags, cmd, [exts=.sh], arg_list, ...)
 - p6_run_serial(things, cmd, ...)
 - true  = p6_run_if_not_in(script, skip_list)

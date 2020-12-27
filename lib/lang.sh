@@ -60,7 +60,8 @@ p6_lang_version() {
 #	prefix -
 #
 #  Returns:
-#	str - sys@$ver#	str - no
+#	str - sys@$ver
+#	str - no
 #
 #>
 ######################################################################

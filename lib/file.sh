@@ -338,7 +338,8 @@ p6_file_symlink() {
 #	... - 
 #
 #  Returns:
-#	path - path/$cmd#	path - path/$cmd$ext
+#	path - path/$cmd
+#	path - path/$cmd$ext
 #
 #>
 ######################################################################

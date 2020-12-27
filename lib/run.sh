@@ -112,13 +112,16 @@ p6_run_write_cmd() {
 ######################################################################
 #<
 #
-# Function: p6_run_retry(stop, fail, func, ...)
+# Function: code status = p6_run_retry(stop, fail, func, ...)
 #
 #  Args:
 #	stop -
 #	fail -
 #	func -
 #	... - 
+#
+#  Returns:
+#	code - status
 #
 #>
 ######################################################################
@@ -209,7 +212,8 @@ p6_run_serial() {
 #	skip_list -
 #
 #  Returns:
-#	true - #	false - 
+#	true - 
+#	false - 
 #
 #>
 ######################################################################

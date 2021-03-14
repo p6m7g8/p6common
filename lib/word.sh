@@ -8,11 +8,11 @@
 #>
 ######################################################################
 p6_word__debug() {
-    local msg="$1"
+  local msg="$1"
 
-    p6_debug "p6_word: $msg"
+  p6_debug "p6_word: $msg"
 
-    p6_return_void
+  p6_return_void
 }
 
 ######################################################################
@@ -21,7 +21,7 @@ p6_word__debug() {
 # Function: words words = p6_word_unique(...)
 #
 #  Args:
-#	... - 
+#	... -
 #
 #  Returns:
 #	words - words
@@ -64,10 +64,10 @@ p6_word_not() {
   local i
   for i in $(echo $a); do
     echo $i
-  done > $dir/a
+  done >$dir/a
   for i in $(echo $b); do
     echo $i
-  done > $dir/b
+  done >$dir/b
 
   local result=$(comm -23 $dir/a $dir/b)
 

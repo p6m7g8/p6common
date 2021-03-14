@@ -48,7 +48,7 @@ p6_run_code() {
 #
 #  Args:
 #	func -
-#	... - 
+#	... -
 #
 #  Returns:
 #	code - rc
@@ -103,10 +103,10 @@ p6_run_read_cmd() {
 p6_run_write_cmd() {
     local cmd="$*"
 
-	p6_run_code "$cmd"
-	local rc=$?
+    p6_run_code "$cmd"
+    local rc=$?
 
-	p6_return_code_as_code "$rc"
+    p6_return_code_as_code "$rc"
 }
 
 ######################################################################
@@ -118,7 +118,7 @@ p6_run_write_cmd() {
 #	stop -
 #	fail -
 #	func -
-#	... - 
+#	... -
 #
 #  Returns:
 #	code - status
@@ -135,12 +135,12 @@ p6_run_retry() {
 
     local i=1
     while [ : ]; do
-	  local _status=$($func "$@")
-          if $($stop "$_status" "$@"); then
+        local _status=$($func "$@")
+        if $($stop "$_status" "$@"); then
             break
-          fi
+        fi
 
-	  i=$(p6_retry_delay_doubling "$i")
+        i=$(p6_retry_delay_doubling "$i")
     done
 
     p6_return_code_as_code "$status"
@@ -156,7 +156,7 @@ p6_run_retry() {
 #	parallel -
 #	things -
 #	cmd -
-#	... - 
+#	... -
 #
 #>
 ######################################################################
@@ -169,10 +169,11 @@ p6_run_parallel() {
 
     local thing
     for thing in $(p6_echo "$things"); do
-	  ((i=i%parallel)); ((i++==0)) && wait
-	  p6_run__debug "run_parallel(): $cmd @ $thing"
-	  p6_echo "$cmd [$@] '$thing'"
-	  local rc="$($cmd $@ "$thing")" &
+        ((i = i % parallel))
+        ((i++ == 0)) && wait
+        p6_run__debug "run_parallel(): $cmd @ $thing"
+        p6_echo "$cmd [$@] '$thing'"
+        local rc="$($cmd $@ "$thing")" &
     done
 }
 
@@ -184,7 +185,7 @@ p6_run_parallel() {
 #  Args:
 #	things -
 #	cmd -
-#	... - 
+#	... -
 #
 #>
 ######################################################################
@@ -195,8 +196,8 @@ p6_run_serial() {
 
     local thing
     for thing in $(p6_echo "$things"); do
-	  p6_run__debug "run_serial(): $cmd @ $thing"
-	  local rc="$($cmd $@ "$thing")"
+        p6_run__debug "run_serial(): $cmd @ $thing"
+        local rc="$($cmd $@ "$thing")"
     done
 
     p6_return_void
@@ -212,8 +213,8 @@ p6_run_serial() {
 #	skip_list -
 #
 #  Returns:
-#	true - 
-#	false - 
+#	true -
+#	false -
 #
 #>
 ######################################################################
@@ -223,9 +224,9 @@ p6_run_if_not_in() {
 
     local item
     for item in $(p6_echo "$skip_list"); do
-	  if [ "$item" = "$script" ]; then
-	    p6_return_true
-	  fi
+        if [ "$item" = "$script" ]; then
+            p6_return_true
+        fi
     done
 
     p6_return_false
@@ -243,7 +244,7 @@ p6_run_if_not_in() {
 #	cmd -
 #	OPTIONAL exts - [.sh]
 #	arg_list -
-#	... - 
+#	... -
 #
 #>
 ######################################################################

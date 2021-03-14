@@ -25,8 +25,8 @@ p6_transient__debug() {
 #	OPTIONAL len - [4]
 #
 #  Returns:
-#	str - 
-#	str - 
+#	str -
+#	str -
 #	str - dir_name
 #
 #>
@@ -36,27 +36,27 @@ p6_transient_create() {
     local len="${2:-4}"
 
     if p6_string_blank "$dir_name"; then
-	p6_return_str ""
+        p6_return_str ""
     else
-	local rand
-	if ! p6_string_blank "$P6_TEST_TRANSIENT_CREATE_RAND"; then
-	    rand=TEST_MODE
-	else
-	    rand=$(p6_token_random "$len")
-	fi
+        local rand
+        if ! p6_string_blank "$P6_TEST_TRANSIENT_CREATE_RAND"; then
+            rand=TEST_MODE
+        else
+            rand=$(p6_token_random "$len")
+        fi
 
-	dir_name=$P6_DIR_TRANSIENTS/$dir_name/$rand
+        dir_name=$P6_DIR_TRANSIENTS/$dir_name/$rand
 
-	if p6_dir_exists "$dir_name"; then
-	    p6_transient__log "$dir_name"
-	    p6_return_str ""
-	else
-	    p6_transient__debug "create(): CREATED [dir_name=$dir_name] [len=$len]"
-	    p6_dir_mk "$dir_name"
-	    p6_transient__log "$dir_name"
+        if p6_dir_exists "$dir_name"; then
+            p6_transient__log "$dir_name"
+            p6_return_str ""
+        else
+            p6_transient__debug "create(): CREATED [dir_name=$dir_name] [len=$len]"
+            p6_dir_mk "$dir_name"
+            p6_transient__log "$dir_name"
 
-	    p6_return_str "$dir_name"
-	fi
+            p6_return_str "$dir_name"
+        fi
     fi
 }
 
@@ -179,17 +179,17 @@ p6_transient_delete() {
     local handler_name="${2:-}"
 
     if p6_file_exists "$dir"; then
-	dir=$(p6_uri_path "$dir")
+        dir=$(p6_uri_path "$dir")
     fi
 
     if p6_string_eq "$handler_name" "cleanup"; then
-	p6_transient__debug "delete($P6_TRANSIENT_LOG): [handler_name=$handler_name] [dir=$dir]"
-	p6_dir_rmrf "$dir"
+        p6_transient__debug "delete($P6_TRANSIENT_LOG): [handler_name=$handler_name] [dir=$dir]"
+        p6_dir_rmrf "$dir"
     else
-	if ! p6_transient_persist_is "$dir"; then
-	    p6_transient__debug "delete($P6_TRANSIENT_LOG): [dir=$dir]"
-	    p6_dir_rmrf "$dir"
-	fi
+        if ! p6_transient_persist_is "$dir"; then
+            p6_transient__debug "delete($P6_TRANSIENT_LOG): [dir=$dir]"
+            p6_dir_rmrf "$dir"
+        fi
     fi
 
     p6_return_void
@@ -207,12 +207,12 @@ p6_transient__cleanup() {
 
     local dir
     for dir in $(p6_file_display "$P6_TRANSIENT_LOG"); do
-	p6_transient_delete "$dir" "cleanup"
+        p6_transient_delete "$dir" "cleanup"
     done
 
     p6_file_rmf "$P6_TRANSIENT_LOG"
 
-#    p6_die "$P6_TRUE" "# p6_transient__cleanup"
+    #    p6_die "$P6_TRUE" "# p6_transient__cleanup"
 
     p6_return_void
 }

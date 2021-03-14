@@ -64,12 +64,12 @@ p6_retry_delay() {
     p6_sleep "$i"
 
     case $type in
-	double) i=$(($i*2)) ;;
-#	log) ;;
+    double) i=$(($i * 2)) ;;
+        #	log) ;;
     esac
 
     if [ $i -gt 300 ]; then
-	p6_die "25" "FATAL"
+        p6_die "25" "FATAL"
     fi
 
     p6_return_size_t "$i"

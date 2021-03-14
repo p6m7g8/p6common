@@ -36,14 +36,14 @@ p6_color_ize() {
     local code_bg=$(p6_color_to_code "$color_bg")
 
     if [ -z "$P6_TEST_COLOR_OFF" ]; then
-       tput setaf "$code_fg"
-       tput setab "$code_bg"
+        tput setaf "$code_fg"
+        tput setab "$code_bg"
     fi
 
     p6_msg "$msg\c"
 
     if [ -z "$P6_TEST_COLOR_OFF" ]; then
-       tput sgr0
+        tput sgr0
     fi
 
     p6_return_void
@@ -91,14 +91,14 @@ p6_color_to_code() {
     local code=-1
 
     case $color in
-	black)   code=0 ;;
-	red)     code=1 ;;
-	green)   code=2 ;;
-	yellow)  code=3 ;;
-	blue)    code=4 ;;
-	magenta) code=5 ;;
-	cyan)    code=6 ;;
-	white)   code=7 ;;
+    black) code=0 ;;
+    red) code=1 ;;
+    green) code=2 ;;
+    yellow) code=3 ;;
+    blue) code=4 ;;
+    magenta) code=5 ;;
+    cyan) code=6 ;;
+    white) code=7 ;;
     esac
 
     p6_color__debug "say(): [$color] -> [$code]"
@@ -136,21 +136,21 @@ p6_color_name_to_rgb() {
 
     local rgb=-1
     case $name in
-	red)      rgb="fa053e" ;;
-	orange)   rgb="fa6b05" ;;
-	yellow)   rgb="dedb86" ;;
-	green)    rgb="1c6928" ;;
-	dgreen)   rgb="064a10" ;;
-	cyan)     rgb="3beaf6" ;;
-	blue)     rgb="054cf2" ;;
-	dblue)    rgb="1a2261" ;;
-	lpurple)  rgb="eb5bd5" ;;
-	purple)   rgb="973bcc" ;;
-	pink)     rgb="f213d5" ;;
-	lsalmon3) rgb="cd8162" ;;
-	brown)    rgb="542323" ;;
-	black)    rgb="000000" ;;
-	white)    rgb="ffffff" ;;
+    red) rgb="fa053e" ;;
+    orange) rgb="fa6b05" ;;
+    yellow) rgb="dedb86" ;;
+    green) rgb="1c6928" ;;
+    dgreen) rgb="064a10" ;;
+    cyan) rgb="3beaf6" ;;
+    blue) rgb="054cf2" ;;
+    dblue) rgb="1a2261" ;;
+    lpurple) rgb="eb5bd5" ;;
+    purple) rgb="973bcc" ;;
+    pink) rgb="f213d5" ;;
+    lsalmon3) rgb="cd8162" ;;
+    brown) rgb="542323" ;;
+    black) rgb="000000" ;;
+    white) rgb="ffffff" ;;
     esac
 
     rgb=$(p6_echo "$rgb" | tr '[a-z]' '[A-Z]')
@@ -182,27 +182,27 @@ p6_color_hex_to_d16b() {
     local b=$(p6_echo "ibase=16; $k" | bc -q)
 
     if p6_string_blank "$r"; then
-	r=0
+        r=0
     fi
 
     if p6_string_blank "$g"; then
-	g=0
+        g=0
     fi
 
     if p6_string_blank "$b"; then
-	b=0
+        b=0
     fi
 
-    local dr=$(($r*257))
-    local dg=$(($g*257))
-    local db=$(($b*257))
+    local dr=$(($r * 257))
+    local dg=$(($g * 257))
+    local db=$(($b * 257))
 
     p6_color__debug "hex_to_d16b(): [hex=$hex] [ord=$ord] -> [dr=$dr] [dg=$dg] [db=$db]"
 
     case $ord in
-	r) p6_return_str "$dr" ;;
-	g) p6_return_str "$dg" ;;
-	b) p6_return_str "$db" ;;
-	*) p6_error "no such channel" ;;
+    r) p6_return_str "$dr" ;;
+    g) p6_return_str "$dg" ;;
+    b) p6_return_str "$db" ;;
+    *) p6_error "no such channel" ;;
     esac
 }

@@ -8,11 +8,11 @@
 #>
 ######################################################################
 p6_version__debug() {
-    local msg="$1"
+	local msg="$1"
 
-    p6_debug "p6_version: $msg"
+	p6_debug "p6_version: $msg"
 
-    p6_return_void
+	p6_return_void
 }
 
 #
@@ -47,45 +47,45 @@ p6_version__debug() {
 #>
 ######################################################################
 p6_version_next() {
-    local next_version="$1"
-    local file="${2:-conf/meta}"
+	local next_version="$1"
+	local file="${2:-conf/meta}"
 
-    case $next_version in
-      major|minor|patch|dev|alpha|beta|rc|release)
-	  local current_version=$(awk -F: '/version/ { print $2 }')
+	case $next_version in
+	major | minor | patch | dev | alpha | beta | rc | release)
+		local current_version=$(awk -F: '/version/ { print $2 }')
 
-	  local major=$(p6_echo "$current_version" | cut -f 1 -d .)
-	  local minor=$(p6_echo "$current_version" | cut -f 2 -d .)
-	  local patch=$(p6_echo "$current_version" | cut -f 3 -d .)
+		local major=$(p6_echo "$current_version" | cut -f 1 -d .)
+		local minor=$(p6_echo "$current_version" | cut -f 2 -d .)
+		local patch=$(p6_echo "$current_version" | cut -f 3 -d .)
 
-	  local extra=$(p6_echo "$current_version" | cut -f 2 -d '-')
+		local extra=$(p6_echo "$current_version" | cut -f 2 -d '-')
 
-	  case $next_version in
-	      major)
-		  major=$(($major+1))
-		  minor=0
-		  patch=0
-		  ;;
-	      minor)
-		  minor=$(($minor+1))
-		  patch=0
-		  ;;
-	      patch)
-		  patch=$(($patch+1))
-		  ;;
-	      dev|alpha|beta|rc[0-9])
-		  extra="-$next_version"
-		  ;;
-	  esac
+		case $next_version in
+		major)
+			major=$(($major + 1))
+			minor=0
+			patch=0
+			;;
+		minor)
+			minor=$(($minor + 1))
+			patch=0
+			;;
+		patch)
+			patch=$(($patch + 1))
+			;;
+		dev | alpha | beta | rc[0-9])
+			extra="-$next_version"
+			;;
+		esac
 
-	  next_version="${major}.${minor}.${patch}"
-	  if [ -n "$extra" ]; then
-	     next_version="$next_version-$extra"
-	  fi
-	  ;;
-    esac
+		next_version="${major}.${minor}.${patch}"
+		if [ -n "$extra" ]; then
+			next_version="$next_version-$extra"
+		fi
+		;;
+	esac
 
-    p6_return_str "$next_version"
+	p6_return_str "$next_version"
 }
 
 #
@@ -117,11 +117,11 @@ p6_version_next() {
 #>
 ######################################################################
 p6_version_get() {
-    local file="${1:-conf/meta}"
+	local file="${1:-conf/meta}"
 
-    local version=$(awk -F: '/version/ { print $2 }' $file)
+	local version=$(awk -F: '/version/ { print $2 }' $file)
 
-    p6_return_str "$version"
+	p6_return_str "$version"
 }
 
 #
@@ -154,12 +154,12 @@ p6_version_get() {
 #>
 ######################################################################
 p6_version_bump() {
-    local version="$1"
-    local file="${2:-conf/meta}"
+	local version="$1"
+	local file="${2:-conf/meta}"
 
-    local next_version=$(p6_version_next "$version" "$file")
+	local next_version=$(p6_version_next "$version" "$file")
 
-    sed -i '' -e "s,version:.*,version:    $next_version,g" $file
+	sed -i '' -e "s,version:.*,version:    $next_version,g" $file
 
-    p6_return_str "$next_version"
+	p6_return_str "$next_version"
 }

@@ -24,8 +24,8 @@ p6_path__debug() {
 #	dir -
 #
 #  Returns:
-#	true - 
-#	false - 
+#	true -
+#	false -
 #
 #>
 ######################################################################
@@ -33,12 +33,12 @@ p6_path_if() {
     local dir=$1
 
     if p6_dir_exists "$dir"; then
-	PATH=$(p6_string_append "$PATH" "$dir" ":")
-	p6_path__debug "if(): $dir appended to PATH "
-	p6_return_true
+        PATH=$(p6_string_append "$PATH" "$dir" ":")
+        p6_path__debug "if(): $dir appended to PATH "
+        p6_return_true
     else
-	p6_path__debug "if(): $dir DNE, NOT appended to PATH"
-	p6_return_false
+        p6_path__debug "if(): $dir DNE, NOT appended to PATH"
+        p6_return_false
     fi
 }
 
@@ -77,12 +77,12 @@ p6_path_default() {
 ######################################################################
 p6_path_current() {
 
-    env | \
-	awk -F"=" '/^PATH=/ { print $2 }' | \
-	perl -F: -MData::Dumper -lane 'print Dumper \@F' | \
-	sed -e "s/[',]//g" | \
-	egrep -v '\]|\[' | \
-	grep /
+    env |
+        awk -F"=" '/^PATH=/ { print $2 }' |
+        perl -F: -MData::Dumper -lane 'print Dumper \@F' |
+        sed -e "s/[',]//g" |
+        egrep -v '\]|\[' |
+        grep /
 
     p6_return_void
 }

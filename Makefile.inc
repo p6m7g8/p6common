@@ -26,7 +26,7 @@ doc:
 test:
 	ROOT_DIR_REL=${ROOT_DIR_REL} ${TEST_FILE}
 
-release: test
+release: 
 	ROOT_DIR_REL=${ROOT_DIR_REL} ${RELEASE_FILE}
 
 deploy:

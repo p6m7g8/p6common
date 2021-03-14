@@ -33,11 +33,11 @@ p6_token_hash() {
 
     local hashed=
     if ! p6_string_blank "$string"; then
-	if command -v md5 >/dev/null 2>&1; then
-	    hashed=$(p6_echo "$string" | md5)
-	else
-	    hashed=$(p6_echo "$string" | md5sum | sed -e 's, .*,,')
-	fi
+        if command -v md5 >/dev/null 2>&1; then
+            hashed=$(p6_echo "$string" | md5)
+        else
+            hashed=$(p6_echo "$string" | md5sum | sed -e 's, .*,,')
+        fi
     fi
 
     p6_return_str "$hashed"
@@ -61,7 +61,7 @@ p6_token_random() {
 
     local token
     if ! p6_string_blank "$len"; then
-	token=$(cat /dev/urandom | LC_ALL=C tr -dc a-zA-Z0-9 | head -c $len)
+        token=$(cat /dev/urandom | LC_ALL=C tr -dc a-zA-Z0-9 | head -c $len)
     fi
 
     p6_return_str "$token"

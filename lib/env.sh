@@ -72,9 +72,9 @@ p6_env_list() {
     local glob="$1"
 
     if p6_string_blank "$glob"; then
-	env
+        env
     else
-	env | grep $glob
+        env | grep $glob
     fi
 
     p6_return_void

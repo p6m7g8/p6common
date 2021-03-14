@@ -31,8 +31,8 @@ p6_file_load() {
     file="$P6_PREFIX$file"
 
     if p6_file_exists "$file"; then
-	p6_file__debug "load(): $file"
-	. $file
+        p6_file__debug "load(): $file"
+        . $file
     fi
 
     p6_return_void
@@ -218,7 +218,7 @@ p6_file_display() {
 
     p6_file__debug "display(): cat $file"
     if p6_file_exists "$file"; then
-	cat $file
+        cat $file
     fi
 
     p6_return_void
@@ -259,7 +259,7 @@ p6_file_write() {
     local contents="$2"
 
     p6_file__debug "write(): $contents -> $file"
-    p6_echo "$contents" > $file
+    p6_echo "$contents" >$file
 
     p6_return_void
 }
@@ -280,7 +280,7 @@ p6_file_append() {
     local contents="$2"
 
     p6_file__debug "append(): $contents -> $file"
-    p6_echo "$contents" >> $file
+    p6_echo "$contents" >>$file
 
     p6_return_void
 }
@@ -335,7 +335,7 @@ p6_file_symlink() {
 #  Args:
 #	cmd -
 #	exts -
-#	... - 
+#	... -
 #
 #  Returns:
 #	path - path/$cmd
@@ -351,21 +351,21 @@ p6_file_cascade() {
     # Search
     local path
     for path in "$@"; do
-	if ! p6_string_blank "${exts}"; then
-	    p6_file__debug "cascade(): Checking: $path/$cmd"
-	    if p6_file_exists "$path/$cmd"; then
-		p6_file__debug "cascade(): Found: $path/$cmd"
-		p6_return_path "$path/$cmd"
-	    fi
-	else
-	    local ext
-	    for ext in $exts ''; do
-		p6_file__debug "cascade(): [$ext] Checking: $path/$cmd$ext"
-		if p6_file_exists "$path/$cmd$ext"; then
-		    p6_file__debug "cascade(): [$ext] Found: $path/$cmd$ext"
-		    p6_return_path "$path/$cmd$ext"
-		fi
-	    done
-	fi
+        if ! p6_string_blank "${exts}"; then
+            p6_file__debug "cascade(): Checking: $path/$cmd"
+            if p6_file_exists "$path/$cmd"; then
+                p6_file__debug "cascade(): Found: $path/$cmd"
+                p6_return_path "$path/$cmd"
+            fi
+        else
+            local ext
+            for ext in $exts ''; do
+                p6_file__debug "cascade(): [$ext] Checking: $path/$cmd$ext"
+                if p6_file_exists "$path/$cmd$ext"; then
+                    p6_file__debug "cascade(): [$ext] Found: $path/$cmd$ext"
+                    p6_return_path "$path/$cmd$ext"
+                fi
+            done
+        fi
     done
 }

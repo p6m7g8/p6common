@@ -37,8 +37,8 @@ p6_ssh_key_check() {
 
     local pub_from_priv="$dir/pub_from_priv"
     local pub_from_pub="$dir/pub_from_pub"
-    ssh-keygen -y -e -f "$priv" > $pub_from_priv
-    ssh-keygen -y -e -f "$test_pub" > $pub_from_pub
+    ssh-keygen -y -e -f "$priv" >$pub_from_priv
+    ssh-keygen -y -e -f "$test_pub" >$pub_from_pub
 
     cmp -s $pub_from_priv $pub_from_pub
     local rc=$?
@@ -79,7 +79,7 @@ p6_ssh_key_add() {
     local flag_K
     local os=$(p6_os_name)
     case $os in
-	Darwin) flag_K=-K ;;
+    Darwin) flag_K=-K ;;
     esac
 
     p6_run_write_cmd ssh-add $flag_K $key_file_priv
@@ -103,7 +103,7 @@ p6_ssh_key_delete() {
     local flag_K
     local os=$(p6_os_name)
     case $os in
-	Darwin) flag_K=-K ;;
+    Darwin) flag_K=-K ;;
     esac
 
     p6_run_write_cmd ssh-add -D $flag_K $key_file_priv
@@ -126,7 +126,7 @@ p6_ssh_key_pub_from_priv() {
     local key_file_priv="$1"
     local key_file_pub="${2:-${key_file_priv}.pub}"
 
-    p6_run_write_cmd ssh-keygen -y -f $key_file_priv > $key_file_pub
+    p6_run_write_cmd ssh-keygen -y -f $key_file_priv >$key_file_pub
 
     p6_return_void
 }
@@ -187,7 +187,7 @@ p6_ssh_keys_chmod() {
 
     p6_run_write_cmd chmod 700 $dir
     p6_run_write_cmd chmod 600 $key_file_priv
-#    p6_run_write_cmd chmod 644 $key_file_pub
+    #    p6_run_write_cmd chmod 644 $key_file_pub
 
     p6_return_void
 }

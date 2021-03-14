@@ -59,9 +59,9 @@ p6_string_eq() {
 
     local rv
     if [ x"$str" = x"$val" ]; then
-	rv=$P6_TRUE
+        rv=$P6_TRUE
     else
-	rv=$P6_FALSE
+        rv=$P6_FALSE
     fi
 
     p6_string__debug "blank(): [$str] -> $rv"
@@ -106,15 +106,15 @@ p6_string_len() {
 #>
 ######################################################################
 p6_string_append() {
-  local str="$1"
-  local add="$2"
-  local sep="${3:- }"
+    local str="$1"
+    local add="$2"
+    local sep="${3:- }"
 
-  local str_a="${str}${sep}${add}"
+    local str_a="${str}${sep}${add}"
 
-  p6_string__debug "append(): [$str] + [$add] by [$sep] -> [$str_a]"
+    p6_string__debug "append(): [$str] + [$add] by [$sep] -> [$str_a]"
 
-  p6_return_str "$str_a"
+    p6_return_str "$str_a"
 }
 
 ######################################################################
@@ -207,9 +207,9 @@ p6_string_init_cap() {
     local str="$1"
 
     local str_ic=$(
-	p6_echo "$str" | \
-	    awk '{for(i=1;i<=NF;i++){ $i=toupper(substr($i,1,1)) substr($i,2) }}1'
-	  )
+        p6_echo "$str" |
+            awk '{for(i=1;i<=NF;i++){ $i=toupper(substr($i,1,1)) substr($i,2) }}1'
+    )
 
     p6_return_str "$str_ic"
 }

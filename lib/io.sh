@@ -79,8 +79,8 @@ p6__header() {
     local h=""
     local i=0
     while [ $i -lt $indent ]; do
-	h="${h}="
-	i=$(($i+1))
+        h="${h}="
+        i=$(($i + 1))
     done
 
     p6_msg "$h> $@"
@@ -99,11 +99,11 @@ p6__header() {
 #>
 ######################################################################
 p6__deprecated() {
-  local thing="$1"
+    local thing="$1"
 
-  p6_msg "DEPRECATED: $thing"
+    p6_msg "DEPRECATED: $thing"
 
-  p6_return_void
+    p6_return_void
 }
 
 ######################################################################

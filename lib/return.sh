@@ -4,7 +4,7 @@
 # Function: code  = p6_return_true()
 #
 #  Returns:
-#	code - 
+#	code -
 #
 #>
 #/ Synopsis
@@ -13,7 +13,7 @@
 ######################################################################
 p6_return_true() {
 
-  p6_return_code_as_code $P6_TRUE
+    p6_return_code_as_code $P6_TRUE
 }
 
 ######################################################################
@@ -22,7 +22,7 @@ p6_return_true() {
 # Function: code  = p6_return_false()
 #
 #  Returns:
-#	code - 
+#	code -
 #
 #>
 #/ Synopsis
@@ -31,7 +31,7 @@ p6_return_true() {
 ######################################################################
 p6_return_false() {
 
-  p6_return_code_as_code $P6_FALSE
+    p6_return_code_as_code $P6_FALSE
 }
 
 ######################################################################
@@ -49,7 +49,7 @@ p6_return_false() {
 ######################################################################
 p6_return_void() {
 
-  return
+    return
 }
 
 ######################################################################
@@ -74,12 +74,12 @@ p6_return_bool() {
     local bool="$1"
 
     case $bool in
-	0|1) ;;
-	*) p6_die "$P6_EXIT_ARGS" "[$bool] is neither 0|1" ;;
+    0 | 1) ;;
+    *) p6_die "$P6_EXIT_ARGS" "[$bool] is neither 0|1" ;;
     esac
 
     if [ -z "$bool" ]; then
-	p6_error "bool is blank"
+        p6_error "bool is blank"
     fi
 
     p6_return_code_as_code "$bool"
@@ -103,12 +103,12 @@ p6_return_size_t() {
     local size_t="$1"
 
     case $size_t in
-	[0-9]*) ;;
-	*) p6_die "$P6_EXIT_ARGS" "size_t is not a number" ;;
+    [0-9]*) ;;
+    *) p6_die "$P6_EXIT_ARGS" "size_t is not a number" ;;
     esac
 
     if [ $size_t -lt 0 ]; then
-	p6_die "$P6_EXIT_ARGS" "[$size_t] is not a positive number"
+        p6_die "$P6_EXIT_ARGS" "[$size_t] is not a positive number"
     fi
 
     p6_return "$size_t"
@@ -132,8 +132,8 @@ p6_return_int() {
     local int="$1"
 
     case $int in
-	[0-9]*) ;;
-	*) p6_die "$P6_EXIT_ARGS" "[$int] is not a number" ;;
+    [0-9]*) ;;
+    *) p6_die "$P6_EXIT_ARGS" "[$int] is not a number" ;;
     esac
 
     p6_return "$int"
@@ -157,9 +157,9 @@ p6_return_float() {
     local float="$1"
 
     case $float in
-	*.*) ;;
-	*) p6_die "$P6_EXIT_ARGS" "[$float] is not a float" ;;
-   esac
+    *.*) ;;
+    *) p6_die "$P6_EXIT_ARGS" "[$float] is not a float" ;;
+    esac
 
     p6_return "$float"
 }
@@ -203,8 +203,8 @@ p6_return_path() {
     local path="$1"
 
     case $path in
-	[a-zA-Z0-9/-_@+~.,][a-zA-Z0-9/-_@+~.,]*) ;;
-	*) p6_die "$P6_EXIT_ARGS" "[$path] is not a path" ;;
+    [a-zA-Z0-9/-_@+~.,][a-zA-Z0-9/-_@+~.,]*) ;;
+    *) p6_die "$P6_EXIT_ARGS" "[$path] is not a path" ;;
     esac
 
     p6_return "$path"
@@ -282,7 +282,7 @@ p6_return_code_as_value() {
 #	rv -
 #
 #  Returns:
-#	true - 
+#	true -
 #
 #>
 ######################################################################
@@ -311,19 +311,19 @@ p6_return_code__validate() {
     local rc="$rc"
 
     if [ -z "$rc" ]; then
-      p6_error "p6_return: code(): rc is blank, caller is wrong"
+        p6_error "p6_return: code(): rc is blank, caller is wrong"
     fi
 
     case $rc in
-      [0-9]*) ;;
-	   *)
-		p6_error "$P6_EXIT_ARGS" "[$rc] is not a number"
-		p6_return_void
-		;;
+    [0-9]*) ;;
+    *)
+        p6_error "$P6_EXIT_ARGS" "[$rc] is not a number"
+        p6_return_void
+        ;;
     esac
 
     if [ $rc -lt 0 -o $rc -gt 255 ]; then
-      p6_die "$P6_EXIT_ARGS" "[$rc] is < 0 or > 255"
+        p6_die "$P6_EXIT_ARGS" "[$rc] is < 0 or > 255"
     fi
 
     p6_return_void

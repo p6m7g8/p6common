@@ -11,7 +11,7 @@ p6_config__debug() {
     local msg="$1"
 
     p6_debug "p6_config: $msg"
-    
+
     p6_return_void
 }
 

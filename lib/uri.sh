@@ -33,7 +33,7 @@ p6_uri_name() {
 
     local name=
     if ! p6_string_blank "$uri"; then
-	name=$(basename $uri)
+        name=$(basename $uri)
     fi
     p6_uri__debug "name(): $uri -> $name"
 
@@ -58,7 +58,7 @@ p6_uri_path() {
 
     local name=
     if ! p6_string_blank "$uri"; then
-	name=$(dirname $uri)
+        name=$(dirname $uri)
     fi
     p6_uri__debug "path(): [uri=$uri] -> [name=$name]"
 

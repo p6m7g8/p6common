@@ -1,4 +1,4 @@
 #!/bin/sh
 
 apt list installed
-ps -ef |grep runner
+ps -ef | grep runner

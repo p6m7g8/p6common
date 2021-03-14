@@ -24,7 +24,7 @@ p6_debug__debug() {
 ######################################################################
 p6_time() {
 
-  true
+    true
 }
 
 ######################################################################
@@ -42,15 +42,15 @@ p6_verbose() {
     shift
 
     if [ -n "$level" ]; then
-	P6_VERBOSE=${P6_VERBOSE:-0}
+        P6_VERBOSE=${P6_VERBOSE:-0}
 
-	case $level in
-	    [0-9]*)
-		if [ $P6_VERBOSE -ne 0 ] && [ \( $level -gt $P6_VERBOSE -o $level -eq $P6_VERBOSE \) ]; then
-		    p6_msg "$@"
-		fi
-		;;
-	esac
+        case $level in
+        [0-9]*)
+            if [ $P6_VERBOSE -ne 0 ] && [ \( $level -gt $P6_VERBOSE -o $level -eq $P6_VERBOSE \) ]; then
+                p6_msg "$@"
+            fi
+            ;;
+        esac
     fi
 
     p6_return_void
@@ -73,9 +73,9 @@ p6_debug() {
     local system=$(p6_echo "$msg" | cut -d : -f 1)
 
     if p6_debugging; then
-	if p6_debugging_system_on "$systems" "$system"; then
-	    p6_msg "$msg" >> $P6_PREFIX/tmp/p6/debug.log
-	fi
+        if p6_debugging_system_on "$systems" "$system"; then
+            p6_msg "$msg" >>$P6_PREFIX/tmp/p6/debug.log
+        fi
     fi
 
     p6_return_void
@@ -94,7 +94,7 @@ p6_debug() {
 p6_log() {
     local msg="$*"
 
-    p6_msg "$msg" >> /tmp/p6/log.log
+    p6_msg "$msg" >>/tmp/p6/log.log
 
     p6_return_void
 }
@@ -138,11 +138,11 @@ p6_debugging_system_on() {
     local rc=$P6_FALSE
 
     case $systems in
-	*$system*) rc=$P6_TRUE ;;
+    *$system*) rc=$P6_TRUE ;;
     esac
 
     case $systems in
-	*all*) rc=$P6_TRUE ;;
+    *all*) rc=$P6_TRUE ;;
     esac
 
     p6_return_code_as_code "$rc"

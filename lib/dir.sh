@@ -32,10 +32,10 @@ p6_dir_load() {
 
     local dir
     for dir in $dirs; do
-	local children=$(p6_dirs_list $dirs)
-	for child in $(p6_echo "$children"); do
-	     p6_file_load "$dir/$child"
-	done
+        local children=$(p6_dirs_list $dirs)
+        for child in $(p6_echo "$children"); do
+            p6_file_load "$dir/$child"
+        done
     done
 
     p6_return_void
@@ -59,10 +59,13 @@ p6_dir_list() {
 
     local children
     if p6_dir_exists "$dir"; then
-	children=$(p6_dir_cd "$dir" ; ls -1 | xargs)
-	p6_dir__debug "list(): collected [$dir] -> [$children]"
+        children=$(
+            p6_dir_cd "$dir"
+            ls -1 | xargs
+        )
+        p6_dir__debug "list(): collected [$dir] -> [$children]"
     else
-	p6_dir__debug "list(): [$dir] DNE"
+        p6_dir__debug "list(): [$dir] DNE"
     fi
 
     p6_return_words "$children"
@@ -118,10 +121,10 @@ p6_dir_list_recursive() {
     p6_dir__debug "list_recursive(): $dir"
 
     local descendants=$(
-	find $dir \
-	     -type f | \
-	    xargs
-	  )
+        find $dir \
+            -type f |
+            xargs
+    )
 
     p6_dir__debug "list_recursive(): $descendants"
 
@@ -166,10 +169,10 @@ p6_dir_rmrf() {
     local dir="$1"
 
     if [ -z "$dir" -o "$dir" = "/" ]; then
-	p6_msg "p6_dir: rmrf(): Cowardly refusing to shoot us in the foot [$dir]"
+        p6_msg "p6_dir: rmrf(): Cowardly refusing to shoot us in the foot [$dir]"
     else
-	p6_dir__debug "rmrf(): rm -rf $dir"
-	rm -rf $dir
+        p6_dir__debug "rmrf(): rm -rf $dir"
+        rm -rf $dir
     fi
 
     p6_return_void
@@ -189,8 +192,8 @@ p6_dir_mk() {
     local dir="$1"
 
     if ! p6_dir_exists "$dir"; then
-	p6_dir__debug "mk(): mkdir -p $dir"
-	mkdir -p $dir
+        p6_dir__debug "mk(): mkdir -p $dir"
+        mkdir -p $dir
     fi
 
     p6_return_void

@@ -88,13 +88,10 @@ p6_return_bool() {
 ######################################################################
 #<
 #
-# Function: unkown size_t = p6_return_size_t(size_t)
+# Function: p6_return_size_t(size_t)
 #
 #  Args:
 #	size_t -
-#
-#  Returns:
-#	unkown - size_t
 #
 #>
 #/ Synopsis
@@ -120,13 +117,10 @@ p6_return_size_t() {
 ######################################################################
 #<
 #
-# Function: unkown int = p6_return_int(int)
+# Function: p6_return_int(int)
 #
 #  Args:
 #	int -
-#
-#  Returns:
-#	unkown - int
 #
 #>
 #/ Synopsis
@@ -148,13 +142,10 @@ p6_return_int() {
 ######################################################################
 #<
 #
-# Function: unkown float = p6_return_float(float)
+# Function: p6_return_float(float)
 #
 #  Args:
 #	float -
-#
-#  Returns:
-#	unkown - float
 #
 #>
 #/ Synopsis
@@ -176,13 +167,10 @@ p6_return_float() {
 ######################################################################
 #<
 #
-# Function: unkown str = p6_return_str(str)
+# Function: p6_return_str(str)
 #
 #  Args:
 #	str -
-#
-#  Returns:
-#	unkown - str
 #
 #>
 #/ Synopsis
@@ -199,13 +187,10 @@ p6_return_str() {
 ######################################################################
 #<
 #
-# Function: unkown path = p6_return_path(path)
+# Function: p6_return_path(path)
 #
 #  Args:
 #	path -
-#
-#  Returns:
-#	unkown - path
 #
 #>
 #/ Synopsis
@@ -228,13 +213,10 @@ p6_return_path() {
 ######################################################################
 #<
 #
-# Function: unkown words = p6_return_words(words)
+# Function: p6_return_words(words)
 #
 #  Args:
 #	words -
-#
-#  Returns:
-#	unkown - words
 #
 #>
 #/ Synopsis

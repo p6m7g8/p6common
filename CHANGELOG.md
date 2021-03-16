@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.1.1 (2021-03-16)
+
+
+* **deps-dev:** bump @typescript-eslint/eslint-plugin from 4.9.0 to 4.18.0 ([#95](https://github.com/p6m7g8/p6common/issues/95)) ([918c285](https://github.com/p6m7g8/p6common/commit/918c285a702b0322f4bd2e37f8b2597ee0b73ccb)), closes [#2864](https://github.com/p6m7g8/p6common/issues/2864) [#3178](https://github.com/p6m7g8/p6common/issues/3178) [#3160](https://github.com/p6m7g8/p6common/issues/3160) [#3164](https://github.com/p6m7g8/p6common/issues/3164) [#3133](https://github.com/p6m7g8/p6common/issues/3133) [#2847](https://github.com/p6m7g8/p6common/issues/2847) [#3127](https://github.com/p6m7g8/p6common/issues/3127) [#3009](https://github.com/p6m7g8/p6common/issues/3009) [#3125](https://github.com/p6m7g8/p6common/issues/3125) [#3119](https://github.com/p6m7g8/p6common/issues/3119) [#3094](https://github.com/p6m7g8/p6common/issues/3094) [#3010](https://github.com/p6m7g8/p6common/issues/3010) [#3118](https://github.com/p6m7g8/p6common/issues/3118) [#2864](https://github.com/p6m7g8/p6common/issues/2864) [#3178](https://github.com/p6m7g8/p6common/issues/3178) [#3160](https://github.com/p6m7g8/p6common/issues/3160) [#3164](https://github.com/p6m7g8/p6common/issues/3164) [#3133](https://github.com/p6m7g8/p6common/issues/3133) [#2847](https://github.com/p6m7g8/p6common/issues/2847) [#3009](https://github.com/p6m7g8/p6common/issues/3009) [#3125](https://github.com/p6m7g8/p6common/issues/3125) [#3119](https://github.com/p6m7g8/p6common/issues/3119) [#3094](https://github.com/p6m7g8/p6common/issues/3094) [#2864](https://github.com/p6m7g8/p6common/issues/2864) [#3164](https://github.com/p6m7g8/p6common/issues/3164) [#3133](https://github.com/p6m7g8/p6common/issues/3133) [#2847](https://github.com/p6m7g8/p6common/issues/2847) [#3152](https://github.com/p6m7g8/p6common/issues/3152)
+
 ### 0.1.1 (2020-12-07)
 
 

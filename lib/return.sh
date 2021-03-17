@@ -4,7 +4,7 @@
 # Function: code  = p6_return_true()
 #
 #  Returns:
-#	code -
+#	code - 
 #
 #>
 #/ Synopsis
@@ -22,7 +22,7 @@ p6_return_true() {
 # Function: code  = p6_return_false()
 #
 #  Returns:
-#	code -
+#	code - 
 #
 #>
 #/ Synopsis
@@ -282,7 +282,7 @@ p6_return_code_as_value() {
 #	rv -
 #
 #  Returns:
-#	true -
+#	true - 
 #
 #>
 ######################################################################

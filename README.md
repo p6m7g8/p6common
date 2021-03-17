@@ -231,6 +231,10 @@
 - str str_r = p6_string_replace(str, from, to)
 - str str_uc = p6_string_uc(str)
 
+#### ../p6common/lib/table.sh:
+
+- p6_table_map_reduce(table, ...)
+
 #### ../p6common/lib/template.sh:
 
 - str processed = p6_template_process(infile, ...)
@@ -306,6 +310,7 @@
 ├── run.sh
 ├── ssh.sh
 ├── string.sh
+├── table.sh
 ├── template.sh
 ├── tokens.sh
 ├── transients.sh
@@ -315,7 +320,7 @@
 ├── yaml.sh
 └── zsh.sh
 
-0 directories, 33 files
+0 directories, 34 files
 ```
 ## Author
 

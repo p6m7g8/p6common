@@ -25,8 +25,8 @@ p6_transient__debug() {
 #	OPTIONAL len - [4]
 #
 #  Returns:
-#	str -
-#	str -
+#	str - 
+#	str - 
 #	str - dir_name
 #
 #>

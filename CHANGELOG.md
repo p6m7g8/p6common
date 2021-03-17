@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file. See [standa
 ### 0.1.1 (2021-03-17)
 
 
+* **deps:** bump ini from 1.3.5 to 1.3.8 ([#48](https://github.com/p6m7g8/p6common/issues/48)) ([d89c930](https://github.com/p6m7g8/p6common/commit/d89c9308ca42f5a49b27b073ff941f80db0e50ee))
+
+### 0.1.1 (2021-03-17)
+
+
 * **deps-dev:** bump standard-version from 9.0.0 to 9.1.1 ([#100](https://github.com/p6m7g8/p6common/issues/100)) ([5b14126](https://github.com/p6m7g8/p6common/commit/5b141266a15da2758c5eb70f05580c0755b7bec4)), closes [#695](https://github.com/p6m7g8/p6common/issues/695) [#660](https://github.com/p6m7g8/p6common/issues/660) [#630](https://github.com/p6m7g8/p6common/issues/630) [#677](https://github.com/p6m7g8/p6common/issues/677) [#678](https://github.com/p6m7g8/p6common/issues/678) [#679](https://github.com/p6m7g8/p6common/issues/679) [#651](https://github.com/p6m7g8/p6common/issues/651) [#695](https://github.com/p6m7g8/p6common/issues/695) [#660](https://github.com/p6m7g8/p6common/issues/660) [#630](https://github.com/p6m7g8/p6common/issues/630) [#677](https://github.com/p6m7g8/p6common/issues/677) [#678](https://github.com/p6m7g8/p6common/issues/678) [#679](https://github.com/p6m7g8/p6common/issues/679) [#651](https://github.com/p6m7g8/p6common/issues/651) [#697](https://github.com/p6m7g8/p6common/issues/697) [#695](https://github.com/p6m7g8/p6common/issues/695) [#660](https://github.com/p6m7g8/p6common/issues/660) [#696](https://github.com/p6m7g8/p6common/issues/696) [#662](https://github.com/p6m7g8/p6common/issues/662) [#689](https://github.com/p6m7g8/p6common/issues/689) [#661](https://github.com/p6m7g8/p6common/issues/661) [#618](https://github.com/p6m7g8/p6common/issues/618)
 
 ### 0.1.1 (2021-03-17)

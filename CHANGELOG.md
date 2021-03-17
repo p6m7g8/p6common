@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file. See [standa
 ### 0.1.1 (2021-03-17)
 
 
+* **deps-dev:** bump @types/node from 10.17.48 to 10.17.55 ([#101](https://github.com/p6m7g8/p6common/issues/101)) ([4908be2](https://github.com/p6m7g8/p6common/commit/4908be29216d703fead84be75acaa73ad36b9f4e))
+
+### 0.1.1 (2021-03-17)
+
+
 * **deps-dev:** bump jsii from 1.15.0 to 1.25.0 ([#99](https://github.com/p6m7g8/p6common/issues/99)) ([f70303a](https://github.com/p6m7g8/p6common/commit/f70303af24c5f926ddcf4e766ae68ece1581836e))
 
 ### 0.1.1 (2021-03-17)

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.1.1 (2021-03-17)
+
+
+### Features
+
+* **table:** adds `p6_table_map_reduce(table)` ([#96](https://github.com/p6m7g8/p6common/issues/96)) ([2b3ff5f](https://github.com/p6m7g8/p6common/commit/2b3ff5f6844c1365de06f9cb0ffd39805aefaff9))
+
 ### 0.1.1 (2021-03-16)
 
 

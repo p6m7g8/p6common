@@ -21,7 +21,7 @@ p6_word__debug() {
 # Function: words words = p6_word_unique(...)
 #
 #  Args:
-#	... -
+#	... - 
 #
 #  Returns:
 #	words - words

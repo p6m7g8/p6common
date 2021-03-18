@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.1.1 (2021-03-18)
+
+
+* **deps-dev:** bump eslint from 7.15.0 to 7.22.0 ([#105](https://github.com/p6m7g8/p6common/issues/105)) ([e6cffab](https://github.com/p6m7g8/p6common/commit/e6cffab6414f31da83edfda4384cdc6e1694f381))
+
 ### 0.1.1 (2021-03-17)
 
 

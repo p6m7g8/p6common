@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file. See [standa
 ### 0.1.1 (2021-03-19)
 
 
+* **deps-dev:** bump ts-jest from 26.4.4 to 26.5.4 ([#106](https://github.com/p6m7g8/p6common/issues/106)) ([5dcd9e4](https://github.com/p6m7g8/p6common/commit/5dcd9e4b8d03e8dd1e9531300eb8957202818b7b))
+
+### 0.1.1 (2021-03-19)
+
+
 * **deps-dev:** bump jsii-docgen from 1.4.109 to 1.8.67 ([#108](https://github.com/p6m7g8/p6common/issues/108)) ([f41d1ba](https://github.com/p6m7g8/p6common/commit/f41d1ba2a2dd01f93f0b627f37dfc345b77b2f3b)), closes [#272](https://github.com/p6m7g8/p6common/issues/272) [#271](https://github.com/p6m7g8/p6common/issues/271) [#270](https://github.com/p6m7g8/p6common/issues/270) [#269](https://github.com/p6m7g8/p6common/issues/269) [#268](https://github.com/p6m7g8/p6common/issues/268)
 
 ### 0.1.1 (2021-03-18)

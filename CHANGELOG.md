@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.1.1 (2021-03-24)
+
+
+### Features
+
+* **release:** supports any default branch ([#115](https://github.com/p6m7g8/p6common/issues/115)) ([f29e396](https://github.com/p6m7g8/p6common/commit/f29e3969f6566494bb46838d3d69b4d1305d61a3))
+
 ### 0.1.1 (2021-03-19)
 
 

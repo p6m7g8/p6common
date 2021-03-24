@@ -82,6 +82,7 @@ p6_lang_system_version() {
         R) ver=$($rcmd --version | awk '/ version / { print $3}') ;;
         scala) ver=$($rcmd -nc -version 2>&1 | awk '{print $5}') ;;
         lua) ver=$($rcmd -v | awk '{print $2}') ;;
+        rust) ver=$($rcmd -V | awk '{print $2}') ;;
         esac
         p6_return_str "sys@$ver"
     else
@@ -116,6 +117,7 @@ p6_lang_cmd_2_env() {
     R) prefix=R ;;
     scala) prefix=scala ;;
     lua) prefix=lua ;;
+    rust) prefix=rust ;;
     esac
 
     p6_return_str "$prefix"
@@ -148,6 +150,7 @@ p6_lang_env_2_cmd() {
     R) rcmd=R ;;
     scala) rcmd=scala ;;
     lua) rcmd=lua ;;
+    rust) rcmd=rustc ;;
     esac
 
     p6_return_str "$rcmd"

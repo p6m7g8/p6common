@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.1.1 (2021-03-26)
+
+
+* **deps-dev:** bump @types/jest from 26.0.21 to 26.0.22 ([#116](https://github.com/p6m7g8/p6common/issues/116)) ([fe7be36](https://github.com/p6m7g8/p6common/commit/fe7be368a7049ef5a9efd64b743206abb8d4a19f))
+
 ### 0.1.1 (2021-03-24)
 
 

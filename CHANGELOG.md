@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.1.1 (2021-03-27)
+
+
+### Bug Fixes
+
+* **lang:** fixes rust version string ([#117](https://github.com/p6m7g8/p6common/issues/117)) ([493cbfd](https://github.com/p6m7g8/p6common/commit/493cbfd7f8d858bf8e905648fc6a0557a65bf656))
+
 ### 0.1.1 (2021-03-26)
 
 

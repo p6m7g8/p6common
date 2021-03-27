@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file. See [standa
 ### 0.1.1 (2021-03-27)
 
 
+### Features
+
+* **yaml:** adds p6_yaml_eval() ([#118](https://github.com/p6m7g8/p6common/issues/118)) ([fc1d95e](https://github.com/p6m7g8/p6common/commit/fc1d95ea373bc0affa3ef25b114fe922d9d9c70b))
+
+### 0.1.1 (2021-03-27)
+
+
 ### Bug Fixes
 
 * **lang:** fixes rust version string ([#117](https://github.com/p6m7g8/p6common/issues/117)) ([493cbfd](https://github.com/p6m7g8/p6common/commit/493cbfd7f8d858bf8e905648fc6a0557a65bf656))

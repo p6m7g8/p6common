@@ -142,8 +142,8 @@
 
 - str prefix = p6_lang_cmd_2_env(cmd)
 - str rcmd = p6_lang_env_2_cmd(prefix)
-- str sys@$ver = p6_lang_system_version(prefix)
 - str v = p6_lang_version(prefix)
+- str ver = p6_lang_system_version(prefix)
 
 #### ../p6common/lib/math.sh:
 
@@ -231,10 +231,6 @@
 - str str_r = p6_string_replace(str, from, to)
 - str str_uc = p6_string_uc(str)
 
-#### ../p6common/lib/table.sh:
-
-- p6_table_map_reduce(table, ...)
-
 #### ../p6common/lib/template.sh:
 
 - str processed = p6_template_process(infile, ...)
@@ -271,10 +267,6 @@
 - words result = p6_word_not(a, b)
 - words words = p6_word_unique(...)
 
-#### ../p6common/lib/yaml.sh:
-
-- p6_yaml_eval(yaml, ...)
-
 #### ../p6common/lib/zsh.sh:
 
 - p6_zsh_profile_off()
@@ -310,17 +302,15 @@
 ├── run.sh
 ├── ssh.sh
 ├── string.sh
-├── table.sh
 ├── template.sh
 ├── tokens.sh
 ├── transients.sh
 ├── uri.sh
 ├── versioning.sh
 ├── word.sh
-├── yaml.sh
 └── zsh.sh
 
-0 directories, 34 files
+0 directories, 32 files
 ```
 ## Author
 

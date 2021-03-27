@@ -54,12 +54,13 @@ p6_lang_version() {
 ######################################################################
 #<
 #
-# Function: str sys@$ver = p6_lang_system_version(prefix)
+# Function: str ver = p6_lang_system_version(prefix)
 #
 #  Args:
 #	prefix -
 #
 #  Returns:
+#	str - ver
 #	str - sys@$ver
 #	str - no
 #
@@ -84,7 +85,11 @@ p6_lang_system_version() {
         lua) ver=$($rcmd -v | awk '{print $2}') ;;
         rust) ver=$($rcmd -V | awk '{print $2}') ;;
         esac
-        p6_return_str "sys@$ver"
+        if p6_string_eq "rust" "$prefix"; then
+          p6_return_str "$ver"
+        else
+          p6_return_str "sys@$ver"
+        fi
     else
         p6_return_str "no"
     fi

@@ -267,6 +267,10 @@
 - words result = p6_word_not(a, b)
 - words words = p6_word_unique(...)
 
+#### ../p6common/lib/yaml.sh:
+
+- p6_yaml_eval(yaml, ...)
+
 #### ../p6common/lib/zsh.sh:
 
 - p6_zsh_profile_off()
@@ -308,9 +312,10 @@
 ├── uri.sh
 ├── versioning.sh
 ├── word.sh
+├── yaml.sh
 └── zsh.sh
 
-0 directories, 32 files
+0 directories, 33 files
 ```
 ## Author
 

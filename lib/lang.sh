@@ -31,6 +31,7 @@ p6_lang__debug() {
 p6_lang_version() {
     local prefix="$1"
 
+    local t0=$EPOCHREALTIME
     local cmd="${prefix}env"
     cmd=$(p6_echo "$cmd" | sed -e 's,nodeenv,nodenv,')
 
@@ -49,6 +50,8 @@ p6_lang_version() {
     else
         p6_lang_system_version "$prefix"
     fi
+    local t1=$EPOCHREALTIME
+    p6_time "$t0" "$t1" "p6_lang_version($prefix)"
 }
 
 ######################################################################
@@ -86,9 +89,9 @@ p6_lang_system_version() {
         rust) ver=$($rcmd -V | awk '{print $2}') ;;
         esac
         if p6_string_eq "rust" "$prefix"; then
-          p6_return_str "$ver"
+            p6_return_str "$ver"
         else
-          p6_return_str "sys@$ver"
+            p6_return_str "sys@$ver"
         fi
     else
         p6_return_str "no"

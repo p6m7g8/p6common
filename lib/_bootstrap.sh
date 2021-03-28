@@ -15,10 +15,13 @@ p6_bootstrap() {
 
   p6_bootstrap_optimize "$dir" "$islocal"
 
+  local t0=$EPOCHREALTIME
   local file
   for file in $(p6_dir_list_recursive "$dir/lib"); do
     p6_file_load "$file"
   done
+  local t1=$EPOCHREALTIME
+  p6_time "$t0" "$t1" "p6_dir_load($dir)"
 
   p6_path_if "$dir/bin"
 

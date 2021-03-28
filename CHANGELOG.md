@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.1.1 (2021-03-28)
+
+
+### Features
+
+* **api:** adds p6_time() ([#119](https://github.com/p6m7g8/p6common/issues/119)) ([15cefd9](https://github.com/p6m7g8/p6common/commit/15cefd9db575212c261f38a2dd94476aa1535f0f))
+
 ### 0.1.1 (2021-03-27)
 
 

@@ -13,4 +13,4 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Test
-        run:  . lib/_bootstrap.sh; p6_bootstrap; p6_cicd_tests_run
+        run:  . lib/_bootstrap.sh; p6_bootstrap "." "github"; p6_cicd_tests_run

@@ -11,7 +11,7 @@
 #
 # Function: p6_usage()
 #
-#  Depends:	 p6_main p6_msg
+#  Depends:	 p6_cmd p6_main p6_msg
 #  Environment:	 EOF
 #>
 #/ Synopsis
@@ -77,9 +77,10 @@ p6_main() {
 
   # security 101: only allow valid comamnds
   case $cmd in
-  build) ;;
-  docker_build) ;;
   help) p6_usage ;;
+  docker_build) ;;
+  build) ;;
+  release) ;;
   *) p6_usage 1 "invalid cmd" ;;
   esac
 
@@ -100,11 +101,25 @@ p6_main() {
 ######################################################################
 #<
 #
+# Function: p6_cmd_release()
+#
+#  Depends:	 p6_cicd p6_cmd
+#>
+######################################################################
+p6_cmd_release() {
+ 
+  p6_cicd_release_make
+}
+
+######################################################################
+#<
+#
 # Function: p6_cmd_build([dockerfile=Dockerfile])
 #
 #  Args:
 #	OPTIONAL dockerfile - [Dockerfile]
 #
+#  Depends:	 p6_bootstrap p6_cmd
 #>
 ######################################################################
 p6_cmd_build() {
@@ -118,7 +133,7 @@ p6_cmd_build() {
 #
 # Function: p6_cmd_docker_build()
 #
-#  Depends:	 p6_bootstrap p6_cicd p6_diagnostics
+#  Depends:	 p6_bootstrap p6_cicd p6_diagnostics p6_msg
 #  Environment:	 TERM
 #>
 ######################################################################
@@ -139,7 +154,7 @@ p6_cmd_docker_build() {
 #
 # Function: p6_diagnostics()
 #
-#  Depends:	 p6_msg
+#  Depends:	 p6_die p6_msg
 #  Environment:	 GIT
 #>
 #/ Synopsis
@@ -181,7 +196,7 @@ p6_msg() {
 #
 # Function: p6_msg_success()
 #
-#  Depends:	 p6_msg
+#  Depends:	 p6_main p6_msg
 #>
 #/ Synopsis
 #/  Outputs [CHECK] followed by message

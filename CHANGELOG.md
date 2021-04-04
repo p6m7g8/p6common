@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.5](https://github.com/p6m7g8/p6common/compare/v0.1.4...v0.1.5) (2021-04-04)
+
+
+* fixes json ([#132](https://github.com/p6m7g8/p6common/issues/132)) ([e0e9596](https://github.com/p6m7g8/p6common/commit/e0e9596c5d4c642b1715d331863d6ba952b9a591))
+* fixes version ([#131](https://github.com/p6m7g8/p6common/issues/131)) ([08324a4](https://github.com/p6m7g8/p6common/commit/08324a42e9a5140fc886ecd26e070dce9befef8e))
+* no more projen ([#133](https://github.com/p6m7g8/p6common/issues/133)) ([f418177](https://github.com/p6m7g8/p6common/commit/f418177311542cc37eebe875c198338b3c6165fc))
+* standardizing build/release ([#130](https://github.com/p6m7g8/p6common/issues/130)) ([6bb3570](https://github.com/p6m7g8/p6common/commit/6bb3570ba10f8db5b8c8003d06b424a3ac13afd9))
+
 ### [0.1.4](https://github.com/p6m7g8/p6common/compare/v0.1.3...v0.1.4) (2021-04-04)
 
 

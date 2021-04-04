@@ -37,13 +37,13 @@ p6_test_harness_test_run() {
     mkdir -p $(dirname $log_file)
 
     # Dupe and redirect
-#    exec 3>&1 4>&2 >$log_file 2>$log_file_times
+    exec 3>&1 4>&2 >$log_file 2>$log_file_times
 
     ## Time and run
     command time env -i P6_TEST_COLOR_OFF=1 $test_env /bin/bash ./$file
 
     # Restore
-#    exec 1>&3 2>&4
+    exec 1>&3 2>&4
 
     local IFS='
 '

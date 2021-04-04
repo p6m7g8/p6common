@@ -7,7 +7,7 @@
 #  Args:
 #	msg - msg to log
 #
-#  Depends:	 p6_time
+#  Depends:	 p6_echo p6_time
 #>
 ######################################################################
 p6_debug__debug() {
@@ -28,10 +28,11 @@ p6_debug__debug() {
 #	t1 -
 #	msg -
 #
-#  Depends:	 p6_echo p6_verbose
+#  Depends:	 p6_echo p6_msg p6_verbose
 #>
 ######################################################################
 p6_time() {
+return
     local t0="$1"
     local t1="$2"
     local msg="$3"
@@ -51,7 +52,7 @@ p6_time() {
 #  Args:
 #	level - minimum verbosity before output
 #
-#  Depends:	 p6_msg
+#  Depends:	 p6_log p6_msg
 #  Environment:	 P6_VERBOSE
 #>
 ######################################################################
@@ -128,6 +129,7 @@ p6_log() {
 #  Returns:
 #	bool - rv
 #
+#  Depends:	 p6_dryrunning
 #  Environment:	 P6_DEBUG
 #>
 ######################################################################

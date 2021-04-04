@@ -41,6 +41,7 @@ p6_return_false() {
 #
 # Function: p6_return_void()
 #
+#  Depends:	 p6_die
 #>
 #/ Synopsis
 #/    The literal absence of a return value
@@ -182,6 +183,7 @@ p6_return_float() {
 #  Args:
 #	str -
 #
+#  Depends:	 p6_die
 #>
 #/ Synopsis
 #/    Any string
@@ -254,6 +256,7 @@ p6_return_words() {
 #  Returns:
 #	code - rc
 #
+#  Depends:	 p6_echo
 #>
 ######################################################################
 p6_return_code_as_code() {
@@ -297,7 +300,7 @@ p6_return_code_as_value() {
 #  Returns:
 #	true - 
 #
-#  Depends:	 p6_echo
+#  Depends:	 p6_die p6_echo
 #>
 ######################################################################
 p6_return() {

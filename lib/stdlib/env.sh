@@ -47,7 +47,7 @@ p6_env_export() {
 #  Args:
 #	var -
 #
-#  Depends:	 p6_env p6_unset
+#  Depends:	 p6_env p6_string p6_unset
 #  Environment:	 XXX
 #>
 ######################################################################

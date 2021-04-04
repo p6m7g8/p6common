@@ -5,7 +5,7 @@
 #
 # Function: p6_include__debug()
 #
-#  Depends:	 p6_include
+#  Depends:	 p6_file p6_include
 #>
 ######################################################################
 p6_include__debug() {

@@ -7,7 +7,7 @@
 #  Args:
 #	msg -
 #
-#  Depends:	 p6_run
+#  Depends:	 p6_log p6_run
 #>
 ######################################################################
 p6_run__debug() {
@@ -102,7 +102,7 @@ p6_run_read_cmd() {
 #  Returns:
 #	code - rc
 #
-#  Depends:	 p6_run
+#  Depends:	 p6_dryrunning p6_run
 #>
 ######################################################################
 p6_run_write_cmd() {
@@ -128,7 +128,7 @@ p6_run_write_cmd() {
 #  Returns:
 #	code - status
 #
-#  Depends:	 p6_dryrunning p6_run
+#  Depends:	 p6_dryrunning p6_echo p6_run
 #>
 ######################################################################
 p6_run_retry() {

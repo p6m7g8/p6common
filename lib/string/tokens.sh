@@ -5,7 +5,7 @@
 #
 # Function: p6_token__debug()
 #
-#  Depends:	 p6_token
+#  Depends:	 p6_string p6_token
 #>
 ######################################################################
 p6_token__debug() {

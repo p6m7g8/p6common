@@ -5,7 +5,7 @@
 #
 # Function: p6_transient__debug()
 #
-#  Depends:	 p6_transient
+#  Depends:	 p6_dir p6_transient
 #>
 ######################################################################
 p6_transient__debug() {
@@ -74,7 +74,7 @@ p6_transient_create() {
 #  Returns:
 #	path - file
 #
-#  Depends:	 p6_transient
+#  Depends:	 p6_dir p6_transient
 #>
 ######################################################################
 p6_transient_create_file() {
@@ -97,7 +97,7 @@ p6_transient_create_file() {
 #  Returns:
 #	code - rc
 #
-#  Depends:	 p6_dir p6_transient
+#  Depends:	 p6_dir p6_file p6_transient
 #>
 ######################################################################
 p6_transient_is() {
@@ -158,7 +158,7 @@ p6_transient_persist_un() {
 #  Returns:
 #	code - rc
 #
-#  Depends:	 p6_file p6_transient
+#  Depends:	 p6_dir p6_file p6_transient
 #>
 ######################################################################
 p6_transient_persist_is() {
@@ -180,7 +180,7 @@ p6_transient_persist_is() {
 #	dir -
 #	OPTIONAL handler_name - []
 #
-#  Depends:	 p6_dir p6_file p6_string p6_transient
+#  Depends:	 p6_die p6_dir p6_file p6_string p6_transient
 #  Environment:	 P6_TRANSIENT_LOG
 #>
 ######################################################################

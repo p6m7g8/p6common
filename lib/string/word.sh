@@ -27,7 +27,7 @@ p6_word__debug() {
 #  Returns:
 #	words - words
 #
-#  Depends:	 p6_word
+#  Depends:	 p6_transient p6_word
 #>
 ######################################################################
 p6_word_unique() {

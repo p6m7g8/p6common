@@ -184,7 +184,7 @@ p6_string_uc() {
 #  Returns:
 #	str - str_r
 #
-#  Depends:	 p6_string
+#  Depends:	 p6_echo p6_string
 #>
 ######################################################################
 p6_string_replace() {

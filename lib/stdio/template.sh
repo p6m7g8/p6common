@@ -5,7 +5,7 @@
 #
 # Function: p6_template__debug()
 #
-#  Depends:	 p6_template
+#  Depends:	 p6_file p6_template
 #>
 ######################################################################
 p6_template__debug() {

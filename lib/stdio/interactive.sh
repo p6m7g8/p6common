@@ -5,7 +5,7 @@
 #
 # Function: p6_int__debug()
 #
-#  Depends:	 p6_int
+#  Depends:	 p6_die p6_int
 #>
 ######################################################################
 p6_int__debug() {

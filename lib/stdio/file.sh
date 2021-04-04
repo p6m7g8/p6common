@@ -244,7 +244,7 @@ p6_file_display() {
 #  Args:
 #	file -
 #
-#  Depends:	 p6_file
+#  Depends:	 p6_echo p6_file
 #>
 ######################################################################
 p6_file_create() {

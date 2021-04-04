@@ -358,10 +358,10 @@ p6_test_assert_contains() {
     echo "$const" | grep -q "$val" >/dev/null
     local rv=$?
     case $rv in
-    0)
+    1)
         p6_test_tap_ok "$description" "$reason"
         ;;
-    1)
+    0)
         p6_test_tap_not_ok "$description" "$reason"
         p6_test_tap_diagnostic "val [$val] is not contained in [$const]"
         ;;

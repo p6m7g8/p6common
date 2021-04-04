@@ -5,7 +5,7 @@
 #
 # Function: p6_path__debug()
 #
-#  Depends:	 p6_path
+#  Depends:	 p6_dir p6_path
 #>
 ######################################################################
 p6_path__debug() {

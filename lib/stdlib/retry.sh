@@ -36,7 +36,7 @@ p6_retry_delay_doubling() {
 #
 # Function: p6_retry_delay_log()
 #
-#  Depends:	 p6_retry
+#  Depends:	 p6_die p6_retry
 #>
 ######################################################################
 p6_retry_delay_log() {

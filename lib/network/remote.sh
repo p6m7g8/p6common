@@ -7,7 +7,7 @@
 #
 # Function: p6_remote__debug()
 #
-#  Depends:	 p6_remote
+#  Depends:	 p6_remote p6_run
 #>
 ######################################################################
 p6_remote__debug() {

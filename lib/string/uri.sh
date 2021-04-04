@@ -5,7 +5,7 @@
 #
 # Function: p6_uri__debug()
 #
-#  Depends:	 p6_uri
+#  Depends:	 p6_string p6_uri
 #>
 ######################################################################
 p6_uri__debug() {

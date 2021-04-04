@@ -28,7 +28,7 @@ p6_ssh__debug() {
 #  Returns:
 #	code - rc
 #
-#  Depends:	 p6_ssh p6_transient
+#  Depends:	 p6_run p6_ssh p6_transient
 #>
 ######################################################################
 p6_ssh_key_check() {
@@ -145,7 +145,7 @@ p6_ssh_key_pub_from_priv() {
 #  Args:
 #	key_file_priv -
 #
-#  Depends:	 p6_run p6_ssh
+#  Depends:	 p6_file p6_run p6_ssh
 #>
 ######################################################################
 p6_ssh_key_make() {
@@ -165,7 +165,7 @@ p6_ssh_key_make() {
 #	key_file_priv -
 #	OPTIONAL key_file_pub - [${key_file_priv]
 #
-#  Depends:	 p6_file p6_ssh
+#  Depends:	 p6_file p6_run p6_ssh
 #>
 ######################################################################
 p6_ssh_key_remove() {

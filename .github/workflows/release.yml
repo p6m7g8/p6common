@@ -33,4 +33,4 @@ jobs:
           name: dist
           path: .
     container:
-      image: scottw/alpine-perl
+      image: jsii/superchain

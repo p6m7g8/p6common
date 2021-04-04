@@ -83,12 +83,14 @@ p6_path_default() {
 ######################################################################
 p6_path_current() {
 
-    env |
-        awk -F"=" '/^PATH=/ { print $2 }' |
-        perl -F: -MData::Dumper -lane 'print Dumper \@F' |
-        sed -e "s/[',]//g" |
-        egrep -v '\]|\[' |
-        grep /
+    local IFS_SAVED=$IFS
+    local p
+
+    IFS=:
+    for p in $(echo $PATH); do
+      echo "$p"
+    done
+    IFS=$IFS_SAVED
 
     p6_return_void
 }

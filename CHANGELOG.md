@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.3](https://github.com/p6m7g8/p6common/compare/v0.1.2...v0.1.3) (2021-04-04)
+
+
+* collapse p6openssl, p6cicd, p6test into p6common ([#125](https://github.com/p6m7g8/p6common/issues/125)) ([510a879](https://github.com/p6m7g8/p6common/commit/510a879e086eb399fd3162d640daa68a0854e912))
+* collapse p6openssl, p6cicd, p6test into p6common ([#125](https://github.com/p6m7g8/p6common/issues/125)) ([a605dd1](https://github.com/p6m7g8/p6common/commit/a605dd1d091a4268805728b0a9f8268c285fa1a5))
+* remove test file ([#127](https://github.com/p6m7g8/p6common/issues/127)) ([72328ff](https://github.com/p6m7g8/p6common/commit/72328ff12366b68b0d458dcfc5ee7cd1eaae9e19))
+* testing release ([#128](https://github.com/p6m7g8/p6common/issues/128)) ([e6323ba](https://github.com/p6m7g8/p6common/commit/e6323ba3d42c57656a609138c94341384a9cd1b0))
+* trigger pr build ([#126](https://github.com/p6m7g8/p6common/issues/126)) ([d0083c2](https://github.com/p6m7g8/p6common/commit/d0083c22e88c3a2567767c4d78016cce39738cc6))
+
 ### [0.1.2](https://github.com/p6m7g8/p6common/compare/v0.1.1...v0.1.2) (2021-04-04)
 
 

@@ -61,16 +61,10 @@
 
 - p6_cicd_install()
 - p6_cicd_release()
-- p6_cicd_tag([file=conf/meta])
+- p6_cicd_tag(file)
 - p6_cicd_test_benchmark()
 - p6_cicd_tests_run()
 - p6_cicd_version_bump()
-
-#### cicd/versioning.sh:
-
-- str next_version = p6_version_bump(version, [file=conf/meta])
-- str next_version = p6_version_next(next_version, [file=conf/meta])
-- str version = p6_version_get([file=conf/meta])
 
 
 ### math:
@@ -421,8 +415,7 @@
 │   ├── commit.sh
 │   ├── deploy.sh
 │   ├── integrate.sh
-│   ├── test.sh
-│   └── versioning.sh
+│   └── test.sh
 ├── math
 │   └── math.sh
 ├── network
@@ -481,7 +474,7 @@
 │   └── return.sh
 └── zsh.sh
 
-11 directories, 54 files
+11 directories, 53 files
 ```
 ## Author
 

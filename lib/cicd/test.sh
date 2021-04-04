@@ -56,16 +56,16 @@ p6_cicd_version_bump() {
 ######################################################################
 #<
 #
-# Function: p6_cicd_tag([file=conf/meta])
+# Function: p6_cicd_tag(file)
 #
 #  Args:
-#	OPTIONAL file - [conf/meta]
+#	file -
 #
 #  Depends:	 p6_cicd
 #>
 ######################################################################
 p6_cicd_tag() {
-    local file="${1:-conf/meta}"
+    local file="${1:version.json}"
 
     local version=$(p6_version_get "$file")
 }

@@ -1,0 +1,221 @@
+#!/bin/sh
+
+# XXX: the above is /bin/sh not /bin/bash or /usr/bin/env bash because
+# XXX: You don't know what container will have what until you add it
+# XXX: someone might not want `alpine`
+
+# shellcheck shell=bash
+
+######################################################################
+#<
+#
+# Function: p6_usage()
+#
+#  Depends:	 p6_main p6_msg
+#  Environment:	 EOF
+#>
+#/ Synopsis
+#/    bin/p6ctl [-D|-d] [cmd]
+#/
+######################################################################
+p6_usage() {
+  local rc="${1:-0}"
+  local msg="${2:-}"
+
+  if [ -n "$msg" ]; then
+    p6_msg "$msg"
+  fi
+  cat <<EOF
+Usage: bin/p6ctl [-D|-d] [cmd]
+
+Options:
+  -D    debeug off
+  -d	debug on
+
+Cmds:
+  help
+  docker_build
+EOF
+
+  exit "$rc"
+}
+
+######################################################################
+#<
+#
+# Function: p6_main()
+#
+#  Depends:	 p6_cmd p6_msg p6_usage
+#  Environment:	 LC_ALL OPTIND
+#>
+#/ Synopsis
+#/    The entry point for bin/p6ctl
+#/
+######################################################################
+p6_main() {
+
+  # sanitize env
+  LC_ALL=C
+  
+  # default options
+  local flag_debug=0
+
+  # parse options
+  local flag
+  while getopts "dD" flag; do
+    case $flag in
+    D) flag_debug=0 ;;
+    d) flag_debug=1 ;;
+    *) p6_usage 1 "invalid flag" ;;
+    esac
+  done
+  shift $((OPTIND - 1))
+
+  # grab command
+  local cmd="$1"
+  shift 1
+
+  # security 101: only allow valid comamnds
+  case $cmd in
+  build) ;;
+  docker_build) ;;
+  help) p6_usage ;;
+  *) p6_usage 1 "invalid cmd" ;;
+  esac
+
+  # setup -x based on flag_debug
+  [ ${flag_debug} = 1 ] && set -x
+  # exit if any cli errors w/ >0 return code
+  # the commands can still disable locally if needed
+  set -e
+  p6_msg "$cmd"
+  p6_cmd_"${cmd}" "$@"
+  p6_msg_success "$cmd"
+  set +e
+  [ ${flag_debug} = 1 ] && set +x
+
+  return 0
+}
+
+######################################################################
+#<
+#
+# Function: p6_cmd_build([dockerfile=Dockerfile])
+#
+#  Args:
+#	OPTIONAL dockerfile - [Dockerfile]
+#
+#>
+######################################################################
+p6_cmd_build() {
+  local dockerfile="${1:-Dockerfile}"
+
+  docker build --no-cache --progress plain -f "$dockerfile" .
+}
+
+######################################################################
+#<
+#
+# Function: p6_cmd_docker_build()
+#
+#  Depends:	 p6_bootstrap p6_cicd p6_diagnostics
+#  Environment:	 TERM
+#>
+######################################################################
+p6_cmd_docker_build() {
+
+  apk --no-cache add ncurses bash
+
+  TERM=xterm-256color
+  export TERM
+
+  . lib/_bootstrap.sh
+  p6_bootstrap "." "github"
+  p6_cicd_tests_run
+}
+
+######################################################################
+#<
+#
+# Function: p6_diagnostics()
+#
+#  Depends:	 p6_msg
+#  Environment:	 GIT
+#>
+#/ Synopsis
+#/    Add this to a Jenkins Job to see stuff
+#/    or kubectl exec -it --rm foo -- /bin/bash into and look around
+#/
+######################################################################
+p6_diagnostics() {
+
+  p6_msg "p6_diagnostics()"
+
+  env | sort | grep -E '^GIT|^JENKINS|^DOCKER|PATH'
+  pwd
+  uname -a
+  df -h
+  uptime
+  find . | grep -v .git/
+
+  p6_msg_success "p6_diagnostics()"
+}
+
+######################################################################
+#<
+#
+# Function: p6_msg(msg)
+#
+#  Args:
+#	msg -
+#
+#  Depends:	 p6_die p6_echo p6_error p6_msg
+#>
+######################################################################
+p6_msg() {
+  echo "=============> $*"
+}
+
+######################################################################
+#<
+#
+# Function: p6_msg_success()
+#
+#  Depends:	 p6_msg
+#>
+#/ Synopsis
+#/  Outputs [CHECK] followed by message
+#/
+######################################################################
+p6_msg_success() {
+
+  echo "✅: $*"
+}
+
+######################################################################
+#<
+#
+# Function: p6_msg_fail()
+#
+#  Depends:	 p6_main
+#>
+#/ Synopsis
+#/  Outputs [FAIL] followed by message
+#/
+######################################################################
+p6_msg_fail() {
+
+  echo "❌: $*"
+}
+
+######################################################################
+#<
+#
+# Function: p6_main()
+#
+#>
+#/ Synopsis
+#/   Begin
+#/
+######################################################################
+p6_main "$@"

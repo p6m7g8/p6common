@@ -3,12 +3,8 @@ on:
   pull_request: {}
   workflow_dispatch: {}
 jobs:
-  build:
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest]
-        shell: [sh, bash]
-    runs-on: ${{ matrix.os }}
+  build-docker:
+    runs-on: ubuntu-latest
     env:
       CI: "true"
       P6_DFZ_SRC_P6M7G8_DIR: ".."
@@ -20,3 +16,14 @@ jobs:
         run:  bin/p6ctl build
     container:
       image: docker
+  build-bare:
+    runs-on: ubuntu-latest
+    env:
+      CI: "true"
+      P6_DFZ_SRC_P6M7G8_DIR: ".."
+      TERM: "xterm-256color"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build
+        run:  bin/p6ctl build

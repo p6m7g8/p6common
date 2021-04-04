@@ -56,5 +56,13 @@ p6_bootstrap_optimize() {
     . $dir/../p6common/lib/string/string.sh
     . $dir/../p6common/lib/stdio/file.sh
     . $dir/../p6common/lib/stdio/dir.sh
+  elif [ x"islocal" = x"github" ]; then
+    . $dir/lib/stdlib/const.sh
+    . $dir/lib/types/return.sh
+    . $dir/lib/stdio/io.sh
+    . $dir/lib/stdio/debug.sh
+    . $dir/lib/string/string.sh
+    . $dir/lib/stdio/file.sh
+    . $dir/lib/stdio/dir.sh
   fi
 }

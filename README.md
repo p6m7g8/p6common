@@ -57,14 +57,22 @@
 
 ### cicd:
 
+#### cicd/build.sh:
+
+- p6_cicd_build_run()
+
+#### cicd/doc.sh:
+
+- p6_cicd_doc_gen()
+
+#### cicd/release.sh:
+
+- p6_cicd_release_make()
+
 #### cicd/test.sh:
 
-- p6_cicd_install()
-- p6_cicd_release()
-- p6_cicd_tag(file)
 - p6_cicd_test_benchmark()
 - p6_cicd_tests_run()
-- p6_cicd_version_bump()
 
 
 ### math:
@@ -412,9 +420,9 @@
 ├── _bootstrap.sh
 ├── cicd
 │   ├── build.sh
-│   ├── commit.sh
 │   ├── deploy.sh
-│   ├── integrate.sh
+│   ├── doc.sh
+│   ├── release.sh
 │   └── test.sh
 ├── math
 │   └── math.sh

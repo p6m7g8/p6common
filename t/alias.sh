@@ -29,6 +29,4 @@ main() {
 	p6_test_teardown
 }
 
-set -x
 main "$@"
-set +x

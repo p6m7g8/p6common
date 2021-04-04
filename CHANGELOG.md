@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.9](https://github.com/p6m7g8/p6common/compare/v0.1.8...v0.1.9) (2021-04-04)
+
+
+### Chores
+
+* tests DNE ([#138](https://github.com/p6m7g8/p6common/issues/138)) ([238284e](https://github.com/p6m7g8/p6common/commit/238284e3f76aa17f2651c7a9de7a1c951870b7ef))
+
 ### [0.1.8](https://github.com/p6m7g8/p6common/compare/v0.1.7...v0.1.8) (2021-04-04)
 
 

@@ -13,6 +13,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Build
-        run:  bin/p6 build
+        run:  ls ; bin/p6 build
     container:
       image: docker

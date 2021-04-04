@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.8](https://github.com/p6m7g8/p6common/compare/v0.1.7...v0.1.8) (2021-04-04)
+
+
+### Chores
+
+* try Docker ([#136](https://github.com/p6m7g8/p6common/issues/136)) ([ff58a46](https://github.com/p6m7g8/p6common/commit/ff58a460a40f33617225f48a2a3404ecb87449da))
+* try release ([#137](https://github.com/p6m7g8/p6common/issues/137)) ([09d0ceb](https://github.com/p6m7g8/p6common/commit/09d0ceb77a1404466600fd53a50313d60725106f))
+
 ### [0.1.7](https://github.com/p6m7g8/p6common/compare/v0.1.6...v0.1.7) (2021-04-04)
 
 

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.7](https://github.com/p6m7g8/p6common/compare/v0.1.6...v0.1.7) (2021-04-04)
+
+
+### Chores
+
+* removes deps.sh ([#135](https://github.com/p6m7g8/p6common/issues/135)) ([2d7ba67](https://github.com/p6m7g8/p6common/commit/2d7ba6786fb85f8b9535b5af4e7f65ead53578a2))
+
 ### [0.1.6](https://github.com/p6m7g8/p6common/compare/v0.1.5...v0.1.6) (2021-04-04)
 
 

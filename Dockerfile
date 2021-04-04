@@ -5,7 +5,7 @@ WORKDIR /p6m7g8/p6common
 
 COPY . .
 
-RUN apk --no-cache add ncurses
+RUN apk --no-cache add ncurses bash
 
 ENV TERM "xterm-256color"
 ENV CI "true"

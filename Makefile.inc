@@ -1,7 +1,6 @@
 DEFAULT_GOAL=	test
 
 ROOT_DIR_REL?=	..
-DEPS_FILE?=	${ROOT_DIR_REL}/p6common/scripts/deps.sh
 BUILD_FILE?=	${ROOT_DIR_REL}/p6common/scripts/build.sh
 TEST_FILE?=	${ROOT_DIR_REL}/p6common/scripts/test.sh
 LINT_FILE?=	${ROOT_DIR_REL}/p6common/scripts/lint.sh
@@ -10,9 +9,6 @@ RELEASE_FILE?=	${ROOT_DIR_REL}/p6common/scripts/release.sh
 DEPLOY_FILE?=	${ROOT_DIR_REL}/p6common/scripts/deploy.sh
 
 all:	test
-
-deps:
-	ROOT_DIR_REL=${ROOT_DIR_REL} ${DEPS_FILE}
 
 build:
 	ROOT_DIR_REL=${ROOT_DIR_REL} ${BUILD_FILE}

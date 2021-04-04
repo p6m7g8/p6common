@@ -110,7 +110,7 @@ p6_main() {
 p6_cmd_build() {
   local dockerfile="${1:-Dockerfile}"
 
-  docker build -f "$dockerfile" .
+  docker build --no-cache --progress plain -f "$dockerfile" .
 }
 
 ######################################################################
@@ -124,7 +124,8 @@ p6_cmd_build() {
 ######################################################################
 p6_cmd_docker_build() {
 
-  apk --no-cache add ncurses
+  apk --no-cache add ncurses bash
+
   TERM=xterm-256color
   export TERM
 

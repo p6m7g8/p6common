@@ -1,4 +1,4 @@
-FROM docker
+FROM alpine
 
 RUN mkdir -p /p6m7g8/p6common
 

@@ -14,5 +14,3 @@ jobs:
         uses: actions/checkout@v2
       - name: Test
         run: /bin/sh scripts/test.sh
-    container:
-      image: scottw/alpine-perl

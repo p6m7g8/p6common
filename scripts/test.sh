@@ -1,7 +1,5 @@
 #!/bin/bash
 
-apk --no-cache add ncurses
-
 . ${ROOT_DIR_REL:-..}/p6common/lib/_bootstrap.sh
 p6_bootstrap
 

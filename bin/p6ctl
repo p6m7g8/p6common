@@ -108,6 +108,8 @@ p6_main() {
 ######################################################################
 p6_cmd_release() {
  
+  . lib/_bootstrap.sh
+  p6_bootstrap "." "github"
   p6_cicd_release_make
 }
 

@@ -7,6 +7,8 @@
 #	OPTIONAL dir - [$P6_DFZ_SRC_P6M7G8_DIR/p6common]
 #	OPTIONAL islocal - []
 #
+#  Depends:	 p6_bootstrap p6_file p6_path p6_time
+#  Environment:	 EPOCHREALTIME P6_DFZ_SRC_P6M7G8_DIR
 #>
 ######################################################################
 p6_bootstrap() {
@@ -38,6 +40,7 @@ p6_bootstrap() {
 #	dir -
 #	islocal -
 #
+#  Environment:	 XXX
 #>
 ######################################################################
 p6_bootstrap_optimize() {
@@ -46,12 +49,12 @@ p6_bootstrap_optimize() {
 
   if [ x"$islocal" != x"local" ]; then
     # XXX: Chicken in Egg....
-    . $dir/../p6common/lib/const.sh
-    . $dir/../p6common/lib/return.sh
-    . $dir/../p6common/lib/io.sh
-    . $dir/../p6common/lib/debug.sh
-    . $dir/../p6common/lib/string.sh
-    . $dir/../p6common/lib/file.sh
-    . $dir/../p6common/lib/dir.sh
+    . $dir/../p6common/lib/stdlib/const.sh
+    . $dir/../p6common/lib/types/return.sh
+    . $dir/../p6common/lib/stdio/io.sh
+    . $dir/../p6common/lib/stdio/debug.sh
+    . $dir/../p6common/lib/string/string.sh
+    . $dir/../p6common/lib/stdio/file.sh
+    . $dir/../p6common/lib/stdio/dir.sh
   fi
 }

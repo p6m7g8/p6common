@@ -7,6 +7,8 @@
 #  Args:
 #	name -
 #
+#  Depends:	 p6_zsh
+#  Environment:	 PROMPT_SUBST PS4 XTRACE XXXXXXXX
 #>
 ######################################################################
 p6_zsh_profile_on() {
@@ -30,6 +32,7 @@ p6_zsh_profile_on() {
 #
 # Function: p6_zsh_profile_off()
 #
+#  Environment:	 PS4 XTRACE
 #>
 ######################################################################
 p6_zsh_profile_off() {

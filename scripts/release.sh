@@ -1,7 +1,9 @@
 #!/bin/sh
 
-version="${1:-patch}"
+if ! git log --oneline -1 | grep -q "chore(release):"; then
+    return 0
+fi
 
-npx standard-version --release-as $version
+standard-version
 
-git push --follow-tags origin $(p6_git_branch_base_get)
+git push --follow-tags origin master

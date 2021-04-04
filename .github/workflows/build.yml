@@ -4,7 +4,11 @@ on:
   workflow_dispatch: {}
 jobs:
   build:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        shell: [sh, bash]
+    runs-on: ${{ matrix.os }}
     env:
       CI: "true"
       P6_DFZ_SRC_P6M7G8_DIR: ".."

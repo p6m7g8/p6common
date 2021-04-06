@@ -24,7 +24,7 @@ jobs:
         shell: sh
       - name: Bump and Release
         run:  /bin/sh -x ../p6ctl/bin/p6ctl -d release
-	shell: sh
+        shell: sh
       - name: Upload artifact
         uses: actions/upload-artifact@v2.1.1
         with:

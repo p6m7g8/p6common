@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.10](https://github.com/p6m7g8/p6common/compare/v0.1.9...v0.1.10) (2021-04-06)
+
+
+### Chores
+
+* **cicd:** drops Makefile ([#141](https://github.com/p6m7g8/p6common/issues/141)) ([2ddb1aa](https://github.com/p6m7g8/p6common/commit/2ddb1aa87448f931fa22f113115d509529282e39))
+* **cicd:** p6ctl build works locally ([#142](https://github.com/p6m7g8/p6common/issues/142)) ([1d0c7f6](https://github.com/p6m7g8/p6common/commit/1d0c7f679e50caa9ea916e6bf76ec93ed7166c6f))
+* take 2 ([#143](https://github.com/p6m7g8/p6common/issues/143)) ([616fb27](https://github.com/p6m7g8/p6common/commit/616fb2766845485ff7a78cd1d3de4433518c8a7e))
+
 ### [0.1.9](https://github.com/p6m7g8/p6common/compare/v0.1.8...v0.1.9) (2021-04-04)
 
 

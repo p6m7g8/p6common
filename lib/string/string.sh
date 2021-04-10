@@ -68,7 +68,7 @@ p6_string_eq() {
         rv=$P6_FALSE
     fi
 
-    p6_string__debug "blank(): [$str] -> $rv"
+    p6_string__debug "eq(): [$str] eq? [$val] -> $rv"
 
     p6_return_bool "$rv"
 }

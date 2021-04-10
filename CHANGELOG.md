@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.11](https://github.com/p6m7g8/p6common/compare/v0.1.10...v0.1.11) (2021-04-10)
+
+
+### Bug Fixes
+
+* **stdlib:** fixes `p6_string_eq` debug message ([#144](https://github.com/p6m7g8/p6common/issues/144)) ([3b6c664](https://github.com/p6m7g8/p6common/commit/3b6c664c2fd594df2d5fdfdab8048906beaa830b))
+
 ### [0.1.10](https://github.com/p6m7g8/p6common/compare/v0.1.9...v0.1.10) (2021-04-06)
 
 

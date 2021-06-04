@@ -94,3 +94,14 @@ p6_path_current() {
 
     p6_return_void
 }
+
+p6_cdpath_current() {
+
+    local p
+
+    for p in $(echo $cdpath); do
+      echo "$p"
+    done
+
+    p6_return_void
+}
